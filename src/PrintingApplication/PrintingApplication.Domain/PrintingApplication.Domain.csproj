@@ -45,8 +45,13 @@
     <Compile Include="..\VersionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\JenisOrderan\IJenisOrderanModel.cs" />
     <Compile Include="Models\JenisOrderan\JenisOrderanModel.cs" />
+    <Compile Include="Models\Oder\IOrderModel.cs" />
+    <Compile Include="Models\Oder\OrderModel.cs" />
+    <Compile Include="Models\Pelanggan\IPelangganModel.cs" />
+    <Compile Include="Models\Pelanggan\PelangganModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
