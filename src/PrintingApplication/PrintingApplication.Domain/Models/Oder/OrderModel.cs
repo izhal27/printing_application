@@ -32,31 +32,26 @@ namespace PrintingApplication.Domain.Models.Oder
         [Display(Name = "Tanggal")]
         public DateTime tanggal { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Browsable(false)]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Sub Total")]
         public decimal sub_total { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Browsable(false)]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Total Diskon")]
         public decimal total_diskon { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Browsable(false)]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Total")]
         public decimal total { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Browsable(false)]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Bayar")]
         public decimal bayar { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Browsable(false)]
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Kembali")]
