@@ -4,6 +4,7 @@
    {
       uint id { get; set; }
       string kode { get; set; }
+      decimal harga_satuan { get; set; }
       string keterangan { get; set; }
    }
 }

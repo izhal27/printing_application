@@ -21,9 +21,15 @@ namespace PrintingApplication.Domain.Models.JenisOrderan
         [Display(Name = "Nama")]
         public string nama { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DefaultValue(0)]
+        [Display(Name = "Harga Jual")]
+        public decimal harga_satuan { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        
         [DefaultValue("")]
         [StringLength(255, ErrorMessage = "Panjang maksimal keterangan 255 karakter !!!")]
         [Display(Name = "Keterangan")]
         public string keterangan { get; set; }
+
     }
 }
