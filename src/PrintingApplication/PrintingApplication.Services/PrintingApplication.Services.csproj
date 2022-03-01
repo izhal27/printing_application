@@ -45,7 +45,22 @@
     <Compile Include="CommonServices\IModelDataAnnotationCheck.cs" />
     <Compile Include="CommonServices\ModelDataAnnotationCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IBaseReportRepositoryByDate.cs" />
+    <Compile Include="Services\IBaseReportServicesByDate.cs" />
+    <Compile Include="Services\IBaseRepository.cs" />
+    <Compile Include="Services\IBaseRepositoryGetByDate.cs" />
+    <Compile Include="Services\IBaseServices.cs" />
+    <Compile Include="Services\IBaseServicesGetByDate.cs" />
+    <Compile Include="Services\JenisOrderan\JenisOrderanServices.cs" />
+    <Compile Include="Services\JenisOrderan\IJenisOrderanRepository.cs" />
+    <Compile Include="Services\JenisOrderan\IJenisOrderanServices.cs" />
     <Compile Include="VersionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PrintingApplication.Domain\PrintingApplication.Domain.csproj">
+      <Project>{ab941dec-f0f8-4403-8efa-7052951238a3}</Project>
+      <Name>PrintingApplication.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
