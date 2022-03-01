@@ -54,7 +54,10 @@
     <Compile Include="Models\OrderDetail\OrderDetailModel.cs" />
     <Compile Include="Models\Pelanggan\IPelangganModel.cs" />
     <Compile Include="Models\Pelanggan\PelangganModel.cs" />
+    <Compile Include="Models\Pengeluaran\IPengeluaranModel.cs" />
+    <Compile Include="Models\Pengeluaran\PengeluaranModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
