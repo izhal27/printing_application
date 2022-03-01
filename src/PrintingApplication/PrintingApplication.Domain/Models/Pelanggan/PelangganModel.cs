@@ -10,9 +10,10 @@ namespace PrintingApplication.Domain.Models.Pelanggan
         [Display(Name = "ID")]
         public uint id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Nama pelanggan orderan harus diisi !!!")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Nama pelanggan harus diisi !!!")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama pelanggan harus diantara 3 sampai 100 karakter !!!")]
-        [Display(Name = "Nama")] public string nama { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        [Display(Name = "Nama")]
+        public string nama { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         [DefaultValue("")]
         [StringLength(255, ErrorMessage = "Panjang maksimal alamat 255 karakter !!!")]
