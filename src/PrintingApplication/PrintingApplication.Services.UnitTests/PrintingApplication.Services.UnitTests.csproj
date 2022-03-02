@@ -107,9 +107,12 @@
       <Link>VersionInfo.cs</Link>
     </Compile>
     <Compile Include="BaseServicesFixture.cs" />
+    <Compile Include="Pengeluaran\PengeluaranDataAccessTests.cs" />
+    <Compile Include="Pengeluaran\PengeluaranServicesFixture.cs" />
+    <Compile Include="Pengeluaran\PengeluaranServicesValidationTests.cs" />
     <Compile Include="JenisOrderan\JenisOrderanDataAccessTests.cs" />
-    <Compile Include="JenisOrderan\TipeServicesFixture.cs" />
-    <Compile Include="JenisOrderan\TipeServicesValidationTests.cs" />
+    <Compile Include="JenisOrderan\JenisOrderanServicesFixture.cs" />
+    <Compile Include="JenisOrderan\JenisOrderanServicesValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestsHelper.cs" />
   </ItemGroup>

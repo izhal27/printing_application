@@ -54,6 +54,9 @@
     <Compile Include="Services\JenisOrderan\JenisOrderanServices.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanRepository.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanServices.cs" />
+    <Compile Include="Services\Pengeluaran\IPengeluaranRepository.cs" />
+    <Compile Include="Services\Pengeluaran\IPengeluaranServices.cs" />
+    <Compile Include="Services\Pengeluaran\PengeluaranServices.cs" />
     <Compile Include="VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -112,6 +112,7 @@
     <Compile Include="DataAccess\Repositories\BaseRepository.cs" />
     <Compile Include="DataAccess\Repositories\DbContext.cs" />
     <Compile Include="DataAccess\Repositories\JenisOrderan\JenisOrderanRepository.cs" />
+    <Compile Include="DataAccess\Repositories\Pengeluaran\PengeluaranRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,5 +133,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
