@@ -4,6 +4,7 @@ using PrintingApplication.CommonComponents;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.CommonTests
@@ -73,6 +74,11 @@ namespace PrintingApplication.Services.UnitTests.CommonTests
             formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
 
             return formattedJsonStr;
+        }
+
+        public static void IsError(DataAccessException ex)
+        {
+            Assert.True(ex?.DataAccessStatusInfo.Status == "Error");
         }
     }
 }
