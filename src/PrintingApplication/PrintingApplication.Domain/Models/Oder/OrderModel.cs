@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Dp = Dapper.Contrib.Extensions;
 
 namespace PrintingApplication.Domain.Models.Oder
 {
@@ -11,7 +12,10 @@ namespace PrintingApplication.Domain.Models.Oder
         [Display(Name = "ID")]
         public uint id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
+        [Browsable(false)]
+        [Dp.Write(false)]
         public IPelangganModel Pelanggan { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private uint _pelanggan_id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         [Browsable(false)]
@@ -19,9 +23,13 @@ namespace PrintingApplication.Domain.Models.Oder
         [Display(Name = "Pelanggan ID")]
         public uint pelanggan_id
         {
-            get { return Pelanggan.id != default(uint) ? Pelanggan.id : _pelanggan_id; }
+            get { return Pelanggan.id != default ? Pelanggan.id : _pelanggan_id; }
             set { _pelanggan_id = value; }
         }
+
+        [Dp.Write(false)]
+        [Display(Name = "Pelanggan")]
+        public string pelanggan_nama => Pelanggan.id != default ? Pelanggan.nama : string.Empty;
 
         [DefaultValue("")]
         [StringLength(255, ErrorMessage = "Panjang maksimal keterangan 255 karakter !!!")]

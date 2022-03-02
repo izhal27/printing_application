@@ -1,10 +1,13 @@
-﻿using System;
+﻿using PrintingApplication.Domain.Models.Pelanggan;
+using System;
 
 namespace PrintingApplication.Domain.Models.Oder
 {
     public interface IOrderModel : IModel
     {
         uint pelanggan_id { get; set; }
+        IPelangganModel Pelanggan { get; }
+        string pelanggan_nama { get; }
         string keterangan { get; set; }
         DateTime tanggal { get; set; }
         decimal sub_total { get; set; }
