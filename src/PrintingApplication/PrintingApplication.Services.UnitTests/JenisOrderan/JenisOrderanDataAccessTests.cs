@@ -40,6 +40,7 @@ namespace PrintingApplication.Services.UnitTests.Tipe
                     {
                         kode = $"jenis-orderan-{i}",
                         nama = $"Jenis Orderan #{i}",
+                        harga_satuan = i * 1000,
                         keterangan = $"Keterangan Tipe #{i}"
                     };
 
@@ -137,8 +138,9 @@ namespace PrintingApplication.Services.UnitTests.Tipe
                 var model = new JenisOrderanModel()
                 {
                     id = 1,
-                    kode = "test-1",
+                    kode = "jenis-orderan-1",
                     nama = "Jenis Orderan #1 (Update)",
+                    harga_satuan = 27000,
                     keterangan = "Keterangan Jenis Orderan #1"
                 };
 
@@ -174,7 +176,7 @@ namespace PrintingApplication.Services.UnitTests.Tipe
                 var model = new JenisOrderanModel()
                 {
                     id = 1,
-                    kode = "test-2",
+                    kode = "jenis-orderan-2",
                     nama = "Jenis Orderan #1",
                 };
 
@@ -204,7 +206,7 @@ namespace PrintingApplication.Services.UnitTests.Tipe
                 var model = new JenisOrderanModel()
                 {
                     id = 1,
-                    kode = "test-1",
+                    kode = "jenis-orderan-1",
                     nama = "Jenis Orderan #2",
                 };
 
