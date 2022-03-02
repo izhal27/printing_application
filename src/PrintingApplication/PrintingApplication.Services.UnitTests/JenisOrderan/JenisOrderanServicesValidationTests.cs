@@ -50,7 +50,7 @@ namespace PrintingApplication.Services.UnitTests.JenisOrderan
 
             WriteExceptionTestResult(exception);
         }
-        
+
         [Fact]
         public void ShouldThrowExceptionForNamaEmpty()
         {
@@ -72,6 +72,7 @@ namespace PrintingApplication.Services.UnitTests.JenisOrderan
 
             WriteExceptionTestResult(exception);
         }
+
         [Fact]
         public void ShouldThrowExceptionForNamaTooShort()
         {

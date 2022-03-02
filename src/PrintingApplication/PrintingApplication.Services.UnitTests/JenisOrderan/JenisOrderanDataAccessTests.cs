@@ -10,7 +10,7 @@ using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace PrintingApplication.Services.UnitTests.Tipe
+namespace PrintingApplication.Services.UnitTests.JenisOrderan
 {
     [Trait("Category", "Data Access Validations")]
     public class JenisOrderanDataAccessTests
@@ -41,7 +41,7 @@ namespace PrintingApplication.Services.UnitTests.Tipe
                         kode = $"jenis-orderan-{i}",
                         nama = $"Jenis Orderan #{i}",
                         harga_satuan = i * 1000,
-                        keterangan = $"Keterangan Tipe #{i}"
+                        keterangan = $"Keterangan Jenis Orderan #{i}"
                     };
 
                     _services.Insert(model);
