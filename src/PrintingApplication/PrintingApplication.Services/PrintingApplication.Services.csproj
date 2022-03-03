@@ -60,6 +60,12 @@
     <Compile Include="Services\Pengeluaran\IPengeluaranRepository.cs" />
     <Compile Include="Services\Pengeluaran\IPengeluaranServices.cs" />
     <Compile Include="Services\Pengeluaran\PengeluaranServices.cs" />
+    <Compile Include="Services\Role\FormActionServices.cs" />
+    <Compile Include="Services\Role\IFormActionRepository.cs" />
+    <Compile Include="Services\Role\IFormActionServices.cs" />
+    <Compile Include="Services\Role\IRoleRepository.cs" />
+    <Compile Include="Services\Role\IRoleServices.cs" />
+    <Compile Include="Services\Role\RoleServices.cs" />
     <Compile Include="Services\User\IUserRepository.cs" />
     <Compile Include="Services\User\IUserServices.cs" />
     <Compile Include="Services\User\UserServices.cs" />

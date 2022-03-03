@@ -114,6 +114,8 @@
     <Compile Include="DataAccess\Repositories\JenisOrderan\JenisOrderanRepository.cs" />
     <Compile Include="DataAccess\Repositories\Pelanggan\PelangganRepository.cs" />
     <Compile Include="DataAccess\Repositories\Pengeluaran\PengeluaranRepository.cs" />
+    <Compile Include="DataAccess\Repositories\Role\FormActionRepository.cs" />
+    <Compile Include="DataAccess\Repositories\Role\RoleRepository.cs" />
     <Compile Include="DataAccess\Repositories\User\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
