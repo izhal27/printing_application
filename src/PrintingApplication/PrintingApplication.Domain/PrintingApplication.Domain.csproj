@@ -51,6 +51,8 @@
     <Compile Include="..\VersionInfo.cs">
       <Link>VersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Models\GantiPassword\GantiPasswordModel.cs" />
+    <Compile Include="Models\GantiPassword\IGantiPasswordModel.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\JenisOrderan\IJenisOrderanModel.cs" />
     <Compile Include="Models\JenisOrderan\JenisOrderanModel.cs" />
@@ -62,6 +64,14 @@
     <Compile Include="Models\Pelanggan\PelangganModel.cs" />
     <Compile Include="Models\Pengeluaran\IPengeluaranModel.cs" />
     <Compile Include="Models\Pengeluaran\PengeluaranModel.cs" />
+    <Compile Include="Models\Role\FormActionModel.cs" />
+    <Compile Include="Models\Role\IFormActionModel.cs" />
+    <Compile Include="Models\Role\IRoleDetailModel.cs" />
+    <Compile Include="Models\Role\IRoleModel.cs" />
+    <Compile Include="Models\Role\RoleDetailModel.cs" />
+    <Compile Include="Models\Role\RoleModel.cs" />
+    <Compile Include="Models\User\IUserModel.cs" />
+    <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

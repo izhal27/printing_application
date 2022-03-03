@@ -60,6 +60,9 @@
     <Compile Include="Services\Pengeluaran\IPengeluaranRepository.cs" />
     <Compile Include="Services\Pengeluaran\IPengeluaranServices.cs" />
     <Compile Include="Services\Pengeluaran\PengeluaranServices.cs" />
+    <Compile Include="Services\User\IUserRepository.cs" />
+    <Compile Include="Services\User\IUserServices.cs" />
+    <Compile Include="Services\User\UserServices.cs" />
     <Compile Include="VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>

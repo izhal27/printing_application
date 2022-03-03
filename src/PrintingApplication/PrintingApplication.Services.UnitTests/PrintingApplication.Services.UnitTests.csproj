@@ -118,6 +118,9 @@
     <Compile Include="JenisOrderan\JenisOrderanServicesValidationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestsHelper.cs" />
+    <Compile Include="User\UserServicesDataAccessTests.cs" />
+    <Compile Include="User\UserServicesFixture.cs" />
+    <Compile Include="User\UserServicesValidationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
