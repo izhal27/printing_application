@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.15.0\lib\net40\DotNetZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Equin.ApplicationFramework.BindingListView, Version=1.4.5222.35545, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Equin.ApplicationFramework.BindingListView.1.4.5222.35545\lib\net40-Client\Equin.ApplicationFramework.BindingListView.dll</HintPath>
+    </Reference>
+    <Reference Include="ExceptionReporter.NET, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExceptionReporter.5.0.0\lib\net40\ExceptionReporter.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Handlebars, Version=1.8.1.0, Culture=neutral, PublicKeyToken=22225d0bf33cd661, processorArchitecture=MSIL">
+      <HintPath>..\packages\Handlebars.Net.1.9.0\lib\net40\Handlebars.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
@@ -42,18 +51,27 @@
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleMapi.NET, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Simple-MAPI.NET.1.2.0\lib\net40\SimpleMapi.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.WinForms, Version=19.4450.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Data.WinForms, Version=19.4450.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Grid.Windows, Version=19.4450.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.GridCommon.WinForms, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.SfDataGrid.WinForms, Version=19.4450.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Shared.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Base, Version=19.4460.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
+    <Reference Include="Syncfusion.Tools.Windows, Version=19.4450.0.38, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,10 +101,279 @@
     <Compile Include="Helper\ReportHelper.cs" />
     <Compile Include="Helper\RoleManager.cs" />
     <Compile Include="Helper\WaitCursorHandler.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MainProgram.cs" />
+    <Compile Include="Presenters\Database\BackupRestoreDatabasePresenter.cs" />
+    <Compile Include="Presenters\Database\IBackupRestoreDatabasePresenter.cs" />
+    <Compile Include="Presenters\GantiPassword\GantiPasswordPresenter.cs" />
+    <Compile Include="Presenters\GantiPassword\IGantiPasswordPresenter.cs" />
+    <Compile Include="Presenters\IBasePresenter.cs" />
+    <Compile Include="Presenters\IMainPresenter.cs" />
+    <Compile Include="Presenters\Laporan\ILaporanLabaRugiPresenter.cs" />
+    <Compile Include="Presenters\Laporan\ILaporanStatusBarangPresenter.cs" />
+    <Compile Include="Presenters\Laporan\ILaporanStatusPerBarangPresenter.cs" />
+    <Compile Include="Presenters\Laporan\ILaporanTransaksiByDatePresenter.cs" />
+    <Compile Include="Presenters\Laporan\LaporanLabaRugiPresenter.cs" />
+    <Compile Include="Presenters\Laporan\LaporanStatusBarangPresenter.cs" />
+    <Compile Include="Presenters\Laporan\LaporanStatusPerBarangPresenter.cs" />
+    <Compile Include="Presenters\Laporan\LaporanTransaksiByDatePresenter.cs" />
+    <Compile Include="Presenters\Login\ILoginPresenter.cs" />
+    <Compile Include="Presenters\Login\LoginPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\Pelanggan\IPelangganPresenter.cs" />
+    <Compile Include="Presenters\Pelanggan\PelangganPresenter.cs" />
+    <Compile Include="Presenters\Pengaturan\IPengaturanPresenter.cs" />
+    <Compile Include="Presenters\Pengaturan\PengaturanPresenter.cs" />
+    <Compile Include="Presenters\Pengeluaran\ILaporanPengeluaranPresenter.cs" />
+    <Compile Include="Presenters\Pengeluaran\IPengeluaranPresenter.cs" />
+    <Compile Include="Presenters\Pengeluaran\LaporanPengeluaranPresenter.cs" />
+    <Compile Include="Presenters\Pengeluaran\PengeluaranPresenter.cs" />
+    <Compile Include="Presenters\Role\IRolePresenter.cs" />
+    <Compile Include="Presenters\Role\RolePresenter.cs" />
+    <Compile Include="Presenters\Tipe\ISubTipePresenter.cs" />
+    <Compile Include="Presenters\Tipe\IJenisOrderanPresenter.cs" />
+    <Compile Include="Presenters\Tipe\SubTipePresenter.cs" />
+    <Compile Include="Presenters\Tipe\TipePresenter.cs" />
+    <Compile Include="Presenters\User\IUserPresenter.cs" />
+    <Compile Include="Presenters\User\UserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="VersionInfo.cs" />
+    <Compile Include="Views\CommonControls\BaseCariBarang View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\BaseCariBarang View.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseDataView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\BaseDataView.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\BaseEntryView.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\BaseTextBoxDigit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\ButtonExport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\ButtonExport.Designer.cs" />
+    <Compile Include="Views\CommonControls\ButtonsDeletePrintDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\ButtonsDeletePrintDetail.Designer.cs" />
+    <Compile Include="Views\CommonControls\ComboBoxBulan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\CRUDCButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\CRUDCButtons.Designer.cs" />
+    <Compile Include="Views\CommonControls\DateTimePickerFilterData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\DateTimePickerFilterData.Designer.cs" />
+    <Compile Include="Views\CommonControls\DateTimePickerFilterTransaksi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\DateTimePickerFilterTransaksi.Designer.cs" />
+    <Compile Include="Views\CommonControls\DetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\DetailView.Designer.cs" />
+    <Compile Include="Views\CommonControls\ListDataGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\OperationButtons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\OperationButtons.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\PanelDown.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelInfoDigital.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\PanelInfoDigital.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\PanelUp.Designer.cs" />
+    <Compile Include="Views\CommonControls\ReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CommonControls\ReportView.designer.cs" />
+    <Compile Include="Views\CommonControls\TextBoxTanggal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Database\BackupRestoreDatabaseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Database\BackupRestoreDatabaseView.Designer.cs">
+      <DependentUpon>BackupRestoreDatabaseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Database\IBackupRestoreDatabaseView.cs" />
+    <Compile Include="Views\GantiPassword\GantiPasswordView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GantiPassword\GantiPasswordView.Designer.cs">
+      <DependentUpon>GantiPasswordView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GantiPassword\IGantiPasswordView.cs" />
+    <Compile Include="Views\IDataView.cs" />
+    <Compile Include="Views\IEntryView.cs" />
+    <Compile Include="Views\ILaporanView.cs" />
+    <Compile Include="Views\IMainView.cs" />
+    <Compile Include="Views\ITransaksiView.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Views\Laporan\ILaporanLabaRugiView.cs" />
+    <Compile Include="Views\Laporan\ILaporanStatusBarangView.cs" />
+    <Compile Include="Views\Laporan\ILaporanStatusPerBarangView.cs" />
+    <Compile Include="Views\Laporan\ILaporanTransaksiByDateView.cs" />
+    <Compile Include="Views\Laporan\LaporanLabaRugiView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanLabaRugiView.Designer.cs">
+      <DependentUpon>LaporanLabaRugiView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanStatusBarangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanStatusBarangView.Designer.cs">
+      <DependentUpon>LaporanStatusBarangView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanStatusPerBarangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanStatusPerBarangView.Designer.cs">
+      <DependentUpon>LaporanStatusPerBarangView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanTransaksiByDateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Laporan\LaporanTransaksiByDateView.Designer.cs">
+      <DependentUpon>LaporanTransaksiByDateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\ILoginView.cs" />
+    <Compile Include="Views\Login\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\CariBarangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\CariBarangView.Designer.cs">
+      <DependentUpon>CariBarangView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxPelanggan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxPelanggan.Designer.cs">
+      <DependentUpon>ComboBoxPelanggan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxRole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxRole.Designer.cs">
+      <DependentUpon>ComboBoxRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSatuan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSatuan.Designer.cs">
+      <DependentUpon>ComboBoxSatuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxStatusHutang.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxStatusPenjualan.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSubTipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSubTipe.Designer.cs">
+      <DependentUpon>ComboBoxSubTipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSupplier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxSupplier.Designer.cs">
+      <DependentUpon>ComboBoxSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxTipe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ModelControls\ComboBoxTipe.Designer.cs">
+      <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\ILaporanPengeluaranView.cs" />
+    <Compile Include="Views\Pengeluaran\IPengeluaranEntryView.cs" />
+    <Compile Include="Views\Pengeluaran\IPengeluaranView.cs" />
+    <Compile Include="Views\Pengeluaran\LaporanPengeluaranView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\LaporanPengeluaranView.Designer.cs">
+      <DependentUpon>LaporanPengeluaranView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\PengeluaranEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\PengeluaranEntryView.Designer.cs">
+      <DependentUpon>PengeluaranEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\PengeluaranView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pengeluaran\PengeluaranView.Designer.cs">
+      <DependentUpon>PengeluaranView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Tentang\ITentangView.cs" />
+    <Compile Include="Views\Tentang\TentangView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Tentang\TentangView.Designer.cs">
+      <DependentUpon>TentangView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JenisOrderan\ITipeEntryView.cs" />
+    <Compile Include="Views\JenisOrderan\IJenisOrderanView.cs" />
+    <Compile Include="Views\JenisOrderan\JenisOrderanEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\JenisOrderan\JenisOrderanEntryView.Designer.cs">
+      <DependentUpon>JenisOrderanEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JenisOrderan\JenisOrderanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\JenisOrderan\JenisOrderanView.Designer.cs">
+      <DependentUpon>JenisOrderanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\IUserEntryView.cs" />
+    <Compile Include="Views\User\IUserView.cs" />
+    <Compile Include="Views\User\UserEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\UserEntryView.designer.cs">
+      <DependentUpon>UserEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\UserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\UserView.Designer.cs">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,6 +383,89 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\CommonControls\BaseCariBarang View.resx" />
+    <EmbeddedResource Include="Views\CommonControls\BaseDataView.resx" />
+    <EmbeddedResource Include="Views\CommonControls\BaseEntryView.resx" />
+    <EmbeddedResource Include="Views\CommonControls\ButtonExport.resx" />
+    <EmbeddedResource Include="Views\CommonControls\ButtonsDeletePrintDetail.resx" />
+    <EmbeddedResource Include="Views\CommonControls\CRUDCButtons.resx" />
+    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterData.resx" />
+    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterTransaksi.resx" />
+    <EmbeddedResource Include="Views\CommonControls\DetailView.resx" />
+    <EmbeddedResource Include="Views\CommonControls\OperationButtons.resx" />
+    <EmbeddedResource Include="Views\CommonControls\PanelDown.resx" />
+    <EmbeddedResource Include="Views\CommonControls\PanelInfoDigital.resx" />
+    <EmbeddedResource Include="Views\CommonControls\PanelUp.resx" />
+    <EmbeddedResource Include="Views\CommonControls\ReportView.resx" />
+    <EmbeddedResource Include="Views\Database\BackupRestoreDatabaseView.resx">
+      <DependentUpon>BackupRestoreDatabaseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GantiPassword\GantiPasswordView.resx">
+      <DependentUpon>GantiPasswordView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Laporan\LaporanLabaRugiView.resx">
+      <DependentUpon>LaporanLabaRugiView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Laporan\LaporanStatusBarangView.resx">
+      <DependentUpon>LaporanStatusBarangView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Laporan\LaporanStatusPerBarangView.resx">
+      <DependentUpon>LaporanStatusPerBarangView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Laporan\LaporanTransaksiByDateView.resx">
+      <DependentUpon>LaporanTransaksiByDateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\CariBarangView.resx">
+      <DependentUpon>CariBarangView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxPelanggan.resx">
+      <DependentUpon>ComboBoxPelanggan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxRole.resx">
+      <DependentUpon>ComboBoxRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxSatuan.resx">
+      <DependentUpon>ComboBoxSatuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxSubTipe.resx">
+      <DependentUpon>ComboBoxSubTipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxSupplier.resx">
+      <DependentUpon>ComboBoxSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ModelControls\ComboBoxTipe.resx">
+      <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pengeluaran\LaporanPengeluaranView.resx">
+      <DependentUpon>LaporanPengeluaranView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pengeluaran\PengeluaranEntryView.resx">
+      <DependentUpon>PengeluaranEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pengeluaran\PengeluaranView.resx">
+      <DependentUpon>PengeluaranView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Tentang\TentangView.resx">
+      <DependentUpon>TentangView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JenisOrderan\JenisOrderanEntryView.resx">
+      <DependentUpon>JenisOrderanEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\JenisOrderan\JenisOrderanView.resx">
+      <DependentUpon>JenisOrderanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserEntryView.resx">
+      <DependentUpon>UserEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserView.resx">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -143,5 +513,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

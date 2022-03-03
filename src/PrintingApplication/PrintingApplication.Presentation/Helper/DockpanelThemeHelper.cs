@@ -6,7 +6,7 @@ namespace PrintingApplication.Presentation.Helper
     {
         public static ThemeBase GetTheme(int key)
         {
-                return new VS2005Theme();
+            return new VS2005Theme();
 
             //if (key == default)
             //{

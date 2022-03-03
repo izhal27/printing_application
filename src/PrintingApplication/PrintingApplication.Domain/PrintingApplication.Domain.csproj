@@ -39,7 +39,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +67,8 @@
     <Compile Include="Models\OrderDetail\OrderDetailModel.cs" />
     <Compile Include="Models\Pelanggan\IPelangganModel.cs" />
     <Compile Include="Models\Pelanggan\PelangganModel.cs" />
+    <Compile Include="Models\Pengaturan\IPengaturanModel.cs" />
+    <Compile Include="Models\Pengaturan\PengaturanModel.cs" />
     <Compile Include="Models\Pengeluaran\IPengeluaranModel.cs" />
     <Compile Include="Models\Pengeluaran\PengeluaranModel.cs" />
     <Compile Include="Models\Role\FormActionModel.cs" />

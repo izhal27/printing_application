@@ -61,7 +61,7 @@ namespace PrintingApplication.Services.UnitTests.Role
                 _testOutputHelper.WriteLine(formattedJsonStr);
             }
         }
-        
+
         [Fact]
         private void ShouldReturnSuccessForInsertRoleDetail()
         {
