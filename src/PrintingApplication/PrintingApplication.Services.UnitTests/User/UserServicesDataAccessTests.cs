@@ -7,11 +7,7 @@ using PrintingApplication.Infrastructure.DataAccess.Repositories.User;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.User;
 using PrintingApplication.Services.UnitTests.CommonTests;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
