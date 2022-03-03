@@ -54,6 +54,9 @@
     <Compile Include="Services\JenisOrderan\JenisOrderanServices.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanRepository.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanServices.cs" />
+    <Compile Include="Services\Pelanggan\IPelangganRepository.cs" />
+    <Compile Include="Services\Pelanggan\IPelangganServices.cs" />
+    <Compile Include="Services\Pelanggan\PelangganServices.cs" />
     <Compile Include="Services\Pengeluaran\IPengeluaranRepository.cs" />
     <Compile Include="Services\Pengeluaran\IPengeluaranServices.cs" />
     <Compile Include="Services\Pengeluaran\PengeluaranServices.cs" />
@@ -65,5 +68,6 @@
       <Name>PrintingApplication.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
