@@ -7,7 +7,7 @@
     <ProjectGuid>{935F351B-CB20-4A03-84D0-CF516777933D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PrintingApplication.Presentation</RootNamespace>
-    <AssemblyName>PrintingApplication.Presentation</AssemblyName>
+    <AssemblyName>Printing Application</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
@@ -108,14 +111,6 @@
     <Compile Include="Presenters\GantiPassword\IGantiPasswordPresenter.cs" />
     <Compile Include="Presenters\IBasePresenter.cs" />
     <Compile Include="Presenters\IMainPresenter.cs" />
-    <Compile Include="Presenters\Laporan\ILaporanLabaRugiPresenter.cs" />
-    <Compile Include="Presenters\Laporan\ILaporanStatusBarangPresenter.cs" />
-    <Compile Include="Presenters\Laporan\ILaporanStatusPerBarangPresenter.cs" />
-    <Compile Include="Presenters\Laporan\ILaporanTransaksiByDatePresenter.cs" />
-    <Compile Include="Presenters\Laporan\LaporanLabaRugiPresenter.cs" />
-    <Compile Include="Presenters\Laporan\LaporanStatusBarangPresenter.cs" />
-    <Compile Include="Presenters\Laporan\LaporanStatusPerBarangPresenter.cs" />
-    <Compile Include="Presenters\Laporan\LaporanTransaksiByDatePresenter.cs" />
     <Compile Include="Presenters\Login\ILoginPresenter.cs" />
     <Compile Include="Presenters\Login\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
@@ -129,10 +124,8 @@
     <Compile Include="Presenters\Pengeluaran\PengeluaranPresenter.cs" />
     <Compile Include="Presenters\Role\IRolePresenter.cs" />
     <Compile Include="Presenters\Role\RolePresenter.cs" />
-    <Compile Include="Presenters\Tipe\ISubTipePresenter.cs" />
     <Compile Include="Presenters\Tipe\IJenisOrderanPresenter.cs" />
-    <Compile Include="Presenters\Tipe\SubTipePresenter.cs" />
-    <Compile Include="Presenters\Tipe\TipePresenter.cs" />
+    <Compile Include="Presenters\Tipe\JenisOrderanPresenter.cs" />
     <Compile Include="Presenters\User\IUserPresenter.cs" />
     <Compile Include="Presenters\User\UserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -288,35 +281,32 @@
     <Compile Include="Views\ModelControls\ComboBoxRole.Designer.cs">
       <DependentUpon>ComboBoxRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSatuan.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSatuan.Designer.cs">
-      <DependentUpon>ComboBoxSatuan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxStatusHutang.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxStatusPenjualan.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSubTipe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSubTipe.Designer.cs">
-      <DependentUpon>ComboBoxSubTipe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSupplier.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\ModelControls\ComboBoxSupplier.Designer.cs">
-      <DependentUpon>ComboBoxSupplier.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\ModelControls\ComboBoxTipe.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\ModelControls\ComboBoxTipe.Designer.cs">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pelanggan\IPelangganEntryView.cs" />
+    <Compile Include="Views\Pelanggan\IPelangganView.cs" />
+    <Compile Include="Views\Pelanggan\PelangganEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pelanggan\PelangganEntryView.Designer.cs">
+      <DependentUpon>PelangganEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pelanggan\PelangganView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pelanggan\PelangganView.Designer.cs">
+      <DependentUpon>PelangganView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pengaturan\IPengaturanView.cs" />
+    <Compile Include="Views\Pengaturan\PengaturanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Pengaturan\PengaturanView.designer.cs">
+      <DependentUpon>PengaturanView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Pengeluaran\ILaporanPengeluaranView.cs" />
     <Compile Include="Views\Pengeluaran\IPengeluaranEntryView.cs" />
@@ -338,6 +328,20 @@
     </Compile>
     <Compile Include="Views\Pengeluaran\PengeluaranView.Designer.cs">
       <DependentUpon>PengeluaranView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Role\IRoleEntryView.cs" />
+    <Compile Include="Views\Role\IRoleView.cs" />
+    <Compile Include="Views\Role\RoleEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Role\RoleEntryView.Designer.cs">
+      <DependentUpon>RoleEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Role\RoleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Role\RoleView.Designer.cs">
+      <DependentUpon>RoleView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Tentang\ITentangView.cs" />
     <Compile Include="Views\Tentang\TentangView.cs">
@@ -430,17 +434,17 @@
     <EmbeddedResource Include="Views\ModelControls\ComboBoxRole.resx">
       <DependentUpon>ComboBoxRole.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModelControls\ComboBoxSatuan.resx">
-      <DependentUpon>ComboBoxSatuan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModelControls\ComboBoxSubTipe.resx">
-      <DependentUpon>ComboBoxSubTipe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModelControls\ComboBoxSupplier.resx">
-      <DependentUpon>ComboBoxSupplier.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\ModelControls\ComboBoxTipe.resx">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pelanggan\PelangganEntryView.resx">
+      <DependentUpon>PelangganEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pelanggan\PelangganView.resx">
+      <DependentUpon>PelangganView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Pengaturan\PengaturanView.resx">
+      <DependentUpon>PengaturanView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pengeluaran\LaporanPengeluaranView.resx">
       <DependentUpon>LaporanPengeluaranView.cs</DependentUpon>
@@ -450,6 +454,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pengeluaran\PengeluaranView.resx">
       <DependentUpon>PengeluaranView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Role\RoleEntryView.resx">
+      <DependentUpon>RoleEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Role\RoleView.resx">
+      <DependentUpon>RoleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Tentang\TentangView.resx">
       <DependentUpon>TentangView.cs</DependentUpon>
@@ -478,7 +488,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrintingApplication.CommonComponents\PrintingApplication.CommonComponents.csproj">

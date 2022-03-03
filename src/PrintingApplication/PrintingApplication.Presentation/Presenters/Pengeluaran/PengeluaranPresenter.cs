@@ -4,6 +4,7 @@ using PrintingApplication.Domain.Models.Pengeluaran;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
+using PrintingApplication.Presentation.Views.Pengeluaran;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengeluaran;
 using Syncfusion.WinForms.DataGrid.Events;
@@ -46,7 +47,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
             {
                 if (_view.ListDataGrid != null)
                 {
-                    _listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
+                    //_listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
                     _bindingView = new BindingListView<PengeluaranModel>(_listObjs);
                     _view.ListDataGrid.DataSource = _bindingView;
                     _bindingView.ListChanged += _bindingView_ListChanged;
@@ -62,7 +63,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
 
         private void HitungRingkasan()
         {
-            _view.LabelTotal.Text = _bindingView.Sum(p => p.jumlah).ToString("N0");
+            _view.LabelTotal.Text = _bindingView.Sum(p => p.total).ToString("N0");
         }
 
         private void _view_OnCreateData(object sender, EventArgs e)
@@ -138,7 +139,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
                         if (model != null)
                         {
                             model.nama = newModel.nama;
-                            model.jumlah = newModel.jumlah;
+                            model.total = newModel.total;
                             model.keterangan = newModel.keterangan;
 
                             _bindingView.Refresh();
@@ -191,9 +192,9 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
 
         private void _view_OnRefreshData(object sender, EventArgs e)
         {
-            _listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
+            //_listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
             _bindingView.DataSource = _listObjs;
-            _view.LabelTotal.Text = _listObjs.Sum(p => p.jumlah).ToString("N0");
+            _view.LabelTotal.Text = _listObjs.Sum(p => p.total).ToString("N0");
         }
 
         private void OnDataGrid_CellDoubleClick(object sender, CellClickEventArgs e)

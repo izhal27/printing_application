@@ -1,32 +1,37 @@
 ﻿using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
+using PrintingApplication.Domain.Models.JenisOrderan;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrderan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
+using PrintingApplication.Presentation.Views.Tipe;
 using PrintingApplication.Services.Services;
+using PrintingApplication.Services.Services.JenisOrderan;
 using Syncfusion.WinForms.DataGrid.Events;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace PrintingApplication.Presentation.Presenters.JenisOrderan
 {
-    public class SubTipePresenter : ISubTipePresenter
+    public class JenisOrderanPresenter : IJenisOrderanPresenter
     {
-        private ISubTipeView _view;
-        private ISubTipeServices _services;
-        private List<ISubTipeModel> _listObjs;
-        private BindingListView<SubTipeModel> _bindingView;
-        private static string _typeName = "Sub Tipe";
+        private IJenisOrderanView _view;
+        private IJenisOrderanServices _services;
+        private List<IJenisOrderanModel> _listObjs;
+        private BindingListView<JenisOrderanModel> _bindingView;
+        private static string _typeName = "Jenis Orderan";
 
-        public ISubTipeView GetView
+        public IJenisOrderanView GetView
         {
             get { return _view; }
         }
 
-        public SubTipePresenter()
+        public JenisOrderanPresenter()
         {
-            _services = new SubTipeServices(new SubTipeRepository(), new ModelDataAnnotationCheck());
-            _view = new SubTipeView();
+            _view = new JenisOrderanView();
+            _services = new JenisOrderanServices(new JenisOrderanRepository(), new ModelDataAnnotationCheck());
 
             _view.OnLoadData += _view_LoadData;
             _view.OnButtonTambahClick += _view_OnCreateData;
@@ -44,7 +49,7 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
                 if (_view.ListDataGrid != null)
                 {
                     _listObjs = _services.GetAll().ToList();
-                    _bindingView = new BindingListView<SubTipeModel>(_listObjs);
+                    _bindingView = new BindingListView<JenisOrderanModel>(_listObjs);
                     _view.ListDataGrid.DataSource = _bindingView;
                 }
             }
@@ -52,8 +57,8 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
 
         private void _view_OnCreateData(object sender, EventArgs e)
         {
-            var view = new SubTipeEntryView();
-            view.OnSaveData += SubTipeEntryView_OnSaveData;
+            var view = new JenisOrderanEntryView();
+            view.OnSaveData += TipeEntryView_OnSaveData;
             view.ShowDialog();
         }
 
@@ -74,27 +79,27 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
 
                 if (listDataGrid != null && listDataGrid.SelectedItem != null)
                 {
-                    var model = _services.GetById(((SubTipeModel)listDataGrid.SelectedItem).id);
+                    var model = _services.GetById(((JenisOrderanModel)listDataGrid.SelectedItem).id);
 
                     if (model != null)
                     {
-                        var view = new SubTipeEntryView(false, model);
-                        view.OnSaveData += SubTipeEntryView_OnSaveData;
+                        var view = new JenisOrderanEntryView(false, model);
+                        view.OnSaveData += TipeEntryView_OnSaveData;
                         view.ShowDialog();
                     }
                 }
             }
         }
 
-        private void SubTipeEntryView_OnSaveData(object sender, EventArgs e)
+        private void TipeEntryView_OnSaveData(object sender, EventArgs e)
         {
             using (new WaitCursorHandler())
             {
                 try
                 {
                     var listDataGrid = _view.ListDataGrid;
-                    var newModel = ((ModelEventArgs<SubTipeModel>)e).Value;
-                    var view = ((SubTipeEntryView)sender);
+                    var newModel = ((ModelEventArgs<JenisOrderanModel>)e).Value;
+                    var view = ((JenisOrderanEntryView)sender);
 
                     if (newModel.id == default(uint))
                     {
@@ -148,12 +153,12 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
                 {
                     try
                     {
-                        var model = _services.GetById(((SubTipeModel)_view.ListDataGrid.SelectedItem).id);
+                        var model = _services.GetById(((JenisOrderanModel)_view.ListDataGrid.SelectedItem).id);
 
                         _services.Delete(model);
                         Messages.InfoDelete(_typeName);
 
-                        if (_listObjs.Remove((SubTipeModel)_view.ListDataGrid.SelectedItem))
+                        if (_listObjs.Remove((JenisOrderanModel)_view.ListDataGrid.SelectedItem))
                         {
                             _bindingView.DataSource = _listObjs;
                         }
@@ -161,6 +166,7 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
                     catch (DataAccessException ex)
                     {
                         Messages.Error(ex);
+                        _view_OnRefreshData(null, null);
                     }
                     finally
                     {

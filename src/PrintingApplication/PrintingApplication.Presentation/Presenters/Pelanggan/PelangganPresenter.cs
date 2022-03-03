@@ -4,6 +4,7 @@ using PrintingApplication.Domain.Models.Pelanggan;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
+using PrintingApplication.Presentation.Views.Pelanggan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pelanggan;
 using Syncfusion.WinForms.DataGrid.Events;
@@ -127,8 +128,7 @@ namespace PrintingApplication.Presentation.Presenters.Pelanggan
                         {
                             model.nama = newModel.nama;
                             model.alamat = newModel.alamat;
-                            model.telpon = newModel.telpon;
-                            model.keterangan = newModel.keterangan;
+                            model.contact = newModel.contact;
 
                             _bindingView.Refresh();
                         }

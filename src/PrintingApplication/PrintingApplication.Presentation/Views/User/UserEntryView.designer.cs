@@ -236,7 +236,6 @@
          // buttonShowPassword
          // 
          this.buttonShowPassword.Enabled = false;
-         this.buttonShowPassword.Image = global::PrintingApplication.Presentation.Properties.Resources.eye_16;
          this.buttonShowPassword.Location = new System.Drawing.Point(351, 33);
          this.buttonShowPassword.Name = "buttonShowPassword";
          this.buttonShowPassword.Size = new System.Drawing.Size(23, 23);

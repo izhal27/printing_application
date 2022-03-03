@@ -1,6 +1,7 @@
 ﻿using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Presentation.Helper;
+using PrintingApplication.Presentation.Views.Pengaturan;
 using System;
 using System.Drawing;
 using System.Windows.Forms;

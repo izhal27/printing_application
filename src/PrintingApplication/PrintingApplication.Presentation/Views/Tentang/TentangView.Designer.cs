@@ -131,7 +131,6 @@
       // pictureBox1
       // 
       this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox1.Image = global::PrintingApplication.Presentation.Properties.Resources.twitter_24;
       this.pictureBox1.Location = new System.Drawing.Point(3, 88);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(24, 24);
@@ -153,7 +152,6 @@
       // pictureBox2
       // 
       this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox2.Image = global::PrintingApplication.Presentation.Properties.Resources.whatsapp_24;
       this.pictureBox2.Location = new System.Drawing.Point(3, 8);
       this.pictureBox2.Name = "pictureBox2";
       this.pictureBox2.Size = new System.Drawing.Size(24, 24);
@@ -173,7 +171,6 @@
       // pictureBox3
       // 
       this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox3.Image = global::PrintingApplication.Presentation.Properties.Resources.gmail_24;
       this.pictureBox3.Location = new System.Drawing.Point(169, 8);
       this.pictureBox3.Name = "pictureBox3";
       this.pictureBox3.Size = new System.Drawing.Size(24, 24);
@@ -193,7 +190,6 @@
       // pictureBox4
       // 
       this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox4.Image = global::PrintingApplication.Presentation.Properties.Resources.instagram_24;
       this.pictureBox4.Location = new System.Drawing.Point(169, 88);
       this.pictureBox4.Name = "pictureBox4";
       this.pictureBox4.Size = new System.Drawing.Size(24, 24);
@@ -227,7 +223,6 @@
       // pictureBox5
       // 
       this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox5.Image = global::PrintingApplication.Presentation.Properties.Resources.facebook_24;
       this.pictureBox5.Location = new System.Drawing.Point(169, 48);
       this.pictureBox5.Name = "pictureBox5";
       this.pictureBox5.Size = new System.Drawing.Size(24, 24);
@@ -237,7 +232,6 @@
       // pictureBox6
       // 
       this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-      this.pictureBox6.Image = global::PrintingApplication.Presentation.Properties.Resources.github_logo_24;
       this.pictureBox6.Location = new System.Drawing.Point(3, 48);
       this.pictureBox6.Name = "pictureBox6";
       this.pictureBox6.Size = new System.Drawing.Size(24, 24);
@@ -259,7 +253,6 @@
       // logoPictureBox
       // 
       this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.logoPictureBox.Image = global::PrintingApplication.Presentation.Properties.Resources.About_logo;
       this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
       this.logoPictureBox.Name = "logoPictureBox";
       this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);

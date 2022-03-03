@@ -26,7 +26,7 @@ namespace PrintingApplication.Presentation.Views.Pengeluaran
             {
                 _model = model;
                 textBoxNama.Text = model.nama;
-                textBoxJumlah.Text = model.jumlah.ToString("N0");
+                textBoxJumlah.Text = model.total.ToString("N0");
                 textBoxKeterangan.Text = model.keterangan;
             }
 
@@ -38,7 +38,7 @@ namespace PrintingApplication.Presentation.Views.Pengeluaran
             var model = new PengeluaranModel
             {
                 nama = textBoxNama.Text,
-                jumlah = uint.Parse(textBoxJumlah.Text, NumberStyles.Number),
+                total = uint.Parse(textBoxJumlah.Text, NumberStyles.Number),
                 keterangan = textBoxKeterangan.Text
             };
 
@@ -54,7 +54,7 @@ namespace PrintingApplication.Presentation.Views.Pengeluaran
             else if (Messages.ConfirmUpdate(_typeName))
             {
                 model.id = _model.id;
-                model.tanggal = _model.tanggal;
+                //model.tanggal = _model.tanggal;
                 OnSaveData?.Invoke(this, modelArgs);
             }
         }

@@ -235,7 +235,6 @@
       // 
       // pictureBoxLogo
       // 
-      this.pictureBoxLogo.Image = global::PrintingApplication.Presentation.Properties.Resources.logo_rumah_scarlett;
       this.pictureBoxLogo.Location = new System.Drawing.Point(6, 6);
       this.pictureBoxLogo.Name = "pictureBoxLogo";
       this.pictureBoxLogo.Size = new System.Drawing.Size(155, 155);

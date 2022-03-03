@@ -1,7 +1,7 @@
 ﻿using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Presenters.Database;
 using PrintingApplication.Presentation.Presenters.GantiPassword;
-using PrintingApplication.Presentation.Presenters.Laporan;
+//using PrintingApplication.Presentation.Presenters.Laporan;
 using PrintingApplication.Presentation.Presenters.Login;
 using PrintingApplication.Presentation.Presenters.Pelanggan;
 using PrintingApplication.Presentation.Presenters.Pengaturan;

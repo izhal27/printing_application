@@ -1,5 +1,6 @@
 ﻿using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
+using PrintingApplication.Domain.Models.JenisOrderan;
 using PrintingApplication.Presentation.Views.CommonControls;
 using Syncfusion.WinForms.DataGrid.Enums;
 using Syncfusion.WinForms.DataGrid.Events;
@@ -17,9 +18,9 @@ namespace PrintingApplication.Presentation.Views.ModelControls
         public event EventHandler OnSendData;
         public event EventHandler OnFormClosing;
 
-        private List<IBarangModel> _listsBarang;
+        private List<IJenisOrderanModel> _listsJenisOrderan;
         private TipePencarian _tipePencarian;
-        private BindingListView<BarangModel> _bindingView;
+        private BindingListView<JenisOrderanModel> _bindingView;
         private string _kodeOrNamaValue;
 
         public CariBarangView()
@@ -27,11 +28,11 @@ namespace PrintingApplication.Presentation.Views.ModelControls
             InitializeComponent();
         }
 
-        public CariBarangView(List<IBarangModel> listsBarang, TipePencarian tipePencarian, string kodeOrNamaValue = default(string)) : this()
+        public CariBarangView(List<IJenisOrderanModel> listsBarang, TipePencarian tipePencarian, string kodeOrNamaValue = default(string)) : this()
         {
-            _listsBarang = listsBarang;
+            _listsJenisOrderan = listsBarang;
             _tipePencarian = tipePencarian;
-            _bindingView = new BindingListView<BarangModel>(_listsBarang);
+            _bindingView = new BindingListView<JenisOrderanModel>(_listsJenisOrderan);
             listDataGrid.DataSource = _bindingView;
 
             listDataGrid.Columns[2].Visible = false; // Stok
@@ -82,16 +83,16 @@ namespace PrintingApplication.Presentation.Views.ModelControls
         {
             if (e.RowType == RowType.DefaultRow)
             {
-                var barangModel = (BarangModel)e.RowData;
+                var JenisOrderanModel = (JenisOrderanModel)e.RowData;
 
-                if (barangModel != null)
-                {
-                    if (barangModel.stok <= 0 || barangModel.hpp <= 0)
-                    {
-                        e.Style.BackColor = Color.FromArgb(255, 165, 160);
-                        e.Style.TextColor = Color.FromArgb(1, 2, 3);
-                    }
-                }
+                //if (JenisOrderanModel != null)
+                //{
+                //    if (JenisOrderanModel.stok <= 0 || JenisOrderanModel.hpp <= 0)
+                //    {
+                //        e.Style.BackColor = Color.FromArgb(255, 165, 160);
+                //        e.Style.TextColor = Color.FromArgb(1, 2, 3);
+                //    }
+                //}
             }
         }
 
@@ -99,14 +100,14 @@ namespace PrintingApplication.Presentation.Views.ModelControls
         {
             if (listDataGrid.SelectedItem != null)
             {
-                var model = (BarangModel)listDataGrid.SelectedItem;
+                var model = (JenisOrderanModel)listDataGrid.SelectedItem;
 
-                if (_tipePencarian == TipePencarian.Penjualan && model.stok <= 0)
-                {
-                    return;
-                }
+                //if (_tipePencarian == TipePencarian.Penjualan && model.stok <= 0)
+                //{
+                //    return;
+                //}
 
-                OnSendData?.Invoke(this, new ModelEventArgs<BarangModel>((BarangModel)listDataGrid.SelectedItem));
+                OnSendData?.Invoke(this, new ModelEventArgs<JenisOrderanModel>((JenisOrderanModel)listDataGrid.SelectedItem));
             }
         }
 
@@ -118,12 +119,12 @@ namespace PrintingApplication.Presentation.Views.ModelControls
             {
                 var value = textBox.Text;
 
-                _bindingView.DataSource = _listsBarang.Where(b => b.kode.ToLower().Contains(value.ToLower()) ||
+                _bindingView.DataSource = _listsJenisOrderan.Where(b => b.kode.ToLower().Contains(value.ToLower()) ||
                                                              b.nama.ToLower().Contains(value.ToLower())).ToList();
             }
             else
             {
-                _bindingView.DataSource = _listsBarang;
+                _bindingView.DataSource = _listsJenisOrderan;
             }
         }
 

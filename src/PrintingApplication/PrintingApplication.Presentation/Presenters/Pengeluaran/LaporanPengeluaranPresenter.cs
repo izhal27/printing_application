@@ -5,6 +5,7 @@ using PrintingApplication.Domain.Models.Pengeluaran;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
+using PrintingApplication.Presentation.Views.Pengeluaran;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengeluaran;
 using System;
@@ -45,7 +46,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
         {
             using (new WaitCursorHandler())
             {
-                _listPengeluarans = _services.GetByDate(DateTime.Now.Date).ToList();
+                //_listPengeluarans = _services.GetByDate(DateTime.Now.Date).ToList();
                 _bindingView = new BindingListView<PengeluaranModel>(_listPengeluarans);
                 _view.ListDataGrid.DataSource = _bindingView;
             }
@@ -125,14 +126,14 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
                 {
                     case TampilkanStatus.Tanggal:
 
-                        _listPengeluarans = _services.GetByDate(e.Tanggal.Date).ToList();
+                        //_listPengeluarans = _services.GetByDate(e.Tanggal.Date).ToList();
                         _bindingView.DataSource = _listPengeluarans;
                         _tanggal = e.Tanggal;
 
                         break;
                     case TampilkanStatus.Periode:
 
-                        _listPengeluarans = _services.GetByDate(e.TanggalAwal.Date, e.TanggalAkhir.Date).ToList();
+                        //_listPengeluarans = _services.GetByDate(e.TanggalAwal.Date, e.TanggalAkhir.Date).ToList();
                         _bindingView.DataSource = _listPengeluarans;
                         _tanggalAwal = e.TanggalAwal;
                         _tanggalAkhir = e.TanggalAkhir;
