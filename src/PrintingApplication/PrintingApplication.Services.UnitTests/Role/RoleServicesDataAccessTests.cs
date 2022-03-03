@@ -25,7 +25,7 @@ namespace PrintingApplication.Services.UnitTests.Role
         }
 
         [Fact]
-        private void ShouldReturnSuccessForInsert()
+        private void ShouldReturnSuccessForInsertRole()
         {
             var operationSecceded = false;
             var dataAccessJsonStr = string.Empty;
@@ -38,6 +38,46 @@ namespace PrintingApplication.Services.UnitTests.Role
                     kode = "opr",
                     nama = "Role Operator",
                     keterangan = "Role Operator"
+                };
+
+                _services.Insert(model);
+
+                operationSecceded = true;
+            }
+            catch (DataAccessException ex)
+            {
+                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
+                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
+                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
+            }
+
+            try
+            {
+                Assert.True(operationSecceded);
+                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
+            }
+            finally
+            {
+                _testOutputHelper.WriteLine(formattedJsonStr);
+            }
+        }
+        
+        [Fact]
+        private void ShouldReturnSuccessForInsertRoleDetail()
+        {
+            var operationSecceded = false;
+            var dataAccessJsonStr = string.Empty;
+            var formattedJsonStr = string.Empty;
+
+            try
+            {
+                var model = new RoleDetailModel()
+                {
+                    role_kode = "opr",
+                    form_action = "UserView",
+                    menu_parent = "Master",
+                    menu_name = "Tambah",
+                    tag = "action"
                 };
 
                 _services.Insert(model);
