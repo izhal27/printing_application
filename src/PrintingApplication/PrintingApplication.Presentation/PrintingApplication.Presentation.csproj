@@ -32,8 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <ApplicationIcon>print.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.15.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
@@ -386,6 +387,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\CommonControls\BaseCariBarang View.resx" />
     <EmbeddedResource Include="Views\CommonControls\BaseDataView.resx" />
@@ -511,6 +513,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\jenis-orderan.png" />
+    <None Include="Resources\laporan.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\orderan.png" />
+    <None Include="Resources\pelanggan.png" />
+    <Content Include="print.ico" />
+    <None Include="Resources\login-image.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
