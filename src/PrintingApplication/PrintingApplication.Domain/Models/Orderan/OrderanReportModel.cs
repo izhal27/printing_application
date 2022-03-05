@@ -1,10 +1,9 @@
-﻿using PrintingApplication.Domain.Models.Orderan;
-using PrintingApplication.Domain.Models.OrderanDetail;
+﻿using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Domain.Models.Pelanggan;
 using System;
 using System.Collections.Generic;
 
-namespace RumahScarlett.Domain.Models.Orderan
+namespace PrintingApplication.Domain.Models.Orderan
 {
     public class OrderanReportModel : IOrderanReportModel
     {
@@ -55,6 +54,6 @@ namespace RumahScarlett.Domain.Models.Orderan
 
         public IEnumerable<IOrderanDetailModel> OrderanDetails { get; set; }
 
-        public IPelangganModel Pelanggan => throw new NotImplementedException();
+        public IPelangganModel Pelanggan { get; }
     }
 }

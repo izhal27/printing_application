@@ -9,7 +9,7 @@ using Dp = Dapper.Contrib.Extensions;
 
 namespace PrintingApplication.Domain.Models.Orderan
 {
-    [Table("order_detail")]
+    [Table("orderan")]
     public class OrderanModel : IOrderanModel
     {
         [Browsable(false)]

@@ -5,7 +5,6 @@ using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.Pelanggan;
 using PrintingApplication.Infrastructure.DataAccess.CommonRepositories;
 using PrintingApplication.Services.Services.Orderan;
-using RumahScarlett.Domain.Models.Orderan;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +58,15 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                     {
                         model.id = insertedId;
                         model.OrderanDetails = model.OrderanDetails.Map(p => p.order_id = model.id).ToList();
+                        var odRepo = new OrderanDetailRepository(context);
+
+                        foreach (var od in model.OrderanDetails)
+                        {
+                            odRepo.Insert(od, context.Transaction);
+                        }
                     }
+
+                    context.Commit();
                 }, dataAccessStatus,
                 () => CheckAfterInsert(context, "SELECT COUNT(1) FROM orderan WHERE no_nota=@no_nota "
                                        + "AND id=(SELECT id FROM orderan ORDER BY ID DESC LIMIT 1)",
@@ -78,19 +85,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
             using (var context = new DbContext())
             {
-                context.BeginTransaction();
-
-                Delete(model, () =>
-                {
-                    model.OrderanDetails = new OrderanDetailRepository(context).GetAll(model, context.Transaction);
-
-                    var success = context.Conn.Delete(model, context.Transaction);
-
-                    if (success)
-                    {
-                        context.Commit();
-                    }
-                }, dataAccessStatus, () => CheckModelExist(context, model.id));
+                Delete(model, () => context.Conn.Delete((OrderanModel)model), dataAccessStatus, () => CheckModelExist(context, model.id));
             }
         }
 
@@ -131,19 +126,19 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
         {
             if (listObj != null && listObj.ToList().Count > 0)
             {
-                listObj = listObj.Map(p =>
+                listObj = listObj.Map(orderan =>
                 {
-                    if (p.pelanggan_id != default(uint))
+                    if (orderan.pelanggan_id != default)
                     {
-                        p.Pelanggan = context.Conn.Get<PelangganModel>(p.pelanggan_id);
+                        orderan.Pelanggan = context.Conn.Get<PelangganModel>(orderan.pelanggan_id);
                     }
                 });
 
                 var pdRepo = new OrderanDetailRepository(context);
 
-                foreach (var p in listObj)
+                foreach (var orderan in listObj)
                 {
-                    p.OrderanDetails = pdRepo.GetAll(p);
+                    orderan.OrderanDetails = pdRepo.GetAll(orderan);
                 }
             }
 
@@ -183,9 +178,9 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                         }
                     }
 
-                    var pdRepo = new OrderanDetailRepository(context);
+                    var odRepo = new OrderanDetailRepository(context);
 
-                    model.OrderanDetails = pdRepo.GetAll(model);
+                    model.OrderanDetails = odRepo.GetAll(model);
                 }
                 return model;
             }
@@ -225,7 +220,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                    "od.kode_jenis_orderan, od.nama_jenis_orderan, od.harga_satuan, od.jumlah, od.diskon, od.sub_total, " +
                    "o.total_diskon, o.total, o.bayar, o.kembali FROM orderan o " +
                    "LEFT JOIN pelanggan pl ON o.pelanggan_id = pl.id " +
-                  $"INNER JOIN orderan_detail od ON o.id = od.order_id WHERE ${where}";
+                  $"INNER JOIN orderan_detail od ON o.id = od.order_id WHERE {where}";
         }
 
         private bool CheckModelExist(DbContext context, object id)

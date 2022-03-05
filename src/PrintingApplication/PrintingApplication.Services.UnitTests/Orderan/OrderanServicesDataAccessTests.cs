@@ -32,14 +32,14 @@ namespace PrintingApplication.Services.UnitTests.Orderan
         [Fact]
         private void ShouldReturnSuccessForInsert()
         {
-            var operationSecceded = false;
+            var operationSucceeded = false;
             var dataAccessJsonStr = string.Empty;
             var formattedJsonStr = string.Empty;
 
             try
             {
                 var listOrderanDetails = new List<OrderanDetailModel>
-               {
+                {
                   new OrderanDetailModel
                   {
                      kode_jenis_orderan = "CS-001",
@@ -78,18 +78,18 @@ namespace PrintingApplication.Services.UnitTests.Orderan
 
                 _services.Insert(orderanModel);
 
-                operationSecceded = true;
+                operationSucceeded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
+                operationSucceeded = ex.DataAccessStatusInfo.OperationSucceeded;
                 dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
                 formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
             }
 
             try
             {
-                Assert.True(operationSecceded);
+                Assert.True(operationSucceeded);
                 _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
             }
             finally
@@ -107,16 +107,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
 
             try
             {
-                //for (uint i = 1; i <= 5; i++)
-                //{
-                //   var model = new OrderanModel()
-                //   {
-                //      id = i,
-                //   };
-
-                //   _services.Delete(model);
-                //}
-
                 var model = new OrderanModel()
                 {
                     id = 1,
@@ -148,7 +138,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
         public void ShouldReturnModelMatchingNoNota()
         {
             OrderanModel model = null;
-            var noNotaToGet = "20190925000001";
+            var noNotaToGet = "20220306000001";
 
             try
             {
@@ -171,7 +161,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
         [Fact]
         public void ShouldReturnListOfModelsDateNow()
         {
-            var listModels = _services.GetByDate(DateTime.Now).ToList();
+            var listModels = _services.GetByDate(DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
 

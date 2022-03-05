@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PrintingApplication.Domain.Models.OrderanDetail
 {
-    [Table("order_detail")]
+    [Table("orderan_detail")]
     public class OrderanDetailModel : IOrderanDetailModel
     {
         [Browsable(false)]
@@ -12,13 +12,13 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         public uint id { get; set; }
 
         [Browsable(false)]
-        [Range(1, uint.MaxValue, ErrorMessage = "Order ID harus diisi !!!")]
+        [Required(ErrorMessage = "Order ID harus diisi !!!")]
         public uint order_id { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Kode jenis orderan harus diantara 3 sampai 100 karakter !!!")]
         [Display(Name = "Kode Jenis Orderan")]
         public string kode_jenis_orderan { get; set; }
-        
+
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama jenis orderan harus diantara 3 sampai 100 karakter !!!")]
         [Display(Name = "Jenis Orderan")]
         public string nama_jenis_orderan { get; set; }

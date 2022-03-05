@@ -1,5 +1,4 @@
 ﻿using PrintingApplication.Domain.Models.Orderan;
-using RumahScarlett.Domain.Models.Orderan;
 
 namespace PrintingApplication.Services.Services.Orderan
 {
