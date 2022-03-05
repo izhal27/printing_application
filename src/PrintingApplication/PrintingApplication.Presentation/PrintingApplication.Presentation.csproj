@@ -93,12 +93,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helper\DockpanelThemeHelper.cs" />
     <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Helper\Messages.cs" />
@@ -115,6 +109,10 @@
     <Compile Include="Presenters\Login\ILoginPresenter.cs" />
     <Compile Include="Presenters\Login\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\Orderan\ILaporanOrderanPresenter.cs" />
+    <Compile Include="Presenters\Orderan\IOrderanPresenter.cs" />
+    <Compile Include="Presenters\Orderan\LaporanOrderanPresenter.cs" />
+    <Compile Include="Presenters\Orderan\OrderanPresenter.cs" />
     <Compile Include="Presenters\Pelanggan\IPelangganPresenter.cs" />
     <Compile Include="Presenters\Pelanggan\PelangganPresenter.cs" />
     <Compile Include="Presenters\Pengaturan\IPengaturanPresenter.cs" />
@@ -125,8 +123,10 @@
     <Compile Include="Presenters\Pengeluaran\PengeluaranPresenter.cs" />
     <Compile Include="Presenters\Role\IRolePresenter.cs" />
     <Compile Include="Presenters\Role\RolePresenter.cs" />
-    <Compile Include="Presenters\Tipe\IJenisOrderanPresenter.cs" />
-    <Compile Include="Presenters\Tipe\JenisOrderanPresenter.cs" />
+    <Compile Include="Presenters\Tentang\ITentangPresenter.cs" />
+    <Compile Include="Presenters\Tentang\TentangPresenter.cs" />
+    <Compile Include="Presenters\JenisOrderan\IJenisOrderanPresenter.cs" />
+    <Compile Include="Presenters\JenisOrderan\JenisOrderanPresenter.cs" />
     <Compile Include="Presenters\User\IUserPresenter.cs" />
     <Compile Include="Presenters\User\UserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -316,6 +316,20 @@
     <Compile Include="Views\ModelControls\ComboBoxTipe.Designer.cs">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Orderan\ILaporanOrderanView.cs" />
+    <Compile Include="Views\Orderan\IOrderanView.cs" />
+    <Compile Include="Views\Orderan\LaporanOrderanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Orderan\LaporanOrderanView.designer.cs">
+      <DependentUpon>LaporanOrderanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orderan\OrderanView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Orderan\OrderanView.designer.cs">
+      <DependentUpon>OrderanView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pelanggan\IPelangganEntryView.cs" />
     <Compile Include="Views\Pelanggan\IPelangganView.cs" />
     <Compile Include="Views\Pelanggan\PelangganEntryView.cs">
@@ -494,6 +508,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModelControls\ComboBoxTipe.resx">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Orderan\LaporanOrderanView.resx">
+      <DependentUpon>LaporanOrderanView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Orderan\OrderanView.resx">
+      <DependentUpon>OrderanView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Pelanggan\PelangganEntryView.resx">
       <DependentUpon>PelangganEntryView.cs</DependentUpon>

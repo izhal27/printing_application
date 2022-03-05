@@ -16,7 +16,7 @@ namespace PrintingApplication.Presentation.Views
         public event EventHandler OnViewLoad;
         public event EventHandler OnLogOutClick;
         public event EventHandler OnGantiPasswordViewClick;
-        public event EventHandler<MainViewEventArgs> OnTipeViewClick;
+        public event EventHandler<MainViewEventArgs> OnJenisOrderanViewClick;
         public event EventHandler<MainViewEventArgs> OnSubTipeViewClick;
         public event EventHandler<MainViewEventArgs> OnSupplierViewClick;
         public event EventHandler<MainViewEventArgs> OnSatuanViewClick;
@@ -27,7 +27,7 @@ namespace PrintingApplication.Presentation.Views
         public event EventHandler<MainViewEventArgs> OnPenyesuaianStokViewClick;
         public event EventHandler<MainViewEventArgs> OnHutangOperasionalViewClick;
         public event EventHandler OnKasAwalViewClick;
-        public event EventHandler<MainViewEventArgs> OnPenjualanViewClick;
+        public event EventHandler<MainViewEventArgs> OnOrderanViewClick;
         public event EventHandler<MainViewEventArgs> OnPembelianViewClick;
         public event EventHandler<MainViewEventArgs> OnPengeluaranViewClick;
         public event EventHandler<MainViewEventArgs> OnReturnPenjualanViewClick;
@@ -118,7 +118,7 @@ namespace PrintingApplication.Presentation.Views
 
         private void toolStripMenuItemTipe_Click(object sender, EventArgs e)
         {
-            OnTipeViewClick?.Invoke(sender, _eventArgs);
+            OnJenisOrderanViewClick?.Invoke(sender, _eventArgs);
         }
 
         private void toolStripMenuItemSubTipe_Click(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace PrintingApplication.Presentation.Views
 
         private void toolStripMenuItemPenjualan_Click(object sender, EventArgs e)
         {
-            OnPenjualanViewClick?.Invoke(sender, _eventArgs);
+            OnOrderanViewClick?.Invoke(sender, _eventArgs);
         }
 
         private void toolStripButtonPenjualan_Click(object sender, EventArgs e)

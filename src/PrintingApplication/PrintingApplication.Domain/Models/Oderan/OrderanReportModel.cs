@@ -1,0 +1,60 @@
+﻿using PrintingApplication.Domain.Models.Oderan;
+using PrintingApplication.Domain.Models.OrderanDetail;
+using PrintingApplication.Domain.Models.Pelanggan;
+using System;
+using System.Collections.Generic;
+
+namespace RumahScarlett.Domain.Models.Orderan
+{
+    public class OrderanReportModel : IOrderanReportModel
+    {
+        public uint id { get; set; }
+
+        public uint penjualan_id { get; set; }
+
+        public DateTime tanggal { get; set; }
+
+        public string no_nota { get; set; }
+
+        public IOrderanModel Orderan { get; set; }
+
+        public uint pelanggan_id { get; set; }
+
+        private string _pelanggan_nama;
+
+        public string pelanggan_nama
+        {
+            get { return _pelanggan_nama; }
+            set { _pelanggan_nama = string.IsNullOrWhiteSpace(value) ? string.Empty : value; }
+        }
+
+        public string keterangan { get; set; }
+
+        public decimal total_diskon { get; set; }
+
+        public decimal total { get; set; }
+
+        public decimal bayar { get; set; }
+
+        public decimal kembali { get; set; }
+
+        public uint order_id { get; set; }
+
+        public string jenis_orderan { get; set; }
+
+        public decimal harga_satuan { get; set; }
+
+        public decimal jumlah { get; set; }
+
+        public decimal diskon { get; set; }
+
+        public decimal sub_total
+        {
+            get { return jumlah > 0M ? decimal.Parse(((jumlah * harga_satuan) - diskon).ToString()) : 0M; }
+        }
+
+        public IEnumerable<IOrderanDetailModel> OrderanDetails { get; set; }
+
+        public IPelangganModel Pelanggan => throw new NotImplementedException();
+    }
+}

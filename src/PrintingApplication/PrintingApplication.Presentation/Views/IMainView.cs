@@ -9,7 +9,7 @@ namespace PrintingApplication.Presentation.Views
         event EventHandler OnViewLoad;
         event EventHandler OnLogOutClick;
         event EventHandler OnGantiPasswordViewClick;
-        event EventHandler<MainViewEventArgs> OnTipeViewClick;
+        event EventHandler<MainViewEventArgs> OnJenisOrderanViewClick;
         event EventHandler<MainViewEventArgs> OnSubTipeViewClick;
         event EventHandler<MainViewEventArgs> OnSupplierViewClick;
         event EventHandler<MainViewEventArgs> OnSatuanViewClick;
@@ -20,7 +20,7 @@ namespace PrintingApplication.Presentation.Views
         event EventHandler<MainViewEventArgs> OnPenyesuaianStokViewClick;
         event EventHandler<MainViewEventArgs> OnHutangOperasionalViewClick;
         event EventHandler OnKasAwalViewClick;
-        event EventHandler<MainViewEventArgs> OnPenjualanViewClick;
+        event EventHandler<MainViewEventArgs> OnOrderanViewClick;
         event EventHandler<MainViewEventArgs> OnPembelianViewClick;
         event EventHandler<MainViewEventArgs> OnPengeluaranViewClick;
         event EventHandler<MainViewEventArgs> OnLaporanPenjualanViewClick;
