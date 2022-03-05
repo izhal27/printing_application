@@ -13,9 +13,13 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         [Range(1, uint.MaxValue, ErrorMessage = "Order ID harus diisi !!!")]
         public uint order_id { get; set; }
 
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Kode jenis orderan harus diantara 3 sampai 100 karakter !!!")]
+        [Display(Name = "Kode Jenis Orderan")]
+        public string kode_jenis_orderan { get; set; }
+        
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama jenis orderan harus diantara 3 sampai 100 karakter !!!")]
         [Display(Name = "Jenis Orderan")]
-        public string jenis_orderan { get; set; }
+        public string nama_jenis_orderan { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]

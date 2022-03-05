@@ -10,7 +10,7 @@ namespace RumahScarlett.Domain.Models.Orderan
     {
         public uint id { get; set; }
 
-        public uint penjualan_id { get; set; }
+        public uint order_id { get; set; }
 
         public DateTime tanggal { get; set; }
 
@@ -38,9 +38,9 @@ namespace RumahScarlett.Domain.Models.Orderan
 
         public decimal kembali { get; set; }
 
-        public uint order_id { get; set; }
+        public string kode_jenis_orderan { get; set; }
 
-        public string jenis_orderan { get; set; }
+        public string nama_jenis_orderan { get; set; }
 
         public decimal harga_satuan { get; set; }
 

@@ -3,7 +3,8 @@
     public interface IOrderanDetailModel : IModel
     {
         uint order_id { get; set; }
-        string jenis_orderan { get; set; }
+        string kode_jenis_orderan { get; set; }
+        string nama_jenis_orderan { get; set; }
         decimal harga_satuan { get; set; }
         decimal jumlah { get; set; }
         decimal diskon { get; set; }

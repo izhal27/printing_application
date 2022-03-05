@@ -70,7 +70,7 @@ namespace PrintingApplication.Services.Services.Orderan
         public void ValidateModel(IOrderanModel model)
         {
             _modelDAC.ValidateModel(model);
-            _modelDAC.ValidateModels(model.PenjualanDetails);
+            _modelDAC.ValidateModels(model.OrderanDetails);
         }
     }
 }
