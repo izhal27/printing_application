@@ -135,15 +135,21 @@
     <Compile Include="Views\CommonControls\BaseCariBarang View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\BaseCariBarang View.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseCariBarang View.designer.cs">
+      <DependentUpon>BaseCariBarang View.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\BaseDataView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\BaseDataView.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseDataView.designer.cs">
+      <DependentUpon>BaseDataView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\BaseEntryView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\BaseEntryView.Designer.cs" />
+    <Compile Include="Views\CommonControls\BaseEntryView.designer.cs">
+      <DependentUpon>BaseEntryView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\BaseTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -153,53 +159,75 @@
     <Compile Include="Views\CommonControls\ButtonExport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\ButtonExport.Designer.cs" />
+    <Compile Include="Views\CommonControls\ButtonExport.designer.cs">
+      <DependentUpon>ButtonExport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\ButtonsDeletePrintDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\ButtonsDeletePrintDetail.Designer.cs" />
+    <Compile Include="Views\CommonControls\ButtonsDeletePrintDetail.designer.cs">
+      <DependentUpon>ButtonsDeletePrintDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\ComboBoxBulan.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\CommonControls\CRUDCButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\CRUDCButtons.Designer.cs" />
+    <Compile Include="Views\CommonControls\CRUDCButtons.designer.cs">
+      <DependentUpon>CRUDCButtons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\DateTimePickerFilterData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\DateTimePickerFilterData.Designer.cs" />
+    <Compile Include="Views\CommonControls\DateTimePickerFilterData.designer.cs">
+      <DependentUpon>DateTimePickerFilterData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\DateTimePickerFilterTransaksi.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\DateTimePickerFilterTransaksi.Designer.cs" />
+    <Compile Include="Views\CommonControls\DateTimePickerFilterTransaksi.designer.cs">
+      <DependentUpon>DateTimePickerFilterTransaksi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\DetailView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\DetailView.Designer.cs" />
+    <Compile Include="Views\CommonControls\DetailView.designer.cs">
+      <DependentUpon>DetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\ListDataGrid.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\CommonControls\OperationButtons.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\OperationButtons.Designer.cs" />
+    <Compile Include="Views\CommonControls\OperationButtons.designer.cs">
+      <DependentUpon>OperationButtons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\PanelDown.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\PanelDown.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelDown.designer.cs">
+      <DependentUpon>PanelDown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\PanelInfoDigital.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\PanelInfoDigital.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelInfoDigital.designer.cs">
+      <DependentUpon>PanelInfoDigital.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\PanelUp.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\PanelUp.Designer.cs" />
+    <Compile Include="Views\CommonControls\PanelUp.designer.cs">
+      <DependentUpon>PanelUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\ReportView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\CommonControls\ReportView.designer.cs" />
+    <Compile Include="Views\CommonControls\ReportView.designer.cs">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CommonControls\TextBoxTanggal.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -389,20 +417,48 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\CommonControls\BaseCariBarang View.resx" />
-    <EmbeddedResource Include="Views\CommonControls\BaseDataView.resx" />
-    <EmbeddedResource Include="Views\CommonControls\BaseEntryView.resx" />
-    <EmbeddedResource Include="Views\CommonControls\ButtonExport.resx" />
-    <EmbeddedResource Include="Views\CommonControls\ButtonsDeletePrintDetail.resx" />
-    <EmbeddedResource Include="Views\CommonControls\CRUDCButtons.resx" />
-    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterData.resx" />
-    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterTransaksi.resx" />
-    <EmbeddedResource Include="Views\CommonControls\DetailView.resx" />
-    <EmbeddedResource Include="Views\CommonControls\OperationButtons.resx" />
-    <EmbeddedResource Include="Views\CommonControls\PanelDown.resx" />
-    <EmbeddedResource Include="Views\CommonControls\PanelInfoDigital.resx" />
-    <EmbeddedResource Include="Views\CommonControls\PanelUp.resx" />
-    <EmbeddedResource Include="Views\CommonControls\ReportView.resx" />
+    <EmbeddedResource Include="Views\CommonControls\BaseCariBarang View.resx">
+      <DependentUpon>BaseCariBarang View.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\BaseDataView.resx">
+      <DependentUpon>BaseDataView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\BaseEntryView.resx">
+      <DependentUpon>BaseEntryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\ButtonExport.resx">
+      <DependentUpon>ButtonExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\ButtonsDeletePrintDetail.resx">
+      <DependentUpon>ButtonsDeletePrintDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\CRUDCButtons.resx">
+      <DependentUpon>CRUDCButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterData.resx">
+      <DependentUpon>DateTimePickerFilterData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\DateTimePickerFilterTransaksi.resx">
+      <DependentUpon>DateTimePickerFilterTransaksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\DetailView.resx">
+      <DependentUpon>DetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\OperationButtons.resx">
+      <DependentUpon>OperationButtons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\PanelDown.resx">
+      <DependentUpon>PanelDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\PanelInfoDigital.resx">
+      <DependentUpon>PanelInfoDigital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\PanelUp.resx">
+      <DependentUpon>PanelUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CommonControls\ReportView.resx">
+      <DependentUpon>ReportView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Database\BackupRestoreDatabaseView.resx">
       <DependentUpon>BackupRestoreDatabaseView.cs</DependentUpon>
     </EmbeddedResource>

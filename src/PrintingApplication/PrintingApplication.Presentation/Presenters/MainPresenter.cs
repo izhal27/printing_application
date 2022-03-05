@@ -1,16 +1,6 @@
 ﻿using PrintingApplication.Presentation.Helper;
-using PrintingApplication.Presentation.Presenters.Database;
-using PrintingApplication.Presentation.Presenters.GantiPassword;
 //using PrintingApplication.Presentation.Presenters.Laporan;
-using PrintingApplication.Presentation.Presenters.Login;
-using PrintingApplication.Presentation.Presenters.Pelanggan;
-using PrintingApplication.Presentation.Presenters.Pengaturan;
-using PrintingApplication.Presentation.Presenters.Pengeluaran;
-using PrintingApplication.Presentation.Presenters.Role;
-using PrintingApplication.Presentation.Presenters.JenisOrderan;
-using PrintingApplication.Presentation.Presenters.User;
 using PrintingApplication.Presentation.Views;
-using PrintingApplication.Presentation.Views.Database;
 using System;
 using System.Linq;
 using System.Windows.Forms;
