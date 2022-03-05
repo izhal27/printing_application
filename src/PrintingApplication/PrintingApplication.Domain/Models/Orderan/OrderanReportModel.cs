@@ -1,4 +1,4 @@
-﻿using PrintingApplication.Domain.Models.Oderan;
+﻿using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Domain.Models.Pelanggan;
 using System;

@@ -1,12 +1,14 @@
 ﻿using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.JenisOrderan;
-using PrintingApplication.Domain.Models.Oderan;
+using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.ModelControls;
 using PrintingApplication.Presentation.Views.Orderan;
 using PrintingApplication.Services.Services;
+using PrintingApplication.Services.Services.JenisOrderan;
+using PrintingApplication.Services.Services.Orderan;
 using Syncfusion.WinForms.DataGrid.Events;
 using Syncfusion.WinForms.GridCommon.ScrollAxis;
 using System;
@@ -185,13 +187,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
                 _uangKembali = e.Kembali;
                 _grandTotal = e.GrandTotal;
 
-                _orderanModel = new PenjualanModel
+                _orderanModel = new OrderanModel
                 {
                     Pelanggan = e.Pelanggan,
-                    status_pembayaran = e.StatusPenjualan,
-                    diskon = e.Diskon,
-                    jumlah_bayar = e.JumlahBayar,
-                    PenjualanDetails = penjualanDetailsFixed
                 };
 
                 _orderanServices.Insert(_orderanModel);
@@ -201,9 +199,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
                 _view.ListDataGrid.Enabled = false;
                 _view.TextBoxNoNota.Text = _orderanModel.no_nota;
 
-                if (_orderanModel.diskon > 0)
+                if (_orderanModel.total_diskon > 0)
                 {
-                    _view.LabelGrandTotal.Text = (_orderanModel.PenjualanDetails.Sum(pd => pd.total) - _orderanModel.diskon).ToString("N0");
+                    _view.LabelGrandTotal.Text = (_orderanModel.OrderanDetails.Sum(pd => pd.jumlah) - _orderanModel.total_diskon).ToString("N0");
                 }
 
                 bayarPenjualanEntryView.DialogResult = DialogResult.OK;
@@ -221,7 +219,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
         private void _view_OnBersihkanData(object sender, EventArgs e)
         {
-            var status = _listOrderanDetails.Any(pd => pd.Barang.id != default(uint));
+            //var status = _listOrderanDetails.Any(pd => pd.Barang.id != default(uint));
 
             if (status)
             {
@@ -245,7 +243,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
             {
                 _view.ListDataGrid.Enabled = true;
                 _view.TextBoxNoNota.Text = string.Empty;
-                _listsJenisOrderans = _jenisOrderanServices.GetAll().Where(b => b.harga_jual > 0).ToList();
+                _listsJenisOrderans = _jenisOrderanServices.GetAll().Where(b => b.harga_satuan > 0).ToList();
                 _statusBayar = false;
             }
 
@@ -299,9 +297,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
                 if (barangModel != null)
                 {
-                    _listOrderanDetails[(CurrCellRowIndex - 1)].Barang = barangModel;
-                    _listOrderanDetails[(CurrCellRowIndex - 1)].qty = 1;
-                    _listOrderanDetails[(CurrCellRowIndex - 1)].harga_jual = barangModel.harga_jual;
+                    //_listOrderanDetails[(CurrCellRowIndex - 1)].Barang = barangModel;
+                    //_listOrderanDetails[(CurrCellRowIndex - 1)].qty = 1;
+                    //_listOrderanDetails[(CurrCellRowIndex - 1)].harga_jual = barangModel.harga_jual;
 
                     listDataGrid.MoveToCurrentCell(new RowColumnIndex(CurrCellRowIndex, (e.ColumnIndex + 2)));
                     listDataGrid.CurrentCell.BeginEdit();
@@ -343,7 +341,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
                 }
                 else
                 {
-                    _listOrderanDetails.Add(new PenjualanDetailModel());
+                    _listOrderanDetails.Add(new OrderanDetailModel());
                     listDataGrid.MoveToCurrentCell(new RowColumnIndex((CurrCellRowIndex + 1), 1));
                     listDataGrid.CurrentCell.BeginEdit();
                 }
@@ -362,7 +360,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
         private void HitungGrandTotal()
         {
-            _view.LabelGrandTotal.Text = _bindingView.Cast<IPenjualanDetailModel>().Sum(pd => pd.total).ToString("N0");
+            _view.LabelGrandTotal.Text = _bindingView.Cast<IOrderanDetailModel>().Sum(pd => pd.jumlah).ToString("N0");
         }
 
         private void _view_OnListDataGridPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -379,7 +377,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         {
             for (int i = 0; i < length; i++)
             {
-                _listOrderanDetails.Add(new PenjualanDetailModel());
+                _listOrderanDetails.Add(new OrderanDetailModel());
             }
         }
     }

@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PrintingApplication.Domain.Models.OrderanDetail
 {
+    [Table("order_detail")]
     public class OrderanDetailModel : IOrderanDetailModel
     {
         [Browsable(false)]

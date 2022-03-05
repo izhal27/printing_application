@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
 using PrintingApplication.CommonComponents;
-using PrintingApplication.Domain.Models.Oderan;
+using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.Pelanggan;
 using PrintingApplication.Infrastructure.DataAccess.CommonRepositories;
 using PrintingApplication.Services.Services.Orderan;

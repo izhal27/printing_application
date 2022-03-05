@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Dp = Dapper.Contrib.Extensions;
 
-namespace PrintingApplication.Domain.Models.Oderan
+namespace PrintingApplication.Domain.Models.Orderan
 {
+    [Table("order_detail")]
     public class OrderanModel : IOrderanModel
     {
         [Browsable(false)]

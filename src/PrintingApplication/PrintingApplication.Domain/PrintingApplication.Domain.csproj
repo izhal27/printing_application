@@ -61,10 +61,10 @@
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\JenisOrderan\IJenisOrderanModel.cs" />
     <Compile Include="Models\JenisOrderan\JenisOrderanModel.cs" />
-    <Compile Include="Models\Oderan\IOrderanModel.cs" />
-    <Compile Include="Models\Oderan\IOrderanReportModel.cs" />
-    <Compile Include="Models\Oderan\OrderanModel.cs" />
-    <Compile Include="Models\Oderan\OrderanReportModel.cs" />
+    <Compile Include="Models\Orderan\IOrderanModel.cs" />
+    <Compile Include="Models\Orderan\IOrderanReportModel.cs" />
+    <Compile Include="Models\Orderan\OrderanModel.cs" />
+    <Compile Include="Models\Orderan\OrderanReportModel.cs" />
     <Compile Include="Models\OrderanDetail\IOrderanDetailModel.cs" />
     <Compile Include="Models\OrderanDetail\OrderanDetailModel.cs" />
     <Compile Include="Models\Pelanggan\IPelangganModel.cs" />

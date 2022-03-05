@@ -1,13 +1,15 @@
 ﻿using Equin.ApplicationFramework;
 using Microsoft.Reporting.WinForms;
 using PrintingApplication.CommonComponents;
-using PrintingApplication.Domain.Models.Oderan;
+using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Presenters.Orderan;
 using PrintingApplication.Presentation.Views.CommonControls;
 using PrintingApplication.Presentation.Views.Orderan;
 using PrintingApplication.Services.Services;
+using PrintingApplication.Services.Services.Orderan;
 using RumahScarlett.Domain.Models.Orderan;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
     public class LaporanOrderanPresenter : ILaporanOrderanPresenter
     {
         private ILaporanOrderanView _view;
-        private IPenjualanServices _services;
+        private IOrderanServices _services;
         private List<IOrderanModel> _listPenjualans;
         private BindingListView<OrderanModel> _bindingView;
         private string _typeName = "Penjualan";
@@ -36,7 +38,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         public LaporanOrderanPresenter()
         {
             _view = new LaporanOrderanView();
-            _services = new PenjualanServices(new PenjualanRepository(), new ModelDataAnnotationCheck());
+            _services = new OrderanServices(new OrderanRepository(), new ModelDataAnnotationCheck());
 
             _view.OnLoadData += _view_OnLoadData;
             _view.OnTampilkanClick += _view_OnTampilkanClick;
@@ -156,7 +158,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         {
             var OrderanModel = (OrderanModel)_view.ListDataGrid.SelectedItem;
 
-            ReportHelper.ShowNotaPenjualan(OrderanModel);
+            //ReportHelper.ShowNotaPenjualan(OrderanModel);
 
             ((Form)sender).Close();
         }

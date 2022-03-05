@@ -3,7 +3,7 @@ using PrintingApplication.Domain.Models.Pelanggan;
 using System;
 using System.Collections.Generic;
 
-namespace PrintingApplication.Domain.Models.Oderan
+namespace PrintingApplication.Domain.Models.Orderan
 {
     public interface IOrderanModel : IModel
     {

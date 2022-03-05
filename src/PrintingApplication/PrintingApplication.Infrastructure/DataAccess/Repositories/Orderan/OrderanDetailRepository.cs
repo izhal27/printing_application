@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using PrintingApplication.CommonComponents;
-using PrintingApplication.Domain.Models.Oderan;
+using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
 using System.Collections.Generic;
 using System.Data;
