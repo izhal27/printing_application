@@ -23,7 +23,7 @@ namespace PrintingApplication.Domain.Models.JenisOrderan
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
-        [Display(Name = "Harga Jual")]
+        [Display(Name = "Harga Satuan")]
         public decimal harga_satuan { get; set; }
 
         [DefaultValue("")]
