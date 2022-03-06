@@ -198,24 +198,36 @@ namespace PrintingApplication.Presentation.Presenters
             using (new WaitCursorHandler())
             {
                 // List form yang active
-                var formList = ((Form)_view).MdiChildren;
+                var activeControl = ((Form)this._view).ActiveControl;
 
-                // Cek jika form belum ada di list, maka buka form baru,
-                // sebaliknya aktifkan form jika sudah ada.
-                if (!formList.Any(frm => frm.Name == form.Name))
+                if (activeControl != null)
+                {
+                    var formList = ((DockPane)activeControl).Contents.ToList();
+
+                    // Cek jika form belum ada di list, maka buka form baru,
+                    // sebaliknya aktifkan form jika sudah ada.
+                    var found = formList.Any(item => item.DockHandler.Form.Name == form.Name);
+
+                    if (!found)
+                    {
+                        form.Owner = ((Form)_view);
+                        form.Show(e.DockPanel, DockState.Document);
+                    }
+                    else
+                    {
+                        var activeForm = formList.Where(item => item.DockHandler.Form.Name == form.Name)
+                                         .FirstOrDefault();
+                        activeForm.DockHandler.Show();
+                    }
+                }
+                else
                 {
                     form.Owner = ((Form)_view);
                     form.Show(e.DockPanel, DockState.Document);
                 }
-                else
-                {
-                    var activeForm = formList.Where(frm => frm.Name == form.Name)
-                                     .FirstOrDefault();
-                    activeForm.Activate();
-                }
             }
 
-            // Enable buttons child form
+            // Enable buttons child form sesuai hak akses user
             new RoleManager().EnableButtons(form);
         }
     }
