@@ -32,7 +32,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                 Insert(model, () =>
                 {
                     var queryStr = "INSERT INTO orderan (no_nota, keterangan, pelanggan_id, tanggal, total_diskon, total, bayar, kembali) " +
-                               "VALUES (@no_nota, @keterangan, @pelanggan_id, @tanggal, @total_diskon, @total, @bayar, @bayar);" +
+                               "VALUES (@no_nota, @keterangan, @pelanggan_id, @tanggal, @total_diskon, @total, @bayar, @kembali);" +
                                "SELECT LAST_INSERT_ID();";
 
                     object pelanggan_id = DBNull.Value;
