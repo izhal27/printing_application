@@ -1,4 +1,5 @@
-﻿using Equin.ApplicationFramework;
+﻿using Dexih.Utils.CopyProperties;
+using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Pelanggan;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan;
@@ -65,18 +66,9 @@ namespace PrintingApplication.Presentation.Presenters.Pelanggan
         {
             using (new WaitCursorHandler())
             {
-                ListDataGrid listDataGrid = null;
+                var listDataGrid = sender is ListDataGrid ? (ListDataGrid)sender : _view.ListDataGrid;
 
-                if (sender is ListDataGrid)
-                {
-                    listDataGrid = (ListDataGrid)sender;
-                }
-                else
-                {
-                    listDataGrid = ((ModelEventArgs<ListDataGrid>)e).Value;
-                }
-
-                if (listDataGrid != null && listDataGrid.SelectedItem != null)
+                if (listDataGrid?.SelectedItem != null)
                 {
                     var model = _services.GetById(((PelangganModel)listDataGrid.SelectedItem).id);
 
@@ -126,9 +118,7 @@ namespace PrintingApplication.Presentation.Presenters.Pelanggan
 
                         if (model != null)
                         {
-                            model.nama = newModel.nama;
-                            model.alamat = newModel.alamat;
-                            model.contact = newModel.contact;
+                            newModel.CopyProperties(model);
 
                             _bindingView.Refresh();
                         }

@@ -40,6 +40,7 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
                         nama = $"Pelanggan #{i}",
                         alamat = $"Alamat Pelanggan #{i}",
                         contact = "08123456789",
+                        keterangan = $"Keterangan Pelanggan #{i}",
                     };
 
                     _services.Insert(model);
@@ -80,6 +81,7 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
                     nama = "Pelanggan #2 (Update)",
                     alamat = $"Alamat Pelanggan #2 (Update)",
                     contact = "08123456789 (Update)",
+                    keterangan = $"Keterangan Pelanggan #2 (Update)",
                 };
 
                 _services.Update(model);

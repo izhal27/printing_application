@@ -28,52 +28,55 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.listDataGrid = new PrintingApplication.Presentation.Views.CommonControls.ListDataGrid();
-         this.crudcButtons = new PrintingApplication.Presentation.Views.CommonControls.CRUDCButtons();
-         ((System.ComponentModel.ISupportInitialize)(this.listDataGrid)).BeginInit();
-         this.SuspendLayout();
-         // 
-         // listDataGrid
-         // 
-         this.listDataGrid.AccessibleName = "Table";
-         this.listDataGrid.AllowEditing = false;
-         this.listDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JenisOrderanView));
+            this.listDataGrid = new PrintingApplication.Presentation.Views.CommonControls.ListDataGrid();
+            this.crudcButtons = new PrintingApplication.Presentation.Views.CommonControls.CRUDCButtons();
+            ((System.ComponentModel.ISupportInitialize)(this.listDataGrid)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // listDataGrid
+            // 
+            this.listDataGrid.AccessibleName = "Table";
+            this.listDataGrid.AllowEditing = false;
+            this.listDataGrid.AllowResizingColumns = true;
+            this.listDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.listDataGrid.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
-         this.listDataGrid.Location = new System.Drawing.Point(12, 58);
-         this.listDataGrid.Name = "listDataGrid";
-         this.listDataGrid.ShowRowHeader = true;
-         this.listDataGrid.Size = new System.Drawing.Size(760, 351);
-         this.listDataGrid.TabIndex = 0;
-         this.listDataGrid.Text = "listDataGrid1";
-         // 
-         // crudcButtons
-         // 
-         this.crudcButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.listDataGrid.AutoSizeColumnsMode = Syncfusion.WinForms.DataGrid.Enums.AutoSizeColumnsMode.Fill;
+            this.listDataGrid.Location = new System.Drawing.Point(12, 58);
+            this.listDataGrid.Name = "listDataGrid";
+            this.listDataGrid.ShowRowHeader = true;
+            this.listDataGrid.Size = new System.Drawing.Size(760, 351);
+            this.listDataGrid.TabIndex = 0;
+            this.listDataGrid.Text = "listDataGrid1";
+            // 
+            // crudcButtons
+            // 
+            this.crudcButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.crudcButtons.BackColor = System.Drawing.Color.Transparent;
-         this.crudcButtons.Location = new System.Drawing.Point(12, 415);
-         this.crudcButtons.Name = "crudcButtons";
-         this.crudcButtons.Size = new System.Drawing.Size(760, 35);
-         this.crudcButtons.TabIndex = 2;
-         // 
-         // TipeView
-         // 
-         this.AccessibleName = "Master";
-         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.ClientSize = new System.Drawing.Size(784, 462);
-         this.Controls.Add(this.crudcButtons);
-         this.Controls.Add(this.listDataGrid);
-         this.Name = "JenisOrderanView";
-         this.Text = "Jenis Orderan";
-         this.Load += new System.EventHandler(this.TipeView_Load);
-         this.Controls.SetChildIndex(this.listDataGrid, 0);
-         this.Controls.SetChildIndex(this.panelUp, 0);
-         this.Controls.SetChildIndex(this.crudcButtons, 0);
-         ((System.ComponentModel.ISupportInitialize)(this.listDataGrid)).EndInit();
-         this.ResumeLayout(false);
+            this.crudcButtons.BackColor = System.Drawing.Color.Transparent;
+            this.crudcButtons.Location = new System.Drawing.Point(12, 415);
+            this.crudcButtons.Name = "crudcButtons";
+            this.crudcButtons.Size = new System.Drawing.Size(760, 35);
+            this.crudcButtons.TabIndex = 2;
+            // 
+            // JenisOrderanView
+            // 
+            this.AccessibleName = "Master";
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(784, 462);
+            this.Controls.Add(this.crudcButtons);
+            this.Controls.Add(this.listDataGrid);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "JenisOrderanView";
+            this.Text = "Jenis Orderan";
+            this.Load += new System.EventHandler(this.TipeView_Load);
+            this.Controls.SetChildIndex(this.listDataGrid, 0);
+            this.Controls.SetChildIndex(this.panelUp, 0);
+            this.Controls.SetChildIndex(this.crudcButtons, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.listDataGrid)).EndInit();
+            this.ResumeLayout(false);
 
       }
 

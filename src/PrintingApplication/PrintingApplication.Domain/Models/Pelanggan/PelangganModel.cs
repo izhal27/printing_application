@@ -25,5 +25,10 @@ namespace PrintingApplication.Domain.Models.Pelanggan
         [StringLength(100, ErrorMessage = "Panjang maksimal contact 100 karakter !!!")]
         [Display(Name = "Contact")]
         public string contact { get; set; }
+
+        [DefaultValue("")]
+        [StringLength(255, ErrorMessage = "Panjang maksimal keterangan 255 karakter !!!")]
+        [Display(Name = "Keterangan")]
+        public string keterangan { get; set; }
     }
 }

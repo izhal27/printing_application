@@ -25,7 +25,8 @@ namespace PrintingApplication.Presentation.Views.Pelanggan
                 _model = model;
                 textBoxNama.Text = model.nama;
                 textBoxAlamat.Text = model.alamat;
-                textBoxTelpon.Text = model.contact;
+                textBoxContact.Text = model.contact;
+                textBoxKeterangan.Text = model.keterangan;
             }
 
             operationButtons.OnSaveButtonClick += OperationButtons_OnSaveButtonClick;
@@ -37,7 +38,8 @@ namespace PrintingApplication.Presentation.Views.Pelanggan
             {
                 nama = textBoxNama.Text,
                 alamat = textBoxAlamat.Text,
-                contact = textBoxTelpon.Text,
+                contact = textBoxContact.Text,
+                keterangan = textBoxKeterangan.Text,
             };
 
             var modelArgs = new ModelEventArgs<PelangganModel>(model);

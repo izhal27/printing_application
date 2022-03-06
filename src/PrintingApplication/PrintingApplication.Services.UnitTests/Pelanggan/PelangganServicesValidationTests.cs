@@ -26,6 +26,7 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
                 nama = "Tests",
                 alamat = "Tests",
                 contact = "08123456789",
+                keterangan = "Keterangan Pelanggan",
             };
         }
 
@@ -48,6 +49,8 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
 
+            Assert.NotNull(exception);
+
             WriteExceptionTestResult(exception);
         }
 
@@ -58,6 +61,7 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
 
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
+            Assert.NotNull(exception);
 
             WriteExceptionTestResult(exception);
         }
