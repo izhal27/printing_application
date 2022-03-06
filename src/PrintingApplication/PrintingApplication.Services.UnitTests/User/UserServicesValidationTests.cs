@@ -88,10 +88,12 @@ namespace PrintingApplication.Services.UnitTests.User
         [Fact]
         public void ShouldThrowExceptionForPasswordLength()
         {
-            _servicesFixture.Model.password = StringHelper.GetStringByLength(2);
+            _servicesFixture.Model.password = StringHelper.GetStringByLength(1);
 
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
+
+            Assert.NotNull(exception);
 
             WriteExceptionTestResult(exception);
         }
