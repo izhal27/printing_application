@@ -64,7 +64,7 @@ namespace PrintingApplication.Presentation.Presenters
             _view.OnOrderanViewClick += _view_OnOrderanViewClick;
             _view.OnPengeluaranViewClick += _view_OnPengeluaranViewClick;
             // Laporan
-            _view.OnLaporanPenjualanViewClick += _view_OnLaporanPenjualanViewClick;
+            _view.OnLaporanOrderanViewClick += _view_OnLaporanPenjualanViewClick;
             _view.OnLaporanPengeluaranViewClick += _view_OnLaporanPengeluaranViewClick;
             // Database
             _view.OnBackupDatabaseViewClick += _view_OnBackupDatabaseViewClick;

@@ -17,30 +17,13 @@ namespace PrintingApplication.Presentation.Views
         public event EventHandler OnLogOutClick;
         public event EventHandler OnGantiPasswordViewClick;
         public event EventHandler<MainViewEventArgs> OnJenisOrderanViewClick;
-        public event EventHandler<MainViewEventArgs> OnSubTipeViewClick;
-        public event EventHandler<MainViewEventArgs> OnSupplierViewClick;
-        public event EventHandler<MainViewEventArgs> OnSatuanViewClick;
-        public event EventHandler<MainViewEventArgs> OnBarangViewClick;
         public event EventHandler<MainViewEventArgs> OnPelangganViewClick;
         public event EventHandler<MainViewEventArgs> OnUserViewClick;
         public event EventHandler<MainViewEventArgs> OnRoleViewClick;
-        public event EventHandler<MainViewEventArgs> OnPenyesuaianStokViewClick;
-        public event EventHandler<MainViewEventArgs> OnHutangOperasionalViewClick;
-        public event EventHandler OnKasAwalViewClick;
         public event EventHandler<MainViewEventArgs> OnOrderanViewClick;
-        public event EventHandler<MainViewEventArgs> OnPembelianViewClick;
         public event EventHandler<MainViewEventArgs> OnPengeluaranViewClick;
-        public event EventHandler<MainViewEventArgs> OnReturnPenjualanViewClick;
-        public event EventHandler<MainViewEventArgs> OnReturnPembelianViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanPenjualanViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanPembelianViewClick;
+        public event EventHandler<MainViewEventArgs> OnLaporanOrderanViewClick;
         public event EventHandler<MainViewEventArgs> OnLaporanPengeluaranViewClick;
-        public event EventHandler OnLaporanTransaksiByDateViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanReturnPenjualanViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanReturnPembelianViewClick;
-        public event EventHandler OnLaporanStatusBarangViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanStatusPerBarangViewClick;
-        public event EventHandler<MainViewEventArgs> OnLaporanGrafikBarangTerjualViewClick;
         public event EventHandler OnLaporanLabaRugiViewClick;
         public event EventHandler OnPengaturanViewClick;
         public event EventHandler OnBackupDatabaseViewClick;
@@ -116,39 +99,14 @@ namespace PrintingApplication.Presentation.Views
             OnLogOutClick?.Invoke(sender, e);
         }
 
-        private void toolStripMenuItemTipe_Click(object sender, EventArgs e)
-        {
-            OnJenisOrderanViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemSubTipe_Click(object sender, EventArgs e)
-        {
-            OnSubTipeViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemSupplier_Click(object sender, EventArgs e)
-        {
-            OnSupplierViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemBarang_Click(object sender, EventArgs e)
-        {
-            OnBarangViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripButtonBarang_Click(object sender, EventArgs e)
-        {
-            toolStripMenuItemBarang_Click(sender, e);
-        }
-
-        private void toolStripMenuItemSatuan_Click(object sender, EventArgs e)
-        {
-            OnSatuanViewClick?.Invoke(sender, _eventArgs);
-        }
-
         private void toolStripMenuItemPelanggan_Click(object sender, EventArgs e)
         {
             OnPelangganViewClick?.Invoke(sender, _eventArgs);
+        }
+
+        private void toolStripButtonPelanggan_Click(object sender, EventArgs e)
+        {
+            toolStripMenuItemPelanggan_Click(sender, e);
         }
 
         private void toolStripMenuItemUser_Click(object sender, EventArgs e)
@@ -161,39 +119,24 @@ namespace PrintingApplication.Presentation.Views
             OnRoleViewClick?.Invoke(sender, _eventArgs);
         }
 
-        private void toolStripMenuItemPenyesuaianStok_Click(object sender, EventArgs e)
-        {
-            OnPenyesuaianStokViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemHutangOperasional_Click(object sender, EventArgs e)
-        {
-            OnHutangOperasionalViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemKasAwal_Click(object sender, EventArgs e)
-        {
-            OnKasAwalViewClick?.Invoke(sender, e);
-        }
-
-        private void toolStripMenuItemPenjualan_Click(object sender, EventArgs e)
+        private void toolStripMenuItemOrderan_Click(object sender, EventArgs e)
         {
             OnOrderanViewClick?.Invoke(sender, _eventArgs);
         }
 
-        private void toolStripButtonPenjualan_Click(object sender, EventArgs e)
+        private void toolStripButtonOrderan_Click(object sender, EventArgs e)
         {
-            toolStripMenuItemPenjualan_Click(sender, e);
+            toolStripMenuItemOrderan_Click(sender, e);
         }
 
-        private void toolStripMenuItemPembelian_Click(object sender, EventArgs e)
+        private void toolStripMenuItemJenisOrderan_Click(object sender, EventArgs e)
         {
-            OnPembelianViewClick?.Invoke(sender, _eventArgs);
+            OnJenisOrderanViewClick?.Invoke(sender, _eventArgs);
         }
 
-        private void toolStripButtonPembelian_Click(object sender, EventArgs e)
+        private void toolStripButtonJenisOrderan_Click(object sender, EventArgs e)
         {
-            toolStripMenuItemPembelian_Click(sender, e);
+            toolStripMenuItemJenisOrderan_Click(sender, e);
         }
 
         private void toolStripMenuItemPengeluaran_Click(object sender, EventArgs e)
@@ -201,59 +144,14 @@ namespace PrintingApplication.Presentation.Views
             OnPengeluaranViewClick?.Invoke(sender, _eventArgs);
         }
 
-        private void toolStripMenuItemReturnPenjualan_Click(object sender, EventArgs e)
-        {
-            OnReturnPenjualanViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemReturnPembelian_Click(object sender, EventArgs e)
-        {
-            OnReturnPembelianViewClick?.Invoke(sender, _eventArgs);
-        }
-
         private void toolStripMenuItemLaporanPenjualan_Click(object sender, EventArgs e)
         {
-            OnLaporanPenjualanViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemLaporanPembelian_Click(object sender, EventArgs e)
-        {
-            OnLaporanPembelianViewClick?.Invoke(sender, _eventArgs);
+            OnLaporanOrderanViewClick?.Invoke(sender, _eventArgs);
         }
 
         private void toolStripMenuItemLaporanPengeluaran_Click(object sender, EventArgs e)
         {
             OnLaporanPengeluaranViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemTransaksiByDate_Click(object sender, EventArgs e)
-        {
-            OnLaporanTransaksiByDateViewClick?.Invoke(sender, e);
-        }
-
-        private void toolStripMenuItemLaporanReturnPenjualan_Click(object sender, EventArgs e)
-        {
-            OnLaporanReturnPenjualanViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemLaporanReturnPembelian_Click(object sender, EventArgs e)
-        {
-            OnLaporanReturnPembelianViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemPerHari_Click(object sender, EventArgs e)
-        {
-            OnLaporanStatusBarangViewClick?.Invoke(sender, e);
-        }
-
-        private void toolStripMenuItemPerBarang_Click(object sender, EventArgs e)
-        {
-            OnLaporanStatusPerBarangViewClick?.Invoke(sender, _eventArgs);
-        }
-
-        private void toolStripMenuItemBarangTerjual_Click(object sender, EventArgs e)
-        {
-            OnLaporanGrafikBarangTerjualViewClick?.Invoke(sender, _eventArgs);
         }
 
         private void toolStripMenuItemLabaRugi_Click(object sender, EventArgs e)

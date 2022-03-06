@@ -73,8 +73,8 @@
             this.toolStripMenuItemTentang = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonBarang = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonJenisOrderan = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonJenisOrderan = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPelanggan = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLogOut = new System.Windows.Forms.ToolStripButton();
@@ -251,6 +251,7 @@
             this.toolStripMenuItemDataTipe.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemDataTipe.Tag = "JenisOrderanView";
             this.toolStripMenuItemDataTipe.Text = "&Jenis Orderan";
+            this.toolStripMenuItemDataTipe.Click += new System.EventHandler(this.toolStripMenuItemJenisOrderan_Click);
             // 
             // toolStripMenuItemPelanggan
             // 
@@ -312,7 +313,7 @@
             this.toolStripMenuItemPembelian.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPembelian.Tag = "OrderanView";
             this.toolStripMenuItemPembelian.Text = "&Orderan";
-            this.toolStripMenuItemPembelian.Click += new System.EventHandler(this.toolStripMenuItemPembelian_Click);
+            this.toolStripMenuItemPembelian.Click += new System.EventHandler(this.toolStripMenuItemOrderan_Click);
             // 
             // toolStripMenuItemPengeluaran
             // 
@@ -343,7 +344,7 @@
             this.toolStripMenuItemLaporanPenjualan.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLaporanPenjualan.AccessibleName = "menuForm";
             this.toolStripMenuItemLaporanPenjualan.Name = "toolStripMenuItemLaporanPenjualan";
-            this.toolStripMenuItemLaporanPenjualan.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemLaporanPenjualan.Size = new System.Drawing.Size(140, 22);
             this.toolStripMenuItemLaporanPenjualan.Tag = "LaporanOrderanView";
             this.toolStripMenuItemLaporanPenjualan.Text = "&Orderan";
             this.toolStripMenuItemLaporanPenjualan.Click += new System.EventHandler(this.toolStripMenuItemLaporanPenjualan_Click);
@@ -353,7 +354,7 @@
             this.toolStripMenuItemLaporanPengeluaran.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLaporanPengeluaran.AccessibleName = "menuForm";
             this.toolStripMenuItemLaporanPengeluaran.Name = "toolStripMenuItemLaporanPengeluaran";
-            this.toolStripMenuItemLaporanPengeluaran.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemLaporanPengeluaran.Size = new System.Drawing.Size(140, 22);
             this.toolStripMenuItemLaporanPengeluaran.Tag = "LaporanPengeluaranView";
             this.toolStripMenuItemLaporanPengeluaran.Text = "Penge&luaran";
             this.toolStripMenuItemLaporanPengeluaran.Click += new System.EventHandler(this.toolStripMenuItemLaporanPengeluaran_Click);
@@ -361,14 +362,14 @@
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(137, 6);
             // 
             // toolStripMenuItemLabaRugi
             // 
             this.toolStripMenuItemLabaRugi.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLabaRugi.AccessibleName = "menuForm";
             this.toolStripMenuItemLabaRugi.Name = "toolStripMenuItemLabaRugi";
-            this.toolStripMenuItemLabaRugi.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemLabaRugi.Size = new System.Drawing.Size(140, 22);
             this.toolStripMenuItemLabaRugi.Tag = "LaporanLabaRugiView";
             this.toolStripMenuItemLabaRugi.Text = "Laba &Rugi";
             this.toolStripMenuItemLabaRugi.Click += new System.EventHandler(this.toolStripMenuItemLabaRugi_Click);
@@ -476,7 +477,12 @@
             this.toolStripButtonBarang.Text = "Orderan";
             this.toolStripButtonBarang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButtonBarang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonBarang.Click += new System.EventHandler(this.toolStripButtonBarang_Click);
+            this.toolStripButtonBarang.Click += new System.EventHandler(this.toolStripButtonOrderan_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 48);
             // 
             // toolStripButtonJenisOrderan
             // 
@@ -491,12 +497,7 @@
             this.toolStripButtonJenisOrderan.Text = "Jenis Orderan";
             this.toolStripButtonJenisOrderan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButtonJenisOrderan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonJenisOrderan.Click += new System.EventHandler(this.toolStripButtonPembelian_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 48);
+            this.toolStripButtonJenisOrderan.Click += new System.EventHandler(this.toolStripButtonJenisOrderan_Click);
             // 
             // toolStripButtonPelanggan
             // 
@@ -511,6 +512,7 @@
             this.toolStripButtonPelanggan.Text = "Pelanggan";
             this.toolStripButtonPelanggan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.toolStripButtonPelanggan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonPelanggan.Click += new System.EventHandler(this.toolStripButtonPelanggan_Click);
             // 
             // toolStripSeparator10
             // 
