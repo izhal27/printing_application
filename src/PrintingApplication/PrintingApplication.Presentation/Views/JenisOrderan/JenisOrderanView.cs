@@ -2,7 +2,7 @@
 using Syncfusion.WinForms.DataGrid.Events;
 using System;
 
-namespace PrintingApplication.Presentation.Views.Tipe
+namespace PrintingApplication.Presentation.Views.JenisOrderan
 {
     public partial class JenisOrderanView : BaseDataView, IJenisOrderanView
     {

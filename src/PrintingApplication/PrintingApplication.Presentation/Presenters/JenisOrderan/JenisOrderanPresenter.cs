@@ -1,10 +1,11 @@
-﻿using Equin.ApplicationFramework;
+﻿using Dexih.Utils.CopyProperties;
+using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.JenisOrderan;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrderan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
-using PrintingApplication.Presentation.Views.Tipe;
+using PrintingApplication.Presentation.Views.JenisOrderan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.JenisOrderan;
 using Syncfusion.WinForms.DataGrid.Events;
@@ -58,7 +59,7 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
         private void _view_OnCreateData(object sender, EventArgs e)
         {
             var view = new JenisOrderanEntryView();
-            view.OnSaveData += TipeEntryView_OnSaveData;
+            view.OnSaveData += JenisOrderanEntryView_OnSaveData;
             view.ShowDialog();
         }
 
@@ -84,14 +85,14 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
                     if (model != null)
                     {
                         var view = new JenisOrderanEntryView(false, model);
-                        view.OnSaveData += TipeEntryView_OnSaveData;
+                        view.OnSaveData += JenisOrderanEntryView_OnSaveData;
                         view.ShowDialog();
                     }
                 }
             }
         }
 
-        private void TipeEntryView_OnSaveData(object sender, EventArgs e)
+        private void JenisOrderanEntryView_OnSaveData(object sender, EventArgs e)
         {
             using (new WaitCursorHandler())
             {
@@ -101,7 +102,7 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
                     var newModel = ((ModelEventArgs<JenisOrderanModel>)e).Value;
                     var view = ((JenisOrderanEntryView)sender);
 
-                    if (newModel.id == default(uint))
+                    if (newModel.id == default)
                     {
                         _services.Insert(newModel);
                         view.Controls.ClearControls();
@@ -127,8 +128,7 @@ namespace PrintingApplication.Presentation.Presenters.JenisOrderan
 
                         if (model != null)
                         {
-                            model.nama = newModel.nama;
-                            model.keterangan = newModel.keterangan;
+                            newModel.CopyProperties(model);
 
                             _bindingView.Refresh();
                         }

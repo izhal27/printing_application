@@ -3,15 +3,16 @@ using PrintingApplication.Domain.Models.JenisOrderan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
 using System;
+using System.Globalization;
 
-namespace PrintingApplication.Presentation.Views.Tipe
+namespace PrintingApplication.Presentation.Views.JenisOrderan
 {
-    public partial class JenisOrderanEntryView : BaseEntryView, ITipeEntryView
+    public partial class JenisOrderanEntryView : BaseEntryView, IJenisOrderanEntryView
     {
         private bool _isNewData;
         private IJenisOrderanModel _model;
         public event EventHandler OnSaveData;
-        private static string _typeName = "Tipe";
+        private static string _typeName = "Jenis Orderan";
 
         public JenisOrderanEntryView(bool isNewData = true, IJenisOrderanModel model = null)
         {
@@ -22,7 +23,9 @@ namespace PrintingApplication.Presentation.Views.Tipe
             if (!_isNewData)
             {
                 _model = model;
+                textBoxKode.Text = model.kode;
                 textBoxNama.Text = model.nama;
+                textBoxHargaSatuan.Text = model.harga_satuan.ToString("N0");
                 textBoxKeterangan.Text = model.keterangan;
             }
 
@@ -33,7 +36,9 @@ namespace PrintingApplication.Presentation.Views.Tipe
         {
             var model = new JenisOrderanModel
             {
+                kode = textBoxKode.Text,
                 nama = textBoxNama.Text,
+                harga_satuan = decimal.Parse(textBoxHargaSatuan.Text, NumberStyles.Number),
                 keterangan = textBoxKeterangan.Text
             };
 

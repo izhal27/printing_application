@@ -1,4 +1,4 @@
-﻿using PrintingApplication.Presentation.Views.Tipe;
+﻿using PrintingApplication.Presentation.Views.JenisOrderan;
 
 namespace PrintingApplication.Presentation.Presenters.JenisOrderan
 {

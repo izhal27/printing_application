@@ -1,4 +1,4 @@
-﻿namespace PrintingApplication.Presentation.Views.Tipe
+﻿namespace PrintingApplication.Presentation.Views.JenisOrderan
 {
    partial class JenisOrderanView
    {
