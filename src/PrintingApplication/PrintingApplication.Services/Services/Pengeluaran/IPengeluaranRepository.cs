@@ -2,7 +2,7 @@
 
 namespace PrintingApplication.Services.Services.JenisOrderan
 {
-    public interface IPengeluaranRepository : IBaseRepository<IPengeluaranModel>
+    public interface IPengeluaranRepository : IBaseRepositoryGetByDate<IPengeluaranModel>
     {
     }
 }

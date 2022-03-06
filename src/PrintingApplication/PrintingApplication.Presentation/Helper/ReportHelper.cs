@@ -40,7 +40,7 @@
         //         }
         //      };
 
-        //         new ReportView("Nota Penjualan", "ReportViewerNotaPenjualan",
+        //         new ReportView("Nota Orderan", "ReportViewerNotaPenjualan",
         //                        reportDataSources, null).ShowDialog();
         //      }
         //      else
@@ -64,7 +64,7 @@
         //         }
         //      };
 
-        //      new ReportView("Nota Return Penjualan", "ReportViewerNotaReturnPenjualan",
+        //      new ReportView("Nota Return Orderan", "ReportViewerNotaReturnPenjualan",
         //                     reportDataSources, null).ShowDialog();
         //   }
 
@@ -89,12 +89,12 @@
         //   /// <summary>
         //   /// Method yang digunakkan untuk mencetak nota penjualan ke printer thermal
         //   /// </summary>
-        //   /// <param name="penjualanModel">Penjualan object</param>
+        //   /// <param name="penjualanModel">Orderan object</param>
         //   private static void NotaPenjualanPrinterThermal()
         //   {
         //      // Inisialisai printDocument object
         //      PrintDocument printDocument = new PrintDocument();
-        //      printDocument.DocumentName = "Nota Penjualan";
+        //      printDocument.DocumentName = "Nota Orderan";
         //      printDocument.PrintPage += printDocument_PrintPage;
         //      PrinterSettings printerSettings = new PrinterSettings();
 

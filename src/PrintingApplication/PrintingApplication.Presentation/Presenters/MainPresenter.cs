@@ -3,6 +3,7 @@ using PrintingApplication.Presentation.Presenters.Database;
 using PrintingApplication.Presentation.Presenters.GantiPassword;
 using PrintingApplication.Presentation.Presenters.JenisOrderan;
 using PrintingApplication.Presentation.Presenters.Login;
+using PrintingApplication.Presentation.Presenters.Orderan;
 using PrintingApplication.Presentation.Presenters.Pelanggan;
 using PrintingApplication.Presentation.Presenters.Pengaturan;
 using PrintingApplication.Presentation.Presenters.Pengeluaran;
@@ -14,6 +15,7 @@ using PrintingApplication.Presentation.Views;
 using PrintingApplication.Presentation.Views.Database;
 using System;
 using System.Linq;
+//using System.Reflection;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -21,7 +23,7 @@ namespace PrintingApplication.Presentation.Presenters
 {
     public class MainPresenter : IMainPresenter
     {
-        private IMainView _view;
+        private readonly IMainView _view;
 
         public IMainView GetView
         {
@@ -44,7 +46,7 @@ namespace PrintingApplication.Presentation.Presenters
             // AKtifkan pemanggilan method dibawah ini untuk mereset data pada tabel form_action dan role_detail ketika anda menambahkan Menu, Form, atau control baru,
             // jangan lupa nonaktifkan kembali, agar tidak melakukan reset setiap kali aplikasi dijalankan.
             //
-            // roleManager.ResetFormAction(Assembly.GetExecutingAssembly());
+            //roleManager.ResetFormAction(Assembly.GetExecutingAssembly());
 
             // Enable/Disable MenuStrip dan ToolStrip sesuai Role operator
             roleManager.PopulateRoleDetailToMenuStripAndToolStrip();
@@ -75,8 +77,8 @@ namespace PrintingApplication.Presentation.Presenters
 
         private void _view_OnViewLoad(object sender, EventArgs e)
         {
-            _view.ToolStrip.Visible = MainProgram.Pengaturan.show_tool_strip;
-            _view.StatusStrip.Visible = MainProgram.Pengaturan.show_status_strip;
+            //_view.ToolStrip.Visible = MainProgram.Pengaturan.show_tool_strip;
+            //_view.StatusStrip.Visible = MainProgram.Pengaturan.show_status_strip;
         }
 
         private void _view_OnLogOutClick(object sender, EventArgs e)
@@ -140,7 +142,7 @@ namespace PrintingApplication.Presentation.Presenters
 
         private void _view_OnLaporanPenjualanViewClick(object sender, MainViewEventArgs e)
         {
-            var view = (DockContent)new LaporanPenjualanPresenter().GetView;
+            var view = (DockContent)new LaporanOrderanPresenter().GetView;
             ShowChildForm(view, e);
         }
 

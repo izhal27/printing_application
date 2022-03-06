@@ -59,7 +59,6 @@
             this.toolStripMenuItemTransaksi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPembelian = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemPengeluaran = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemLaporan = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLaporanPenjualan = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemLaporanPengeluaran = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,12 +72,11 @@
             this.toolStripMenuItemBantuan = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemTentang = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMain = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonBarang = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPembelian = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonPenjualan = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonJenisOrderan = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonPelanggan = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonLogOut = new System.Windows.Forms.ToolStripButton();
             this.statusStripMain.SuspendLayout();
             this.menuStripMain.SuspendLayout();
@@ -250,7 +248,7 @@
             this.toolStripMenuItemDataTipe.AccessibleDescription = "Master";
             this.toolStripMenuItemDataTipe.AccessibleName = "menuForm";
             this.toolStripMenuItemDataTipe.Name = "toolStripMenuItemDataTipe";
-            this.toolStripMenuItemDataTipe.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemDataTipe.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemDataTipe.Tag = "JenisOrderanView";
             this.toolStripMenuItemDataTipe.Text = "&Jenis Orderan";
             // 
@@ -259,7 +257,7 @@
             this.toolStripMenuItemPelanggan.AccessibleDescription = "Master";
             this.toolStripMenuItemPelanggan.AccessibleName = "menuForm";
             this.toolStripMenuItemPelanggan.Name = "toolStripMenuItemPelanggan";
-            this.toolStripMenuItemPelanggan.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemPelanggan.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPelanggan.Tag = "PelangganView";
             this.toolStripMenuItemPelanggan.Text = "&Pelanggan";
             this.toolStripMenuItemPelanggan.Click += new System.EventHandler(this.toolStripMenuItemPelanggan_Click);
@@ -267,14 +265,14 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemUser
             // 
             this.toolStripMenuItemUser.AccessibleDescription = "Master";
             this.toolStripMenuItemUser.AccessibleName = "menuForm";
             this.toolStripMenuItemUser.Name = "toolStripMenuItemUser";
-            this.toolStripMenuItemUser.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemUser.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemUser.Tag = "UserView";
             this.toolStripMenuItemUser.Text = "Use&r";
             this.toolStripMenuItemUser.Click += new System.EventHandler(this.toolStripMenuItemUser_Click);
@@ -282,14 +280,14 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemRole
             // 
             this.toolStripMenuItemRole.AccessibleDescription = "Master";
             this.toolStripMenuItemRole.AccessibleName = "menuForm";
             this.toolStripMenuItemRole.Name = "toolStripMenuItemRole";
-            this.toolStripMenuItemRole.Size = new System.Drawing.Size(162, 22);
+            this.toolStripMenuItemRole.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemRole.Tag = "RoleView";
             this.toolStripMenuItemRole.Text = "Ro&le (Hak Akses)";
             this.toolStripMenuItemRole.Click += new System.EventHandler(this.toolStripMenuItemRole_Click);
@@ -300,8 +298,7 @@
             this.toolStripMenuItemTransaksi.AccessibleName = "menu";
             this.toolStripMenuItemTransaksi.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemPembelian,
-            this.toolStripMenuItemPengeluaran,
-            this.toolStripSeparator6});
+            this.toolStripMenuItemPengeluaran});
             this.toolStripMenuItemTransaksi.Name = "toolStripMenuItemTransaksi";
             this.toolStripMenuItemTransaksi.Size = new System.Drawing.Size(66, 20);
             this.toolStripMenuItemTransaksi.Tag = "Transaksi";
@@ -312,7 +309,7 @@
             this.toolStripMenuItemPembelian.AccessibleDescription = "Transaksi";
             this.toolStripMenuItemPembelian.AccessibleName = "menuForm";
             this.toolStripMenuItemPembelian.Name = "toolStripMenuItemPembelian";
-            this.toolStripMenuItemPembelian.Size = new System.Drawing.Size(140, 22);
+            this.toolStripMenuItemPembelian.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPembelian.Tag = "OrderanView";
             this.toolStripMenuItemPembelian.Text = "&Orderan";
             this.toolStripMenuItemPembelian.Click += new System.EventHandler(this.toolStripMenuItemPembelian_Click);
@@ -322,15 +319,10 @@
             this.toolStripMenuItemPengeluaran.AccessibleDescription = "Transaksi";
             this.toolStripMenuItemPengeluaran.AccessibleName = "menuForm";
             this.toolStripMenuItemPengeluaran.Name = "toolStripMenuItemPengeluaran";
-            this.toolStripMenuItemPengeluaran.Size = new System.Drawing.Size(140, 22);
+            this.toolStripMenuItemPengeluaran.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPengeluaran.Tag = "PengeluaranView";
             this.toolStripMenuItemPengeluaran.Text = "Penge&luaran";
             this.toolStripMenuItemPengeluaran.Click += new System.EventHandler(this.toolStripMenuItemPengeluaran_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(137, 6);
             // 
             // toolStripMenuItemLaporan
             // 
@@ -351,7 +343,7 @@
             this.toolStripMenuItemLaporanPenjualan.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLaporanPenjualan.AccessibleName = "menuForm";
             this.toolStripMenuItemLaporanPenjualan.Name = "toolStripMenuItemLaporanPenjualan";
-            this.toolStripMenuItemLaporanPenjualan.Size = new System.Drawing.Size(140, 22);
+            this.toolStripMenuItemLaporanPenjualan.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemLaporanPenjualan.Tag = "LaporanOrderanView";
             this.toolStripMenuItemLaporanPenjualan.Text = "&Orderan";
             this.toolStripMenuItemLaporanPenjualan.Click += new System.EventHandler(this.toolStripMenuItemLaporanPenjualan_Click);
@@ -361,7 +353,7 @@
             this.toolStripMenuItemLaporanPengeluaran.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLaporanPengeluaran.AccessibleName = "menuForm";
             this.toolStripMenuItemLaporanPengeluaran.Name = "toolStripMenuItemLaporanPengeluaran";
-            this.toolStripMenuItemLaporanPengeluaran.Size = new System.Drawing.Size(140, 22);
+            this.toolStripMenuItemLaporanPengeluaran.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemLaporanPengeluaran.Tag = "LaporanPengeluaranView";
             this.toolStripMenuItemLaporanPengeluaran.Text = "Penge&luaran";
             this.toolStripMenuItemLaporanPengeluaran.Click += new System.EventHandler(this.toolStripMenuItemLaporanPengeluaran_Click);
@@ -369,14 +361,14 @@
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(137, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItemLabaRugi
             // 
             this.toolStripMenuItemLabaRugi.AccessibleDescription = "Laporan";
             this.toolStripMenuItemLabaRugi.AccessibleName = "menuForm";
             this.toolStripMenuItemLabaRugi.Name = "toolStripMenuItemLabaRugi";
-            this.toolStripMenuItemLabaRugi.Size = new System.Drawing.Size(140, 22);
+            this.toolStripMenuItemLabaRugi.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemLabaRugi.Tag = "LaporanLabaRugiView";
             this.toolStripMenuItemLabaRugi.Text = "Laba &Rugi";
             this.toolStripMenuItemLabaRugi.Click += new System.EventHandler(this.toolStripMenuItemLabaRugi_Click);
@@ -459,10 +451,9 @@
             this.toolStripMain.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonBarang,
-            this.toolStripButtonPembelian,
             this.toolStripSeparator2,
-            this.toolStripButton1,
-            this.toolStripButtonPenjualan,
+            this.toolStripButtonJenisOrderan,
+            this.toolStripButtonPelanggan,
             this.toolStripSeparator10,
             this.toolStripButtonLogOut});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
@@ -471,19 +462,9 @@
             this.toolStripMain.TabIndex = 5;
             this.toolStripMain.Text = "toolStrip1";
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 48);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 48);
-            // 
             // toolStripButtonBarang
             // 
-            this.toolStripButtonBarang.AccessibleDescription = "Master";
+            this.toolStripButtonBarang.AccessibleDescription = "Transaksi";
             this.toolStripButtonBarang.AccessibleName = "menuForm";
             this.toolStripButtonBarang.Image = global::PrintingApplication.Presentation.Properties.Resources.orderan;
             this.toolStripButtonBarang.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -497,49 +478,44 @@
             this.toolStripButtonBarang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButtonBarang.Click += new System.EventHandler(this.toolStripButtonBarang_Click);
             // 
-            // toolStripButtonPembelian
+            // toolStripButtonJenisOrderan
             // 
-            this.toolStripButtonPembelian.AccessibleDescription = "Transaksi";
-            this.toolStripButtonPembelian.AccessibleName = "menuForm";
-            this.toolStripButtonPembelian.Image = global::PrintingApplication.Presentation.Properties.Resources.jenis_orderan;
-            this.toolStripButtonPembelian.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPembelian.Name = "toolStripButtonPembelian";
-            this.toolStripButtonPembelian.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButtonPembelian.Size = new System.Drawing.Size(92, 45);
-            this.toolStripButtonPembelian.Tag = "PembelianView";
-            this.toolStripButtonPembelian.Text = "Jenis Orderan";
-            this.toolStripButtonPembelian.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButtonPembelian.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonPembelian.Click += new System.EventHandler(this.toolStripButtonPembelian_Click);
+            this.toolStripButtonJenisOrderan.AccessibleDescription = "Master";
+            this.toolStripButtonJenisOrderan.AccessibleName = "menuForm";
+            this.toolStripButtonJenisOrderan.Image = global::PrintingApplication.Presentation.Properties.Resources.jenis_orderan;
+            this.toolStripButtonJenisOrderan.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonJenisOrderan.Name = "toolStripButtonJenisOrderan";
+            this.toolStripButtonJenisOrderan.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripButtonJenisOrderan.Size = new System.Drawing.Size(92, 45);
+            this.toolStripButtonJenisOrderan.Tag = "JenisOrderanView";
+            this.toolStripButtonJenisOrderan.Text = "Jenis Orderan";
+            this.toolStripButtonJenisOrderan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonJenisOrderan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonJenisOrderan.Click += new System.EventHandler(this.toolStripButtonPembelian_Click);
             // 
-            // toolStripButton1
+            // toolStripSeparator2
             // 
-            this.toolStripButton1.AccessibleDescription = "Transaksi";
-            this.toolStripButton1.AccessibleName = "menuForm";
-            this.toolStripButton1.Image = global::PrintingApplication.Presentation.Properties.Resources.pelanggan;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButton1.Size = new System.Drawing.Size(77, 45);
-            this.toolStripButton1.Tag = "PenjualanView";
-            this.toolStripButton1.Text = "Pelanggan";
-            this.toolStripButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 48);
             // 
-            // toolStripButtonPenjualan
+            // toolStripButtonPelanggan
             // 
-            this.toolStripButtonPenjualan.AccessibleDescription = "Transaksi";
-            this.toolStripButtonPenjualan.AccessibleName = "menuForm";
-            this.toolStripButtonPenjualan.Image = global::PrintingApplication.Presentation.Properties.Resources.laporan;
-            this.toolStripButtonPenjualan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonPenjualan.Name = "toolStripButtonPenjualan";
-            this.toolStripButtonPenjualan.Padding = new System.Windows.Forms.Padding(5);
-            this.toolStripButtonPenjualan.Size = new System.Drawing.Size(64, 45);
-            this.toolStripButtonPenjualan.Tag = "PenjualanView";
-            this.toolStripButtonPenjualan.Text = "Laporan";
-            this.toolStripButtonPenjualan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButtonPenjualan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonPenjualan.Click += new System.EventHandler(this.toolStripButtonPenjualan_Click);
+            this.toolStripButtonPelanggan.AccessibleDescription = "Master";
+            this.toolStripButtonPelanggan.AccessibleName = "menuForm";
+            this.toolStripButtonPelanggan.Image = global::PrintingApplication.Presentation.Properties.Resources.pelanggan;
+            this.toolStripButtonPelanggan.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPelanggan.Name = "toolStripButtonPelanggan";
+            this.toolStripButtonPelanggan.Padding = new System.Windows.Forms.Padding(5);
+            this.toolStripButtonPelanggan.Size = new System.Drawing.Size(77, 45);
+            this.toolStripButtonPelanggan.Tag = "PelangganView";
+            this.toolStripButtonPelanggan.Text = "Pelanggan";
+            this.toolStripButtonPelanggan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButtonPelanggan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 48);
             // 
             // toolStripButtonLogOut
             // 
@@ -604,17 +580,15 @@
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemTentang;
       private System.Windows.Forms.ToolStrip toolStripMain;
       private System.Windows.Forms.ToolStripButton toolStripButtonBarang;
-      private System.Windows.Forms.ToolStripButton toolStripButtonPenjualan;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPelanggan;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLaporanPengeluaran;
-      private System.Windows.Forms.ToolStripButton toolStripButtonPembelian;
+      private System.Windows.Forms.ToolStripButton toolStripButtonJenisOrderan;
       private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemLabaRugi;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAlat;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPengaturan;
       private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMachineName;
       private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-      private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemUser;
       private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
       private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRole;
@@ -633,7 +607,7 @@
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel7;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelUser;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPelanggan;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     }
 }

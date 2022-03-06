@@ -316,6 +316,13 @@
     <Compile Include="Views\ModelControls\ComboBoxTipe.Designer.cs">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Orderan\BayarOrderanEntryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Orderan\BayarOrderanEntryView.Designer.cs">
+      <DependentUpon>BayarOrderanEntryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orderan\IBayarOrderanEntryView.cs" />
     <Compile Include="Views\Orderan\ILaporanOrderanView.cs" />
     <Compile Include="Views\Orderan\IOrderanView.cs" />
     <Compile Include="Views\Orderan\LaporanOrderanView.cs">
@@ -508,6 +515,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ModelControls\ComboBoxTipe.resx">
       <DependentUpon>ComboBoxTipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Orderan\BayarOrderanEntryView.resx">
+      <DependentUpon>BayarOrderanEntryView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Orderan\LaporanOrderanView.resx">
       <DependentUpon>LaporanOrderanView.cs</DependentUpon>

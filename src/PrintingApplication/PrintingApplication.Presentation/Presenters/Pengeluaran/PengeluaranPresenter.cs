@@ -47,7 +47,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
             {
                 if (_view.ListDataGrid != null)
                 {
-                    //_listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
+                    _listObjs = _services.GetByDate(DateTime.Now.Date).ToList();
                     _bindingView = new BindingListView<PengeluaranModel>(_listObjs);
                     _view.ListDataGrid.DataSource = _bindingView;
                     _bindingView.ListChanged += _bindingView_ListChanged;

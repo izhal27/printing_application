@@ -39,7 +39,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
 
             switch (tipePencarian)
             {
-                case TipePencarian.Penjualan:
+                case TipePencarian.Orderan:
 
                     listDataGrid.Columns[4].Visible = false; // Hpp
                     listDataGrid.Columns[6].Visible = false; // Minimal stok
@@ -60,7 +60,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
 
             _kodeOrNamaValue = kodeOrNamaValue;
 
-            if (tipePencarian == TipePencarian.Penjualan)
+            if (tipePencarian == TipePencarian.Orderan)
             {
                 listDataGrid.QueryRowStyle += ListDataGrid_QueryRowStyle;
             }
@@ -101,7 +101,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
             {
                 var model = (JenisOrderanModel)listDataGrid.SelectedItem;
 
-                //if (_tipePencarian == TipePencarian.Penjualan && model.stok <= 0)
+                //if (_tipePencarian == TipePencarian.Orderan && model.stok <= 0)
                 //{
                 //    return;
                 //}
@@ -136,7 +136,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
     public enum TipePencarian
     {
         Pembelian,
-        Penjualan,
+        Orderan,
         PenyesuaianStok,
     }
 }

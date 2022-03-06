@@ -147,7 +147,7 @@
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(54, 13);
          this.label5.TabIndex = 0;
-         this.label5.Text = "Penjualan";
+         this.label5.Text = "Orderan";
          // 
          // label6
          // 
@@ -339,7 +339,7 @@
          this.label12.Name = "label12";
          this.label12.Size = new System.Drawing.Size(89, 13);
          this.label12.TabIndex = 0;
-         this.label12.Text = "Return Penjualan";
+         this.label12.Text = "Return Orderan";
          // 
          // label19
          // 

@@ -41,6 +41,9 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
         [Display(Name = "Sub Total")]
-        public decimal sub_total { get; set; }
+        public decimal sub_total
+        {
+            get { return this.jumlah > 0 && this.harga_satuan > 0 ? (this.jumlah * harga_satuan) - diskon : 0; }
+        }
     }
 }

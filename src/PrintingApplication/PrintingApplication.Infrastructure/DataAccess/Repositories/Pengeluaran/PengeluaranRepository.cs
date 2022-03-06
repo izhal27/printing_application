@@ -1,4 +1,5 @@
-﻿using Dapper.Contrib.Extensions;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Pengeluaran;
 using PrintingApplication.Services.Services.JenisOrderan;
@@ -72,6 +73,26 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
                     return model;
                 }, dataAccessStatus,
                             () => CheckModelExist(context, id));
+            }
+        }
+
+        public IEnumerable<IPengeluaranModel> GetByDate(object date)
+        {
+            var dataAccessStatus = new DataAccessStatus();
+
+            using (var context = new DbContext())
+            {
+                return context.Conn.Query<PengeluaranModel>(StringHelper.QueryStringByDate(_modelName), new { date });
+            }
+        }
+
+        public IEnumerable<IPengeluaranModel> GetByDate(object startDate, object endDate)
+        {
+            var dataAccessStatus = new DataAccessStatus();
+
+            using (var context = new DbContext())
+            {
+                return context.Conn.Query<PengeluaranModel>(StringHelper.QueryStringByBetweenDate(_modelName), new { startDate, endDate });
             }
         }
 

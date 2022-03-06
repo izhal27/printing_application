@@ -42,6 +42,16 @@ namespace PrintingApplication.Services.Services.Pengeluaran
             return _repo.GetById(id);
         }
 
+        public IEnumerable<IPengeluaranModel> GetByDate(object date)
+        {
+            return _repo.GetByDate(date);
+        }
+
+        public IEnumerable<IPengeluaranModel> GetByDate(object startDate, object endDate)
+        {
+            return _repo.GetByDate(startDate, endDate);
+        }
+
         public void ValidateModel(IPengeluaranModel model)
         {
             _modelDAC.ValidateModel(model);

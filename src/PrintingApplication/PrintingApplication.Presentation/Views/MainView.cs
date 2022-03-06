@@ -10,8 +10,8 @@ namespace PrintingApplication.Presentation.Views
 {
     public partial class MainView : DockContent, IMainView
     {
-        private DockPanel _dockPanel;
-        private MainViewEventArgs _eventArgs;
+        private readonly DockPanel _dockPanel;
+        private readonly MainViewEventArgs _eventArgs;
 
         public event EventHandler OnViewLoad;
         public event EventHandler OnLogOutClick;

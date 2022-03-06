@@ -47,7 +47,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      jumlah = 1,
                      harga_satuan = 24_000,
                      diskon = 0,
-                     sub_total = 24_000,
                   },
                   new OrderanDetailModel
                   {
@@ -56,7 +55,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      jumlah = 2,
                      harga_satuan = 50_000,
                      diskon = 10_000,
-                     sub_total = 90_000,
                   },
                   new OrderanDetailModel
                   {
@@ -65,7 +63,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      jumlah = 1,
                      harga_satuan = 65_000,
                      diskon = 0,
-                     sub_total = 65_000,
                   },
                };
 

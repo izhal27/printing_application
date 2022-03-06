@@ -247,7 +247,7 @@
          this.Controls.Add(this.listDataGrid);
          this.KeyPreview = true;
          this.Name = "PenjualanView";
-         this.Text = "Penjualan Barang";
+         this.Text = "Orderan Barang";
          this.Load += new System.EventHandler(this.PenjualanView_Load);
          this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PenjualanView_KeyDown);
          this.Controls.SetChildIndex(this.listDataGrid, 0);

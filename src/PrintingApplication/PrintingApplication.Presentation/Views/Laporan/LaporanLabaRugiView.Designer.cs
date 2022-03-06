@@ -218,7 +218,7 @@
          this.label9.Name = "label9";
          this.label9.Size = new System.Drawing.Size(120, 13);
          this.label9.TabIndex = 0;
-         this.label9.Text = "Harga Pokok Penjualan";
+         this.label9.Text = "Harga Pokok Orderan";
          // 
          // label3
          // 
@@ -228,7 +228,7 @@
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(54, 13);
          this.label3.TabIndex = 0;
-         this.label3.Text = "Penjualan";
+         this.label3.Text = "Orderan";
          // 
          // label10
          // 
@@ -248,7 +248,7 @@
          this.label13.Name = "label13";
          this.label13.Size = new System.Drawing.Size(90, 13);
          this.label13.TabIndex = 0;
-         this.label13.Text = "Diskon Penjualan";
+         this.label13.Text = "Diskon Orderan";
          // 
          // labelHpp
          // 

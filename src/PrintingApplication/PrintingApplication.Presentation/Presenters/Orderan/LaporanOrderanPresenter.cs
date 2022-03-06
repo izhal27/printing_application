@@ -5,7 +5,6 @@ using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan;
 using PrintingApplication.Presentation.Helper;
-using PrintingApplication.Presentation.Presenters.Orderan;
 using PrintingApplication.Presentation.Views.CommonControls;
 using PrintingApplication.Presentation.Views.Orderan;
 using PrintingApplication.Services.Services;
@@ -15,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace PrintingApplication.Presentation.Presenters.Penjualan
+namespace PrintingApplication.Presentation.Presenters.Orderan
 {
     public class LaporanOrderanPresenter : ILaporanOrderanPresenter
     {
@@ -23,7 +22,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         private IOrderanServices _services;
         private List<IOrderanModel> _listPenjualans;
         private BindingListView<OrderanModel> _bindingView;
-        private string _typeName = "Penjualan";
+        private string _typeName = "Orderan";
         private DateTime _tanggal = DateTime.Now.Date;
         private TampilkanStatus _tampilkanStatus = TampilkanStatus.Tanggal;
         private DateTime _tanggalAwal;
@@ -122,7 +121,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
                   }
                };
 
-                    new ReportView("Laporan Penjualan", "ReportViewerLaporanPenjualan",
+                    new ReportView("Laporan Orderan", "ReportViewerLaporanPenjualan",
                                    reportDataSources, parameters).ShowDialog();
                 }
             }
@@ -134,7 +133,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
             if (model != null)
             {
-                var detailView = new DetailView("Detail Penjualan", "barang_nama");
+                var detailView = new DetailView("Detail Orderan", "barang_nama");
                 detailView.OnLoadView += DetailView_OnLoadView;
                 detailView.OnButtonCetakClick += DetailView_OnButtonCetakClick;
                 detailView.ShowDialog();

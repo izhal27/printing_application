@@ -76,7 +76,7 @@
          this.Controls.Add(this.dateTimePickerFilterTransaksi);
          this.Controls.Add(this.listDataGrid);
          this.Name = "LaporanPenjualanView";
-         this.Text = "Laporan Penjualan";
+         this.Text = "Laporan Orderan";
          this.Load += new System.EventHandler(this.LaporanPenjualanView_Load);
          this.Controls.SetChildIndex(this.panelUp, 0);
          this.Controls.SetChildIndex(this.listDataGrid, 0);

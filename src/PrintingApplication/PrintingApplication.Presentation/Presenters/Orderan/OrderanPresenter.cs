@@ -3,6 +3,8 @@ using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.JenisOrderan;
 using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrderan;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.ModelControls;
 using PrintingApplication.Presentation.Views.Orderan;
@@ -17,7 +19,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace PrintingApplication.Presentation.Presenters.Penjualan
+namespace PrintingApplication.Presentation.Presenters.Orderan
 {
     public class OrderanPresenter : IOrderanPresenter
     {
@@ -27,10 +29,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         private List<OrderanDetailModel> _listOrderanDetails;
         private List<IJenisOrderanModel> _listsJenisOrderans;
         private BindingListView<OrderanDetailModel> _bindingView;
-        private bool _statusBayar = false;
+        private bool _statusPembayaran = false;
         private string _kodeOrNamaForSearching = "";
         private IOrderanModel _orderanModel;
-        private decimal _uangKembali;
         private decimal _grandTotal;
 
         public IOrderanView GetView
@@ -54,14 +55,14 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         public OrderanPresenter()
         {
             _view = new OrderanView();
-            _orderanServices = new PenjualanServices(new PenjualanRepository(), new ModelDataAnnotationCheck());
-            _jenisOrderanServices = new BarangServices(new BarangRepository(), new ModelDataAnnotationCheck());
-            _listsJenisOrderans = _jenisOrderanServices.GetAll().Where(b => b.harga_jual > 0).ToList();
+            _orderanServices = new OrderanServices(new OrderanRepository(), new ModelDataAnnotationCheck());
+            _jenisOrderanServices = new JenisOrderanServices(new JenisOrderanRepository(), new ModelDataAnnotationCheck());
+            _listsJenisOrderans = _jenisOrderanServices.GetAll().ToList();
 
             _view.OnLoadData += _view_OnLoadData;
             _view.OnCariData += _view_OnCariData;
             _view.OnHapusData += _view_OnHapusData;
-            _view.OnSimpanData += _view_OnBayarPenjualan;
+            _view.OnSimpanData += _view_OnBayarOrderan;
             _view.OnBersihkanData += _view_OnBersihkanData;
             _view.OnCetakNota += _view_OnCetakNota;
             _view.OnListDataGridCurrentCellKeyDown += _view_OnListDataGridCurrentCellKeyDown;
@@ -75,7 +76,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
             ((Form)_view).ActiveControl = _view.ListDataGrid;
 
             _listOrderanDetails = new List<OrderanDetailModel>();
-            AddDummyPenjualanModel(30);
+            AddDummyOrderanModel(30);
 
             _bindingView = new BindingListView<OrderanDetailModel>(_listOrderanDetails);
             _bindingView.ListChanged += _bindingView_ListChanged;
@@ -95,9 +96,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
         private void _view_OnCariData(object sender, EventArgs e)
         {
-            if (!_statusBayar)
+            if (!_statusPembayaran)
             {
-                var view = new CariBarangView(_listsJenisOrderans, TipePencarian.Penjualan, _kodeOrNamaForSearching);
+                var view = new CariBarangView(_listsJenisOrderans, TipePencarian.Orderan, _kodeOrNamaForSearching);
                 view.OnSendData += CariBarangView_OnSendData;
                 view.OnFormClosing += CariBarangView_OnFormClosing;
                 view.ShowDialog();
@@ -114,11 +115,12 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
             if (jenisOrderanModel != null)
             {
-                _listOrderanDetails[(rowIndex - 1)].Barang = jenisOrderanModel;
-                _listOrderanDetails[(rowIndex - 1)].barang_id = jenisOrderanModel.id;
-                _listOrderanDetails[(rowIndex - 1)].qty = 1;
-                _listOrderanDetails[(rowIndex - 1)].hpp = jenisOrderanModel.hpp;
-                _listOrderanDetails[(rowIndex - 1)].harga_jual = jenisOrderanModel.harga_jual;
+                _listOrderanDetails[(rowIndex - 1)].kode_jenis_orderan = jenisOrderanModel.kode;
+                _listOrderanDetails[(rowIndex - 1)].nama_jenis_orderan = jenisOrderanModel.nama;
+                _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
+                _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
+                _listOrderanDetails[(rowIndex - 1)].diskon = 0;
+                //_listOrderanDetails[(rowIndex - 1)].sub_total = jenisOrderanModel.s;
 
                 _view.ListDataGrid.MoveToCurrentCell(new RowColumnIndex(listDataGrid.CurrentCell.RowIndex, 3));
                 _view.ListDataGrid.CurrentCell.BeginEdit();
@@ -133,7 +135,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
         private void _view_OnHapusData(object sender, EventArgs e)
         {
-            if (!_statusBayar && CurrCellValue != null)
+            if (!_statusPembayaran && CurrCellValue != null)
             {
                 if (!string.IsNullOrWhiteSpace(CurrCellValue.ToString()))
                 {
@@ -144,27 +146,25 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
             }
         }
 
-        private void _view_OnBayarPenjualan(object sender, EventArgs e)
+        private void _view_OnBayarOrderan(object sender, EventArgs e)
         {
-            var status = _listOrderanDetails.Any(pd => pd.Barang.id != default(uint));
+            var isValid = _listOrderanDetails.Any(od => this.isDataValid(od));
 
             try
             {
-                if (!_statusBayar && status)
+                if (!_statusPembayaran && isValid)
                 {
-                    var view = new BayarPenjualanEntryView(_listOrderanDetails);
-                    view.OnBayarPenjualan += View_OnBayarPenjualan;
+                    var view = new BayarOrderanEntryView(_listOrderanDetails);
+                    view.OnBayarOrderan += View_OnBayarOrderan;
 
                     if (view.ShowDialog() == DialogResult.OK)
                     {
                         _view.LabelGrandTotal.Text = _grandTotal.ToString("N0");
 
-                        if (Messages.Confirm("Cetak Nota Penjualan?"))
+                        if (Messages.Confirm("Cetak Nota Orderan?"))
                         {
                             _view_OnCetakNota(null, null);
                         }
-
-                        new UangKembaliView(_uangKembali).ShowDialog();
                     }
                 }
             }
@@ -178,23 +178,24 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
             }
         }
 
-        private void View_OnBayarPenjualan(object sender, PembayaranEventArgs e)
+        private void View_OnBayarOrderan(object sender, OrderanEventArgs e)
         {
             try
             {
-                var bayarPenjualanEntryView = ((Form)sender);
-                var penjualanDetailsFixed = _listOrderanDetails.Where(pd => pd.Barang.id != default(int)).ToList();
-                _uangKembali = e.Kembali;
+                var bayarOrderanEntryView = ((Form)sender);
+                var penjualanDetailsFixed = _listOrderanDetails.Where(od => this.isDataValid(od)).ToList();
                 _grandTotal = e.GrandTotal;
 
+                // isi data orderan
                 _orderanModel = new OrderanModel
                 {
+                    tanggal = e.Tanggal,
                     Pelanggan = e.Pelanggan,
                 };
 
                 _orderanServices.Insert(_orderanModel);
-                Messages.Info("Data Penjualan berhasil disimpan.");
-                _statusBayar = true;
+                Messages.Info("Data Orderan berhasil disimpan.");
+                _statusPembayaran = true;
 
                 _view.ListDataGrid.Enabled = false;
                 _view.TextBoxNoNota.Text = _orderanModel.no_nota;
@@ -204,7 +205,7 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
                     _view.LabelGrandTotal.Text = (_orderanModel.OrderanDetails.Sum(pd => pd.jumlah) - _orderanModel.total_diskon).ToString("N0");
                 }
 
-                bayarPenjualanEntryView.DialogResult = DialogResult.OK;
+                bayarOrderanEntryView.DialogResult = DialogResult.OK;
                 ((Form)_view).ActiveControl = _view.TextBoxNoNota;
             }
             catch (ArgumentException ex)
@@ -219,37 +220,37 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
 
         private void _view_OnBersihkanData(object sender, EventArgs e)
         {
-            //var status = _listOrderanDetails.Any(pd => pd.Barang.id != default(uint));
+            var status = _listOrderanDetails.Any(od => this.isDataValid(od));
 
             if (status)
             {
-                if (!_statusBayar)
+                if (!_statusPembayaran)
                 {
                     if (Messages.Confirm("Bersihkan data list penjualan?"))
                     {
-                        BersihkanDataListPenjualan();
+                        BersihkanDataListOrderan();
                     }
                 }
                 else
                 {
-                    BersihkanDataListPenjualan();
+                    BersihkanDataListOrderan();
                 }
             }
         }
 
-        private void BersihkanDataListPenjualan()
+        private void BersihkanDataListOrderan()
         {
-            if (_statusBayar)
+            if (_statusPembayaran)
             {
                 _view.ListDataGrid.Enabled = true;
                 _view.TextBoxNoNota.Text = string.Empty;
                 _listsJenisOrderans = _jenisOrderanServices.GetAll().Where(b => b.harga_satuan > 0).ToList();
-                _statusBayar = false;
+                _statusPembayaran = false;
             }
 
             _kodeOrNamaForSearching = string.Empty;
             _listOrderanDetails.Clear();
-            AddDummyPenjualanModel(30);
+            AddDummyOrderanModel(30);
             _bindingView.DataSource = _listOrderanDetails;
             _view.ListDataGrid.MoveToCurrentCell(new RowColumnIndex(1, 1));
         }
@@ -258,9 +259,9 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
         {
             using (new WaitCursorHandler())
             {
-                if (_statusBayar)
+                if (_statusPembayaran)
                 {
-                    ReportHelper.ShowNotaPenjualan(_orderanModel);
+                    //ReportHelper.ShowNotaOrderan(_orderanModel);
                 }
             }
         }
@@ -373,7 +374,12 @@ namespace PrintingApplication.Presentation.Presenters.Penjualan
             }
         }
 
-        private void AddDummyPenjualanModel(int length)
+        private bool isDataValid(IOrderanDetailModel model)
+        {
+            return model.kode_jenis_orderan != default && model.nama_jenis_orderan != default;
+        }
+
+        private void AddDummyOrderanModel(int length)
         {
             for (int i = 0; i < length; i++)
             {
