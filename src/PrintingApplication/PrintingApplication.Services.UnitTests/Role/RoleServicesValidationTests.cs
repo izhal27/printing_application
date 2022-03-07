@@ -49,6 +49,8 @@ namespace PrintingApplication.Services.UnitTests.Role
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
 
+            Assert.NotNull(exception);
+
             WriteExceptionTestResult(exception);
         }
 
@@ -59,6 +61,8 @@ namespace PrintingApplication.Services.UnitTests.Role
 
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
+
+            Assert.NotNull(exception);
 
             WriteExceptionTestResult(exception);
         }
@@ -71,6 +75,8 @@ namespace PrintingApplication.Services.UnitTests.Role
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
 
+            Assert.NotNull(exception);
+
             WriteExceptionTestResult(exception);
         }
 
@@ -82,6 +88,8 @@ namespace PrintingApplication.Services.UnitTests.Role
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
 
+            Assert.NotNull(exception);
+
             WriteExceptionTestResult(exception);
         }
 
@@ -92,6 +100,8 @@ namespace PrintingApplication.Services.UnitTests.Role
 
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
+
+            Assert.NotNull(exception);
 
             WriteExceptionTestResult(exception);
         }

@@ -75,6 +75,8 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));
 
+            Assert.NotNull(exception);
+
             WriteExceptionTestResult(exception);
         }
 
