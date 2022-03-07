@@ -45,6 +45,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
             {
                 comboBox.Items.AddRange(listPelanggans.ToArray());
                 comboBox.DisplayMember = "nama";
+                comboBox.SelectedIndex = 0;
             }
         }
     }

@@ -28,27 +28,27 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.comboBox = new System.Windows.Forms.ComboBox();
-         this.SuspendLayout();
-         // 
-         // comboBox
-         // 
-         this.comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-         this.comboBox.FormattingEnabled = true;
-         this.comboBox.Location = new System.Drawing.Point(0, 0);
-         this.comboBox.Name = "comboBox";
-         this.comboBox.Size = new System.Drawing.Size(150, 21);
-         this.comboBox.TabIndex = 3;
-         // 
-         // ComboBoxPelanggan
-         // 
-         this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.Controls.Add(this.comboBox);
-         this.Name = "ComboBoxPelanggan";
-         this.Size = new System.Drawing.Size(150, 21);
-         this.ResumeLayout(false);
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.SuspendLayout();
+            // 
+            // comboBox
+            // 
+            this.comboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(0, 0);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(150, 21);
+            this.comboBox.TabIndex = 3;
+            // 
+            // ComboBoxPelanggan
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox);
+            this.Name = "ComboBoxPelanggan";
+            this.Size = new System.Drawing.Size(150, 21);
+            this.ResumeLayout(false);
 
       }
 

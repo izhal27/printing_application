@@ -35,35 +35,36 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBoxPelanggan = new PrintingApplication.Presentation.Views.ModelControls.ComboBoxPelanggan();
             this.label28 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBoxSubTotal = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBoxDiskon = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxGrandTotal = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
             this.label27 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxBayar = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
-            this.textBoxKembali = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBoxTotalItem = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
-            this.textBoxTotalQty = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.dtTanggalOrderan = new System.Windows.Forms.DateTimePicker();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.buttonBayar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelUp = new PrintingApplication.Presentation.Views.CommonControls.PanelUp();
+            this.comboBoxPelanggan = new PrintingApplication.Presentation.Views.ModelControls.ComboBoxPelanggan();
+            this.textBoxSubTotal = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
+            this.textBoxDiskon = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
+            this.textBoxGrandTotal = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
+            this.textBoxBayar = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
+            this.textBoxKembali = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
+            this.textBoxTotalItem = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
+            this.textBoxTotalQty = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tlpButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxSubTotal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxDiskon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxGrandTotal)).BeginInit();
@@ -71,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKembali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalQty)).BeginInit();
-            this.tlpButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -180,17 +180,6 @@
             this.label25.TabIndex = 0;
             this.label25.Text = ":";
             // 
-            // comboBoxPelanggan
-            // 
-            this.comboBoxPelanggan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBoxPelanggan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxPelanggan.Location = new System.Drawing.Point(148, 52);
-            this.comboBoxPelanggan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.comboBoxPelanggan.Name = "comboBoxPelanggan";
-            this.comboBoxPelanggan.SelectedItem = null;
-            this.comboBoxPelanggan.Size = new System.Drawing.Size(186, 21);
-            this.comboBoxPelanggan.TabIndex = 0;
-            // 
             // label28
             // 
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -242,21 +231,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Sub Total";
             // 
-            // textBoxSubTotal
-            // 
-            this.textBoxSubTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxSubTotal.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSubTotal.Location = new System.Drawing.Point(147, 176);
-            this.textBoxSubTotal.Name = "textBoxSubTotal";
-            this.textBoxSubTotal.ReadOnly = true;
-            this.textBoxSubTotal.Size = new System.Drawing.Size(186, 26);
-            this.textBoxSubTotal.TabIndex = 11;
-            this.textBoxSubTotal.TabStop = false;
-            this.textBoxSubTotal.Text = "0";
-            this.textBoxSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxSubTotal.ThemeName = "Default";
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -268,22 +242,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Diskon (F3)";
             // 
-            // textBoxDiskon
-            // 
-            this.textBoxDiskon.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxDiskon.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxDiskon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDiskon.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxDiskon.IntegerValue = ((long)(0));
-            this.textBoxDiskon.Location = new System.Drawing.Point(147, 218);
-            this.textBoxDiskon.MinValue = ((long)(0));
-            this.textBoxDiskon.Name = "textBoxDiskon";
-            this.textBoxDiskon.Size = new System.Drawing.Size(186, 26);
-            this.textBoxDiskon.TabIndex = 2;
-            this.textBoxDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxDiskon.ThemeName = "Default";
-            this.textBoxDiskon.TextChanged += new System.EventHandler(this.textBoxDiskon_TextChanged);
-            // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -294,22 +252,6 @@
             this.label9.Size = new System.Drawing.Size(93, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Grand Total";
-            // 
-            // textBoxGrandTotal
-            // 
-            this.textBoxGrandTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxGrandTotal.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxGrandTotal.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxGrandTotal.IntegerValue = ((long)(0));
-            this.textBoxGrandTotal.Location = new System.Drawing.Point(147, 260);
-            this.textBoxGrandTotal.Name = "textBoxGrandTotal";
-            this.textBoxGrandTotal.ReadOnly = true;
-            this.textBoxGrandTotal.Size = new System.Drawing.Size(186, 26);
-            this.textBoxGrandTotal.TabIndex = 12;
-            this.textBoxGrandTotal.TabStop = false;
-            this.textBoxGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxGrandTotal.ThemeName = "Default";
             // 
             // label27
             // 
@@ -332,37 +274,6 @@
             this.label10.Size = new System.Drawing.Size(83, 20);
             this.label10.TabIndex = 0;
             this.label10.Text = "Bayar (F4)";
-            // 
-            // textBoxBayar
-            // 
-            this.textBoxBayar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxBayar.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxBayar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBayar.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxBayar.IntegerValue = ((long)(0));
-            this.textBoxBayar.Location = new System.Drawing.Point(147, 302);
-            this.textBoxBayar.Name = "textBoxBayar";
-            this.textBoxBayar.Size = new System.Drawing.Size(186, 26);
-            this.textBoxBayar.TabIndex = 3;
-            this.textBoxBayar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxBayar.ThemeName = "Default";
-            this.textBoxBayar.TextChanged += new System.EventHandler(this.textBoxBayar_TextChanged);
-            // 
-            // textBoxKembali
-            // 
-            this.textBoxKembali.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxKembali.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKembali.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxKembali.IntegerValue = ((long)(0));
-            this.textBoxKembali.Location = new System.Drawing.Point(147, 347);
-            this.textBoxKembali.Name = "textBoxKembali";
-            this.textBoxKembali.ReadOnly = true;
-            this.textBoxKembali.Size = new System.Drawing.Size(186, 26);
-            this.textBoxKembali.TabIndex = 12;
-            this.textBoxKembali.TabStop = false;
-            this.textBoxKembali.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxKembali.ThemeName = "Default";
             // 
             // label11
             // 
@@ -415,36 +326,6 @@
             this.label15.Size = new System.Drawing.Size(122, 20);
             this.label15.TabIndex = 0;
             this.label15.Text = "Jumlah Orderan";
-            // 
-            // textBoxTotalItem
-            // 
-            this.textBoxTotalItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxTotalItem.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxTotalItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalItem.Location = new System.Drawing.Point(147, 92);
-            this.textBoxTotalItem.Name = "textBoxTotalItem";
-            this.textBoxTotalItem.ReadOnly = true;
-            this.textBoxTotalItem.Size = new System.Drawing.Size(186, 26);
-            this.textBoxTotalItem.TabIndex = 11;
-            this.textBoxTotalItem.TabStop = false;
-            this.textBoxTotalItem.Text = "0";
-            this.textBoxTotalItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxTotalItem.ThemeName = "Default";
-            // 
-            // textBoxTotalQty
-            // 
-            this.textBoxTotalQty.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxTotalQty.BeforeTouchSize = new System.Drawing.Size(186, 26);
-            this.textBoxTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotalQty.Location = new System.Drawing.Point(147, 134);
-            this.textBoxTotalQty.Name = "textBoxTotalQty";
-            this.textBoxTotalQty.ReadOnly = true;
-            this.textBoxTotalQty.Size = new System.Drawing.Size(186, 26);
-            this.textBoxTotalQty.TabIndex = 11;
-            this.textBoxTotalQty.TabStop = false;
-            this.textBoxTotalQty.Text = "0";
-            this.textBoxTotalQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBoxTotalQty.ThemeName = "Default";
             // 
             // dtTanggalOrderan
             // 
@@ -504,6 +385,125 @@
             this.panelUp.TabIndex = 10;
             this.panelUp.TabStop = false;
             // 
+            // comboBoxPelanggan
+            // 
+            this.comboBoxPelanggan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.comboBoxPelanggan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxPelanggan.Location = new System.Drawing.Point(148, 47);
+            this.comboBoxPelanggan.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxPelanggan.Name = "comboBoxPelanggan";
+            this.comboBoxPelanggan.SelectedItem = null;
+            this.comboBoxPelanggan.Size = new System.Drawing.Size(185, 32);
+            this.comboBoxPelanggan.TabIndex = 0;
+            // 
+            // textBoxSubTotal
+            // 
+            this.textBoxSubTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxSubTotal.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSubTotal.Location = new System.Drawing.Point(147, 176);
+            this.textBoxSubTotal.Name = "textBoxSubTotal";
+            this.textBoxSubTotal.ReadOnly = true;
+            this.textBoxSubTotal.Size = new System.Drawing.Size(186, 26);
+            this.textBoxSubTotal.TabIndex = 11;
+            this.textBoxSubTotal.TabStop = false;
+            this.textBoxSubTotal.Text = "0";
+            this.textBoxSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxSubTotal.ThemeName = "Default";
+            // 
+            // textBoxDiskon
+            // 
+            this.textBoxDiskon.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxDiskon.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxDiskon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDiskon.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxDiskon.IntegerValue = ((long)(0));
+            this.textBoxDiskon.Location = new System.Drawing.Point(147, 218);
+            this.textBoxDiskon.MinValue = ((long)(0));
+            this.textBoxDiskon.Name = "textBoxDiskon";
+            this.textBoxDiskon.Size = new System.Drawing.Size(186, 26);
+            this.textBoxDiskon.TabIndex = 2;
+            this.textBoxDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxDiskon.ThemeName = "Default";
+            this.textBoxDiskon.TextChanged += new System.EventHandler(this.textBoxDiskon_TextChanged);
+            // 
+            // textBoxGrandTotal
+            // 
+            this.textBoxGrandTotal.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxGrandTotal.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxGrandTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxGrandTotal.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxGrandTotal.IntegerValue = ((long)(0));
+            this.textBoxGrandTotal.Location = new System.Drawing.Point(147, 260);
+            this.textBoxGrandTotal.Name = "textBoxGrandTotal";
+            this.textBoxGrandTotal.ReadOnly = true;
+            this.textBoxGrandTotal.Size = new System.Drawing.Size(186, 26);
+            this.textBoxGrandTotal.TabIndex = 12;
+            this.textBoxGrandTotal.TabStop = false;
+            this.textBoxGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxGrandTotal.ThemeName = "Default";
+            // 
+            // textBoxBayar
+            // 
+            this.textBoxBayar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxBayar.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxBayar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBayar.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxBayar.IntegerValue = ((long)(0));
+            this.textBoxBayar.Location = new System.Drawing.Point(147, 302);
+            this.textBoxBayar.Name = "textBoxBayar";
+            this.textBoxBayar.Size = new System.Drawing.Size(186, 26);
+            this.textBoxBayar.TabIndex = 3;
+            this.textBoxBayar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxBayar.ThemeName = "Default";
+            this.textBoxBayar.TextChanged += new System.EventHandler(this.textBoxBayar_TextChanged);
+            // 
+            // textBoxKembali
+            // 
+            this.textBoxKembali.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxKembali.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKembali.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.textBoxKembali.IntegerValue = ((long)(0));
+            this.textBoxKembali.Location = new System.Drawing.Point(147, 347);
+            this.textBoxKembali.Name = "textBoxKembali";
+            this.textBoxKembali.ReadOnly = true;
+            this.textBoxKembali.Size = new System.Drawing.Size(186, 26);
+            this.textBoxKembali.TabIndex = 12;
+            this.textBoxKembali.TabStop = false;
+            this.textBoxKembali.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxKembali.ThemeName = "Default";
+            // 
+            // textBoxTotalItem
+            // 
+            this.textBoxTotalItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxTotalItem.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxTotalItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalItem.Location = new System.Drawing.Point(147, 92);
+            this.textBoxTotalItem.Name = "textBoxTotalItem";
+            this.textBoxTotalItem.ReadOnly = true;
+            this.textBoxTotalItem.Size = new System.Drawing.Size(186, 26);
+            this.textBoxTotalItem.TabIndex = 11;
+            this.textBoxTotalItem.TabStop = false;
+            this.textBoxTotalItem.Text = "0";
+            this.textBoxTotalItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxTotalItem.ThemeName = "Default";
+            // 
+            // textBoxTotalQty
+            // 
+            this.textBoxTotalQty.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxTotalQty.BeforeTouchSize = new System.Drawing.Size(186, 26);
+            this.textBoxTotalQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalQty.Location = new System.Drawing.Point(147, 134);
+            this.textBoxTotalQty.Name = "textBoxTotalQty";
+            this.textBoxTotalQty.ReadOnly = true;
+            this.textBoxTotalQty.Size = new System.Drawing.Size(186, 26);
+            this.textBoxTotalQty.TabIndex = 11;
+            this.textBoxTotalQty.TabStop = false;
+            this.textBoxTotalQty.Text = "0";
+            this.textBoxTotalQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxTotalQty.ThemeName = "Default";
+            // 
             // BayarOrderanEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +527,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tlpButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textBoxSubTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxDiskon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxGrandTotal)).EndInit();
@@ -534,7 +535,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKembali)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalQty)).EndInit();
-            this.tlpButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
       }

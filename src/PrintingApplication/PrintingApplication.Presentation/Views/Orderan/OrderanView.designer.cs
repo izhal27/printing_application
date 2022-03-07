@@ -116,6 +116,7 @@
             // listDataGrid
             // 
             this.listDataGrid.AccessibleName = "Table";
+            this.listDataGrid.AllowEditing = false;
             this.listDataGrid.AllowResizingColumns = true;
             this.listDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -170,7 +171,7 @@
             this.buttonCari.Size = new System.Drawing.Size(75, 23);
             this.buttonCari.TabIndex = 95;
             this.buttonCari.Tag = "ignore";
-            this.buttonCari.Text = "(F2) &Cari";
+            this.buttonCari.Text = "(F2) &Tambah";
             this.buttonCari.UseVisualStyleBackColor = true;
             this.buttonCari.Click += new System.EventHandler(this.buttonCari_Click);
             // 
