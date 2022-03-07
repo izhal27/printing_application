@@ -1,4 +1,5 @@
-﻿using Equin.ApplicationFramework;
+﻿using Dexih.Utils.CopyProperties;
+using Equin.ApplicationFramework;
 using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.JenisOrderan;
 using PrintingApplication.Domain.Models.Orderan;
@@ -82,8 +83,15 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             _bindingView.ListChanged += _bindingView_ListChanged;
             _view.ListDataGrid.DataSource = _bindingView;
 
-            _view.ListDataGrid.Columns[0].AllowEditing = true; // Kode
-            _view.ListDataGrid.Columns[2].AllowEditing = true; // Qty
+            _view.ListDataGrid.Columns.All(c => c.AllowEditing = true);
+
+            //_view.ListDataGrid.Columns.Map(c =>
+            //{
+            //    if (c.MappingName != "Kode Jenis Orderan")
+            //    {
+            //        c.AllowEditing = true;
+            //    }
+            //});
 
             _view.ListDataGrid.MoveToCurrentCell(new RowColumnIndex(1, 1));
             _view.ListDataGrid.CurrentCell.BeginEdit();
@@ -98,7 +106,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         {
             if (!_statusPembayaran)
             {
-                var view = new CariBarangView(_listsJenisOrderans, TipePencarian.Orderan, _kodeOrNamaForSearching);
+                var view = new CariJenisOrderanView(_listsJenisOrderans, TipePencarian.Orderan, _kodeOrNamaForSearching);
                 view.OnSendData += CariBarangView_OnSendData;
                 view.OnFormClosing += CariBarangView_OnFormClosing;
                 view.ShowDialog();
@@ -110,17 +118,19 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             var listDataGrid = _view.ListDataGrid;
             var rowIndex = listDataGrid.CurrentCell.RowIndex;
 
-            var view = (CariBarangView)sender;
+            var view = (CariJenisOrderanView)sender;
             var jenisOrderanModel = ((ModelEventArgs<JenisOrderanModel>)e).Value;
 
             if (jenisOrderanModel != null)
             {
+                MessageBox.Show(jenisOrderanModel.kode);
+
                 _listOrderanDetails[(rowIndex - 1)].kode_jenis_orderan = jenisOrderanModel.kode;
                 _listOrderanDetails[(rowIndex - 1)].nama_jenis_orderan = jenisOrderanModel.nama;
+                _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
                 _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
                 _listOrderanDetails[(rowIndex - 1)].diskon = 0;
-                //_listOrderanDetails[(rowIndex - 1)].sub_total = jenisOrderanModel.s;
 
                 _view.ListDataGrid.MoveToCurrentCell(new RowColumnIndex(listDataGrid.CurrentCell.RowIndex, 3));
                 _view.ListDataGrid.CurrentCell.BeginEdit();
@@ -361,7 +371,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
 
         private void HitungGrandTotal()
         {
-            _view.LabelGrandTotal.Text = _bindingView.Cast<IOrderanDetailModel>().Sum(pd => pd.jumlah).ToString("N0");
+            _view.LabelGrandTotal.Text = _bindingView.Cast<IOrderanDetailModel>().Sum(pd => pd.sub_total).ToString("N0");
         }
 
         private void _view_OnListDataGridPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

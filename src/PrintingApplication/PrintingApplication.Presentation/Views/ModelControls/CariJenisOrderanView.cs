@@ -7,12 +7,13 @@ using Syncfusion.WinForms.DataGrid.Events;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace PrintingApplication.Presentation.Views.ModelControls
 {
-    public partial class CariBarangView : BaseCariBarangView
+    public partial class CariJenisOrderanView : BaseCariJenisOrderanView
     {
         public event EventHandler OnSendData;
         public event EventHandler OnFormClosing;
@@ -22,41 +23,17 @@ namespace PrintingApplication.Presentation.Views.ModelControls
         private BindingListView<JenisOrderanModel> _bindingView;
         private string _kodeOrNamaValue;
 
-        public CariBarangView()
+        public CariJenisOrderanView()
         {
             InitializeComponent();
         }
 
-        public CariBarangView(List<IJenisOrderanModel> listsBarang, TipePencarian tipePencarian, string kodeOrNamaValue = default(string)) : this()
+        public CariJenisOrderanView(List<IJenisOrderanModel> listsBarang, TipePencarian tipePencarian, string kodeOrNamaValue = default(string)) : this()
         {
             _listsJenisOrderan = listsBarang;
             _tipePencarian = tipePencarian;
             _bindingView = new BindingListView<JenisOrderanModel>(_listsJenisOrderan);
             listDataGrid.DataSource = _bindingView;
-
-            listDataGrid.Columns[2].Visible = false; // Stok
-            listDataGrid.Columns[7].Visible = false; // Penyesuaian stok
-
-            switch (tipePencarian)
-            {
-                case TipePencarian.Orderan:
-
-                    listDataGrid.Columns[4].Visible = false; // Hpp
-                    listDataGrid.Columns[6].Visible = false; // Minimal stok
-
-                    break;
-                case TipePencarian.Pembelian:
-
-                    listDataGrid.Columns[5].Visible = false; // Harga jual
-                    listDataGrid.Columns[6].Visible = false; // Minimal stok
-
-                    break;
-                case TipePencarian.PenyesuaianStok:
-
-                    listDataGrid.Columns[5].Visible = false; // Harga jual
-
-                    break;
-            }
 
             _kodeOrNamaValue = kodeOrNamaValue;
 
@@ -65,7 +42,7 @@ namespace PrintingApplication.Presentation.Views.ModelControls
                 listDataGrid.QueryRowStyle += ListDataGrid_QueryRowStyle;
             }
 
-            OnEnterKeyDown += CariBarangPembelianView_OnEnterKeyDown;
+            OnEnterKeyDown += CariJenisOrderanView_OnEnterKeyDown;
         }
 
         private void CariBarangView_Load(object sender, EventArgs e)
@@ -84,27 +61,27 @@ namespace PrintingApplication.Presentation.Views.ModelControls
             {
                 var JenisOrderanModel = (JenisOrderanModel)e.RowData;
 
-                //if (JenisOrderanModel != null)
-                //{
-                //    if (JenisOrderanModel.stok <= 0 || JenisOrderanModel.hpp <= 0)
-                //    {
-                //        e.Style.BackColor = Color.FromArgb(255, 165, 160);
-                //        e.Style.TextColor = Color.FromArgb(1, 2, 3);
-                //    }
-                //}
+                if (JenisOrderanModel != null)
+                {
+                    if (JenisOrderanModel.harga_satuan <= 0)
+                    {
+                        e.Style.BackColor = Color.FromArgb(255, 165, 160);
+                        e.Style.TextColor = Color.FromArgb(1, 2, 3);
+                    }
+                }
             }
         }
 
-        private void CariBarangPembelianView_OnEnterKeyDown(object sender, EventArgs e)
+        private void CariJenisOrderanView_OnEnterKeyDown(object sender, EventArgs e)
         {
             if (listDataGrid.SelectedItem != null)
             {
                 var model = (JenisOrderanModel)listDataGrid.SelectedItem;
 
-                //if (_tipePencarian == TipePencarian.Orderan && model.stok <= 0)
-                //{
-                //    return;
-                //}
+                if (_tipePencarian == TipePencarian.Orderan && model.harga_satuan <= 0)
+                {
+                    return;
+                }
 
                 OnSendData?.Invoke(this, new ModelEventArgs<JenisOrderanModel>((JenisOrderanModel)listDataGrid.SelectedItem));
             }
@@ -135,8 +112,6 @@ namespace PrintingApplication.Presentation.Views.ModelControls
 
     public enum TipePencarian
     {
-        Pembelian,
-        Orderan,
-        PenyesuaianStok,
+        Orderan
     }
 }

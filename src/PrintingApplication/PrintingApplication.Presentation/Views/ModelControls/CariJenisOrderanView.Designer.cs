@@ -1,6 +1,6 @@
 ﻿namespace PrintingApplication.Presentation.Views.ModelControls
 {
-   partial class CariBarangView
+   partial class CariJenisOrderanView
    {
       /// <summary>
       /// Required designer variable.

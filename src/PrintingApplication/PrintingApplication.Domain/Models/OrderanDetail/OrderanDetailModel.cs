@@ -20,7 +20,7 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         public string kode_jenis_orderan { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama jenis orderan harus diantara 3 sampai 100 karakter !!!")]
-        [Display(Name = "Jenis Orderan")]
+        [Display(Name = "Nama Jenis Orderan")]
         public string nama_jenis_orderan { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N0}")]

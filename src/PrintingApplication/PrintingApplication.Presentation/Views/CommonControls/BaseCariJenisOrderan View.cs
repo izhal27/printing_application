@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace PrintingApplication.Presentation.Views.CommonControls
 {
-    public partial class BaseCariBarangView : Form
+    public partial class BaseCariJenisOrderanView : Form
     {
         protected event EventHandler OnEnterKeyDown;
 
-        public BaseCariBarangView()
+        public BaseCariJenisOrderanView()
         {
             InitializeComponent();
 
