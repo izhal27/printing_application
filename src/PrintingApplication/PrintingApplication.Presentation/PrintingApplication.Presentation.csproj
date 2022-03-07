@@ -286,32 +286,11 @@
     <Compile Include="Views\ITransaksiView.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\Laporan\ILaporanLabaRugiView.cs" />
-    <Compile Include="Views\Laporan\ILaporanStatusBarangView.cs" />
-    <Compile Include="Views\Laporan\ILaporanStatusPerBarangView.cs" />
-    <Compile Include="Views\Laporan\ILaporanTransaksiByDateView.cs" />
     <Compile Include="Views\Laporan\LaporanLabaRugiView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Laporan\LaporanLabaRugiView.Designer.cs">
       <DependentUpon>LaporanLabaRugiView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanStatusBarangView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanStatusBarangView.Designer.cs">
-      <DependentUpon>LaporanStatusBarangView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanStatusPerBarangView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanStatusPerBarangView.Designer.cs">
-      <DependentUpon>LaporanStatusPerBarangView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanTransaksiByDateView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Laporan\LaporanTransaksiByDateView.Designer.cs">
-      <DependentUpon>LaporanTransaksiByDateView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\ILoginView.cs" />
     <Compile Include="Views\Login\LoginView.cs">
@@ -522,15 +501,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Laporan\LaporanLabaRugiView.resx">
       <DependentUpon>LaporanLabaRugiView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Laporan\LaporanStatusBarangView.resx">
-      <DependentUpon>LaporanStatusBarangView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Laporan\LaporanStatusPerBarangView.resx">
-      <DependentUpon>LaporanStatusPerBarangView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Laporan\LaporanTransaksiByDateView.resx">
-      <DependentUpon>LaporanTransaksiByDateView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>

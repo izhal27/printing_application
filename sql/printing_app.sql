@@ -29,6 +29,16 @@ CREATE TABLE `form_action` (
   `act_15` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `form_action` (`form_name`, `form_text`, `act_1`, `act_2`, `act_3`, `act_4`, `act_5`, `act_6`, `act_7`, `act_8`, `act_9`, `act_10`, `act_11`, `act_12`, `act_13`, `act_14`, `act_15`) VALUES
+('JenisOrderanView', 'Jenis Orderan', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('LaporanOrderanView', 'Laporan Orderan', 'Hapus', 'Cetak', 'Detail', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('LaporanPengeluaranView', 'Laporan Pengeluaran', 'Hapus', 'Cetak', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PelangganView', 'Pelanggan', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PengeluaranView', 'Pengeluaran', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('PenjualanView', 'Orderan Barang', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('RoleView', 'Role', 'Update', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('UserView', 'User', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 CREATE TABLE `jenis_orderan` (
   `id` int(10) UNSIGNED NOT NULL,
   `kode` varchar(100) NOT NULL,
@@ -37,40 +47,42 @@ CREATE TABLE `jenis_orderan` (
   `keterangan` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `order` (
+CREATE TABLE `orderan` (
   `id` int(10) UNSIGNED NOT NULL,
   `pelanggan_id` int(10) UNSIGNED NOT NULL,
-  `keterangan` varchar(100) DEFAULT NULL,
+  `no_nota` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
+  `keterangan` varchar(100) DEFAULT NULL,
   `total_diskon` decimal(19,0) NOT NULL DEFAULT 0,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
   `bayar` decimal(19,0) NOT NULL DEFAULT 0,
   `kembali` decimal(19,0) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `order_detail` (
+CREATE TABLE `orderan_detail` (
   `id` int(10) UNSIGNED NOT NULL,
   `order_id` int(10) UNSIGNED NOT NULL,
   `kode_jenis_orderan` varchar(100) NOT NULL,
   `nama_jenis_orderan` varchar(100) NOT NULL,
   `harga_satuan` decimal(19,0) NOT NULL,
   `jumlah` decimal(19,0) NOT NULL,
-  `diskon` decimal(19,0) NOT NULL,
-  `sub_total` decimal(19,0) NOT NULL
+  `diskon` decimal(19,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE `pelanggan` (
   `id` int(10) UNSIGNED NOT NULL,
   `nama` varchar(100) NOT NULL,
   `alamat` varchar(255) DEFAULT NULL,
-  `contact` varchar(100) DEFAULT NULL
+  `contact` varchar(100) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `pelanggan` (`id`, `nama`, `alamat`, `contact`) VALUES
-(1, 'UMUM', NULL, NULL);
+INSERT INTO `pelanggan` (`id`, `nama`, `alamat`, `contact`, `keterangan`) VALUES
+(1, 'UMUM', NULL, NULL, NULL);
 
 CREATE TABLE `pengeluaran` (
   `id` int(10) NOT NULL,
+  `tanggal` date NOT NULL,
   `nama` varchar(100) NOT NULL,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
   `keterangan` varchar(255) DEFAULT NULL
@@ -95,6 +107,53 @@ CREATE TABLE `role_detail` (
   `tag` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `role_detail` (`role_kode`, `menu_name`, `menu_parent`, `form_action`, `tag`) VALUES
+('adm', 'Tambah', 'Master', 'UserView', 'action'),
+('adm', 'Ubah', 'Master', 'UserView', 'action'),
+('adm', 'Hapus', 'Master', 'UserView', 'action'),
+('adm', 'Tambah', 'Master', 'JenisOrderanView', 'action'),
+('adm', 'Ubah', 'Master', 'JenisOrderanView', 'action'),
+('adm', 'Hapus', 'Master', 'JenisOrderanView', 'action'),
+('adm', 'Update', 'Master', 'RoleView', 'action'),
+('adm', 'Tambah', 'Master', 'RoleView', 'action'),
+('adm', 'Ubah', 'Master', 'RoleView', 'action'),
+('adm', 'Hapus', 'Master', 'RoleView', 'action'),
+('adm', 'Hapus', 'Laporan', 'LaporanPengeluaranView', 'action'),
+('adm', 'Cetak', 'Laporan', 'LaporanPengeluaranView', 'action'),
+('adm', 'Tambah', 'Transaksi', 'PengeluaranView', 'action'),
+('adm', 'Ubah', 'Transaksi', 'PengeluaranView', 'action'),
+('adm', 'Hapus', 'Transaksi', 'PengeluaranView', 'action'),
+('adm', 'Tambah', 'Master', 'PelangganView', 'action'),
+('adm', 'Ubah', 'Master', 'PelangganView', 'action'),
+('adm', 'Hapus', 'Master', 'PelangganView', 'action'),
+('adm', 'Hapus', 'Laporan', 'LaporanOrderanView', 'action'),
+('adm', 'Cetak', 'Laporan', 'LaporanOrderanView', 'action'),
+('adm', 'Detail', 'Laporan', 'LaporanOrderanView', 'action'),
+('adm', 'Master', 'Master', NULL, 'menu'),
+('adm', 'JenisOrderanView', 'Master', NULL, 'menuForm'),
+('adm', 'PelangganView', 'Master', NULL, 'menuForm'),
+('adm', 'UserView', 'Master', NULL, 'menuForm'),
+('adm', 'RoleView', 'Master', NULL, 'menuForm'),
+('adm', 'Transaksi', 'Transaksi', NULL, 'menu'),
+('adm', 'OrderanView', 'Transaksi', NULL, 'menuForm'),
+('adm', 'PengeluaranView', 'Transaksi', NULL, 'menuForm'),
+('adm', 'Laporan', 'Laporan', NULL, 'menu'),
+('adm', 'LaporanOrderanView', 'Laporan', NULL, 'menuForm'),
+('adm', 'LaporanPengeluaranView', 'Laporan', NULL, 'menuForm'),
+('adm', 'LaporanLabaRugiView', 'Laporan', NULL, 'menuForm'),
+('adm', 'Database', 'Database', NULL, 'menu'),
+('adm', 'Alat', 'Alat', NULL, 'menu'),
+('adm', 'PengaturanView', 'Alat', NULL, 'menuForm'),
+('opr', 'Master', 'Master', NULL, 'menu'),
+('opr', 'JenisOrderanView', 'Master', NULL, 'menuForm'),
+('opr', 'Tambah', 'Master', 'JenisOrderanView', 'action'),
+('opr', 'PelangganView', 'Master', NULL, 'menuForm'),
+('opr', 'Tambah', 'Master', 'PelangganView', 'action'),
+('opr', 'Transaksi', 'Transaksi', NULL, 'menu'),
+('opr', 'OrderanView', 'Transaksi', NULL, 'menuForm'),
+('opr', 'PengeluaranView', 'Transaksi', NULL, 'menuForm'),
+('opr', 'Tambah', 'Transaksi', 'PengeluaranView', 'action');
+
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `login_id` varchar(255) NOT NULL,
@@ -103,7 +162,8 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `user` (`id`, `login_id`, `password`, `role_kode`) VALUES
-(1, 'admin', '1000:+rQ2d9EsKMK5of62nL0ct10skO2kg//+:d7K5beDiXstpiezFXK+OoOcNYZMl1Q8e', 'adm');
+(1, 'admin', '1000:+rQ2d9EsKMK5of62nL0ct10skO2kg//+:d7K5beDiXstpiezFXK+OoOcNYZMl1Q8e', 'adm'),
+(2, 'operator', '1000:tGP5sfmvnv8svI/EIglBnMIIdkhOvGvG:OIgwv0cGK7XEDiQpSV3RT+e9BBigKxHT', 'opr');
 
 
 ALTER TABLE `form_action`
@@ -114,11 +174,11 @@ ALTER TABLE `jenis_orderan`
   ADD UNIQUE KEY `unique_kode_jenis_orderan` (`kode`) USING BTREE,
   ADD UNIQUE KEY `unique_nama_jenis_orderan` (`nama`) USING BTREE;
 
-ALTER TABLE `order`
+ALTER TABLE `orderan`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_pelanggan_pelanggan_id` (`pelanggan_id`);
 
-ALTER TABLE `order_detail`
+ALTER TABLE `orderan_detail`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_order_order_id` (`order_id`);
 
@@ -145,10 +205,10 @@ ALTER TABLE `user`
 ALTER TABLE `jenis_orderan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `order`
+ALTER TABLE `orderan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `order_detail`
+ALTER TABLE `orderan_detail`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `pelanggan`
@@ -161,14 +221,14 @@ ALTER TABLE `role`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 
-ALTER TABLE `order`
+ALTER TABLE `orderan`
   ADD CONSTRAINT `fk_pelanggan_pelanggan_id` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE `order_detail`
-  ADD CONSTRAINT `fk_order_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `orderan_detail`
+  ADD CONSTRAINT `fk_orderan_orderan_id` FOREIGN KEY (`order_id`) REFERENCES `orderan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_role_kode` FOREIGN KEY (`role_kode`) REFERENCES `role` (`kode`) ON DELETE NO ACTION ON UPDATE CASCADE;
