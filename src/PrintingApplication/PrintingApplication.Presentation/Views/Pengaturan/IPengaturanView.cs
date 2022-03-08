@@ -9,8 +9,6 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         event EventHandler OnButtonDefaultClick;
         event EventHandler OnButtonSaveClick;
 
-        PropertyGrid PropertyGridPengaturan { get; }
-
         void ShowView();
         void CloseView();
     }

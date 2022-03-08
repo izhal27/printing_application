@@ -9,11 +9,6 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         public event EventHandler OnButtonDefaultClick;
         public event EventHandler OnButtonSaveClick;
 
-        public PropertyGrid PropertyGridPengaturan
-        {
-            get { return propertyGrid; }
-        }
-
         public PengaturanView()
         {
             InitializeComponent();
@@ -44,6 +39,11 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         public void CloseView()
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
