@@ -80,6 +80,15 @@ CREATE TABLE `pelanggan` (
 INSERT INTO `pelanggan` (`id`, `nama`, `alamat`, `contact`, `keterangan`) VALUES
 (1, 'UMUM', NULL, NULL, NULL);
 
+CREATE TABLE `pengaturan` (
+  `id` int(10) NOT NULL,
+  `nama` varchar(100) NOT NULL DEFAULT 'Nama Toko',
+  `alamat_1` varchar(100) DEFAULT NULL,
+  `alamat_2` varchar(100) DEFAULT NULL,
+  `contact` varchar(100) DEFAULT NULL,
+  `printer_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 CREATE TABLE `pengeluaran` (
   `id` int(10) NOT NULL,
   `tanggal` date NOT NULL,
@@ -186,6 +195,9 @@ ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_nama_pelanggan` (`nama`);
 
+ALTER TABLE `pengaturan`
+  ADD PRIMARY KEY (`id`);
+
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`);
 
@@ -213,6 +225,9 @@ ALTER TABLE `orderan_detail`
 
 ALTER TABLE `pelanggan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+ALTER TABLE `pengaturan`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
