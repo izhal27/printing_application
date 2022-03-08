@@ -16,13 +16,13 @@ namespace PrintingApplication.Presentation.Views.Orderan
 
         decimal _uangKembali;
 
-        public BayarOrderanEntryView(List<OrderanDetailModel> listPenjualanDetails)
+        public BayarOrderanEntryView(List<OrderanDetailModel> listOrderanDetails)
         {
             InitializeComponent();
 
             panelUp.LabelInfo = Text.ToUpper();
 
-            var orderanDetailsFixed = listPenjualanDetails.Where(od => od.kode_jenis_orderan != default && od.nama_jenis_orderan != default).ToList();
+            var orderanDetailsFixed = listOrderanDetails.Where(od => od.kode_jenis_orderan != default && od.nama_jenis_orderan != default).ToList();
 
             textBoxTotalItem.Text = orderanDetailsFixed.Count.ToString("N0");
             textBoxTotalQty.Text = orderanDetailsFixed.Sum(pd => pd.jumlah).ToString("N0");

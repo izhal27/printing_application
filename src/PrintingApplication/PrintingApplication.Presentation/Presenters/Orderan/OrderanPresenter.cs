@@ -264,7 +264,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             {
                 if (_statusPembayaran)
                 {
-                    //ReportHelper.ShowNotaOrderan(_orderanModel);
+                    ReportHelper.ShowNotaOrderan(_orderanModel);
                 }
             }
         }
