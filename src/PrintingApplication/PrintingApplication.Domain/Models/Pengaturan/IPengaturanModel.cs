@@ -1,23 +1,15 @@
-﻿using System.Drawing;
-
-namespace PrintingApplication.Domain.Models.Pengaturan
+﻿namespace PrintingApplication.Domain.Models.Pengaturan
 {
     public interface IPengaturanModel
     {
+        uint id { get; set; }
         string nama { get; set; }
         string alamat_1 { get; set; }
         string alamat_2 { get; set; }
-        string telpon { get; set; }
-        string kota { get; set; }
-        Color warna_backgroud_strip { get; set; }
-        Color warna_teks_strip { get; set; }
-        Color warna_baris_genap { get; set; }
-        Color warna_baris_ganjil { get; set; }
-        DockPanelTheme dockpanel_theme { get; set; }
+        string contact { get; set; }
+        string printer_tipe { get; set; }
+        string printer_name { get; set; }
         string path_background { get; set; }
-        TipePrinter tipe_printer { get; set; }
-        bool show_tool_strip { get; set; }
-        bool show_status_strip { get; set; }
     }
 
     public enum TipePrinter

@@ -57,7 +57,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengaturan
                     alamat_1 = selectedModel.alamat_1,
                     alamat_2 = selectedModel.alamat_2,
                     telpon = selectedModel.telpon,
-                    kota = selectedModel.kota,
+                    contact = selectedModel.contact,
                     warna_backgroud_strip = selectedModel.warna_backgroud_strip,
                     warna_teks_strip = selectedModel.warna_teks_strip,
                     warna_baris_genap = selectedModel.warna_baris_genap,

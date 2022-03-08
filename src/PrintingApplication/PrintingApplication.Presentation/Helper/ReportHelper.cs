@@ -166,12 +166,12 @@ namespace PrintingApplication.Presentation.Helper
             }
 
             // Cek jika kota tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.kota))
+            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.contact))
             {
                 offset += font8.Height;
 
                 // kota
-                graphics.DrawString(MainProgram.Pengaturan.kota
+                graphics.DrawString(MainProgram.Pengaturan.contact
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 
