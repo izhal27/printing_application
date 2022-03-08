@@ -86,8 +86,12 @@ CREATE TABLE `pengaturan` (
   `alamat_1` varchar(100) DEFAULT NULL,
   `alamat_2` varchar(100) DEFAULT NULL,
   `contact` varchar(100) DEFAULT NULL,
+  `printer_tipe` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
   `printer_name` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `printer_name`) VALUES
+(1, 'Nama Toko', 'Alamat 1', 'Alamat 2', '08123456789', 1, NULL);
 
 CREATE TABLE `pengeluaran` (
   `id` int(10) NOT NULL,
@@ -227,7 +231,7 @@ ALTER TABLE `pelanggan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `pengaturan`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
