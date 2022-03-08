@@ -152,7 +152,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
 
         private void _view_OnBayarOrderan(object sender, EventArgs e)
         {
-            var isValid = _listOrderanDetails.Any(od => this.isDataValid(od));
+            var isValid = _listOrderanDetails.Any(od => isDataValid(od));
 
             try
             {
@@ -187,7 +187,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             try
             {
                 var bayarOrderanEntryView = ((Form)sender);
-                var penjualanDetailsFixed = _listOrderanDetails.Where(od => this.isDataValid(od)).ToList();
+                var orderannDetailsFixed = _listOrderanDetails.Where(od => isDataValid(od)).ToList();
                 _grandTotal = e.GrandTotal;
 
                 // isi data orderan
@@ -195,6 +195,12 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 {
                     tanggal = e.Tanggal,
                     Pelanggan = e.Pelanggan,
+                    keterangan = e.Keterangan,
+                    total_diskon = e.Diskon,
+                    total = e.GrandTotal,
+                    bayar = e.JumlahBayar,
+                    kembali = e.Kembali,
+                    OrderanDetails = orderannDetailsFixed,
                 };
 
                 _orderanServices.Insert(_orderanModel);
@@ -203,11 +209,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
 
                 _view.ListDataGrid.Enabled = false;
                 _view.TextBoxNoNota.Text = _orderanModel.no_nota;
-
-                if (_orderanModel.total_diskon > 0)
-                {
-                    _view.LabelGrandTotal.Text = (_orderanModel.OrderanDetails.Sum(pd => pd.jumlah) - _orderanModel.total_diskon).ToString("N0");
-                }
 
                 bayarOrderanEntryView.DialogResult = DialogResult.OK;
                 ((Form)_view).ActiveControl = _view.TextBoxNoNota;
@@ -224,7 +225,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
 
         private void _view_OnBersihkanData(object sender, EventArgs e)
         {
-            var status = _listOrderanDetails.Any(od => this.isDataValid(od));
+            var status = _listOrderanDetails.Any(od => isDataValid(od));
 
             if (status)
             {

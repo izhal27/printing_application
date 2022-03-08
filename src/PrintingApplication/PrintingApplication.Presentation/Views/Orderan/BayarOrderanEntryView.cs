@@ -29,6 +29,7 @@ namespace PrintingApplication.Presentation.Views.Orderan
 
             var subTotal = orderanDetailsFixed.Sum(od => od.sub_total);
             textBoxDiskon.MaxValue = long.Parse(subTotal.ToString(), NumberStyles.Number);
+            textBoxDiskon.Text = "0";
 
             var strSubTotal = subTotal.ToString("N0");
             textBoxSubTotal.Text = strSubTotal;
@@ -47,12 +48,13 @@ namespace PrintingApplication.Presentation.Views.Orderan
             {
                 var tanggal = dtTanggalOrderan.Value;
                 var pelangganModel = comboBoxPelanggan.SelectedItem ?? new PelangganModel();
+                var keterangan = textBoxKeterangan.Text;
                 var diskon = decimal.Parse(textBoxDiskon.Text, NumberStyles.Number);
                 var total = decimal.Parse(textBoxGrandTotal.Text, NumberStyles.Number);
                 var jumlahBayar = decimal.Parse(textBoxBayar.Text, NumberStyles.Number);
                 var kembali = decimal.Parse(textBoxKembali.Text, NumberStyles.Number);
 
-                var eventArgs = new OrderanEventArgs(tanggal, pelangganModel, diskon, total, jumlahBayar, kembali);
+                var eventArgs = new OrderanEventArgs(tanggal, pelangganModel, keterangan, diskon, total, jumlahBayar, kembali);
 
                 OnBayarOrderan?.Invoke(this, eventArgs);
             }
@@ -134,15 +136,18 @@ namespace PrintingApplication.Presentation.Views.Orderan
     {
         public DateTime Tanggal { get; }
         public IPelangganModel Pelanggan { get; }
+        public string Keterangan { get; }
         public decimal Diskon { get; }
         public decimal GrandTotal { get; }
         public decimal JumlahBayar { get; }
         public decimal Kembali { get; set; }
 
-        public OrderanEventArgs(DateTime tanggal, IPelangganModel pelanggan, decimal diskon, decimal grandTotal, decimal jumlahBayar, decimal kembali)
+        public OrderanEventArgs(DateTime tanggal, IPelangganModel pelanggan, string keterangan,
+            decimal diskon, decimal grandTotal, decimal jumlahBayar, decimal kembali)
         {
             Tanggal = tanggal;
             Pelanggan = pelanggan;
+            Keterangan = keterangan;
             Diskon = diskon;
             GrandTotal = grandTotal;
             JumlahBayar = jumlahBayar;
