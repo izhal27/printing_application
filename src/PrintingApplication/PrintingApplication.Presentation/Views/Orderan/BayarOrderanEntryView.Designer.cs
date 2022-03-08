@@ -58,12 +58,12 @@
             this.textBoxTotalItem = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.textBoxTotalQty = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.dtTanggalOrderan = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxKeterangan = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.buttonBayar = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panelUp = new PrintingApplication.Presentation.Views.CommonControls.PanelUp();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxKeterangan = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxSubTotal)).BeginInit();
@@ -73,8 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKembali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalQty)).BeginInit();
-            this.tlpButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKeterangan)).BeginInit();
+            this.tlpButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -285,7 +285,7 @@
             this.textBoxDiskon.MinValue = ((long)(0));
             this.textBoxDiskon.Name = "textBoxDiskon";
             this.textBoxDiskon.Size = new System.Drawing.Size(211, 26);
-            this.textBoxDiskon.TabIndex = 2;
+            this.textBoxDiskon.TabIndex = 3;
             this.textBoxDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxDiskon.ThemeName = "Default";
             this.textBoxDiskon.TextChanged += new System.EventHandler(this.textBoxDiskon_TextChanged);
@@ -349,7 +349,7 @@
             this.textBoxBayar.Location = new System.Drawing.Point(147, 310);
             this.textBoxBayar.Name = "textBoxBayar";
             this.textBoxBayar.Size = new System.Drawing.Size(211, 26);
-            this.textBoxBayar.TabIndex = 3;
+            this.textBoxBayar.TabIndex = 4;
             this.textBoxBayar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxBayar.ThemeName = "Default";
             this.textBoxBayar.TextChanged += new System.EventHandler(this.textBoxBayar_TextChanged);
@@ -459,7 +459,28 @@
             this.dtTanggalOrderan.Location = new System.Drawing.Point(147, 9);
             this.dtTanggalOrderan.Name = "dtTanggalOrderan";
             this.dtTanggalOrderan.Size = new System.Drawing.Size(211, 20);
-            this.dtTanggalOrderan.TabIndex = 13;
+            this.dtTanggalOrderan.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 85);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Keterangan";
+            // 
+            // textBoxKeterangan
+            // 
+            this.textBoxKeterangan.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxKeterangan.BeforeTouchSize = new System.Drawing.Size(211, 26);
+            this.textBoxKeterangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKeterangan.Location = new System.Drawing.Point(147, 82);
+            this.textBoxKeterangan.Name = "textBoxKeterangan";
+            this.textBoxKeterangan.Size = new System.Drawing.Size(211, 26);
+            this.textBoxKeterangan.TabIndex = 2;
             // 
             // tlpButtons
             // 
@@ -510,27 +531,6 @@
             this.panelUp.TabIndex = 10;
             this.panelUp.TabStop = false;
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Keterangan";
-            // 
-            // textBoxKeterangan
-            // 
-            this.textBoxKeterangan.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxKeterangan.BeforeTouchSize = new System.Drawing.Size(211, 26);
-            this.textBoxKeterangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKeterangan.Location = new System.Drawing.Point(147, 82);
-            this.textBoxKeterangan.Name = "textBoxKeterangan";
-            this.textBoxKeterangan.Size = new System.Drawing.Size(211, 26);
-            this.textBoxKeterangan.TabIndex = 14;
-            // 
             // BayarOrderanEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,8 +561,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKembali)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxTotalQty)).EndInit();
-            this.tlpButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.textBoxKeterangan)).EndInit();
+            this.tlpButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
       }
