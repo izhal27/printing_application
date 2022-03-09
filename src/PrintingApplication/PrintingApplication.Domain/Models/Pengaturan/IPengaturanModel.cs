@@ -7,7 +7,7 @@
         string alamat_1 { get; set; }
         string alamat_2 { get; set; }
         string contact { get; set; }
-        string printer_tipe { get; set; }
+        int printer_tipe { get; set; }
         string printer_name { get; set; }
         string path_background { get; set; }
     }

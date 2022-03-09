@@ -9,15 +9,16 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
 {
     public class PengeluaranRepository : BaseRepository<IPengeluaranModel>, IPengeluaranRepository
     {
+        private readonly DataAccessStatus _dataAccessStatus;
+
         public PengeluaranRepository()
         {
             _modelName = "pengeluaran";
+            _dataAccessStatus = new DataAccessStatus();
         }
 
         public void Insert(IPengeluaranModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 context.Conn.Insert((PengeluaranModel)model);
@@ -26,8 +27,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
 
         public void Update(IPengeluaranModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 context.Conn.Update((PengeluaranModel)model);
@@ -36,19 +35,15 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
 
         public void Delete(IPengeluaranModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                Delete(model, () => context.Conn.Delete((PengeluaranModel)model), dataAccessStatus,
+                Delete(model, () => context.Conn.Delete((PengeluaranModel)model), _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public IEnumerable<IPengeluaranModel> GetAll()
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetAll(() =>
@@ -56,14 +51,12 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
                     var listObj = context.Conn.GetAll<PengeluaranModel>();
 
                     return listObj;
-                }, dataAccessStatus);
+                }, _dataAccessStatus);
             }
         }
 
         public IPengeluaranModel GetById(object id)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetBy(() =>
@@ -71,15 +64,13 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
                     var model = context.Conn.Get<PengeluaranModel>(id);
 
                     return model;
-                }, dataAccessStatus,
+                }, _dataAccessStatus,
                             () => CheckModelExist(context, id));
             }
         }
 
         public IEnumerable<IPengeluaranModel> GetByDate(object date)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return context.Conn.Query<PengeluaranModel>(StringHelper.QueryStringByDate(_modelName), new { date });
@@ -88,8 +79,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
 
         public IEnumerable<IPengeluaranModel> GetByDate(object startDate, object endDate)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return context.Conn.Query<PengeluaranModel>(StringHelper.QueryStringByBetweenDate(_modelName), new { startDate, endDate });

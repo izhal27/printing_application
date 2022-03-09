@@ -1,41 +1,31 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PrintingApplication.CommonComponents;
+﻿using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Orderan;
 using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Orderan;
-using PrintingApplication.Services.UnitTests.CommonTests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.Orderan
 {
     [Trait("Category", "Data Access Validations")]
     public class OrderanServicesDataAccessTests
     {
-        private IModelDataAnnotationCheck _modelDAC;
-        private IOrderanServices _services;
-        private ITestOutputHelper _testOutputHelper;
+        private readonly IModelDataAnnotationCheck _modelDAC;
+        private readonly IOrderanServices _services;
 
-        public OrderanServicesDataAccessTests(ITestOutputHelper testOutputHelper)
+        public OrderanServicesDataAccessTests()
         {
             _modelDAC = new ModelDataAnnotationCheck();
             _services = new OrderanServices(new OrderanRepository(), _modelDAC);
-            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
         private void ShouldReturnSuccessForInsert()
         {
-            var operationSucceeded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var listOrderanDetails = new List<OrderanDetailModel>
@@ -74,34 +64,16 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                 };
 
                 _services.Insert(orderanModel);
-
-                operationSucceeded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSucceeded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSucceeded);
-                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForDelete()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new OrderanModel()
@@ -110,24 +82,10 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                 };
 
                 _services.Delete(model);
-
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil dihapus.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
@@ -143,16 +101,12 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             }
             catch (DataAccessException ex)
             {
-                _testOutputHelper.WriteLine(ex.DataAccessStatusInfo.GetFormatedValues());
+                Assert.Null(ex);
             }
 
-            Assert.True(model != null);
-            Assert.True(model.no_nota == noNotaToGet);
+            Assert.NotNull(model);
+            Assert.Equal(model.no_nota, noNotaToGet);
 
-            if (model != null)
-            {
-                TestsHelper.WriteModel(_testOutputHelper, model);
-            }
         }
 
         [Fact]
@@ -161,8 +115,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetByDate(DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -171,8 +123,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetByDate(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), DateTime.Now.AddDays(3)).ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -181,8 +131,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetReportByDate(DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -191,8 +139,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetReportByDate(DateTime.Now.AddDays(-(DateTime.Now.Day)).Date, DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
     }
 }

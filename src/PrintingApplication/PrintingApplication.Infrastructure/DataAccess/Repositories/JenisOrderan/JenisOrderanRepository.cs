@@ -9,20 +9,21 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrdera
 {
     public class JenisOrderanRepository : BaseRepository<IJenisOrderanModel>, IJenisOrderanRepository
     {
+        private readonly DataAccessStatus _dataAccessStatus;
+
         public JenisOrderanRepository()
         {
             _modelName = "jenis_orderan";
+            _dataAccessStatus = new DataAccessStatus();
         }
 
         public void Insert(IJenisOrderanModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                ValidateModel(context, model, dataAccessStatus);
+                ValidateModel(context, model, _dataAccessStatus);
 
-                Insert(model, () => context.Conn.Insert((JenisOrderanModel)model), dataAccessStatus,
+                Insert(model, () => context.Conn.Insert((JenisOrderanModel)model), _dataAccessStatus,
                       () => CheckAfterInsert(context, "SELECT COUNT(1) FROM jenis_orderan WHERE kode=@kode "
                                              + "AND id=(SELECT LAST_INSERT_ID())", new { model.kode }));
             }
@@ -30,32 +31,26 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrdera
 
         public void Update(IJenisOrderanModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                ValidateModel(context, model, dataAccessStatus);
+                ValidateModel(context, model, _dataAccessStatus);
 
-                Update(model, () => context.Conn.Update((JenisOrderanModel)model), dataAccessStatus,
+                Update(model, () => context.Conn.Update((JenisOrderanModel)model), _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public void Delete(IJenisOrderanModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                Delete(model, () => context.Conn.Delete((JenisOrderanModel)model), dataAccessStatus,
+                Delete(model, () => context.Conn.Delete((JenisOrderanModel)model), _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public IEnumerable<IJenisOrderanModel> GetAll()
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetAll(() =>
@@ -63,14 +58,12 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrdera
                     var listObj = context.Conn.GetAll<JenisOrderanModel>();
 
                     return listObj;
-                }, dataAccessStatus);
+                }, _dataAccessStatus);
             }
         }
 
         public IJenisOrderanModel GetById(object id)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetBy(() =>
@@ -78,22 +71,22 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrdera
                     var model = context.Conn.Get<JenisOrderanModel>(id);
 
                     return model;
-                }, dataAccessStatus,
+                }, _dataAccessStatus,
                             () => CheckModelExist(context, id));
             }
         }
 
-        private void ValidateModel(DbContext context, IJenisOrderanModel model, DataAccessStatus dataAccessStatus)
+        private void ValidateModel(DbContext context, IJenisOrderanModel model, DataAccessStatus _dataAccessStatus)
         {
             var existsKode = context.Conn.ExecuteScalar<bool>("SELECT COUNT(1) FROM jenis_orderan WHERE kode=@kode AND id!=@id",
                                                                new { model.kode, model.id });
 
             if (existsKode)
             {
-                dataAccessStatus.Status = "Error";
-                dataAccessStatus.CustomMessage = StringHelper.DuplicateEntry("kode", _modelName);
+                _dataAccessStatus.Status = "Error";
+                _dataAccessStatus.CustomMessage = StringHelper.DuplicateEntry("kode", _modelName);
 
-                throw new DataAccessException(dataAccessStatus); ;
+                throw new DataAccessException(_dataAccessStatus); ;
             }
 
             var existsNama = context.Conn.ExecuteScalar<bool>("SELECT COUNT(1) FROM jenis_orderan WHERE nama=@nama AND id!=@id",
@@ -101,10 +94,10 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.JenisOrdera
 
             if (existsNama)
             {
-                dataAccessStatus.Status = "Error";
-                dataAccessStatus.CustomMessage = StringHelper.DuplicateEntry("nama", _modelName);
+                _dataAccessStatus.Status = "Error";
+                _dataAccessStatus.CustomMessage = StringHelper.DuplicateEntry("nama", _modelName);
 
-                throw new DataAccessException(dataAccessStatus); ;
+                throw new DataAccessException(_dataAccessStatus); ;
             }
         }
 

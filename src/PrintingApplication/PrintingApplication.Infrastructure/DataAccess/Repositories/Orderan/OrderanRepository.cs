@@ -13,15 +13,16 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 {
     public class OrderanRepository : BaseRepository<IOrderanModel>, IOrderanRepository
     {
+        private readonly DataAccessStatus _dataAccessStatus;
+
         public OrderanRepository()
         {
             _modelName = "orderan";
+            _dataAccessStatus = new DataAccessStatus();
         }
 
         public void Insert(IOrderanModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 context.BeginTransaction();
@@ -67,7 +68,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                     }
 
                     context.Commit();
-                }, dataAccessStatus,
+                }, _dataAccessStatus,
                 () => CheckAfterInsert(context, "SELECT COUNT(1) FROM orderan WHERE no_nota=@no_nota "
                                        + "AND id=(SELECT id FROM orderan ORDER BY ID DESC LIMIT 1)",
                                        new { model.no_nota }));
@@ -81,11 +82,9 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public void Delete(IOrderanModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                Delete(model, () => context.Conn.Delete((OrderanModel)model), dataAccessStatus, () => CheckModelExist(context, model.id));
+                Delete(model, () => context.Conn.Delete((OrderanModel)model), _dataAccessStatus, () => CheckModelExist(context, model.id));
             }
         }
 
@@ -96,8 +95,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanModel> GetByDate(object date)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 var listObjs = context.Conn.Query<OrderanModel>(StringHelper.QueryStringByDate(_modelName), new { date });
@@ -110,8 +107,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanModel> GetByDate(object startDate, object endDate)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 var listObjs = context.Conn.Query<OrderanModel>(StringHelper.QueryStringByBetweenDate(_modelName), new { startDate, endDate });
@@ -147,19 +142,15 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IOrderanModel GetById(object id)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                return GetBy(() => context.Conn.Get<OrderanModel>(id), dataAccessStatus,
+                return GetBy(() => context.Conn.Get<OrderanModel>(id), _dataAccessStatus,
                             () => CheckModelExist(context, id));
             }
         }
 
         public IOrderanModel GetByNoNota(object noNota)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 var queryStr = "SELECT * FROM orderan WHERE no_nota = @noNota";
@@ -188,8 +179,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanReportModel> GetReportByDate(object date)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 var queryStr = QueryStrReport("DATE(o.tanggal) = @date");
@@ -202,8 +191,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanReportModel> GetReportByDate(object startDate, object endDate)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 var queryStr = QueryStrReport("DATE(o.tanggal) >= @startDate AND DATE(o.tanggal) <= @endDate");

@@ -1,14 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PrintingApplication.CommonComponents;
+﻿using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Role;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Role;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Role;
-using PrintingApplication.Services.UnitTests.CommonTests;
 using System.Linq;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.Role
 {
@@ -16,21 +12,15 @@ namespace PrintingApplication.Services.UnitTests.Role
     public class FormActionServicesDataAccessTests
     {
         private IFormActionServices _services;
-        private readonly ITestOutputHelper _testOutputHelper;
 
-        public FormActionServicesDataAccessTests(ITestOutputHelper testOutputHelper)
+        public FormActionServicesDataAccessTests()
         {
-            _testOutputHelper = testOutputHelper;
             _services = new FormActionServices(new FormActionRepository(), new ModelDataAnnotationCheck());
         }
 
         [Fact]
         private void ShouldReturnSuccessForInsert()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 string[] formNames = new string[]
@@ -51,33 +41,16 @@ namespace PrintingApplication.Services.UnitTests.Role
 
                     _services.Insert(model);
                 }
-
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnErrorDuplicateInsert()
         {
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new FormActionModel()
@@ -93,12 +66,7 @@ namespace PrintingApplication.Services.UnitTests.Role
             }
             catch (DataAccessException ex)
             {
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.NotNull(ex);
             }
         }
 
@@ -108,15 +76,13 @@ namespace PrintingApplication.Services.UnitTests.Role
             var listModels = _services.GetAll().ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
         public void ShouldReturnModelMatchingFormName()
         {
             FormActionModel model = null;
-            var formNameToGet = "TipeView";
+            var formNameToGet = "JenisOrderanView";
 
             try
             {
@@ -124,16 +90,11 @@ namespace PrintingApplication.Services.UnitTests.Role
             }
             catch (DataAccessException ex)
             {
-                _testOutputHelper.WriteLine(ex.DataAccessStatusInfo.GetFormatedValues());
+                Assert.Null(ex);
             }
 
-            Assert.True(model != null);
-            Assert.True(model.form_name == formNameToGet);
-
-            if (model != null)
-            {
-                TestsHelper.WriteModel(_testOutputHelper, model);
-            }
+            Assert.NotNull(model);
+            Assert.Equal(model.form_name, formNameToGet);
         }
 
     }

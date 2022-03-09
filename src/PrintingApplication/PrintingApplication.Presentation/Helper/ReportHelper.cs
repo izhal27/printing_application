@@ -18,7 +18,7 @@ namespace PrintingApplication.Presentation.Helper
 
         public static void ShowNotaOrderan(IOrderanModel orderanModel)
         {
-            if (MainProgram.Pengaturan.tipe_printer == TipePrinter.InkjetDotMatrix)
+            if (MainProgram.Pengaturan.printer_tipe == 1)
             {
 
                 var reportDataSources = new List<ReportDataSource>()

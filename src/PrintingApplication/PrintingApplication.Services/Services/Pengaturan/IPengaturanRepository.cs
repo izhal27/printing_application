@@ -2,9 +2,7 @@
 
 namespace PrintingApplication.Services.Services.Pengaturan
 {
-    public interface IPengaturanRepository
+    public interface IPengaturanRepository : IBaseRepository<IPengaturanModel>
     {
-        IPengaturanModel GetModel { get; }
-        void Save(IPengaturanModel model);
     }
 }

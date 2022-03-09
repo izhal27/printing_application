@@ -11,20 +11,21 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
 {
     public class RoleRepository : BaseRepository<IRoleModel>, IRoleRepository
     {
+        private DataAccessStatus _dataAccessStatus;
+
         public RoleRepository()
         {
             _modelName = "role";
+            _dataAccessStatus = new DataAccessStatus();
         }
 
         public void Insert(IRoleModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                ValidateModel(context, model, dataAccessStatus);
+                ValidateModel(context, model, _dataAccessStatus);
 
-                Insert(model, () => context.Conn.Insert((RoleModel)model), dataAccessStatus,
+                Insert(model, () => context.Conn.Insert((RoleModel)model), _dataAccessStatus,
                       () => CheckAfterInsert(context, "SELECT COUNT(1) FROM role WHERE kode = @kode "
                                              + "AND id=(SELECT LAST_INSERT_ID())",
                                              new { model.kode }));
@@ -33,21 +34,17 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
 
         public void Update(IRoleModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                ValidateModel(context, model, dataAccessStatus);
+                ValidateModel(context, model, _dataAccessStatus);
 
-                Update(model, () => context.Conn.Update((RoleModel)model), dataAccessStatus,
+                Update(model, () => context.Conn.Update((RoleModel)model), _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public void Delete(IRoleModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 Delete(model, () =>
@@ -57,25 +54,23 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
 
                     if (found)
                     {
-                        dataAccessStatus.Status = "Error";
-                        dataAccessStatus.CustomMessage = StringHelper.ErrorDeleteForeignKey(_modelName);
+                        _dataAccessStatus.Status = "Error";
+                        _dataAccessStatus.CustomMessage = StringHelper.ErrorDeleteForeignKey(_modelName);
 
-                        throw new DataAccessException(dataAccessStatus);
+                        throw new DataAccessException(_dataAccessStatus);
                     }
 
                     context.Conn.Delete((RoleModel)model);
-                }, dataAccessStatus,
+                }, _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public IEnumerable<IRoleModel> GetAll()
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                return GetAll(() => context.Conn.GetAll<RoleModel>(), dataAccessStatus);
+                return GetAll(() => context.Conn.GetAll<RoleModel>(), _dataAccessStatus);
             }
         }
 
@@ -102,8 +97,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
 
         public void Insert(IRoleDetailModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             try
             {
                 using (var context = new DbContext())
@@ -113,16 +106,13 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
             }
             catch (MySqlException ex)
             {
-                dataAccessStatus = SetDataAccessValues(ex, ErrorMessageType.Update);
                 throw new DataAccessException(message: ex.Message, innerException: ex.InnerException,
-                                              dataAccessStatus: dataAccessStatus);
+                                              dataAccessStatus: SetDataAccessValues(ex, ErrorMessageType.Update));
             }
         }
 
         public void Insert(IEnumerable<IRoleDetailModel> models)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             try
             {
                 using (var context = new DbContext())
@@ -132,16 +122,13 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
             }
             catch (MySqlException ex)
             {
-                dataAccessStatus = SetDataAccessValues(ex, ErrorMessageType.Update);
                 throw new DataAccessException(message: ex.Message, innerException: ex.InnerException,
-                                              dataAccessStatus: dataAccessStatus);
+                                              dataAccessStatus: SetDataAccessValues(ex, ErrorMessageType.Update));
             }
         }
 
         public void Delete(IRoleDetailModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             try
             {
                 using (var context = new DbContext())
@@ -159,9 +146,8 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
             }
             catch (MySqlException ex)
             {
-                dataAccessStatus = SetDataAccessValues(ex, ErrorMessageType.Update);
                 throw new DataAccessException(message: ex.Message, innerException: ex.InnerException,
-                                              dataAccessStatus: dataAccessStatus);
+                                              dataAccessStatus: SetDataAccessValues(ex, ErrorMessageType.Update));
             }
         }
 
@@ -169,17 +155,14 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Role
         {
             using (var context = new DbContext())
             {
-                var dataAccessStatus = new DataAccessStatus();
-
                 try
                 {
                     context.Conn.DeleteAll<RoleDetailModel>();
                 }
                 catch (MySqlException ex)
                 {
-                    dataAccessStatus = SetDataAccessValues(ex, ErrorMessageType.Delete);
                     throw new DataAccessException(message: ex.Message, innerException: ex.InnerException,
-                                                  dataAccessStatus: dataAccessStatus);
+                                                  dataAccessStatus: SetDataAccessValues(ex, ErrorMessageType.Delete));
                 }
             }
         }

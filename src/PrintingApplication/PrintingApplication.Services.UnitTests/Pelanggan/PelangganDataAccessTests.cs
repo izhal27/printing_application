@@ -1,14 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PrintingApplication.CommonComponents;
+﻿using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Pelanggan;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pelanggan;
-using PrintingApplication.Services.UnitTests.CommonTests;
 using System.Linq;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.Pelanggan
 {
@@ -16,21 +12,15 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
     public class PelangganDataAccessTests
     {
         private IPelangganServices _services;
-        private readonly ITestOutputHelper _testOutputHelper;
 
-        public PelangganDataAccessTests(ITestOutputHelper testOutputHelper)
+        public PelangganDataAccessTests()
         {
-            _testOutputHelper = testOutputHelper;
             _services = new PelangganServices(new PelangganRepository(), new ModelDataAnnotationCheck());
         }
 
         [Fact]
         private void ShouldReturnSuccessForInsert()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 for (int i = 2; i <= 10; i++)
@@ -45,34 +35,16 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
 
                     _services.Insert(model);
                 }
-
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForUpdate()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new PelangganModel()
@@ -85,33 +57,16 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
                 };
 
                 _services.Update(model);
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil diubah.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForDelete()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new PelangganModel()
@@ -120,23 +75,10 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
                 };
 
                 _services.Delete(model);
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil dihapus.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
@@ -146,8 +88,6 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
             var listModels = _services.GetAll().ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -162,16 +102,11 @@ namespace PrintingApplication.Services.UnitTests.Pelanggan
             }
             catch (DataAccessException ex)
             {
-                _testOutputHelper.WriteLine(ex.DataAccessStatusInfo.GetFormatedValues());
+                Assert.Null(ex);
             }
 
-            Assert.True(model != null);
-            Assert.True(model.id == idToGet);
-
-            if (model != null)
-            {
-                TestsHelper.WriteModel(_testOutputHelper, model);
-            }
+            Assert.NotNull(model);
+            Assert.Equal(model.id.ToString(), idToGet.ToString());
         }
     }
 }

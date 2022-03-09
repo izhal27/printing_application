@@ -1,11 +1,8 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PrintingApplication.CommonComponents;
+﻿using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Role;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Role;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Role;
-using PrintingApplication.Services.UnitTests.CommonTests;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -27,53 +24,31 @@ namespace PrintingApplication.Services.UnitTests.Role
         [Fact]
         private void ShouldReturnSuccessForInsertRole()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new RoleModel()
                 {
-                    kode = "opr",
+                    kode = "opr2",
                     nama = "Role Operator",
                     keterangan = "Role Operator"
                 };
 
                 _services.Insert(model);
-
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForInsertRoleDetail()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new RoleDetailModel()
                 {
-                    role_kode = "opr",
+                    role_kode = "role",
                     form_action = "UserView",
                     menu_parent = "Master",
                     menu_name = "Tambah",
@@ -81,33 +56,16 @@ namespace PrintingApplication.Services.UnitTests.Role
                 };
 
                 _services.Insert(model);
-
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil ditambahkan.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnErrorDuplicateInsert()
         {
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new RoleModel()
@@ -120,50 +78,28 @@ namespace PrintingApplication.Services.UnitTests.Role
             }
             catch (DataAccessException ex)
             {
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.NotNull(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForUpdate()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new RoleModel()
                 {
-                    id = 3,
-                    kode = "role",
-                    nama = "Role Tests (Update)",
+                    id = 5,
+                    kode = "opr2",
+                    nama = "Role Operator (Update)",
                     keterangan = "Role Tests (Update)"
                 };
 
                 _services.Update(model);
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil diubah.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
@@ -177,7 +113,7 @@ namespace PrintingApplication.Services.UnitTests.Role
             {
                 var model = new RoleModel()
                 {
-                    id = 4,
+                    id = 2,
                     kode = "role",
                     nama = "Tipe #2",
                 };
@@ -186,48 +122,25 @@ namespace PrintingApplication.Services.UnitTests.Role
             }
             catch (DataAccessException ex)
             {
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.NotNull(ex);
             }
         }
 
         [Fact]
         private void ShouldReturnSuccessForDelete()
         {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
             try
             {
                 var model = new RoleModel()
                 {
-                    id = 1,
-                    kode = "role"
+                    id = 5
                 };
 
                 _services.Delete(model);
-                operationSecceded = true;
             }
             catch (DataAccessException ex)
             {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil dihapus.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
+                Assert.Null(ex);
             }
         }
 
@@ -237,8 +150,6 @@ namespace PrintingApplication.Services.UnitTests.Role
             var listModels = _services.GetAll().ToList();
 
             Assert.NotEmpty(listModels);
-
-            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -253,55 +164,11 @@ namespace PrintingApplication.Services.UnitTests.Role
             }
             catch (DataAccessException ex)
             {
-                _testOutputHelper.WriteLine(ex.DataAccessStatusInfo.GetFormatedValues());
+                Assert.Null(ex);
             }
 
-            Assert.True(model != null);
-            Assert.True(model.id == idToGet);
-
-            if (model != null)
-            {
-                TestsHelper.WriteModel(_testOutputHelper, model);
-            }
-        }
-
-        [Fact]
-        private void ShouldReturnErrorDuplicateUpdateRoleDetail()
-        {
-            var operationSecceded = false;
-            var dataAccessJsonStr = string.Empty;
-            var formattedJsonStr = string.Empty;
-
-            try
-            {
-                var model = new RoleDetailModel()
-                {
-                    role_kode = "role",
-                    menu_name = "Master",
-                    menu_parent = "Master",
-                    form_action = "Tambah",
-                    tag = "Tambah",
-                };
-
-                _services.Insert(model);
-                operationSecceded = true;
-            }
-            catch (DataAccessException ex)
-            {
-                operationSecceded = ex.DataAccessStatusInfo.OperationSucceeded;
-                dataAccessJsonStr = JsonConvert.SerializeObject(ex.DataAccessStatusInfo);
-                formattedJsonStr = JToken.Parse(dataAccessJsonStr).ToString();
-            }
-
-            try
-            {
-                Assert.True(operationSecceded);
-                _testOutputHelper.WriteLine("Data berhasil diubah.");
-            }
-            finally
-            {
-                _testOutputHelper.WriteLine(formattedJsonStr);
-            }
+            Assert.NotNull(model);
+            Assert.Equal(model.id.ToString(), idToGet.ToString());
         }
     }
 }

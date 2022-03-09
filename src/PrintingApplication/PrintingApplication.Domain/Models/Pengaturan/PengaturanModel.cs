@@ -17,7 +17,7 @@ namespace PrintingApplication.Domain.Models.Pengaturan
 
         public TipePrinter tipe_printer { get; set; }
 
-        public string printer_tipe { get; set; }
+        public int printer_tipe { get; set; }
 
         public string printer_name { get; set; }
 

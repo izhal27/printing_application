@@ -8,15 +8,16 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan
 {
     public class PelangganRepository : BaseRepository<IPelangganModel>, IPelangganRepository
     {
+        private readonly DataAccessStatus _dataAccessStatus;
+
         public PelangganRepository()
         {
             _modelName = "pelanggan";
+            _dataAccessStatus = new DataAccessStatus();
         }
 
         public void Insert(IPelangganModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 context.Conn.Insert((PelangganModel)model);
@@ -25,8 +26,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan
 
         public void Update(IPelangganModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 context.Conn.Update((PelangganModel)model);
@@ -35,19 +34,15 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan
 
         public void Delete(IPelangganModel model)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
-                Delete(model, () => context.Conn.Delete((PelangganModel)model), dataAccessStatus,
+                Delete(model, () => context.Conn.Delete((PelangganModel)model), _dataAccessStatus,
                       () => CheckModelExist(context, model.id));
             }
         }
 
         public IEnumerable<IPelangganModel> GetAll()
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetAll(() =>
@@ -55,14 +50,12 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan
                     var listObj = context.Conn.GetAll<PelangganModel>();
 
                     return listObj;
-                }, dataAccessStatus);
+                }, _dataAccessStatus);
             }
         }
 
         public IPelangganModel GetById(object id)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             using (var context = new DbContext())
             {
                 return GetBy(() =>
@@ -70,7 +63,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pelanggan
                     var model = context.Conn.Get<PelangganModel>(id);
 
                     return model;
-                }, dataAccessStatus,
+                }, _dataAccessStatus,
                             () => CheckModelExist(context, id));
             }
         }
