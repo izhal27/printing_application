@@ -28,5 +28,10 @@ namespace PrintingApplication.Services.Services.Pengaturan
             get { return _repo.GetModel; }
 
         }
+
+        public void ValidateModel(IPengaturanModel model)
+        {
+            _modelDAC.ValidateModel(model);
+        }
     }
 }

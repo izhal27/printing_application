@@ -24,8 +24,6 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
             _servicesFixture.Model = new PengaturanModel()
             {
                 nama = "Tests",
-                keterangan = "Tests",
-                total = 27000
             };
         }
 
@@ -44,19 +42,6 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
         public void ShouldThrowExceptionForNamaEmpty()
         {
             _servicesFixture.Model.nama = string.Empty;
-
-            var exception = Record.Exception(() => _servicesFixture
-                                                   .Services.ValidateModel(_servicesFixture.Model));
-
-            Assert.NotNull(exception);
-
-            WriteExceptionTestResult(exception);
-        }
-
-        [Fact]
-        public void ShouldThrowExceptionForNamaTooShort()
-        {
-            _servicesFixture.Model.nama = "A";
 
             var exception = Record.Exception(() => _servicesFixture
                                                    .Services.ValidateModel(_servicesFixture.Model));

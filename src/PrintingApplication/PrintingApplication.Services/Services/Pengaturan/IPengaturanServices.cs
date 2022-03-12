@@ -7,5 +7,6 @@ namespace PrintingApplication.Services.Services.Pengaturan
         void Save(IPengaturanModel model);
         void Update(IPengaturanModel model);
         IPengaturanModel GetModel { get; }
+        void ValidateModel(IPengaturanModel model);
     }
 }

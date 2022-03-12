@@ -1,44 +1,21 @@
 ﻿using PrintingApplication.CommonComponents;
-using PrintingApplication.Domain.Models.Pengeluaran;
-using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran;
+using PrintingApplication.Domain.Models.Pengaturan;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan;
 using PrintingApplication.Services.Services;
-using PrintingApplication.Services.Services.Pengeluaran;
+using PrintingApplication.Services.Services.Pengaturan;
 using System.Linq;
 using Xunit;
 
 namespace PrintingApplication.Services.UnitTests.Pengaturan
 {
     [Trait("Category", "Data Access Validations")]
-    public class PengeluaranDataAccessTests
+    public class PengaturanDataAccessTests
     {
-        private IPengeluaranServices _services;
+        private IPengaturanServices _services;
 
-        public PengeluaranDataAccessTests()
+        public PengaturanDataAccessTests()
         {
-            _services = new PengeluaranServices(new PengeluaranRepository(), new ModelDataAnnotationCheck());
-        }
-
-        [Fact]
-        private void ShouldReturnSuccessForInsert()
-        {
-            try
-            {
-                for (int i = 1; i <= 10; i++)
-                {
-                    var model = new PengeluaranModel()
-                    {
-                        nama = $"Pengeluaran #{i}",
-                        total = i * 1000,
-                        keterangan = $"Keterangan Pengeluaran #{i}"
-                    };
-
-                    _services.Insert(model);
-                }
-            }
-            catch (DataAccessException ex)
-            {
-                Assert.Null(ex);
-            }
+            _services = new PengaturanServices(new PengaturanRepository(), new ModelDataAnnotationCheck());
         }
 
         [Fact]
@@ -46,12 +23,10 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
         {
             try
             {
-                var model = new PengeluaranModel()
+                var model = new PengaturanModel()
                 {
                     id = 1,
-                    nama = "Pengeluaran #1 (Update)",
-                    total = 30000,
-                    keterangan = "Keterangan Pengeluaran #1"
+                    nama = "Pengaturan #1 (Update)",
                 };
 
                 _services.Update(model);
@@ -63,40 +38,13 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
         }
 
         [Fact]
-        private void ShouldReturnSuccessForDelete()
+        public void ShouldReturnModel()
         {
-            try
-            {
-                var model = new PengeluaranModel()
-                {
-                    id = 10,
-                };
-
-                _services.Delete(model);
-            }
-            catch (DataAccessException ex)
-            {
-                Assert.Null(ex);
-            }
-        }
-
-        [Fact]
-        public void ShouldReturnListOfModels()
-        {
-            var listModels = _services.GetAll().ToList();
-
-            Assert.NotEmpty(listModels);
-        }
-
-        [Fact]
-        public void ShouldReturnModelMatchingId()
-        {
-            PengeluaranModel model = null;
-            var idToGet = 1;
+            PengaturanModel model = null;
 
             try
             {
-                model = (PengeluaranModel)_services.GetById(idToGet);
+                model = (PengaturanModel)_services.GetModel;
             }
             catch (DataAccessException ex)
             {
@@ -104,7 +52,6 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
             }
 
             Assert.NotNull(model);
-            Assert.Equal(model.id.ToString(), idToGet.ToString());
         }
     }
 }

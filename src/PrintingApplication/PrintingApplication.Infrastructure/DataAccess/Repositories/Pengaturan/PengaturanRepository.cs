@@ -8,8 +8,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan
 {
     public class PengaturanRepository : IPengaturanRepository
     {
-        IPengaturanModel IPengaturanRepository.GetModel => throw new System.NotImplementedException();
-
         public void Save(IPengaturanModel model)
         {
             using (var context = new DbContext())
