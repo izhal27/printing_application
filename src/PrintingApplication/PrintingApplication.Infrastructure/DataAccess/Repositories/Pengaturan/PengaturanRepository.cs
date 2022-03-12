@@ -1,42 +1,40 @@
-﻿using PrintingApplication.CommonComponents;
+﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Services.Services.Pengaturan;
-using System.Collections.Generic;
-using System.Drawing;
+using System.Linq;
 
 namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan
 {
-    public class PengaturanRepository : BaseRepository<IPengaturanModel>, IPengaturanRepository
+    public class PengaturanRepository : IPengaturanRepository
     {
+        IPengaturanModel IPengaturanRepository.GetModel => throw new System.NotImplementedException();
 
-        public PengaturanRepository()
+        public void Save(IPengaturanModel model)
         {
-            _modelName = "pengaturan";
-        }
-
-        public void Insert(IPengaturanModel model)
-        {
-            throw new System.NotImplementedException();
+            using (var context = new DbContext())
+            {
+                context.Conn.Insert((PengaturanModel)model);
+            }
         }
 
         public void Update(IPengaturanModel model)
         {
-            throw new System.NotImplementedException();
+            using (var context = new DbContext())
+            {
+                context.Conn.Update((PengaturanModel)model);
+            }
         }
 
-        public void Delete(IPengaturanModel model)
+        public IPengaturanModel GetModel
         {
-            throw new System.NotImplementedException();
-        }
-
-        public IPengaturanModel GetById(object id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IEnumerable<IPengaturanModel> GetAll()
-        {
-            throw new System.NotImplementedException();
+            get
+            {
+                using (var context = new DbContext())
+                {
+                    return context.Conn.Query<PengaturanModel>("SELECT * FROM pengaturan").FirstOrDefault();
+                }
+            }
         }
     }
 }

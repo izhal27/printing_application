@@ -4,7 +4,8 @@ namespace PrintingApplication.Services.Services.Pengaturan
 {
     public interface IPengaturanServices
     {
-        IPengaturanModel GetModel { get; }
         void Save(IPengaturanModel model);
+        void Update(IPengaturanModel model);
+        IPengaturanModel GetModel { get; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PrintingApplication.Services.Services.Pengaturan
 {
-    public class PengaturanServices 
+    public class PengaturanServices : IPengaturanServices
     {
         private IModelDataAnnotationCheck _modelDAC;
         private IPengaturanRepository _repo;
@@ -11,6 +11,22 @@ namespace PrintingApplication.Services.Services.Pengaturan
         {
             _repo = repo;
             _modelDAC = modelDAC;
+        }
+
+        public void Save(IPengaturanModel model)
+        {
+            _repo.Save(model);
+        }
+
+        public void Update(IPengaturanModel model)
+        {
+            _repo.Update(model);
+        }
+
+        public IPengaturanModel GetModel
+        {
+            get { return _repo.GetModel; }
+
         }
     }
 }

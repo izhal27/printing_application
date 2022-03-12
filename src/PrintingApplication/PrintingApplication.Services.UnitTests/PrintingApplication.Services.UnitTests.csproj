@@ -113,6 +113,9 @@
     <Compile Include="Pelanggan\PelangganDataAccessTests.cs" />
     <Compile Include="Pelanggan\PelangganServicesFixture.cs" />
     <Compile Include="Pelanggan\PelangganServicesValidationTests.cs" />
+    <Compile Include="Pengaturan\PengaturanDataAccessTests.cs" />
+    <Compile Include="Pengaturan\PengaturanServicesFixture.cs" />
+    <Compile Include="Pengaturan\PengaturanServicesValidationTests.cs" />
     <Compile Include="Pengeluaran\PengeluaranDataAccessTests.cs" />
     <Compile Include="Pengeluaran\PengeluaranServicesFixture.cs" />
     <Compile Include="Pengeluaran\PengeluaranServicesValidationTests.cs" />
