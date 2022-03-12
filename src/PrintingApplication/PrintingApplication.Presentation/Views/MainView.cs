@@ -58,7 +58,7 @@ namespace PrintingApplication.Presentation.Views
             _dockPanel.AllowEndUserDocking = false;
             _dockPanel.AllowEndUserNestedDocking = false;
             _dockPanel.ShowDocumentIcon = false;
-            _dockPanel.Theme = DockpanelThemeHelper.GetTheme((int)MainProgram.Pengaturan.dockpanel_theme);
+            //_dockPanel.Theme = DockpanelThemeHelper.GetTheme((int)MainProgram.Pengaturan.dockpanel_theme);
 
             _dockPanel.DockBackColor = Color.Transparent;
 

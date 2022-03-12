@@ -11,7 +11,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
             base.OnEnter(e);
             if (!ReadOnly)
             {
-                BackColor = MainProgram.Pengaturan.warna_baris_genap;
+                //BackColor = MainProgram.Pengaturan.warna_baris_genap;
             }
         }
 

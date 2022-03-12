@@ -20,10 +20,8 @@ namespace PrintingApplication.Presentation.Views.CommonControls
         protected override void OnCreateControl()
         {
             base.OnCreateControl();
-            panelInfo.BackColor = MainProgram.Pengaturan != null ?
-                                  MainProgram.Pengaturan.warna_backgroud_strip : Color.FromArgb(67, 78, 84);
-            labelInfo.ForeColor = MainProgram.Pengaturan != null ?
-                                  MainProgram.Pengaturan.warna_teks_strip : Color.FromArgb(240, 240, 240);
+            panelInfo.BackColor = Color.FromArgb(67, 78, 84);
+            labelInfo.ForeColor = Color.FromArgb(240, 240, 240);
         }
     }
 }

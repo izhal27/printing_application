@@ -157,11 +157,6 @@ namespace PrintingApplication.Presentation.Presenters
             using (new WaitCursorHandler())
             {
                 var view = new PengaturanPresenter().GetView;
-                if (((Form)view).ShowDialog() == DialogResult.OK)
-                {
-                    _view.ToolStrip.Visible = MainProgram.Pengaturan.show_tool_strip;
-                    _view.StatusStrip.Visible = MainProgram.Pengaturan.show_status_strip;
-                }
             }
         }
 

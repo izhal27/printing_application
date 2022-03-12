@@ -32,7 +32,8 @@ namespace PrintingApplication.Presentation
         {
             get
             {
-                return _pengaturanServices ?? (_pengaturanServices = new PengaturanServices(new PengaturanRepository(), new ModelDataAnnotationCheck()));
+                return null;
+                //return _pengaturanServices ?? (_pengaturanServices = new PengaturanServices(new PengaturanRepository(), new ModelDataAnnotationCheck()));
             }
         }
 

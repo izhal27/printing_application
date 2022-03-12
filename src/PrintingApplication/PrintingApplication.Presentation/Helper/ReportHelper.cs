@@ -24,12 +24,16 @@ namespace PrintingApplication.Presentation.Helper
                 var reportDataSources = new List<ReportDataSource>()
               {
                  new ReportDataSource {
-                    Name = "DataSetOrderan",
+                    Name = "DSOrderan",
                     Value = new BindingSource(orderanModel, null)
                  },
                  new ReportDataSource {
-                    Name = "DataSetOrderanDetail",
+                    Name = "DSOrderanDetail",
                     Value = orderanModel.OrderanDetails
+                 },
+                 new ReportDataSource {
+                    Name = "DSOPengaturan",
+                    Value = MainProgram.Pengaturan,
                  }
               };
 
@@ -156,12 +160,12 @@ namespace PrintingApplication.Presentation.Helper
             }
 
             // Cek jika telepon tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.telpon))
+            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.contact))
             {
                 offset += font8.Height;
 
                 // telepon
-                graphics.DrawString(MainProgram.Pengaturan.telpon
+                graphics.DrawString(MainProgram.Pengaturan.contact
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 
