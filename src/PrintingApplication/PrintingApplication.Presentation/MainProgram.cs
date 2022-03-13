@@ -1,8 +1,10 @@
 ﻿using ExceptionReporting;
 using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Domain.Models.User;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Presenters.Login;
+using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengaturan;
 using System;
 using System.Diagnostics;
@@ -30,8 +32,7 @@ namespace PrintingApplication.Presentation
         {
             get
             {
-                return null;
-                //return _pengaturanServices ?? (_pengaturanServices = new PengaturanServices(new PengaturanRepository(), new ModelDataAnnotationCheck()));
+                return _pengaturanServices ?? (_pengaturanServices = new PengaturanServices(new PengaturanRepository(), new ModelDataAnnotationCheck()));
             }
         }
 
