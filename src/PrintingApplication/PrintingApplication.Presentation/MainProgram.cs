@@ -1,10 +1,8 @@
 ﻿using ExceptionReporting;
 using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Domain.Models.User;
-using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Presenters.Login;
-using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengaturan;
 using System;
 using System.Diagnostics;

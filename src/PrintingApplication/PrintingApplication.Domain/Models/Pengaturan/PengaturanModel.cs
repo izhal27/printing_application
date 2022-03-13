@@ -1,8 +1,11 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using Dp = Dapper.Contrib.Extensions;
 
 namespace PrintingApplication.Domain.Models.Pengaturan
 {
+    [Table("Pengaturan")]
     public class PengaturanModel : IPengaturanModel
     {
         public uint id { get; set; }
@@ -15,6 +18,7 @@ namespace PrintingApplication.Domain.Models.Pengaturan
 
         public string contact { get; set; }
 
+        [Dp.Write(false)]
         public TipePrinter tipe_printer { get; set; }
 
         public int printer_tipe { get; set; }

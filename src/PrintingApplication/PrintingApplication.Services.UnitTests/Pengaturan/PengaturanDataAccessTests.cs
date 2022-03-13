@@ -1,9 +1,9 @@
-﻿using PrintingApplication.CommonComponents;
+﻿using Newtonsoft.Json;
+using PrintingApplication.CommonComponents;
 using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengaturan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengaturan;
-using System.Linq;
 using Xunit;
 
 namespace PrintingApplication.Services.UnitTests.Pengaturan
@@ -26,7 +26,13 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
                 var model = new PengaturanModel()
                 {
                     id = 1,
-                    nama = "Pengaturan #1 (Update)",
+                    nama = "Nama Toko (Update)",
+                    alamat_1 = "Alamat 1",
+                    alamat_2 = "Alamat 2",
+                    contact = "08123456789",
+                    printer_tipe = 1,
+                    printer_name = null,
+                    path_background = null,
                 };
 
                 _services.Update(model);
@@ -41,6 +47,17 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
         public void ShouldReturnModel()
         {
             PengaturanModel model = null;
+            var expectedModel = new PengaturanModel()
+            {
+                id = 1,
+                nama = "Nama Toko",
+                alamat_1 = "Alamat 1",
+                alamat_2 = "Alamat 2",
+                contact = "08123456789",
+                printer_tipe = 1,
+                printer_name = null,
+                path_background = null,
+            };
 
             try
             {
@@ -51,7 +68,11 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
                 Assert.Null(ex);
             }
 
+            var modelStr = JsonConvert.SerializeObject(model);
+            var expectedModelStr = JsonConvert.SerializeObject(expectedModel);
+
             Assert.NotNull(model);
+            Assert.Equal(modelStr, expectedModelStr);
         }
     }
 }

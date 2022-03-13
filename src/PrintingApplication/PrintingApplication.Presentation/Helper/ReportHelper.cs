@@ -1,6 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
 using PrintingApplication.Domain.Models.Orderan;
-using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Presentation.Views.CommonControls;
 using System.Collections.Generic;
 using System.Drawing;

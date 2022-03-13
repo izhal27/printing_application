@@ -1,5 +1,4 @@
-﻿using PrintingApplication.Presentation.Helper;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Drawing;
 using System.IO;
