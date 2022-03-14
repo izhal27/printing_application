@@ -29,18 +29,21 @@ namespace PrintingApplication.Presentation.Views.CommonControls
 
         public void SetLastColumnFill(object lastColumnFill)
         {
-            if (lastColumnFill is string || lastColumnFill is int)
+            if (lastColumnFill != null && lastColumnFill is string || lastColumnFill is int)
             {
                 var lastColumn = lastColumnFill.ToString();
                 AutoSizeColumnsMode = AutoSizeColumnsMode.LastColumnFill;
 
-                if (lastColumnFill is string)
+                if (Columns[lastColumn] != default)
                 {
-                    Columns[lastColumn].AutoSizeColumnsMode = AutoSizeColumnsMode.LastColumnFill;
-                }
-                else if (lastColumnFill is int)
-                {
-                    Columns[int.Parse(lastColumn)].AutoSizeColumnsMode = AutoSizeColumnsMode.LastColumnFill;
+                    if (lastColumnFill is string)
+                    {
+                        Columns[lastColumn].AutoSizeColumnsMode = AutoSizeColumnsMode.LastColumnFill;
+                    }
+                    else if (lastColumnFill is int)
+                    {
+                        Columns[int.Parse(lastColumn)].AutoSizeColumnsMode = AutoSizeColumnsMode.LastColumnFill;
+                    }
                 }
             }
         }

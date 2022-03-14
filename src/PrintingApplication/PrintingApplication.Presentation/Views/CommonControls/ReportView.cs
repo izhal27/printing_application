@@ -45,7 +45,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
 
                 var reportDatasourcePengaturan = new ReportDataSource
                 {
-                    Name = "DataSetPengaturan",
+                    Name = "DSPengaturan",
                     Value = new BindingSource(MainProgram.PengaturanModel ?? new PengaturanModel(), null)
                 };
 
@@ -54,6 +54,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
 
                 reportViewer.LocalReport.DataSources.Add(reportDatasourcePengaturan);
                 reportViewer.LocalReport.LoadReportDefinition(reportDefinition);
+                reportViewer.LocalReport.EnableExternalImages = true;
 
                 if (parameters != null)
                     reportViewer.LocalReport.SetParameters(parameters);

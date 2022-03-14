@@ -116,12 +116,12 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                     var reportDataSources = new List<ReportDataSource>()
                {
                   new ReportDataSource {
-                     Name = "DataSetPenjualan",
+                     Name = "DSOrderan",
                      Value = listObjs
                   }
                };
 
-                    new ReportView("Laporan Orderan", "ReportViewerLaporanPenjualan",
+                    new ReportView("Laporan Orderan", "ReportViewerLaporanOrderan",
                                    reportDataSources, parameters).ShowDialog();
                 }
             }
@@ -133,7 +133,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
 
             if (model != null)
             {
-                var detailView = new DetailView("Detail Orderan", "barang_nama");
+                var detailView = new DetailView("Detail Orderan", "");
                 detailView.OnLoadView += DetailView_OnLoadView;
                 detailView.OnButtonCetakClick += DetailView_OnButtonCetakClick;
                 detailView.ShowDialog();
@@ -156,7 +156,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         {
             var OrderanModel = (OrderanModel)_view.ListDataGrid.SelectedItem;
 
-            //ReportHelper.ShowNotaPenjualan(OrderanModel);
+            ReportHelper.ShowNotaOrderan(OrderanModel);
 
             ((Form)sender).Close();
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using PrintingApplication.Domain.Models.Orderan;
+using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Presentation.Views.CommonControls;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,7 +18,7 @@ namespace PrintingApplication.Presentation.Helper
 
         public static void ShowNotaOrderan(IOrderanModel orderanModel)
         {
-            if (MainProgram.PengaturanModel.printer_tipe == 1)
+            if (MainProgram.PengaturanModel.tipe_printer == TipePrinter.Inkjet)
             {
 
                 var reportDataSources = new List<ReportDataSource>()
@@ -30,19 +31,15 @@ namespace PrintingApplication.Presentation.Helper
                     Name = "DSOrderanDetail",
                     Value = orderanModel.OrderanDetails
                  },
-                 new ReportDataSource {
-                    Name = "DSOPengaturan",
-                    Value = MainProgram.PengaturanModel,
-                 }
               };
 
-                new ReportView("Nota Orderan", "ReportViewerOrderan",
+                new ReportView("Nota Orderan", "ReportViewerNotaOrderan",
                                reportDataSources, null).ShowDialog();
             }
             else
             {
                 _orderanModel = orderanModel;
-                NotaPenjualanPrinterThermal();
+                NotaOrderanPrinterThermal();
             }
         }
 
@@ -50,7 +47,7 @@ namespace PrintingApplication.Presentation.Helper
         /// Method yang digunakkan untuk mencetak nota penjualan ke printer thermal
         /// </summary>
         /// <param name="penjualanModel">Orderan object</param>
-        private static void NotaPenjualanPrinterThermal()
+        private static void NotaOrderanPrinterThermal()
         {
             // Inisialisai printDocument object
             PrintDocument printDocument = new PrintDocument();

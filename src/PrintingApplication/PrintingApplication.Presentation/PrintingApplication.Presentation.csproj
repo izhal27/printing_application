@@ -597,6 +597,10 @@
       <Project>{59d7ec84-14c8-4c56-b1ee-e001297ce331}</Project>
       <Name>PrintingApplication.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrintingApplication.Report\PrintingApplication.Report.csproj">
+      <Project>{bbb10753-cd22-4ff5-9438-11436e1c6777}</Project>
+      <Name>PrintingApplication.Report</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PrintingApplication.Services\PrintingApplication.Services.csproj">
       <Project>{e3ec1dc9-ab55-4147-a19c-d79afe30001d}</Project>
       <Name>PrintingApplication.Services</Name>

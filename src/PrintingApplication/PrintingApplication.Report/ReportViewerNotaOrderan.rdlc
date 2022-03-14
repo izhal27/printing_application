@@ -1128,7 +1128,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!alamat_1.Value, "DataSetPengaturan")</Value>
+                <Value>=First(Fields!alamat_1.Value, "DSPengaturan")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1158,7 +1158,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!alamat_2.Value, "DataSetPengaturan")</Value>
+                <Value>=First(Fields!alamat_2.Value, "DSPengaturan")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1335,7 +1335,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!diskon.Value, "DataSetPenjualan")</Value>
+                <Value>=First(Fields!total_diskon.Value, "DSOrderan")</Value>
                 <Style>
                   <Format>'Rp'#,0;('Rp'#,0)</Format>
                 </Style>
@@ -1373,7 +1373,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!jumlah_bayar.Value, "DataSetPenjualan")</Value>
+                <Value>=First(Fields!bayar.Value, "DSOrderan")</Value>
                 <Style>
                   <Format>'Rp'#,0;('Rp'#,0)</Format>
                 </Style>
@@ -1577,7 +1577,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!grand_total.Value, "DataSetPenjualan")</Value>
+                <Value>=First(Fields!total.Value, "DSOrderan")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                   <Format>'Rp'#,0;('Rp'#,0)</Format>
@@ -1648,7 +1648,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!kembali.Value, "DataSetPenjualan")</Value>
+                <Value>=First(Fields!kembali.Value, "DSOrderan")</Value>
                 <Style>
                   <Format>'Rp'#,0;('Rp'#,0)</Format>
                 </Style>
@@ -1725,7 +1725,7 @@
       </Line>
       <Image Name="Logo">
         <Source>External</Source>
-        <Value />
+        <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
         <Sizing>Fit</Sizing>
         <Top>1.17215cm</Top>
         <Left>10.98526cm</Left>
@@ -1734,13 +1734,17 @@
         <ZIndex>31</ZIndex>
         <Style>
           <Border>
-            <Style>Solid</Style>
+            <Style>None</Style>
           </Border>
         </Style>
       </Image>
     </ReportItems>
     <Height>3.22172in</Height>
-    <Style />
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
   <Width>8.27518in</Width>
   <Page>
@@ -1783,37 +1787,15 @@
       </ConnectionProperties>
       <rd:DataSourceID>e97f840e-41f1-4054-aa2e-6d89534b6b56</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="PrintingApplicationDomainModelsPengaturan1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>0ce94a97-ce29-41d1-8f3f-d4c46750bf8a</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DSJenisOrderan">
-      <Query>
-        <DataSourceName>PrintingApplicationDomainModelsJenisOrderan</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="harga_satuan">
-          <DataField>harga_satuan</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="keterangan">
-          <DataField>keterangan</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="kode">
-          <DataField>kode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="nama">
-          <DataField>nama</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>PrintingApplication.Domain.Models.JenisOrderan</rd:DataSetName>
-        <rd:TableName>JenisOrderanModel</rd:TableName>
-        <rd:ObjectDataSourceType>PrintingApplication.Domain.Models.JenisOrderan.JenisOrderanModel, PrintingApplication.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="DSOrderan">
       <Query>
         <DataSourceName>PrintingApplicationDomainModelsOrderan</DataSourceName>
@@ -1898,7 +1880,7 @@
     </DataSet>
     <DataSet Name="DSPengaturan">
       <Query>
-        <DataSourceName>PrintingApplicationDomainModelsPengaturan</DataSourceName>
+        <DataSourceName>PrintingApplicationDomainModelsPengaturan1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1926,8 +1908,8 @@
           <DataField>path_background</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="printer_name">
-          <DataField>printer_name</DataField>
+        <Field Name="path_logo">
+          <DataField>path_logo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="printer_tipe">

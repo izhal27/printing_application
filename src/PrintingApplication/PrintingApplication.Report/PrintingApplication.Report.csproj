@@ -51,9 +51,6 @@
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Pengaturan.PengaturanModel.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PrintingApplication.Domain\PrintingApplication.Domain.csproj">
       <Project>{ab941dec-f0f8-4403-8efa-7052951238a3}</Project>
       <Name>PrintingApplication.Domain</Name>
