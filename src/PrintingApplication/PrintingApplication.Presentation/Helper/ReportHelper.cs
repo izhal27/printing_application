@@ -175,9 +175,9 @@ namespace PrintingApplication.Presentation.Helper
 
             offset += 2;
 
-            graphics.DrawString($"NOTA ORDERAN", font8.Bold(), Brushes.Black, startX, offset);
+            graphics.DrawString($"NOTA ORDERAN", font12.Bold(), Brushes.Black, startX, offset);
 
-            offset += font8.Height;
+            offset += font12.Height;
 
             // Tanggal
             graphics.DrawString($"{"TANGGAL".PadRight(12)} : "
