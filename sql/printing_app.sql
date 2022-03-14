@@ -87,11 +87,11 @@ CREATE TABLE `pengaturan` (
   `alamat_2` varchar(100) DEFAULT NULL,
   `contact` varchar(100) DEFAULT NULL,
   `printer_tipe` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
-  `printer_name` varchar(255) DEFAULT NULL,
+  `path_logo` varchar(255) DEFAULT NULL,
   `path_background` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `printer_name`, `path_background`) VALUES
+INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `path_logo`, `path_background`) VALUES
 (1, 'Nama Toko', 'Alamat 1', 'Alamat 2', '08123456789', 1, NULL, NULL);
 
 CREATE TABLE `pengeluaran` (
