@@ -12,7 +12,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
         {
             InitializeComponent();
 
-            panelUp.LabelInfo = "CARI BARANG";
+            panelUp.LabelInfo = "CARI JENIS ORDERAN";
 
             listDataGrid.CurrentCellKeyDown += ListDataGrid_CurrentCellKeyDown;
         }
@@ -29,11 +29,18 @@ namespace PrintingApplication.Presentation.Views.CommonControls
 
                     break;
                 case Keys.Up:
+
+                    if (listDataGrid.SelectedIndex > 0)
+                    {
+                        --listDataGrid.SelectedIndex;
+                    }
+
+                    break;
                 case Keys.Down:
 
-                    if (textBoxPencarian.Focused)
+                    if (listDataGrid.SelectedIndex < listDataGrid.RowCount - 1)
                     {
-                        listDataGrid.SelectedIndex = 0;
+                        ++listDataGrid.SelectedIndex;
                     }
 
                     break;

@@ -27,7 +27,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         private IOrderanServices _orderanServices;
         private IJenisOrderanServices _jenisOrderanServices;
         private List<OrderanDetailModel> _listOrderanDetails;
-        private List<IJenisOrderanModel> _listsJenisOrderans;
         private BindingListView<OrderanDetailModel> _bindingView;
         private bool _statusPembayaran = false;
         private string _kodeOrNamaForSearching = "";
@@ -57,7 +56,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             _view = new OrderanView();
             _orderanServices = new OrderanServices(new OrderanRepository(), new ModelDataAnnotationCheck());
             _jenisOrderanServices = new JenisOrderanServices(new JenisOrderanRepository(), new ModelDataAnnotationCheck());
-            _listsJenisOrderans = _jenisOrderanServices.GetAll().ToList();
 
             _view.OnLoadData += _view_OnLoadData;
             _view.OnCariData += _view_OnCariData;
@@ -99,7 +97,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         {
             if (!_statusPembayaran)
             {
-                var view = new CariJenisOrderanView(_listsJenisOrderans, TipePencarian.Orderan, _kodeOrNamaForSearching);
+                var view = new CariJenisOrderanView(_jenisOrderanServices.GetAll().ToList(), TipePencarian.Orderan, _kodeOrNamaForSearching);
                 view.OnSendData += CariBarangView_OnSendData;
                 view.OnFormClosing += CariBarangView_OnFormClosing;
                 view.ShowDialog();
@@ -249,7 +247,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             {
                 _view.ListDataGrid.Enabled = true;
                 _view.TextBoxNoNota.Text = string.Empty;
-                _listsJenisOrderans = _jenisOrderanServices.GetAll().Where(b => b.harga_satuan > 0).ToList();
                 _statusPembayaran = false;
             }
 
