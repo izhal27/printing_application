@@ -126,7 +126,7 @@ namespace PrintingApplication.Presentation.Helper
             int startX = 0;
             int startY = 15; // Jarak dari batas atas area print
             int startCenter = e.PageBounds.Width / 2; // Pertengahan area print
-            int endOfLine = 0;
+            int endOfLine = e.PageBounds.Width;
             int offset = 15; // Jarak baris antara huruf
 
             // -------------------------------- Header --------------------------------------- //
@@ -161,16 +161,6 @@ namespace PrintingApplication.Presentation.Helper
                 offset += font8.Height;
 
                 // telepon
-                graphics.DrawString(MainProgram.PengaturanModel.contact
-                   , font8, Brushes.Black, startCenter, offset, formatCenter);
-            }
-
-            // Cek jika kota tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.contact))
-            {
-                offset += font8.Height;
-
-                // kota
                 graphics.DrawString(MainProgram.PengaturanModel.contact
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
@@ -224,7 +214,7 @@ namespace PrintingApplication.Presentation.Helper
             DrawLine(graphics, startX, offset, endOfLine, blackPen);
             // ------------------------------------------------------------------------------- //
 
-            offset += 2;
+            offset += 4;
 
             // -------------------------------- List Item ------------------------------------ //
 
@@ -241,12 +231,22 @@ namespace PrintingApplication.Presentation.Helper
                 //------------------------------------------------------------------- //
                 var jumlah = item.jumlah.ToString("N0").PadLeft(5);
                 var harga = item.harga_satuan.ToString("N0");
-                var diskon = item.diskon.ToString("N0");
-                graphics.DrawString(jumlah + " x " + harga + " - " + diskon, font8, Brushes.Black
-                   , startX, offset);
+
+                if (item.diskon != default)
+                {
+                    var diskon = item.diskon.ToString("N0");
+
+                    graphics.DrawString(jumlah + " x " + harga + " - " + diskon, font8, Brushes.Black
+                       , startX, offset);
+                }
+                else
+                {
+                    graphics.DrawString(jumlah + " x " + harga, font8, Brushes.Black
+                       , startX, offset);
+                }
 
                 var subTotal = item.sub_total.ToString("N0").PadLeft(5);
-                graphics.DrawString(subTotal, font8, Brushes.Black
+                graphics.DrawString("= " + subTotal, font8, Brushes.Black
                    , endOfLine, offset, formatRight);
 
                 offset += font8.Height;
@@ -258,7 +258,7 @@ namespace PrintingApplication.Presentation.Helper
             DrawLine(graphics, startX, offset, endOfLine, blackPen);
             // ------------------------------------------------------------------------------- //
 
-            offset += 2;
+            offset += 4;
 
             // Total Item
             graphics.DrawString("TOTAL ITEM", font8, Brushes.Black
@@ -270,13 +270,13 @@ namespace PrintingApplication.Presentation.Helper
 
             // Total Jumlah
             graphics.DrawString("JUMLAH", font8, Brushes.Black, startX, offset);
-            graphics.DrawString(_orderanModel.OrderanDetails.ToList().Sum(p => p.jumlah).ToString("N0")
+            graphics.DrawString(_orderanModel.OrderanDetails.ToList().Sum(od => od.jumlah).ToString("N0")
                , font8, Brushes.Black, endOfLine, offset, formatRight);
 
             offset += font8.Height;
             // Sub Total
             graphics.DrawString("SUB TOTAL", font8, Brushes.Black, startX, offset);
-            graphics.DrawString(_orderanModel.total.ToString("C")
+            graphics.DrawString(_orderanModel.OrderanDetails.ToList().Sum(od => od.sub_total).ToString("C")
                , font8, Brushes.Black, endOfLine, offset, formatRight);
 
             offset += font8.Height;

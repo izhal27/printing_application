@@ -41,8 +41,6 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanDetailModel> GetAll(IOrderanModel orderan, IDbTransaction transaction = null)
         {
-            var dataAccessStatus = new DataAccessStatus();
-
             var queryStr = "SELECT * FROM orderan_detail WHERE order_id=@id";
 
             var listorderDetails = _context.Conn.Query<OrderanDetailModel>(queryStr, new { id = orderan.id }, transaction);

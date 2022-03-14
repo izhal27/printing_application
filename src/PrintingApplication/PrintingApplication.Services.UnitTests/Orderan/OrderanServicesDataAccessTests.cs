@@ -93,7 +93,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
         public void ShouldReturnModelMatchingNoNota()
         {
             OrderanModel model = null;
-            var noNotaToGet = "20220306000001";
+            var noNotaToGet = "20220314000002";
 
             try
             {
@@ -106,6 +106,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
 
             Assert.NotNull(model);
             Assert.Equal(model.no_nota, noNotaToGet);
+            Assert.True(model.OrderanDetails.Count() > 0);
 
         }
 

@@ -163,16 +163,15 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                     {
                         var pelangganModel = context.Conn.Get<PelangganModel>(model.pelanggan_id);
 
-                        if (pelangganModel != null)
-                        {
-                            model.Pelanggan = pelangganModel;
-                        }
+                        model.Pelanggan = pelangganModel ?? pelangganModel;
+
                     }
 
                     var odRepo = new OrderanDetailRepository(context);
 
                     model.OrderanDetails = odRepo.GetAll(model);
                 }
+
                 return model;
             }
         }

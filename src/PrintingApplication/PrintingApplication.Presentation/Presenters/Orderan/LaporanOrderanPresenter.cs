@@ -135,7 +135,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             {
                 var detailView = new DetailView("Detail Orderan", "");
                 detailView.OnLoadView += DetailView_OnLoadView;
-                detailView.OnButtonCetakClick += DetailView_OnButtonCetakClick;
+                detailView.OnButtonCetakClick += DetailView_OnButtonCetakNoNotaClick;
                 detailView.ShowDialog();
             }
         }
@@ -152,11 +152,11 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             }
         }
 
-        private void DetailView_OnButtonCetakClick(object sender, EventArgs e)
+        private void DetailView_OnButtonCetakNoNotaClick(object sender, EventArgs e)
         {
             var OrderanModel = (OrderanModel)_view.ListDataGrid.SelectedItem;
 
-            ReportHelper.ShowNotaOrderan(OrderanModel);
+            ReportHelper.ShowNotaOrderan(_services.GetByNoNota(OrderanModel.no_nota));
 
             ((Form)sender).Close();
         }
