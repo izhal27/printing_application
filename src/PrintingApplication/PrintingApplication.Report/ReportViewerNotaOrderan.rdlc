@@ -626,21 +626,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox50">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!harga_satuan.Value)</Value>
+                              <Value />
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox50</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1728,9 +1728,9 @@
         <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
         <Sizing>Fit</Sizing>
         <Top>1.17215cm</Top>
-        <Left>10.98526cm</Left>
+        <Left>11.09163cm</Left>
         <Height>2.4cm</Height>
-        <Width>2.72772cm</Width>
+        <Width>2.62135cm</Width>
         <ZIndex>31</ZIndex>
         <Style>
           <Border>

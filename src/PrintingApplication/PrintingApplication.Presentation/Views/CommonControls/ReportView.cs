@@ -60,6 +60,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
                     reportViewer.LocalReport.SetParameters(parameters);
 
                 reportViewer.RefreshReport();
+                //reportViewer.LocalReport.ReleaseSandboxAppDomain();
             }
             catch (Exception ex)
             {
