@@ -261,7 +261,7 @@ namespace PrintingApplication.Presentation.Helper
             offset += 4;
 
             // Total Item
-            graphics.DrawString("TOTAL ITEM", font8, Brushes.Black
+            graphics.DrawString("ITEM", font8, Brushes.Black
               , startX, offset);
             graphics.DrawString(_orderanModel.OrderanDetails.ToList().Count.ToString("N0")
                , font8, Brushes.Black, endOfLine, offset, formatRight);
@@ -269,7 +269,7 @@ namespace PrintingApplication.Presentation.Helper
             offset += font8.Height;
 
             // Total Jumlah
-            graphics.DrawString("JUMLAH", font8, Brushes.Black, startX, offset);
+            graphics.DrawString("JUMLAH ITEM", font8, Brushes.Black, startX, offset);
             graphics.DrawString(_orderanModel.OrderanDetails.ToList().Sum(od => od.jumlah).ToString("N0")
                , font8, Brushes.Black, endOfLine, offset, formatRight);
 
