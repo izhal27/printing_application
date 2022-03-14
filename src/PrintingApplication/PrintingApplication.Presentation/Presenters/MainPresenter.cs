@@ -157,6 +157,7 @@ namespace PrintingApplication.Presentation.Presenters
             using (new WaitCursorHandler())
             {
                 var view = new PengaturanPresenter().GetView;
+                view.ShowView();
             }
         }
 

@@ -17,7 +17,7 @@ namespace PrintingApplication.Presentation.Helper
 
         public static void ShowNotaOrderan(IOrderanModel orderanModel)
         {
-            if (MainProgram.Pengaturan.printer_tipe == 1)
+            if (MainProgram.PengaturanModel.printer_tipe == 1)
             {
 
                 var reportDataSources = new List<ReportDataSource>()
@@ -32,7 +32,7 @@ namespace PrintingApplication.Presentation.Helper
                  },
                  new ReportDataSource {
                     Name = "DSOPengaturan",
-                    Value = MainProgram.Pengaturan,
+                    Value = MainProgram.PengaturanModel,
                  }
               };
 
@@ -135,46 +135,46 @@ namespace PrintingApplication.Presentation.Helper
             // -------------------------------- Header --------------------------------------- //
 
             // Title / nama cafe
-            graphics.DrawString(MainProgram.Pengaturan.nama
+            graphics.DrawString(MainProgram.PengaturanModel.nama
                , font12.Bold(), Brushes.Black, startCenter, startY, formatCenter);
 
             // Cek jika alamat_1 tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.alamat_1))
+            if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.alamat_1))
             {
                 offset += font12.Height;
 
                 // alamat 1
-                graphics.DrawString(MainProgram.Pengaturan.alamat_1
+                graphics.DrawString(MainProgram.PengaturanModel.alamat_1
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 
             // Cek jika alamat_2 tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.alamat_2))
+            if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.alamat_2))
             {
                 offset += font8.Height;
 
                 // alamat 2
-                graphics.DrawString(MainProgram.Pengaturan.alamat_2
+                graphics.DrawString(MainProgram.PengaturanModel.alamat_2
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 
             // Cek jika telepon tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.contact))
+            if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.contact))
             {
                 offset += font8.Height;
 
                 // telepon
-                graphics.DrawString(MainProgram.Pengaturan.contact
+                graphics.DrawString(MainProgram.PengaturanModel.contact
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 
             // Cek jika kota tersedia
-            if (!string.IsNullOrWhiteSpace(MainProgram.Pengaturan.contact))
+            if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.contact))
             {
                 offset += font8.Height;
 
                 // kota
-                graphics.DrawString(MainProgram.Pengaturan.contact
+                graphics.DrawString(MainProgram.PengaturanModel.contact
                    , font8, Brushes.Black, startCenter, offset, formatCenter);
             }
 

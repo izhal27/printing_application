@@ -1,14 +1,15 @@
-﻿using System;
+﻿using PrintingApplication.Domain.Models.Pengaturan;
+using System;
 
 namespace PrintingApplication.Presentation.Views.Pengaturan
 {
     public interface IPengaturanView : IView
     {
         event EventHandler OnLoadData;
-        event EventHandler OnButtonDefaultClick;
         event EventHandler OnButtonSaveClick;
 
+        IPengaturanModel Model { get; set; }
+
         void ShowView();
-        void CloseView();
     }
 }

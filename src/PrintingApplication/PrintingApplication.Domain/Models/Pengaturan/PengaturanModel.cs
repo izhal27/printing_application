@@ -19,11 +19,17 @@ namespace PrintingApplication.Domain.Models.Pengaturan
         public string contact { get; set; }
 
         [Dp.Write(false)]
-        public TipePrinter tipe_printer { get; set; }
+        public TipePrinter tipe_printer
+        {
+            get
+            {
+                return (TipePrinter)printer_tipe;
+            }
+        }
 
         public int printer_tipe { get; set; }
 
-        public string printer_name { get; set; }
+        public string path_logo { get; set; }
 
         public string path_background { get; set; }
     }

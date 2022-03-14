@@ -63,9 +63,11 @@ namespace PrintingApplication.Presentation.Views
 
             // Jika gambar di config file tidak kosong dan file gambar tersedia,
             // atur gambar ke DockPanel BackgroudImage
-            var gambar = MainProgram.Pengaturan.path_background;
+            var gambar = MainProgram.PengaturanModel.path_background;
             if (!string.IsNullOrWhiteSpace(gambar) && File.Exists(gambar))
+            {
                 _dockPanel.BackgroundImage = Image.FromFile(gambar);
+            }
 
             _eventArgs = new MainViewEventArgs(_dockPanel);
 

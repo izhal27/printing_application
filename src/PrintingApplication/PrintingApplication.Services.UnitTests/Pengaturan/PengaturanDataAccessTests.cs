@@ -31,7 +31,7 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
                     alamat_2 = "Alamat 2",
                     contact = "08123456789",
                     printer_tipe = 1,
-                    printer_name = null,
+                    path_logo = null,
                     path_background = null,
                 };
 
@@ -55,7 +55,7 @@ namespace PrintingApplication.Services.UnitTests.Pengaturan
                 alamat_2 = "Alamat 2",
                 contact = "08123456789",
                 printer_tipe = 1,
-                printer_name = null,
+                path_logo = null,
                 path_background = null,
             };
 

@@ -8,13 +8,14 @@
         string alamat_2 { get; set; }
         string contact { get; set; }
         int printer_tipe { get; set; }
-        string printer_name { get; set; }
+        string path_logo { get; set; }
         string path_background { get; set; }
+        TipePrinter tipe_printer { get; }
     }
 
     public enum TipePrinter
     {
-        InkjetDotMatrix,
+        Inkjet = 1,
         Thermal
     }
 

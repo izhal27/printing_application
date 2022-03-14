@@ -18,12 +18,11 @@ namespace PrintingApplication.Presentation
 {
     internal static class MainProgram
     {
-        private static IPengaturanModel _pengaturan;
+        private static IPengaturanModel _pengaturanModel;
 
-        public static IPengaturanModel Pengaturan
+        public static IPengaturanModel PengaturanModel
         {
-            get { return _pengaturan ?? (_pengaturan = PengaturanServices.GetModel); }
-            set { _pengaturan = value; }
+            get { return _pengaturanModel ?? (_pengaturanModel = PengaturanServices.GetModel); }
         }
 
         private static IPengaturanServices _pengaturanServices;

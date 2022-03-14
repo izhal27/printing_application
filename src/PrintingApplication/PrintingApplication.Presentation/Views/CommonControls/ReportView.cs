@@ -46,7 +46,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
                 var reportDatasourcePengaturan = new ReportDataSource
                 {
                     Name = "DataSetPengaturan",
-                    Value = new BindingSource(MainProgram.Pengaturan ?? new PengaturanModel(), null)
+                    Value = new BindingSource(MainProgram.PengaturanModel ?? new PengaturanModel(), null)
                 };
 
                 if (reportDataSource != null)
