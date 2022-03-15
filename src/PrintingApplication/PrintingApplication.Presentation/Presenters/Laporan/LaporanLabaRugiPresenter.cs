@@ -1,6 +1,10 @@
 ﻿using Microsoft.Reporting.WinForms;
+using PrintingApplication.Domain.Models.Laporan;
+using PrintingApplication.Infrastructure.DataAccess.Repositories.Laporan;
 using PrintingApplication.Presentation.Helper;
 using PrintingApplication.Presentation.Views.CommonControls;
+using PrintingApplication.Presentation.Views.Laporan;
+using PrintingApplication.Services.Services.Laporan;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -54,31 +58,20 @@ namespace PrintingApplication.Presentation.Presenters.Laporan
             var tahun = _view.NumericUpDownTahun.Value;
             _model = _services.GetByMonthYear(bulan, tahun);
 
-            var totalPenjualan = 0M;
-            var totalHpp = 0M;
-            var totalPengeluaranOperasional = 0M;
-            var totalDiskonPenjualan = 0M;
-            var totalPemasukan = 0M;
+            var totalDiskonOrderan = 0M;
+            var totalOrderan = 0M;
             var totalPengeluaran = 0M;
 
             if (_model != null)
             {
-                _model.total_penjualan = (_model.total_penjualan - _model.total_return_penjualan);
-                totalPenjualan = _model.total_penjualan;
-                _model.total_hpp = (_model.total_hpp - _model.total_return_hpp);
-                totalHpp = _model.total_hpp;
-                totalPengeluaranOperasional = _model.total_pengeluaran;
-                totalDiskonPenjualan = _model.total_diskon_penjualan;
-
-                totalPemasukan = totalPenjualan;
-                totalPengeluaran = (totalHpp + totalPengeluaranOperasional + totalDiskonPenjualan);
-                _model.selisih = (totalPemasukan - totalPengeluaran);
+                totalOrderan = _model.total_orderan;
+                totalPengeluaran = _model.total_diskon_orderan;
+                _model.selisih = totalOrderan - totalPengeluaran;
             }
 
-            _view.LabelPenjualan.Text = totalPenjualan.ToString("C");
-            _view.LabelHpp.Text = totalHpp.ToString("C");
-            _view.LabelPengeluaran.Text = totalPengeluaranOperasional.ToString("C");
-            _view.LabelDiskonPenjualan.Text = totalDiskonPenjualan.ToString("C");
+            _view.LabelOrderan.Text = totalOrderan.ToString("C");
+            _view.LabelPengeluaran.Text = totalPengeluaran.ToString("C");
+            _view.LabelDiskonOrderan.Text = totalDiskonOrderan.ToString("C");
             _view.LabelTotalSelisih.Text = _model.selisih.ToString("C");
         }
 

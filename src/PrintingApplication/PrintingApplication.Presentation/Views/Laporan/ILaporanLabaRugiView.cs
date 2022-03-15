@@ -14,10 +14,10 @@ namespace PrintingApplication.Presentation.Views.Laporan
 
         ComboBoxBulan ComboBoxBulan { get; }
         NumericUpDown NumericUpDownTahun { get; }
-        Label LabelPenjualan { get; }
+        Label LabelOrderan { get; }
         Label LabelHpp { get; }
         Label LabelPengeluaran { get; }
-        Label LabelDiskonPenjualan { get; }
+        Label LabelDiskonOrderan { get; }
         Label LabelTotalSelisih { get; }
 
         void ShowView();

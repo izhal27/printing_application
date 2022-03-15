@@ -61,6 +61,8 @@
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\JenisOrderan\IJenisOrderanModel.cs" />
     <Compile Include="Models\JenisOrderan\JenisOrderanModel.cs" />
+    <Compile Include="Models\Laporan\ILabaRugiModel.cs" />
+    <Compile Include="Models\Laporan\LabaRugiModel.cs" />
     <Compile Include="Models\Orderan\IOrderanModel.cs" />
     <Compile Include="Models\Orderan\IOrderanReportModel.cs" />
     <Compile Include="Models\Orderan\OrderanModel.cs" />

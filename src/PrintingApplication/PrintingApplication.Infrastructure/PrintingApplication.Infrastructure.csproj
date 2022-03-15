@@ -117,6 +117,7 @@
     <Compile Include="DataAccess\Repositories\Database\BackupRestoreDatabaseRepository.cs" />
     <Compile Include="DataAccess\Repositories\DbContext.cs" />
     <Compile Include="DataAccess\Repositories\JenisOrderan\JenisOrderanRepository.cs" />
+    <Compile Include="DataAccess\Repositories\Laporan\LabaRugiRepository.cs" />
     <Compile Include="DataAccess\Repositories\Orderan\OrderanDetailRepository.cs" />
     <Compile Include="DataAccess\Repositories\Orderan\OrderanRepository.cs" />
     <Compile Include="DataAccess\Repositories\Pelanggan\PelangganRepository.cs" />

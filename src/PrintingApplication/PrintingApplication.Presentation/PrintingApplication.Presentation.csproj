@@ -140,6 +140,8 @@
     <Compile Include="Presenters\GantiPassword\IGantiPasswordPresenter.cs" />
     <Compile Include="Presenters\IBasePresenter.cs" />
     <Compile Include="Presenters\IMainPresenter.cs" />
+    <Compile Include="Presenters\Laporan\ILaporanLabaRugiPresenter.cs" />
+    <Compile Include="Presenters\Laporan\LaporanLabaRugiPresenter.cs" />
     <Compile Include="Presenters\Login\ILoginPresenter.cs" />
     <Compile Include="Presenters\Login\LoginPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />

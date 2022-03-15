@@ -107,6 +107,7 @@
       <Link>VersionInfo.cs</Link>
     </Compile>
     <Compile Include="BaseServicesFixture.cs" />
+    <Compile Include="Laporan\LabaRugiServicesDataAccessTests.cs" />
     <Compile Include="Orderan\OrderanServicesDataAccessTests.cs" />
     <Compile Include="Orderan\OrderanServicesFixture.cs" />
     <Compile Include="Orderan\OrderanServicesValidationTests.cs" />

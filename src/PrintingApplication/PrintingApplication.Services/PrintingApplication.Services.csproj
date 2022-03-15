@@ -57,6 +57,9 @@
     <Compile Include="Services\JenisOrderan\JenisOrderanServices.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanRepository.cs" />
     <Compile Include="Services\JenisOrderan\IJenisOrderanServices.cs" />
+    <Compile Include="Services\Laporan\ILabaRugiRepository.cs" />
+    <Compile Include="Services\Laporan\ILabaRugiServices.cs" />
+    <Compile Include="Services\Laporan\LabaRugiServices.cs" />
     <Compile Include="Services\Orderan\IOrderanRepository.cs" />
     <Compile Include="Services\Orderan\IOrderanServices.cs" />
     <Compile Include="Services\Orderan\OrderanServices.cs" />

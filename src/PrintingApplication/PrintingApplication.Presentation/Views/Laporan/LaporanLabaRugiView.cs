@@ -23,7 +23,7 @@ namespace PrintingApplication.Presentation.Views.Laporan
             get { return numericUpDownTahun; }
         }
 
-        public Label LabelPenjualan
+        public Label LabelOrderan
         {
             get { return labelPenjualan; }
         }
@@ -38,7 +38,7 @@ namespace PrintingApplication.Presentation.Views.Laporan
             get { return labelPengeluaran; }
         }
 
-        public Label LabelDiskonPenjualan
+        public Label LabelDiskonOrderan
         {
             get { return labelDiskonPenjualan; }
         }

@@ -2,6 +2,7 @@
 using PrintingApplication.Presentation.Presenters.Database;
 using PrintingApplication.Presentation.Presenters.GantiPassword;
 using PrintingApplication.Presentation.Presenters.JenisOrderan;
+using PrintingApplication.Presentation.Presenters.Laporan;
 using PrintingApplication.Presentation.Presenters.Login;
 using PrintingApplication.Presentation.Presenters.Orderan;
 using PrintingApplication.Presentation.Presenters.Pelanggan;
@@ -66,6 +67,7 @@ namespace PrintingApplication.Presentation.Presenters
             // Laporan
             _view.OnLaporanOrderanViewClick += _view_OnLaporanPenjualanViewClick;
             _view.OnLaporanPengeluaranViewClick += _view_OnLaporanPengeluaranViewClick;
+            _view.OnLaporanLabaRugiViewClick += _view_OnLaporanLabaRugiViewClick;
             // Database
             _view.OnBackupDatabaseViewClick += _view_OnBackupDatabaseViewClick;
             _view.OnRestoreDatabaseViewClick += _view_OnRestoreDatabaseViewClick;
@@ -150,6 +152,14 @@ namespace PrintingApplication.Presentation.Presenters
         {
             var view = (DockContent)new LaporanPengeluaranPresenter().GetView;
             ShowChildForm(view, e);
+        }
+
+        private void _view_OnLaporanLabaRugiViewClick(object sender, EventArgs e)
+        {
+            using (new WaitCursorHandler())
+            {
+                new LaporanLabaRugiPresenter().GetView.ShowView();
+            }
         }
 
         private void _view_OnPengaturanViewClick(object sender, EventArgs e)
