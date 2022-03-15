@@ -58,20 +58,10 @@ namespace PrintingApplication.Presentation.Presenters.Laporan
             var tahun = _view.NumericUpDownTahun.Value;
             _model = _services.GetByMonthYear(bulan, tahun);
 
-            var totalDiskonOrderan = 0M;
-            var totalOrderan = 0M;
-            var totalPengeluaran = 0M;
 
-            if (_model != null)
-            {
-                totalOrderan = _model.total_orderan;
-                totalPengeluaran = _model.total_diskon_orderan;
-                _model.selisih = totalOrderan - totalPengeluaran;
-            }
-
-            _view.LabelOrderan.Text = totalOrderan.ToString("C");
-            _view.LabelPengeluaran.Text = totalPengeluaran.ToString("C");
-            _view.LabelDiskonOrderan.Text = totalDiskonOrderan.ToString("C");
+            _view.LabelOrderan.Text = _model.total_orderan.ToString("C");
+            _view.LabelPengeluaran.Text = _model.total_pengeluaran.ToString("C");
+            _view.LabelDiskonOrderan.Text = _model.total_diskon_orderan.ToString("C");
             _view.LabelTotalSelisih.Text = _model.selisih.ToString("C");
         }
 

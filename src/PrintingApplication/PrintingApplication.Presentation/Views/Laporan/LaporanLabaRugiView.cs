@@ -28,11 +28,6 @@ namespace PrintingApplication.Presentation.Views.Laporan
             get { return labelPenjualan; }
         }
 
-        public Label LabelHpp
-        {
-            get { return labelHpp; }
-        }
-
         public Label LabelPengeluaran
         {
             get { return labelPengeluaran; }
