@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,6 +11,10 @@ namespace PrintingApplication.Domain.Models.Pengeluaran
         [Browsable(false)]
         [Display(Name = "ID")]
         public uint id { get; set; }
+
+        [DisplayFormat(DataFormatString = "dd/MM/yyyy HH:mm")]
+        [Display(Name = "Tanggal")]
+        public DateTime tanggal { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Nama pengeluaran harus diisi !!!")]
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama pengeluaran harus diantara 3 sampai 100 karakter !!!")]

@@ -3179,7 +3179,7 @@
             <rd:DefaultName>Textbox12</rd:DefaultName>
             <Top>0.3175cm</Top>
             <Height>0.67938cm</Height>
-            <Width>9.54342cm</Width>
+            <Width>8.88196cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -3365,7 +3365,7 @@
             <Sizing>FitProportional</Sizing>
             <Top>0.91611cm</Top>
             <Left>20.05631cm</Left>
-            <Height>2.47056cm</Height>
+            <Height>2.4cm</Height>
             <Width>2.63771cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
@@ -3405,7 +3405,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox25</rd:DefaultName>
-              <Top>0.59061cm</Top>
+              <Top>0.5906cm</Top>
               <Height>0.6cm</Height>
               <Width>5.0126cm</Width>
               <Style>
@@ -3435,7 +3435,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox17</rd:DefaultName>
-              <Top>0.59061cm</Top>
+              <Top>0.5906cm</Top>
               <Left>24.71589cm</Left>
               <Height>0.6cm</Height>
               <Width>5.28411cm</Width>

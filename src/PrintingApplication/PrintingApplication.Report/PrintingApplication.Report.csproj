@@ -50,6 +50,7 @@
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Orderan.OrderanReportModel.datasource" />
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.OrderanDetail.OrderanDetailModel.datasource" />
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Pengaturan.PengaturanModel.datasource" />
+    <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Pengeluaran.PengeluaranModel.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrintingApplication.Domain\PrintingApplication.Domain.csproj">
@@ -59,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ReportViewerLaporanOrderan.rdlc" />
+    <EmbeddedResource Include="ReportViewerLaporanPengeluaran.rdlc" />
     <EmbeddedResource Include="ReportViewerNotaOrderan.rdlc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
