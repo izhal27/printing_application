@@ -712,7 +712,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!sub_total.Value)</Value>
-                              <Style />
+                              <Style>
+                                <Format>'Rp'#,0;('Rp'#,0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -735,8 +737,10 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
