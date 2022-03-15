@@ -202,9 +202,9 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         private string QueryStrReport(string where)
         {
-            return "SELECT o.tanggal, o.no_nota, IFNULL(pl.nama, '') AS pelanggan_nama, " +
-                   "od.kode_jenis_orderan, od.nama_jenis_orderan, od.harga_satuan, od.jumlah, od.diskon, od.sub_total, " +
-                   "o.total_diskon, o.total, o.bayar, o.kembali FROM orderan o " +
+            return "SELECT o.id, o.tanggal, o.no_nota, IFNULL(pl.nama, '') AS pelanggan_nama, " +
+                   "od.kode_jenis_orderan, od.nama_jenis_orderan, od.harga_satuan, od.jumlah, od.diskon, " +
+                   "o.total_diskon, o.total, o.bayar, o.kembali, o.keterangan FROM orderan o " +
                    "LEFT JOIN pelanggan pl ON o.pelanggan_id = pl.id " +
                   $"INNER JOIN orderan_detail od ON o.id = od.order_id WHERE {where}";
         }

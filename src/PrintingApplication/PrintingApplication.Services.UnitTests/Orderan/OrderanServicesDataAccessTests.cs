@@ -4,10 +4,12 @@ using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Orderan;
+using PrintingApplication.Services.UnitTests.CommonTests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.Orderan
 {
@@ -16,11 +18,13 @@ namespace PrintingApplication.Services.UnitTests.Orderan
     {
         private readonly IModelDataAnnotationCheck _modelDAC;
         private readonly IOrderanServices _services;
+        private readonly ITestOutputHelper _testOutputHelper;
 
-        public OrderanServicesDataAccessTests()
+        public OrderanServicesDataAccessTests(ITestOutputHelper testOutputHelper)
         {
             _modelDAC = new ModelDataAnnotationCheck();
             _services = new OrderanServices(new OrderanRepository(), _modelDAC);
+            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -132,6 +136,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetReportByDate(DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
+            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
 
         [Fact]
@@ -140,6 +145,7 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             var listModels = _services.GetReportByDate(DateTime.Now.AddDays(-(DateTime.Now.Day)).Date, DateTime.Now.Date).ToList();
 
             Assert.NotEmpty(listModels);
+            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
     }
 }

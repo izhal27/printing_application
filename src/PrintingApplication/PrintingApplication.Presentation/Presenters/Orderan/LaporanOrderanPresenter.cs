@@ -20,7 +20,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
     {
         private ILaporanOrderanView _view;
         private IOrderanServices _services;
-        private List<IOrderanModel> _listPenjualans;
+        private List<IOrderanModel> _listOrderan;
         private BindingListView<OrderanModel> _bindingView;
         private string _typeName = "Orderan";
         private DateTime _tanggal = DateTime.Now.Date;
@@ -50,8 +50,8 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         {
             using (new WaitCursorHandler())
             {
-                _listPenjualans = _services.GetByDate(DateTime.Now.Date).ToList();
-                _bindingView = new BindingListView<OrderanModel>(_listPenjualans);
+                _listOrderan = _services.GetByDate(DateTime.Now.Date).ToList();
+                _bindingView = new BindingListView<OrderanModel>(_listOrderan);
                 _view.ListDataGrid.DataSource = _bindingView;
             }
         }
@@ -69,9 +69,9 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                         _services.Delete(model);
                         Messages.InfoDelete(_typeName);
 
-                        if (_listPenjualans.Remove((OrderanModel)_view.ListDataGrid.SelectedItem))
+                        if (_listOrderan.Remove((OrderanModel)_view.ListDataGrid.SelectedItem))
                         {
-                            _bindingView.DataSource = _listPenjualans;
+                            _bindingView.DataSource = _listOrderan;
                         }
                     }
                     catch (DataAccessException ex)
@@ -171,15 +171,15 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 {
                     case TampilkanStatus.Tanggal:
 
-                        _listPenjualans = _services.GetByDate(e.Tanggal.Date).ToList();
-                        _bindingView.DataSource = _listPenjualans;
+                        _listOrderan = _services.GetByDate(e.Tanggal.Date).ToList();
+                        _bindingView.DataSource = _listOrderan;
                         _tanggal = e.Tanggal.Date;
 
                         break;
                     case TampilkanStatus.Periode:
 
-                        _listPenjualans = _services.GetByDate(e.TanggalAwal.Date, e.TanggalAkhir.Date).ToList();
-                        _bindingView.DataSource = _listPenjualans;
+                        _listOrderan = _services.GetByDate(e.TanggalAwal.Date, e.TanggalAkhir.Date).ToList();
+                        _bindingView.DataSource = _listOrderan;
                         _tanggalAwal = e.TanggalAwal.Date;
                         _tanggalAkhir = e.TanggalAkhir.Date;
 
