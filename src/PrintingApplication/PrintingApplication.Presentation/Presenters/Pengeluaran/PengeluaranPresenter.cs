@@ -114,6 +114,7 @@ namespace PrintingApplication.Presentation.Presenters.Pengeluaran
 
                     if (newModel.id == default(uint))
                     {
+                        newModel.tanggal = DateTime.Now;
                         _services.Insert(newModel);
                         view.Controls.ClearControls();
                         Messages.InfoSave(_typeName);
