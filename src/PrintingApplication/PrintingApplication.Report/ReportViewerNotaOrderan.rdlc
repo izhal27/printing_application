@@ -740,7 +740,6 @@
                         <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -825,7 +824,7 @@
               <TextRun>
                 <Value>=First(Fields!tanggal.Value, "DSOrderan")</Value>
                 <Style>
-                  <Format>g</Format>
+                  <Format>d MMMM yyyy</Format>
                   <Language>id-ID</Language>
                 </Style>
               </TextRun>
