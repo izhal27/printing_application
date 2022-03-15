@@ -51,7 +51,7 @@ CREATE TABLE `orderan` (
   `id` int(10) UNSIGNED NOT NULL,
   `pelanggan_id` int(10) UNSIGNED NOT NULL,
   `no_nota` varchar(255) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` datetime NOT NULL,
   `keterangan` varchar(100) DEFAULT NULL,
   `total_diskon` decimal(19,0) NOT NULL DEFAULT 0,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
@@ -96,7 +96,7 @@ INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `prin
 
 CREATE TABLE `pengeluaran` (
   `id` int(10) NOT NULL,
-  `tanggal` date NOT NULL,
+  `tanggal` datetime NOT NULL,
   `nama` varchar(100) NOT NULL,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
   `keterangan` varchar(255) DEFAULT NULL
