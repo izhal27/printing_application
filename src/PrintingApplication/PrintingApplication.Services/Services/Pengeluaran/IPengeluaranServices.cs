@@ -2,7 +2,7 @@
 
 namespace PrintingApplication.Services.Services.Pengeluaran
 {
-    public interface IPengeluaranServices : IBaseServicesGetByDate<IPengeluaranModel>
+    public interface IPengeluaranServices : IBaseServicesGetByDate<IPengeluaranModel>, IBaseReportServicesByDate<IPengeluaranModel>
     {
     }
 }

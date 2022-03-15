@@ -3,8 +3,11 @@ using PrintingApplication.Domain.Models.Pengeluaran;
 using PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran;
 using PrintingApplication.Services.Services;
 using PrintingApplication.Services.Services.Pengeluaran;
+using PrintingApplication.Services.UnitTests.CommonTests;
+using System;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace PrintingApplication.Services.UnitTests.Pengeluaran
 {
@@ -12,10 +15,12 @@ namespace PrintingApplication.Services.UnitTests.Pengeluaran
     public class PengeluaranDataAccessTests
     {
         private IPengeluaranServices _services;
+        private readonly ITestOutputHelper _testOutputHelper;
 
-        public PengeluaranDataAccessTests()
+        public PengeluaranDataAccessTests(ITestOutputHelper testOutputHelper)
         {
             _services = new PengeluaranServices(new PengeluaranRepository(), new ModelDataAnnotationCheck());
+            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
@@ -27,6 +32,7 @@ namespace PrintingApplication.Services.UnitTests.Pengeluaran
                 {
                     var model = new PengeluaranModel()
                     {
+                        tanggal = DateTime.Now,
                         nama = $"Pengeluaran #{i}",
                         total = i * 1000,
                         keterangan = $"Keterangan Pengeluaran #{i}"
@@ -105,6 +111,41 @@ namespace PrintingApplication.Services.UnitTests.Pengeluaran
 
             Assert.NotNull(model);
             Assert.Equal(model.id.ToString(), idToGet.ToString());
+        }
+
+
+        [Fact]
+        public void ShouldReturnListOfModelsDateNow()
+        {
+            var listModels = _services.GetByDate(DateTime.Now.Date).ToList();
+
+            Assert.NotEmpty(listModels);
+        }
+
+        [Fact]
+        public void ShouldReturnListOfModelsBetweenDate()
+        {
+            var listModels = _services.GetByDate(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), DateTime.Now.AddDays(3)).ToList();
+
+            Assert.NotEmpty(listModels);
+        }
+
+        [Fact]
+        public void ShouldReturnListOfReportModelsDateNow()
+        {
+            var listModels = _services.GetReportByDate(DateTime.Now.Date).ToList();
+
+            Assert.NotEmpty(listModels);
+            TestsHelper.WriteListModels(_testOutputHelper, listModels);
+        }
+
+        [Fact]
+        public void ShouldReturnListOfReportModelsBetweenDate()
+        {
+            var listModels = _services.GetReportByDate(DateTime.Now.AddDays(-(DateTime.Now.Day)).Date, DateTime.Now.Date).ToList();
+
+            Assert.NotEmpty(listModels);
+            TestsHelper.WriteListModels(_testOutputHelper, listModels);
         }
     }
 }

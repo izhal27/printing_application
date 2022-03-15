@@ -52,6 +52,16 @@ namespace PrintingApplication.Services.Services.Pengeluaran
             return _repo.GetByDate(startDate, endDate);
         }
 
+        public IEnumerable<IPengeluaranModel> GetReportByDate(object date)
+        {
+            return _repo.GetReportByDate(date);
+        }
+
+        public IEnumerable<IPengeluaranModel> GetReportByDate(object startDate, object endDate)
+        {
+            return _repo.GetReportByDate(startDate, endDate);
+        }
+
         public void ValidateModel(IPengeluaranModel model)
         {
             _modelDAC.ValidateModel(model);

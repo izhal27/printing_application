@@ -85,6 +85,35 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Pengeluaran
             }
         }
 
+        public IEnumerable<IPengeluaranModel> GetReportByDate(object date)
+        {
+            using (var context = new DbContext())
+            {
+                var queryStr = QueryStrReport("DATE(p.tanggal) = @date");
+
+                var listObjs = context.Conn.Query<PengeluaranModel>(queryStr, new { date });
+
+                return listObjs;
+            }
+        }
+
+        public IEnumerable<IPengeluaranModel> GetReportByDate(object startDate, object endDate)
+        {
+            using (var context = new DbContext())
+            {
+                var queryStr = QueryStrReport("DATE(p.tanggal) >= @startDate AND DATE(p.tanggal) <= @endDate");
+
+                var listObjs = context.Conn.Query<PengeluaranModel>(queryStr, new { startDate, endDate });
+
+                return listObjs;
+            }
+        }
+
+        private string QueryStrReport(string where)
+        {
+            return $"SELECT * FROM pengeluaran p WHERE {where}";
+        }
+
         private bool CheckModelExist(DbContext context, object id)
         {
             return CheckModelExist(context, "SELECT COUNT(1) FROM pengeluaran WHERE id=@id",
