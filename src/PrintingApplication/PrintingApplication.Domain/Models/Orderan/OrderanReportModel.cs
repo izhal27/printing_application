@@ -9,7 +9,7 @@ namespace PrintingApplication.Domain.Models.Orderan
     {
         public uint id { get; set; }
 
-        public uint order_id { get; set; }
+        public uint orderan_id { get; set; }
 
         public DateTime tanggal { get; set; }
 

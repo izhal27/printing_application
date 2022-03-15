@@ -33,21 +33,21 @@ namespace PrintingApplication.Services.UnitTests.Orderan
             _servicesFixture.Model.OrderanDetails = new List<OrderanDetailModel>
          {
             new OrderanDetailModel {
-                order_id = 1,
+                orderan_id = 1,
                 kode_jenis_orderan= "SP-001",
                 nama_jenis_orderan="CETAK SPANDUK",
                 harga_satuan = 25000,
                 jumlah = 1
             },
             new OrderanDetailModel {
-                order_id = 1,
+                orderan_id = 1,
                 kode_jenis_orderan= "SP-001",
                 nama_jenis_orderan="CETAK SPANDUK",
                 harga_satuan = 25000,
                 jumlah = 1
             },
             new OrderanDetailModel {
-                order_id = 1,
+                orderan_id = 1,
                 kode_jenis_orderan= "SP-001",
                 nama_jenis_orderan="CETAK SPANDUK",
                 harga_satuan = 25000,

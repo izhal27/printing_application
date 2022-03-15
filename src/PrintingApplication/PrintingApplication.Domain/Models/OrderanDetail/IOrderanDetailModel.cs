@@ -2,7 +2,7 @@
 {
     public interface IOrderanDetailModel : IModel
     {
-        uint order_id { get; set; }
+        uint orderan_id { get; set; }
         string kode_jenis_orderan { get; set; }
         string nama_jenis_orderan { get; set; }
         decimal harga_satuan { get; set; }

@@ -23,12 +23,12 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public void Insert(IOrderanDetailModel model, IDbTransaction transaction)
         {
-            var queryStr = "INSERT INTO orderan_detail (order_id, kode_jenis_orderan, nama_jenis_orderan, harga_satuan, jumlah, diskon) " +
-                           "VALUES (@order_id, @kode_jenis_orderan, @nama_jenis_orderan, @harga_satuan, @jumlah, @diskon)";
+            var queryStr = "INSERT INTO orderan_detail (orderan_id, kode_jenis_orderan, nama_jenis_orderan, harga_satuan, jumlah, diskon) " +
+                           "VALUES (@orderan_id, @kode_jenis_orderan, @nama_jenis_orderan, @harga_satuan, @jumlah, @diskon)";
 
             _context.Conn.Query<int>(queryStr, new
             {
-                model.order_id,
+                model.orderan_id,
                 model.kode_jenis_orderan,
                 model.nama_jenis_orderan,
                 model.harga_satuan,
@@ -40,7 +40,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public IEnumerable<IOrderanDetailModel> GetAll(IOrderanModel orderan, IDbTransaction transaction = null)
         {
-            var queryStr = "SELECT * FROM orderan_detail WHERE order_id=@id";
+            var queryStr = "SELECT * FROM orderan_detail WHERE orderan_id=@id";
 
             var listorderDetails = _context.Conn.Query<OrderanDetailModel>(queryStr, new { id = orderan.id }, transaction);
 
