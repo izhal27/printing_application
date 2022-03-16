@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.52482cm</Width>
+              <Width>1.0169cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.8267cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.85857cm</Width>
+              <Width>5.36649cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.68357cm</Width>
@@ -352,7 +352,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!jumlah.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -383,7 +385,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!harga_satuan.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -412,7 +416,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!diskon.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -443,7 +449,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!sub_total.Value</Value>
-                              <Style />
+                              <Style>
+                                <Format>#,0;(#,0)</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
