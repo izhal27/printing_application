@@ -80,7 +80,7 @@ namespace PrintingApplication.Presentation.Presenters.Laporan
                 var reportDataSources = new List<ReportDataSource>()
             {
                new ReportDataSource {
-                  Name = "DataSetLabaRugi",
+                  Name = "DSLabaRugi",
                   Value = new BindingSource(_model, null)
                }
             };

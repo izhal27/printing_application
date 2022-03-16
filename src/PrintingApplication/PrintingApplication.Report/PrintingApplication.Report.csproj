@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.JenisOrderan.JenisOrderanModel.datasource" />
+    <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Laporan.LabaRugiModel.datasource" />
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Orderan.OrderanModel.datasource" />
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.Orderan.OrderanReportModel.datasource" />
     <None Include="Properties\DataSources\PrintingApplication.Domain.Models.OrderanDetail.OrderanDetailModel.datasource" />
@@ -59,6 +60,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ReportViewerLaporanLabaRugi.rdlc" />
     <EmbeddedResource Include="ReportViewerLaporanOrderan.rdlc" />
     <EmbeddedResource Include="ReportViewerLaporanPengeluaran.rdlc" />
     <EmbeddedResource Include="ReportViewerNotaOrderan.rdlc" />
