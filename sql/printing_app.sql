@@ -61,7 +61,7 @@ CREATE TABLE `orderan` (
 
 CREATE TABLE `orderan_detail` (
   `id` int(10) UNSIGNED NOT NULL,
-  `order_id` int(10) UNSIGNED NOT NULL,
+  `orderan_id` int(10) UNSIGNED NOT NULL,
   `kode_jenis_orderan` varchar(100) NOT NULL,
   `nama_jenis_orderan` varchar(100) NOT NULL,
   `harga_satuan` decimal(19,0) NOT NULL,
@@ -194,7 +194,7 @@ ALTER TABLE `orderan`
 
 ALTER TABLE `orderan_detail`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_order_order_id` (`order_id`);
+  ADD KEY `fk_order_order_id` (`orderan_id`);
 
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`),
@@ -248,7 +248,7 @@ ALTER TABLE `orderan`
   ADD CONSTRAINT `fk_pelanggan_pelanggan_id` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `orderan_detail`
-  ADD CONSTRAINT `fk_orderan_orderan_id` FOREIGN KEY (`order_id`) REFERENCES `orderan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `fk_orderan_orderan_id` FOREIGN KEY (`orderan_id`) REFERENCES `orderan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_role_kode` FOREIGN KEY (`role_kode`) REFERENCES `role` (`kode`) ON DELETE NO ACTION ON UPDATE CASCADE;
