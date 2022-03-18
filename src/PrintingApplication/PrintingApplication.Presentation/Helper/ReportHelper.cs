@@ -131,43 +131,43 @@ namespace PrintingApplication.Presentation.Helper
 
             // -------------------------------- Header --------------------------------------- //
 
-            // Title / nama cafe
+            // Nama
             graphics.DrawString(MainProgram.PengaturanModel.nama
-               , font12.Bold(), Brushes.Black, startCenter, startY, formatCenter);
+               , font14.Bold(), Brushes.Black, startCenter, startY, formatCenter);
 
-            // Cek jika alamat_1 tersedia
+            // cetak jika alamat_1 tersedia
             if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.alamat_1))
             {
-                offset += font12.Height;
+                offset += font14.Height;
 
                 // alamat 1
                 graphics.DrawString(MainProgram.PengaturanModel.alamat_1
-                   , font8, Brushes.Black, startCenter, offset, formatCenter);
+                   , font10, Brushes.Black, startCenter, offset, formatCenter);
             }
 
-            // Cek jika alamat_2 tersedia
+            // cetak jika alamat_2 tersedia
             if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.alamat_2))
             {
-                offset += font8.Height;
+                offset += font10.Height;
 
                 // alamat 2
                 graphics.DrawString(MainProgram.PengaturanModel.alamat_2
-                   , font8, Brushes.Black, startCenter, offset, formatCenter);
+                   , font10, Brushes.Black, startCenter, offset, formatCenter);
             }
 
-            // Cek jika telepon tersedia
+            // cetak jika contact tersedia
             if (!string.IsNullOrWhiteSpace(MainProgram.PengaturanModel.contact))
             {
-                offset += font8.Height;
+                offset += font10.Height;
 
                 // telepon
                 graphics.DrawString(MainProgram.PengaturanModel.contact
-                   , font8, Brushes.Black, startCenter, offset, formatCenter);
+                   , font10, Brushes.Black, startCenter, offset, formatCenter);
             }
 
             // -------------------------------- End of Header -------------------------------- //
 
-            offset += font8.Height;
+            offset += font10.Height;
 
             // Garis
             DrawLine(graphics, startX, offset, endOfLine, blackPen);
@@ -181,7 +181,7 @@ namespace PrintingApplication.Presentation.Helper
 
             // Tanggal
             graphics.DrawString($"{"TANGGAL".PadRight(12)} : "
-               + $"{_orderanModel.tanggal.ToString("dd/MM/yyyy HH:mm:ss")}"
+               + $"{_orderanModel.tanggal.ToString("dd/MM/yyyy")}"
                , font8, Brushes.Black, startX, offset);
 
             offset += font8.Height;
@@ -204,11 +204,24 @@ namespace PrintingApplication.Presentation.Helper
 
             offset += font8.Height;
 
-            //// Operator
-            //graphics.DrawString($"{"OPERATOR".PadRight(12)} : {MainProgram.OperatorActive.nama}"
-            //   , font8, Brushes.Black, startX, offset);
+            // Garis
+            DrawLine(graphics, startX, offset, endOfLine, blackPen);
+            // ------------------------------------------------------------------------------- //
 
-            //offset += font8.Height;
+            offset += 4;
+
+            var title = "Kode | Nama jenis orderan";
+            graphics.DrawString(title, font8, Brushes.Black, startX, offset);
+
+            offset += font8.Height;
+
+            var subTitle = "    Jumlah x Harga - Diskon";
+            graphics.DrawString(subTitle, font8, Brushes.Black, startX, offset);
+
+            graphics.DrawString("Sub Total", font8, Brushes.Black
+                   , endOfLine, offset, formatRight);
+
+            offset += font8.Height;
 
             // Garis
             DrawLine(graphics, startX, offset, endOfLine, blackPen);
@@ -222,7 +235,7 @@ namespace PrintingApplication.Presentation.Helper
             {
                 // Kode Nama
                 //------------------------------------------------------------------- //
-                graphics.DrawString(item.kode_jenis_orderan + " " + item.nama_jenis_orderan,
+                graphics.DrawString(item.kode_jenis_orderan + " | " + item.nama_jenis_orderan,
                     font8, Brushes.Black, startX, offset);
 
                 offset += font8.Height;
@@ -294,11 +307,11 @@ namespace PrintingApplication.Presentation.Helper
             offset += 2;
 
             // Total
-            graphics.DrawString("TOTAL", font12.Bold(), Brushes.Black, startX, offset);
+            graphics.DrawString("TOTAL", font10.Bold(), Brushes.Black, startX, offset);
             graphics.DrawString(_orderanModel.total.ToString("C")
-               , font12.Bold(), Brushes.Black, endOfLine, offset, formatRight);
+               , font10.Bold(), Brushes.Black, endOfLine, offset, formatRight);
 
-            offset += font12.Height;
+            offset += font10.Height;
 
             // Dibayar
             graphics.DrawString("DIBAYAR", font8, Brushes.Black, startX, offset);
