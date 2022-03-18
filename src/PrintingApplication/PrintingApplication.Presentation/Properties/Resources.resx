@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="laporan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\laporan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login-image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="jenis-orderan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jenis-orderan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,10 +130,37 @@
   <data name="orderan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\orderan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="laporan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\laporan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pelanggan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pelanggan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="login-image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login-image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="About_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facebook_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\facebook_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="github-logo_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\github-logo_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gmail_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gmail_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="instagram_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\instagram_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searching_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\searching_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="twitter_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\twitter_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="whatsapp_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\whatsapp_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

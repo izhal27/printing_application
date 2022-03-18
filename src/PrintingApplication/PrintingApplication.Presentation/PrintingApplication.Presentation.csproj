@@ -616,6 +616,15 @@
     <None Include="Resources\pelanggan.png" />
     <Content Include="print.ico" />
     <None Include="Resources\login-image.png" />
+    <None Include="Resources\About_logo.png" />
+    <None Include="Resources\eye_16.png" />
+    <None Include="Resources\facebook_24.png" />
+    <None Include="Resources\github-logo_24.png" />
+    <None Include="Resources\gmail_24.png" />
+    <None Include="Resources\instagram_24.png" />
+    <None Include="Resources\searching_16.png" />
+    <None Include="Resources\twitter_24.png" />
+    <None Include="Resources\whatsapp_24.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
