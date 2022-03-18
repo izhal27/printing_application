@@ -455,6 +455,7 @@
                             <rd:FormatSymbolCulture>id-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

@@ -502,6 +502,7 @@
                                   <Value>=Fields!jumlah.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>#,0;(#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -537,6 +538,7 @@
                                   <Value>=Fields!harga_satuan.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>#,0;(#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -570,6 +572,7 @@
                                   <Value>=Fields!diskon.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>#,0;(#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -603,6 +606,7 @@
                                   <Value>=Fields!sub_total.Value</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>#,0;(#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -826,6 +830,7 @@
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Normal</FontWeight>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -845,6 +850,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1049,6 +1055,7 @@
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Normal</FontWeight>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -1068,6 +1075,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1272,6 +1280,7 @@
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Normal</FontWeight>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -1291,6 +1300,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1495,6 +1505,7 @@
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -1517,8 +1528,10 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1720,6 +1733,7 @@
                                   <Value>=Sum(Fields!kembali.Value)</Value>
                                   <Style>
                                     <FontFamily>Tahoma</FontFamily>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                     <Color>#4d4d4d</Color>
                                   </Style>
                                 </TextRun>
@@ -1742,6 +1756,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
