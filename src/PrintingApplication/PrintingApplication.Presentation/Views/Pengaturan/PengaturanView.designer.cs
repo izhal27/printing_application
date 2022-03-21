@@ -34,7 +34,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxTipePrinter = new System.Windows.Forms.ComboBox();
@@ -51,10 +50,12 @@
             this.buttnoPilihImageBackground = new System.Windows.Forms.Button();
             this.buttonHapusBackground = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.label3 = new System.Windows.Forms.Label();
             this.textBoxNama = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.textBoxAlamat1 = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.textBoxAlamat2 = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.textBoxContact = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
+            this.textBoxCatatanKaki = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxLogo)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -68,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxAlamat1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxAlamat2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxContact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCatatanKaki)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSave
@@ -96,27 +98,29 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.47368F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.52632F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.75848F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.24152F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxNama, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAlamat1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBoxAlamat2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxContact, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxTipePrinter, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxTipePrinter, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxCatatanKaki, 1, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(380, 208);
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(501, 208);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // label1
@@ -124,7 +128,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 18);
             this.label1.TabIndex = 0;
@@ -135,29 +139,18 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 52);
+            this.label2.Location = new System.Drawing.Point(3, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 18);
+            this.label2.Size = new System.Drawing.Size(53, 18);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Alamat - 1";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Alamat - 2";
+            this.label2.Text = "Alamat";
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 134);
+            this.label4.Location = new System.Drawing.Point(3, 110);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 18);
             this.label4.TabIndex = 0;
@@ -168,11 +161,11 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 177);
+            this.label5.Location = new System.Drawing.Point(3, 144);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 18);
+            this.label5.Size = new System.Drawing.Size(92, 18);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tipe Printer";
+            this.label5.Text = "Catatan Kaki";
             // 
             // comboBoxTipePrinter
             // 
@@ -180,10 +173,10 @@
             this.comboBoxTipePrinter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipePrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipePrinter.FormattingEnabled = true;
-            this.comboBoxTipePrinter.Location = new System.Drawing.Point(114, 173);
+            this.comboBoxTipePrinter.Location = new System.Drawing.Point(107, 176);
             this.comboBoxTipePrinter.Name = "comboBoxTipePrinter";
-            this.comboBoxTipePrinter.Size = new System.Drawing.Size(247, 26);
-            this.comboBoxTipePrinter.TabIndex = 5;
+            this.comboBoxTipePrinter.Size = new System.Drawing.Size(165, 26);
+            this.comboBoxTipePrinter.TabIndex = 6;
             // 
             // pctBoxLogo
             // 
@@ -234,7 +227,7 @@
             // 
             this.groupBox1.Controls.Add(this.pctBoxLogo);
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox1.Location = new System.Drawing.Point(392, 19);
+            this.groupBox1.Location = new System.Drawing.Point(513, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(161, 208);
             this.groupBox1.TabIndex = 8;
@@ -248,7 +241,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.buttonSave, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(374, 485);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(495, 485);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -263,7 +256,7 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(564, 525);
+            this.groupBox2.Size = new System.Drawing.Size(674, 530);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "[ Data Percetakan ]";
@@ -274,7 +267,7 @@
             this.groupBox3.Controls.Add(this.tableLayoutPanel4);
             this.groupBox3.Location = new System.Drawing.Point(6, 233);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(547, 246);
+            this.groupBox3.Size = new System.Drawing.Size(662, 246);
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "[ Background ]";
@@ -283,7 +276,7 @@
             // 
             this.pctBoxBackground.Location = new System.Drawing.Point(6, 19);
             this.pctBoxBackground.Name = "pctBoxBackground";
-            this.pctBoxBackground.Size = new System.Drawing.Size(535, 185);
+            this.pctBoxBackground.Size = new System.Drawing.Size(650, 185);
             this.pctBoxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctBoxBackground.TabIndex = 5;
             this.pctBoxBackground.TabStop = false;
@@ -295,7 +288,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Controls.Add(this.buttnoPilihImageBackground, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonHapusBackground, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(407, 210);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(522, 210);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -328,56 +321,78 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 180);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tipe Printer";
+            // 
             // textBoxNama
             // 
             this.textBoxNama.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxNama.BeforeTouchSize = new System.Drawing.Size(247, 24);
+            this.textBoxNama.BeforeTouchSize = new System.Drawing.Size(386, 24);
             this.textBoxNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNama.Location = new System.Drawing.Point(114, 8);
-            this.textBoxNama.MaxLength = 255;
+            this.textBoxNama.Location = new System.Drawing.Point(107, 5);
+            this.textBoxNama.MaxLength = 50;
             this.textBoxNama.Name = "textBoxNama";
-            this.textBoxNama.Size = new System.Drawing.Size(247, 24);
+            this.textBoxNama.Size = new System.Drawing.Size(386, 24);
             this.textBoxNama.TabIndex = 1;
             // 
             // textBoxAlamat1
             // 
             this.textBoxAlamat1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxAlamat1.BeforeTouchSize = new System.Drawing.Size(247, 24);
+            this.textBoxAlamat1.BeforeTouchSize = new System.Drawing.Size(386, 24);
             this.textBoxAlamat1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAlamat1.Location = new System.Drawing.Point(114, 49);
-            this.textBoxAlamat1.MaxLength = 255;
+            this.textBoxAlamat1.Location = new System.Drawing.Point(107, 39);
+            this.textBoxAlamat1.MaxLength = 50;
             this.textBoxAlamat1.Name = "textBoxAlamat1";
-            this.textBoxAlamat1.Size = new System.Drawing.Size(247, 24);
+            this.textBoxAlamat1.Size = new System.Drawing.Size(386, 24);
             this.textBoxAlamat1.TabIndex = 2;
             // 
             // textBoxAlamat2
             // 
             this.textBoxAlamat2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxAlamat2.BeforeTouchSize = new System.Drawing.Size(247, 24);
+            this.textBoxAlamat2.BeforeTouchSize = new System.Drawing.Size(386, 24);
             this.textBoxAlamat2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAlamat2.Location = new System.Drawing.Point(114, 90);
-            this.textBoxAlamat2.MaxLength = 255;
+            this.textBoxAlamat2.Location = new System.Drawing.Point(107, 73);
+            this.textBoxAlamat2.MaxLength = 50;
             this.textBoxAlamat2.Name = "textBoxAlamat2";
-            this.textBoxAlamat2.Size = new System.Drawing.Size(247, 24);
+            this.textBoxAlamat2.Size = new System.Drawing.Size(386, 24);
             this.textBoxAlamat2.TabIndex = 3;
             // 
             // textBoxContact
             // 
             this.textBoxContact.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxContact.BeforeTouchSize = new System.Drawing.Size(247, 24);
+            this.textBoxContact.BeforeTouchSize = new System.Drawing.Size(386, 24);
             this.textBoxContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxContact.Location = new System.Drawing.Point(114, 131);
-            this.textBoxContact.MaxLength = 255;
+            this.textBoxContact.Location = new System.Drawing.Point(107, 107);
+            this.textBoxContact.MaxLength = 40;
             this.textBoxContact.Name = "textBoxContact";
-            this.textBoxContact.Size = new System.Drawing.Size(247, 24);
+            this.textBoxContact.Size = new System.Drawing.Size(386, 24);
             this.textBoxContact.TabIndex = 4;
+            // 
+            // textBoxCatatanKaki
+            // 
+            this.textBoxCatatanKaki.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxCatatanKaki.BeforeTouchSize = new System.Drawing.Size(386, 24);
+            this.textBoxCatatanKaki.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCatatanKaki.Location = new System.Drawing.Point(107, 141);
+            this.textBoxCatatanKaki.MaxLength = 50;
+            this.textBoxCatatanKaki.Name = "textBoxCatatanKaki";
+            this.textBoxCatatanKaki.Size = new System.Drawing.Size(386, 24);
+            this.textBoxCatatanKaki.TabIndex = 5;
             // 
             // PengaturanView
             // 
             this.AccessibleName = "Alat";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 549);
+            this.ClientSize = new System.Drawing.Size(698, 554);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -401,6 +416,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textBoxAlamat1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxAlamat2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxContact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxCatatanKaki)).EndInit();
             this.ResumeLayout(false);
 
       }
@@ -411,7 +427,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private CommonControls.BaseTextBox textBoxNama;
@@ -432,5 +447,7 @@
         private System.Windows.Forms.Button buttnoPilihImageBackground;
         private System.Windows.Forms.Button buttonHapusBackground;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Label label3;
+        private CommonControls.BaseTextBox textBoxCatatanKaki;
     }
 }

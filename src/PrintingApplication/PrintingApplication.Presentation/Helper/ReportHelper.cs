@@ -325,29 +325,33 @@ namespace PrintingApplication.Presentation.Helper
             graphics.DrawString(_orderanModel.kembali.ToString("C")
                , font8, Brushes.Black, endOfLine, offset, formatRight);
 
-            offset += font8.Height;
+            offset += 2;
+
+            if (MainProgram.PengaturanModel.catatan_kaki != string.Empty)
+            {
+                offset += font8.Height + 2;
+
+                // Garis
+                DrawLine(graphics, startX, offset, endOfLine, blackPen);
+                // ------------------------------------------------------------------------------- //
+
+                offset += 2;
+                graphics.DrawString(MainProgram.PengaturanModel.catatan_kaki, font8
+                   , Brushes.Black, startCenter, offset, formatCenter);
+
+                offset += font8.Height + 2;
+            }
+            else
+            {
+                offset += 4;
+            }
+
 
             // Garis
             DrawLine(graphics, startX, offset, endOfLine, blackPen);
             // ------------------------------------------------------------------------------- //
 
-            offset += 2;
-
-            graphics.DrawString("TERIMA KASIH", font8
-               , Brushes.Black, startCenter, offset, formatCenter);
-
-            offset += font8.Height;
-
-            graphics.DrawString("ATAS KUNJUNGAN ANDA", font8
-               , Brushes.Black, startCenter, offset, formatCenter);
-
-            offset += font8.Height;
-
-            // Garis
-            DrawLine(graphics, startX, offset, endOfLine, blackPen);
-            // ------------------------------------------------------------------------------- //
-
-            offset += 2;
+            offset += 6;
 
             graphics.DrawString("PERHATIAN:", font6
                , Brushes.Black, startX, offset, formatLeft);

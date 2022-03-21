@@ -10,6 +10,7 @@
         int printer_tipe { get; set; }
         string path_logo { get; set; }
         string path_background { get; set; }
+        string catatan_kaki { get; set; }
         TipePrinter tipe_printer { get; }
     }
 

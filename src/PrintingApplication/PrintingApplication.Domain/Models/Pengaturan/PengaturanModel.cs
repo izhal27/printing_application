@@ -18,6 +18,14 @@ namespace PrintingApplication.Domain.Models.Pengaturan
 
         public string contact { get; set; }
 
+        public int printer_tipe { get; set; }
+
+        public string path_logo { get; set; }
+
+        public string path_background { get; set; }
+
+        public string catatan_kaki { get; set; }
+
         [Dp.Write(false)]
         public TipePrinter tipe_printer
         {
@@ -27,11 +35,6 @@ namespace PrintingApplication.Domain.Models.Pengaturan
             }
         }
 
-        public int printer_tipe { get; set; }
-
-        public string path_logo { get; set; }
-
-        public string path_background { get; set; }
     }
 
     public class FileNameImagesEditor : FileNameEditor
