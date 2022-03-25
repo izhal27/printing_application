@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 07:38 AM
+-- Generation Time: Mar 25, 2022 at 04:12 PM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- PHP Version: 8.1.2
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `printing_app`
 --
-CREATE DATABASE IF NOT EXISTS `printing_app` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `printing_app`;
 
 -- --------------------------------------------------------
 
@@ -30,8 +28,7 @@ USE `printing_app`;
 -- Table structure for table `form_action`
 --
 
-DROP TABLE IF EXISTS `form_action`;
-CREATE TABLE IF NOT EXISTS `form_action` (
+CREATE TABLE `form_action` (
   `form_name` varchar(100) NOT NULL,
   `form_text` varchar(100) DEFAULT NULL,
   `act_1` varchar(50) DEFAULT NULL,
@@ -48,8 +45,7 @@ CREATE TABLE IF NOT EXISTS `form_action` (
   `act_12` varchar(50) DEFAULT NULL,
   `act_13` varchar(50) DEFAULT NULL,
   `act_14` varchar(50) DEFAULT NULL,
-  `act_15` varchar(50) DEFAULT NULL,
-  UNIQUE KEY `form_name_UNIQUE` (`form_name`)
+  `act_15` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -72,16 +68,12 @@ INSERT INTO `form_action` (`form_name`, `form_text`, `act_1`, `act_2`, `act_3`, 
 -- Table structure for table `jenis_orderan`
 --
 
-DROP TABLE IF EXISTS `jenis_orderan`;
-CREATE TABLE IF NOT EXISTS `jenis_orderan` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jenis_orderan` (
+  `id` int(10) UNSIGNED NOT NULL,
   `kode` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `harga_satuan` decimal(19,0) NOT NULL DEFAULT 0,
-  `keterangan` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_kode_jenis_orderan` (`kode`) USING BTREE,
-  UNIQUE KEY `unique_nama_jenis_orderan` (`nama`) USING BTREE
+  `keterangan` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -90,9 +82,8 @@ CREATE TABLE IF NOT EXISTS `jenis_orderan` (
 -- Table structure for table `orderan`
 --
 
-DROP TABLE IF EXISTS `orderan`;
-CREATE TABLE IF NOT EXISTS `orderan` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orderan` (
+  `id` int(10) UNSIGNED NOT NULL,
   `pelanggan_id` int(10) UNSIGNED NOT NULL,
   `no_nota` varchar(255) NOT NULL,
   `tanggal` datetime NOT NULL,
@@ -100,9 +91,7 @@ CREATE TABLE IF NOT EXISTS `orderan` (
   `total_diskon` decimal(19,0) NOT NULL DEFAULT 0,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
   `bayar` decimal(19,0) NOT NULL DEFAULT 0,
-  `kembali` decimal(19,0) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `fk_pelanggan_pelanggan_id` (`pelanggan_id`)
+  `kembali` decimal(19,0) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -111,17 +100,14 @@ CREATE TABLE IF NOT EXISTS `orderan` (
 -- Table structure for table `orderan_detail`
 --
 
-DROP TABLE IF EXISTS `orderan_detail`;
-CREATE TABLE IF NOT EXISTS `orderan_detail` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `orderan_detail` (
+  `id` int(10) UNSIGNED NOT NULL,
   `orderan_id` int(10) UNSIGNED NOT NULL,
   `kode_jenis_orderan` varchar(100) NOT NULL,
   `nama_jenis_orderan` varchar(100) NOT NULL,
   `harga_satuan` decimal(19,0) NOT NULL,
   `jumlah` decimal(19,0) NOT NULL,
-  `diskon` decimal(19,0) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_order_order_id` (`orderan_id`)
+  `diskon` decimal(19,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -130,16 +116,13 @@ CREATE TABLE IF NOT EXISTS `orderan_detail` (
 -- Table structure for table `pelanggan`
 --
 
-DROP TABLE IF EXISTS `pelanggan`;
-CREATE TABLE IF NOT EXISTS `pelanggan` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pelanggan` (
+  `id` int(10) UNSIGNED NOT NULL,
   `nama` varchar(100) NOT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   `contact` varchar(100) DEFAULT NULL,
-  `keterangan` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `unique_nama_pelanggan` (`nama`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `keterangan` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pelanggan`
@@ -154,9 +137,8 @@ INSERT INTO `pelanggan` (`id`, `nama`, `alamat`, `contact`, `keterangan`) VALUES
 -- Table structure for table `pengaturan`
 --
 
-DROP TABLE IF EXISTS `pengaturan`;
-CREATE TABLE IF NOT EXISTS `pengaturan` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pengaturan` (
+  `id` int(10) UNSIGNED NOT NULL,
   `nama` varchar(100) NOT NULL DEFAULT 'Nama Toko',
   `alamat_1` varchar(100) DEFAULT NULL,
   `alamat_2` varchar(100) DEFAULT NULL,
@@ -164,9 +146,8 @@ CREATE TABLE IF NOT EXISTS `pengaturan` (
   `printer_tipe` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
   `path_logo` varchar(255) DEFAULT NULL,
   `path_background` varchar(255) DEFAULT NULL,
-  `catatan_kaki` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+  `catatan_kaki` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pengaturan`
@@ -181,14 +162,12 @@ INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `prin
 -- Table structure for table `pengeluaran`
 --
 
-DROP TABLE IF EXISTS `pengeluaran`;
-CREATE TABLE IF NOT EXISTS `pengeluaran` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pengeluaran` (
+  `id` int(10) NOT NULL,
   `tanggal` datetime NOT NULL,
   `nama` varchar(100) NOT NULL,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
-  `keterangan` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `keterangan` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -197,15 +176,12 @@ CREATE TABLE IF NOT EXISTS `pengeluaran` (
 -- Table structure for table `role`
 --
 
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE IF NOT EXISTS `role` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `role` (
+  `id` int(10) UNSIGNED NOT NULL,
   `kode` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `keterangan` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `kode` (`kode`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `keterangan` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `role`
@@ -221,14 +197,12 @@ INSERT INTO `role` (`id`, `kode`, `nama`, `keterangan`) VALUES
 -- Table structure for table `role_detail`
 --
 
-DROP TABLE IF EXISTS `role_detail`;
-CREATE TABLE IF NOT EXISTS `role_detail` (
+CREATE TABLE `role_detail` (
   `role_kode` varchar(255) NOT NULL,
   `menu_name` varchar(255) NOT NULL,
   `menu_parent` varchar(255) DEFAULT NULL,
   `form_action` varchar(255) DEFAULT NULL,
-  `tag` varchar(255) NOT NULL,
-  KEY `fk_role_detail_role_kode` (`role_kode`)
+  `tag` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -378,16 +352,12 @@ INSERT INTO `role_detail` (`role_kode`, `menu_name`, `menu_parent`, `form_action
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `id` int(10) UNSIGNED NOT NULL,
   `login_id` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role_kode` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `login_id_UNIQUE` (`login_id`),
-  KEY `fk_user_role_kode` (`role_kode`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `role_kode` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -396,6 +366,130 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `login_id`, `password`, `role_kode`) VALUES
 (1, 'admin', '1000:+rQ2d9EsKMK5of62nL0ct10skO2kg//+:d7K5beDiXstpiezFXK+OoOcNYZMl1Q8e', 'adm'),
 (2, 'operator', '1000:tGP5sfmvnv8svI/EIglBnMIIdkhOvGvG:OIgwv0cGK7XEDiQpSV3RT+e9BBigKxHT', 'opr');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `form_action`
+--
+ALTER TABLE `form_action`
+  ADD UNIQUE KEY `form_name_UNIQUE` (`form_name`);
+
+--
+-- Indexes for table `jenis_orderan`
+--
+ALTER TABLE `jenis_orderan`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_kode_jenis_orderan` (`kode`) USING BTREE,
+  ADD UNIQUE KEY `unique_nama_jenis_orderan` (`nama`) USING BTREE;
+
+--
+-- Indexes for table `orderan`
+--
+ALTER TABLE `orderan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_pelanggan_pelanggan_id` (`pelanggan_id`);
+
+--
+-- Indexes for table `orderan_detail`
+--
+ALTER TABLE `orderan_detail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_order_order_id` (`orderan_id`);
+
+--
+-- Indexes for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_nama_pelanggan` (`nama`);
+
+--
+-- Indexes for table `pengaturan`
+--
+ALTER TABLE `pengaturan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `kode` (`kode`);
+
+--
+-- Indexes for table `role_detail`
+--
+ALTER TABLE `role_detail`
+  ADD KEY `fk_role_detail_role_kode` (`role_kode`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login_id_UNIQUE` (`login_id`),
+  ADD KEY `fk_user_role_kode` (`role_kode`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `jenis_orderan`
+--
+ALTER TABLE `jenis_orderan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orderan`
+--
+ALTER TABLE `orderan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orderan_detail`
+--
+ALTER TABLE `orderan_detail`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pelanggan`
+--
+ALTER TABLE `pelanggan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengaturan`
+--
+ALTER TABLE `pengaturan`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `pengeluaran`
+--
+ALTER TABLE `pengeluaran`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
