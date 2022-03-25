@@ -1822,10 +1822,10 @@
         <Source>External</Source>
         <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
         <Sizing>Fit</Sizing>
-        <Top>0.85466cm</Top>
-        <Left>7.95347cm</Left>
-        <Height>2.4cm</Height>
-        <Width>2.62135cm</Width>
+        <Top>1.19973cm</Top>
+        <Left>8.35034cm</Left>
+        <Height>1.8cm</Height>
+        <Width>2.12424cm</Width>
         <ZIndex>31</ZIndex>
         <Style>
           <Border>
@@ -1833,6 +1833,41 @@
           </Border>
         </Style>
       </Image>
+      <Textbox Name="catatan_kaki">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!catatan_kaki.Value, "DSPengaturan")</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>catatan_kaki</rd:DefaultName>
+        <Top>6.32521cm</Top>
+        <Left>0.69696cm</Left>
+        <Height>0.6cm</Height>
+        <Width>11.3566cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>2.98214in</Height>
     <Style>
@@ -1843,51 +1878,6 @@
   </Body>
   <Width>7.0356in</Width>
   <Page>
-    <PageFooter>
-      <Height>1cm</Height>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="catatan_kaki">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!catatan_kaki.Value, "DSPengaturan")</Value>
-                  <Style>
-                    <FontStyle>Italic</FontStyle>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>catatan_kaki</rd:DefaultName>
-          <Top>0.14111cm</Top>
-          <Left>2.91042cm</Left>
-          <Height>0.6cm</Height>
-          <Width>11.19786cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <PageHeight>11cm</PageHeight>
     <PageWidth>19cm</PageWidth>
     <LeftMargin>0.5cm</LeftMargin>
