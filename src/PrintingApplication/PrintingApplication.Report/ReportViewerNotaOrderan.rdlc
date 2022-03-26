@@ -1822,10 +1822,10 @@
         <Source>External</Source>
         <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
         <Sizing>Fit</Sizing>
-        <Top>1.19973cm</Top>
-        <Left>8.35034cm</Left>
-        <Height>1.8cm</Height>
-        <Width>2.12424cm</Width>
+        <Top>1.1865cm</Top>
+        <Left>8.45058cm</Left>
+        <Height>1.81323cm</Height>
+        <Width>1.90494cm</Width>
         <ZIndex>31</ZIndex>
         <Style>
           <Border>
@@ -1853,7 +1853,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>catatan_kaki</rd:DefaultName>
-        <Top>6.32521cm</Top>
+        <Top>6.64271cm</Top>
         <Left>0.69696cm</Left>
         <Height>0.6cm</Height>
         <Width>11.3566cm</Width>
