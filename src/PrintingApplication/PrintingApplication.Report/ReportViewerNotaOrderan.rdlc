@@ -1304,7 +1304,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
         <Top>5.19576cm</Top>
-        <Left>8.35034cm</Left>
+        <Left>8.66784cm</Left>
         <Height>0.95306cm</Height>
         <Width>3.70322cm</Width>
         <ZIndex>15</ZIndex>
@@ -1338,7 +1338,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
         <Top>5.19576cm</Top>
-        <Left>0.69696cm</Left>
+        <Left>0.37946cm</Left>
         <Height>0.8825cm</Height>
         <Width>3.70322cm</Width>
         <ZIndex>16</ZIndex>
@@ -1373,7 +1373,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Barang-barang yang sudah dipesan tidak dapat dikembalikan / ditukar</Value>
+                <Value>Pesanan tidak diambil selama lebih dari 2 minggu, bukan tanggung jawab kami</Value>
                 <Style>
                   <FontSize>6pt</FontSize>
                   <FontWeight>Normal</FontWeight>
@@ -1387,9 +1387,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
         <Top>5.19576cm</Top>
-        <Left>4.57656cm</Left>
+        <Left>4.25907cm</Left>
         <Height>0.95306cm</Height>
-        <Width>3.59739cm</Width>
+        <Width>4.23238cm</Width>
         <ZIndex>17</ZIndex>
         <Style>
           <Border>

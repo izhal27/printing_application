@@ -358,7 +358,7 @@ namespace PrintingApplication.Presentation.Helper
 
             offset += font6.Height;
 
-            graphics.DrawString("Barang-barang yang sudah dipesan tidak dapat\ndikembalikan/ditukar.", font6
+            graphics.DrawString("Pesanan tidak diambil selama lebih dari 2 minggu, bukan tanggung jawab kami.", font6
                , Brushes.Black, startX, offset, formatLeft);
         }
     }
