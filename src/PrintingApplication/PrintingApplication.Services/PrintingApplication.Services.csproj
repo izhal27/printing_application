@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="CommonServices\IModelDataAnnotationCheck.cs" />
     <Compile Include="CommonServices\ModelDataAnnotationCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,7 +84,6 @@
     <Compile Include="Services\User\IUserRepository.cs" />
     <Compile Include="Services\User\IUserServices.cs" />
     <Compile Include="Services\User\UserServices.cs" />
-    <Compile Include="VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrintingApplication.Domain\PrintingApplication.Domain.csproj">

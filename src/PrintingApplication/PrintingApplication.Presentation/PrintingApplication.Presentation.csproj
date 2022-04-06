@@ -127,6 +127,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\VersionInfo.cs">
+      <Link>VersionInfo.cs</Link>
+    </Compile>
     <Compile Include="Helper\DockpanelThemeHelper.cs" />
     <Compile Include="Helper\Extensions.cs" />
     <Compile Include="Helper\Messages.cs" />
@@ -167,7 +170,6 @@
     <Compile Include="Presenters\User\UserPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="VersionInfo.cs" />
     <Compile Include="Views\CommonControls\BaseCariJenisOrderan View.cs">
       <SubType>Form</SubType>
     </Compile>

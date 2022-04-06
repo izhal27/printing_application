@@ -27,8 +27,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
             {
                 context.BeginTransaction();
 
-                model.no_nota = DbHelper.GetMaxID(context, context.Transaction, "orderan", "no_nota");
-                model.tanggal = DateTime.Now;
+                model.no_nota = DbHelper.GetMaxID(context, context.Transaction, "orderan", model.tanggal, "no_nota");
 
                 Insert(model, () =>
                 {

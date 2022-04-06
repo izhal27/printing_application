@@ -15,15 +15,16 @@ namespace PrintingApplication.Infrastructure.DataAccess.CommonRepositories
         /// <param name="context">DbContext object</param>
         /// <param name="transaction">Db transaction object</param>
         /// <param name="table">Nama table</param>
+        /// <param name="date">Date orderan</param>
         /// <param name="column">Nama column</param>
         /// <returns>Mengembalikan maksimal id sesuai tanggal sekarang
         /// contoh: 19870327000002</returns>
-        public static string GetMaxID(DbContext context, IDbTransaction transaction, string table, string column = "id")
+        public static string GetMaxID(DbContext context, IDbTransaction transaction, string table, DateTime date, string column = "id")
         {
             var maxID = default(int);
             var today = default(string);
 
-            today = DateTime.Now.ToString("yyyyMMdd"); // Tanggal sekarang
+            today = date.ToString("yyyyMMdd"); // Tanggal sekarang
             var max = context.Conn.Query<string>($"SELECT max({column}) as maxID from {table} " +
                                                  $"WHERE {column} LIKE '{today}%'", transaction).FirstOrDefault();
 
