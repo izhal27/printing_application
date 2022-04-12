@@ -32,6 +32,7 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
             textBoxContact.Text = Model.contact;
             textBoxCatatanKaki.Text = Model.catatan_kaki;
             comboBoxTipePrinter.SelectedItem = Enum.Parse(typeof(TipePrinter), Model.printer_tipe.ToString());
+            comboBoxTampilkanPajak.SelectedIndex = MainProgram.PengaturanModel.tampilkan_pajak ? 1 : 0;
             pctBoxLogo.ImageLocation = fileExists(Model.path_logo) ? Model.path_logo : null;
             pctBoxBackground.ImageLocation = fileExists(Model.path_background) ? Model.path_background : null;
         }
@@ -44,6 +45,7 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
             Model.contact = textBoxContact.Text;
             Model.catatan_kaki = textBoxCatatanKaki.Text;
             Model.printer_tipe = (int)comboBoxTipePrinter.SelectedValue;
+            Model.tampilkan_pajak = comboBoxTampilkanPajak.SelectedIndex == 1;
             Model.path_logo = pctBoxLogo.Image != null ? pctBoxLogo.ImageLocation : null;
             Model.path_background = pctBoxBackground.Image != null ? pctBoxBackground.ImageLocation : null;
 

@@ -26,6 +26,8 @@ namespace PrintingApplication.Domain.Models.Pengaturan
 
         public string catatan_kaki { get; set; }
 
+        public bool tampilkan_pajak { get; set; }
+
         [Dp.Write(false)]
         public TipePrinter tipe_printer
         {

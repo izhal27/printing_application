@@ -11,6 +11,7 @@
         string path_logo { get; set; }
         string path_background { get; set; }
         string catatan_kaki { get; set; }
+        bool tampilkan_pajak { get; set; }
         TipePrinter tipe_printer { get; }
     }
 

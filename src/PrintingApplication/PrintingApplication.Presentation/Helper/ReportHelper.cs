@@ -33,8 +33,15 @@ namespace PrintingApplication.Presentation.Helper
                  },
               };
 
+                var parameters = new List<ReportParameter>();
+
+                if (MainProgram.PengaturanModel.tampilkan_pajak)
+                {
+                    parameters.Add(new ReportParameter("TampilkanPajak", MainProgram.PengaturanModel.tampilkan_pajak.ToString()));
+                }
+
                 new ReportView("Nota Orderan", "ReportViewerNotaOrderan",
-                               reportDataSources, null).ShowDialog();
+                               reportDataSources, parameters).ShowDialog();
             }
             else
             {
