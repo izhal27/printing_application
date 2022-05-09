@@ -1,4 +1,3 @@
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -87,14 +86,15 @@ CREATE TABLE `pengaturan` (
   `alamat_2` varchar(100) DEFAULT NULL,
   `contact` varchar(100) DEFAULT NULL,
   `printer_tipe` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+  `nama_printer` varchar(100) DEFAULT NULL,
   `path_logo` varchar(255) DEFAULT NULL,
   `path_background` varchar(255) DEFAULT NULL,
   `catatan_kaki` varchar(100) DEFAULT NULL,
   `tampilkan_pajak` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `path_logo`, `path_background`, `catatan_kaki`, `tampilkan_pajak`) VALUES
-(1, 'Nama Toko', 'Alamat 1', 'Alamat 2', '08123456789', 1, NULL, NULL, '*** Terima Kasih Atas Kepercayaan Anda ***', 0);
+INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `nama_printer`, `path_logo`, `path_background`, `catatan_kaki`, `tampilkan_pajak`) VALUES
+(1, 'Nama Toko', 'Alamat 1', 'Alamat 2', '08123456789', 1, NULL, NULL, NULL, '*** Terima Kasih Atas Kepercayaan Anda ***', 0);
 
 CREATE TABLE `pengeluaran` (
   `id` int(10) NOT NULL,
@@ -344,7 +344,6 @@ ALTER TABLE `orderan_detail`
 
 ALTER TABLE `user`
   ADD CONSTRAINT `fk_user_role_kode` FOREIGN KEY (`role_kode`) REFERENCES `role` (`kode`) ON DELETE NO ACTION ON UPDATE CASCADE;
-SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
