@@ -40,7 +40,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      nama_jenis_orderan = "CETAK SPANDUK",
                      jumlah = 1,
                      harga_satuan = 24_000,
-                     diskon = 0,
                   },
                   new OrderanDetailModel
                   {
@@ -48,7 +47,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      nama_jenis_orderan = "CAP BASAH 28",
                      jumlah = 2,
                      harga_satuan = 50_000,
-                     diskon = 10_000,
                   },
                   new OrderanDetailModel
                   {
@@ -56,7 +54,6 @@ namespace PrintingApplication.Services.UnitTests.Orderan
                      nama_jenis_orderan = "CETAK LABEL",
                      jumlah = 1,
                      harga_satuan = 65_000,
-                     diskon = 0,
                   },
                };
 

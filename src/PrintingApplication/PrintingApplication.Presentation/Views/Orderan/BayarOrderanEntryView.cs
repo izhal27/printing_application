@@ -99,7 +99,7 @@ namespace PrintingApplication.Presentation.Views.Orderan
 
                     break;
 
-                case Keys.F5:
+                case Keys.F6:
 
                     buttonnBayar_Click(null, null);
 

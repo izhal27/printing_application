@@ -187,30 +187,24 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.67586cm</Width>
+                  <Width>0.91529cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.44205cm</Width>
+                  <Width>8.87624cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.31158cm</Width>
+                  <Width>1.89805cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.29458cm</Width>
+                  <Width>3.28292cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.8134cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.06322cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.07798cm</Width>
+                  <Width>3.90333cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.54708cm</Height>
+                  <Height>0.46771cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -224,6 +218,7 @@
                                   <Value>No</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -233,39 +228,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox13</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox2">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Kode</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -290,6 +252,7 @@
                                   <Value>Nama</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -323,6 +286,7 @@
                                   <Value>Jumlah</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -356,6 +320,7 @@
                                   <Value>Harga Satuan</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -365,39 +330,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox7</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox9">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Diskon</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox9</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -422,6 +354,7 @@
                                   <Value>Sub Total</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -446,7 +379,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.54708cm</Height>
+                  <Height>0.50739cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -469,37 +402,6 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="kode_jenis_orderan">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!kode_jenis_orderan.Value</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>kode_jenis_orderan</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -589,7 +491,7 @@
                                   <Value>=Fields!harga_satuan.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0;(#,0)</Format>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -605,40 +507,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="diskon">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!diskon.Value</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
-                                    <Format>#,0;(#,0)</Format>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>diskon</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -655,7 +524,7 @@
                                   <Value>=Fields!sub_total.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0;(#,0)</Format>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -673,6 +542,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>en-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -727,10 +597,9 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <ColSpan>3</ColSpan>
+                        <ColSpan>2</ColSpan>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell />
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
@@ -781,49 +650,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>Total</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>Solid</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Style>None</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Style>None</Style>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox51">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Sub Total</Value>
-                                  <Style>
-                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -832,7 +662,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox51</rd:DefaultName>
+                          <rd:DefaultName>Textbox1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -866,6 +696,7 @@
                                   <Value>=Sum(Fields!sub_total.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>'Rp'#,0;('Rp'#,0)</Format>
                                   </Style>
                                 </TextRun>
@@ -906,8 +737,6 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
-                <TablixMember />
-                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -925,10 +754,9 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DSOrderanDetail</DataSetName>
-            <Top>3.43104cm</Top>
-            <Left>0.02109cm</Left>
-            <Height>1.58833cm</Height>
-            <Width>17.67867cm</Width>
+            <Top>2.86225cm</Top>
+            <Height>1.46927cm</Height>
+            <Width>18.87583cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -955,10 +783,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox12</rd:DefaultName>
-            <Top>0.07938cm</Top>
-            <Left>0.02109cm</Left>
+            <Top>0.06944cm</Top>
             <Height>0.60001cm</Height>
-            <Width>7.75598cm</Width>
+            <Width>9.27198cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -979,7 +806,7 @@
                   <TextRun>
                     <Value>=First(Fields!tanggal.Value, "DSOrderan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <Format>d MMMM yyyy</Format>
                       <Language>id-ID</Language>
                     </Style>
@@ -991,10 +818,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>tanggal</rd:DefaultName>
-            <Top>0.85465cm</Top>
+            <Top>0.77528cm</Top>
             <Left>2.34597cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.43111cm</Width>
+            <Height>0.46001cm</Height>
+            <Width>6.92601cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1015,8 +842,7 @@
                   <TextRun>
                     <Value>=First(Fields!no_nota.Value, "DSOrderan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1026,10 +852,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>no_nota</rd:DefaultName>
-            <Top>1.45465cm</Top>
+            <Top>1.23529cm</Top>
             <Left>2.34597cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.43111cm</Width>
+            <Height>0.46001cm</Height>
+            <Width>6.92601cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1049,7 +875,7 @@
                   <TextRun>
                     <Value>=First(Fields!pelanggan_nama.Value, "DSOrderan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1059,10 +885,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>supplier_nama</rd:DefaultName>
-            <Top>2.05465cm</Top>
+            <Top>1.6953cm</Top>
             <Left>2.34597cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.43111cm</Width>
+            <Height>0.46001cm</Height>
+            <Width>6.92601cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1083,7 +909,7 @@
                   <TextRun>
                     <Value>Tanggal</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1091,10 +917,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>0.85465cm</Top>
-            <Left>0.02109cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.05021cm</Width>
+            <Top>0.77528cm</Top>
+            <Height>0.46001cm</Height>
+            <Width>2.0713cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1115,7 +940,7 @@
                   <TextRun>
                     <Value>:</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1123,9 +948,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>0.85577cm</Top>
+            <Top>0.7764cm</Top>
             <Left>2.07131cm</Left>
-            <Height>0.6cm</Height>
+            <Height>0.46001cm</Height>
             <Width>0.27466cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
@@ -1147,7 +972,7 @@
                   <TextRun>
                     <Value>No Nota</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1155,10 +980,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.45465cm</Top>
-            <Left>0.02109cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.05021cm</Width>
+            <Top>1.23529cm</Top>
+            <Height>0.46001cm</Height>
+            <Width>2.0713cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1179,7 +1003,7 @@
                   <TextRun>
                     <Value>:</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1187,9 +1011,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>1.45577cm</Top>
+            <Top>1.23641cm</Top>
             <Left>2.07131cm</Left>
-            <Height>0.6cm</Height>
+            <Height>0.46001cm</Height>
             <Width>0.27466cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
@@ -1211,7 +1035,7 @@
                   <TextRun>
                     <Value>Pelanggan</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1219,10 +1043,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.05465cm</Top>
-            <Left>0.02109cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.05021cm</Width>
+            <Top>1.6953cm</Top>
+            <Height>0.46001cm</Height>
+            <Width>2.0713cm</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -1243,7 +1066,7 @@
                   <TextRun>
                     <Value>:</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1251,9 +1074,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.05577cm</Top>
+            <Top>1.69642cm</Top>
             <Left>2.07131cm</Left>
-            <Height>0.6cm</Height>
+            <Height>0.46001cm</Height>
             <Width>0.27466cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
@@ -1274,6 +1097,7 @@
                   <TextRun>
                     <Value>=First(Fields!nama.Value, "DSPengaturan")</Value>
                     <Style>
+                      <FontSize>9pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -1282,10 +1106,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>nama</rd:DefaultName>
-            <Top>0.85465cm</Top>
-            <Left>10.75121cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.94855cm</Width>
+            <Top>0.77528cm</Top>
+            <Left>11.91245cm</Left>
+            <Height>0.46113cm</Height>
+            <Width>6.96339cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1306,7 +1130,7 @@
                   <TextRun>
                     <Value>=First(Fields!alamat_1.Value, "DSPengaturan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1314,10 +1138,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>alamat_1</rd:DefaultName>
-            <Top>1.45465cm</Top>
-            <Left>10.75121cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.94855cm</Width>
+            <Top>1.23641cm</Top>
+            <Left>11.91245cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>6.96339cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -1338,7 +1162,7 @@
                   <TextRun>
                     <Value>=First(Fields!alamat_2.Value, "DSPengaturan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1346,10 +1170,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>alamat_2</rd:DefaultName>
-            <Top>2.05465cm</Top>
-            <Left>10.75121cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.94855cm</Width>
+            <Top>1.69642cm</Top>
+            <Left>11.91245cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>6.96339cm</Width>
             <ZIndex>13</ZIndex>
             <Style>
               <Border>
@@ -1370,7 +1194,7 @@
                   <TextRun>
                     <Value>=First(Fields!contact.Value, "DSPengaturan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1378,10 +1202,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>telpon</rd:DefaultName>
-            <Top>2.65465cm</Top>
-            <Left>10.75121cm</Left>
-            <Height>0.6cm</Height>
-            <Width>6.94855cm</Width>
+            <Top>2.15643cm</Top>
+            <Left>11.91245cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>6.96339cm</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -1412,10 +1236,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox36</rd:DefaultName>
-            <Top>5.19576cm</Top>
-            <Left>8.66784cm</Left>
+            <Top>4.3668cm</Top>
+            <Left>8.64675cm</Left>
             <Height>0.95306cm</Height>
-            <Width>3.70322cm</Width>
+            <Width>3.94891cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>
@@ -1446,10 +1270,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox36</rd:DefaultName>
-            <Top>5.19576cm</Top>
-            <Left>0.37946cm</Left>
+            <Top>4.3668cm</Top>
             <Height>0.8825cm</Height>
-            <Width>3.70322cm</Width>
+            <Width>4.06159cm</Width>
             <ZIndex>16</ZIndex>
             <Style>
               <Border>
@@ -1495,8 +1318,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox36</rd:DefaultName>
-            <Top>5.19576cm</Top>
-            <Left>4.25907cm</Left>
+            <Top>4.3668cm</Top>
+            <Left>4.23798cm</Left>
             <Height>0.95306cm</Height>
             <Width>4.23238cm</Width>
             <ZIndex>17</ZIndex>
@@ -1530,10 +1353,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>5.01937cm</Top>
-            <Left>14.62178cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>3.07798cm</Width>
+            <Top>4.33152cm</Top>
+            <Left>14.9936cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>3.88224cm</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -1569,10 +1392,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox54</rd:DefaultName>
-            <Top>6.21937cm</Top>
-            <Left>14.62178cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>3.07798cm</Width>
+            <Top>5.25154cm</Top>
+            <Left>14.9936cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>3.88224cm</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
@@ -1607,10 +1430,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>5.01937cm</Top>
-            <Left>12.55857cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>2.06322cm</Width>
+            <Top>4.33152cm</Top>
+            <Left>12.77205cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>2.20046cm</Width>
             <ZIndex>20</ZIndex>
             <Style>
               <Border>
@@ -1641,10 +1464,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>6.21937cm</Top>
-            <Left>12.55857cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>2.06322cm</Width>
+            <Top>5.25154cm</Top>
+            <Left>12.77205cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>2.20046cm</Width>
             <ZIndex>21</ZIndex>
             <Style>
               <Border>
@@ -1657,10 +1480,9 @@
             </Style>
           </Textbox>
           <Line Name="Line2">
-            <Top>3.36049cm</Top>
-            <Left>0.02109cm</Left>
+            <Top>2.7917cm</Top>
             <Height>0cm</Height>
-            <Width>17.67867cm</Width>
+            <Width>18.87584cm</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -1677,7 +1499,7 @@
                   <TextRun>
                     <Value>=First(Fields!keterangan.Value, "DSOrderan")</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1687,10 +1509,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>supplier_nama</rd:DefaultName>
-            <Top>2.65465cm</Top>
+            <Top>2.15531cm</Top>
             <Left>2.34597cm</Left>
-            <Height>0.6cm</Height>
-            <Width>5.43111cm</Width>
+            <Height>0.46001cm</Height>
+            <Width>6.92601cm</Width>
             <ZIndex>23</ZIndex>
             <Style>
               <Border>
@@ -1711,7 +1533,7 @@
                   <TextRun>
                     <Value>Keterangan</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1719,10 +1541,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.65465cm</Top>
-            <Left>0.02109cm</Left>
-            <Height>0.6cm</Height>
-            <Width>2.05021cm</Width>
+            <Top>2.15531cm</Top>
+            <Height>0.46001cm</Height>
+            <Width>2.0713cm</Width>
             <ZIndex>24</ZIndex>
             <Style>
               <Border>
@@ -1743,7 +1564,7 @@
                   <TextRun>
                     <Value>:</Value>
                     <Style>
-                      <FontSize>9pt</FontSize>
+                      <FontSize>8pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1751,9 +1572,9 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox22</rd:DefaultName>
-            <Top>2.65577cm</Top>
+            <Top>2.15643cm</Top>
             <Left>2.07131cm</Left>
-            <Height>0.6cm</Height>
+            <Height>0.46001cm</Height>
             <Width>0.27466cm</Width>
             <ZIndex>25</ZIndex>
             <Style>
@@ -1788,10 +1609,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox54</rd:DefaultName>
-            <Top>5.61937cm</Top>
-            <Left>14.62178cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>3.07798cm</Width>
+            <Top>4.79153cm</Top>
+            <Left>14.9936cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>3.88224cm</Width>
             <ZIndex>26</ZIndex>
             <Style>
               <Border>
@@ -1814,7 +1635,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Total</Value>
+                    <Value>Harus Dibayar</Value>
                     <Style>
                       <FontSize>8pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -1827,10 +1648,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>5.61937cm</Top>
-            <Left>12.55857cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>2.06322cm</Width>
+            <Top>4.79153cm</Top>
+            <Left>12.77205cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>2.20046cm</Width>
             <ZIndex>27</ZIndex>
             <Style>
               <Border>
@@ -1862,10 +1683,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox54</rd:DefaultName>
-            <Top>6.81937cm</Top>
-            <Left>14.62178cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>3.07798cm</Width>
+            <Top>5.71155cm</Top>
+            <Left>14.9936cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>3.88224cm</Width>
             <ZIndex>28</ZIndex>
             <Style>
               <Border>
@@ -1900,10 +1721,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
-            <Top>6.81937cm</Top>
-            <Left>12.55857cm</Left>
-            <Height>0.49417cm</Height>
-            <Width>2.06322cm</Width>
+            <Top>5.71155cm</Top>
+            <Left>12.77205cm</Left>
+            <Height>0.46001cm</Height>
+            <Width>2.20046cm</Width>
             <ZIndex>29</ZIndex>
             <Style>
               <Border>
@@ -1915,27 +1736,15 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Line Name="Line1">
-            <Top>7.3841cm</Top>
-            <Left>14.62178cm</Left>
-            <Height>0cm</Height>
-            <Width>3.07798cm</Width>
-            <ZIndex>30</ZIndex>
-            <Style>
-              <Border>
-                <Style>Solid</Style>
-              </Border>
-            </Style>
-          </Line>
           <Image Name="Logo">
             <Source>External</Source>
             <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
             <Sizing>Fit</Sizing>
-            <Top>1.1865cm</Top>
-            <Left>8.45058cm</Left>
+            <Top>0.8032cm</Top>
+            <Left>9.83112cm</Left>
             <Height>1.81323cm</Height>
             <Width>1.90494cm</Width>
-            <ZIndex>31</ZIndex>
+            <ZIndex>30</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1962,11 +1771,11 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>catatan_kaki</rd:DefaultName>
-            <Top>6.64271cm</Top>
-            <Left>0.69696cm</Left>
+            <Top>5.56709cm</Top>
+            <Left>0.65477cm</Left>
             <Height>0.6cm</Height>
-            <Width>11.3566cm</Width>
-            <ZIndex>32</ZIndex>
+            <Width>11.3777cm</Width>
+            <ZIndex>31</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1978,21 +1787,21 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>2.98214in</Height>
+        <Height>3.13318in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Body>
-      <Width>7.0356in</Width>
+      <Width>7.43143in</Width>
       <Page>
-        <PageHeight>21cm</PageHeight>
-        <PageWidth>20cm</PageWidth>
-        <LeftMargin>0.5cm</LeftMargin>
-        <RightMargin>0.5cm</RightMargin>
-        <TopMargin>0.5cm</TopMargin>
-        <BottomMargin>0.5cm</BottomMargin>
+        <PageHeight>14cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <LeftMargin>0cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>

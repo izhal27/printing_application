@@ -3,6 +3,7 @@ using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Presentation.Helper;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -59,8 +60,12 @@ namespace PrintingApplication.Presentation.Views.CommonControls
                 if (parameters != null)
                     reportViewer.LocalReport.SetParameters(parameters);
 
+                var pageSetting = new PageSettings();
+                pageSetting.Landscape = false;
+                pageSetting.PaperSize = new PaperSize("Kertas Nota", 826, 551); // 210 x 140 mm
+                pageSetting.Margins = new Margins(38, 38, 38, 38); // 10 mm                
+                reportViewer.SetPageSettings(pageSetting);
                 reportViewer.RefreshReport();
-                //reportViewer.LocalReport.ReleaseSandboxAppDomain();
             }
             catch (Exception ex)
             {

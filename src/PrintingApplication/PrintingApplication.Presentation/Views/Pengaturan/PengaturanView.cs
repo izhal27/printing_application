@@ -1,7 +1,10 @@
 ﻿using PrintingApplication.Domain.Models.Pengaturan;
 using PrintingApplication.Presentation.Helper;
 using System;
+using System.Drawing.Printing;
 using System.IO;
+using System.IO.Ports;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PrintingApplication.Presentation.Views.Pengaturan
@@ -16,8 +19,6 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         public PengaturanView()
         {
             InitializeComponent();
-            comboBoxTipePrinter.DataSource = Enum.GetValues(typeof(TipePrinter));
-
             openFileDialog.Filter = "Jpeg files(*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|All files(*.*) |*.*";
         }
 
@@ -25,16 +26,23 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         {
             OnLoadData?.Invoke(sender, e);
             ActiveControl = buttonCancel;
-
             textBoxNama.Text = Model.nama;
             textBoxAlamat1.Text = Model.alamat_1;
             textBoxAlamat2.Text = Model.alamat_2;
             textBoxContact.Text = Model.contact;
             textBoxCatatanKaki.Text = Model.catatan_kaki;
-            comboBoxTipePrinter.SelectedItem = Enum.Parse(typeof(TipePrinter), Model.printer_tipe.ToString());
             comboBoxTampilkanPajak.SelectedIndex = MainProgram.PengaturanModel.tampilkan_pajak ? 1 : 0;
             pctBoxLogo.ImageLocation = fileExists(Model.path_logo) ? Model.path_logo : null;
             pctBoxBackground.ImageLocation = fileExists(Model.path_background) ? Model.path_background : null;
+            rdbInkjet.Checked = Model.tipe_printer == TipePrinter.Inkjet;
+            rdbThermal.Checked = Model.tipe_printer == TipePrinter.Thermal;
+            var availableCOMPorts = SerialPort.GetPortNames();
+            cmbThermal.Items.AddRange(availableCOMPorts);
+            if (Model.nama_printer != string.Empty && Model.tipe_printer == TipePrinter.Thermal)
+            {
+                cmbThermal.SelectedIndex = cmbThermal.FindStringExact(Model.nama_printer);
+                SetStatusComboBox();
+            }
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -44,7 +52,8 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
             Model.alamat_2 = textBoxAlamat2.Text;
             Model.contact = textBoxContact.Text;
             Model.catatan_kaki = textBoxCatatanKaki.Text;
-            Model.printer_tipe = (int)comboBoxTipePrinter.SelectedValue;
+            Model.printer_tipe = rdbInkjet.Checked ? 1 : 2;
+            Model.nama_printer = rdbThermal.Checked ? cmbThermal.Text : "";
             Model.tampilkan_pajak = comboBoxTampilkanPajak.SelectedIndex == 1;
             Model.path_logo = pctBoxLogo.Image != null ? pctBoxLogo.ImageLocation : null;
             Model.path_background = pctBoxBackground.Image != null ? pctBoxBackground.ImageLocation : null;
@@ -106,6 +115,8 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
             //Image imageFromFile = null;
             string imageLocation = "";
             openFileDialog.FileName = "";
+            openFileDialog.Filter = "JPG Files (*.jpg)|*.jpg|JPEG Files (*.jpeg)|*.jpeg|" +
+                                    "PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All Files (*.*)|*.*";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -120,6 +131,16 @@ namespace PrintingApplication.Presentation.Views.Pengaturan
         private bool fileExists(string path)
         {
             return path != default && File.Exists(path);
+        }
+
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStatusComboBox();
+        }
+
+        private void SetStatusComboBox()
+        {
+            cmbThermal.Enabled = rdbThermal.Checked;
         }
     }
 }

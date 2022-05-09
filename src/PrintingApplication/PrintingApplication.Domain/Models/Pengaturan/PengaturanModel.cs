@@ -37,15 +37,6 @@ namespace PrintingApplication.Domain.Models.Pengaturan
             }
         }
 
-    }
-
-    public class FileNameImagesEditor : FileNameEditor
-    {
-        protected override void InitializeDialog(OpenFileDialog openFileDialog)
-        {
-            base.InitializeDialog(openFileDialog);
-            openFileDialog.Filter = "JPG Files (*.jpg)|*.jpg|JPEG Files (*.jpeg)|*.jpeg|" +
-                                    "PNG Files (*.png)|*.png|BMP Files (*.bmp)|*.bmp|All Files (*.*)|*.*";
-        }
+        public string nama_printer { get; set; }
     }
 }

@@ -13,6 +13,7 @@
         string catatan_kaki { get; set; }
         bool tampilkan_pajak { get; set; }
         TipePrinter tipe_printer { get; }
+        string nama_printer { get; set; }
     }
 
     public enum TipePrinter

@@ -122,7 +122,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
                 _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
-                _listOrderanDetails[(rowIndex - 1)].diskon = 0;
 
                 HitungGrandTotal();
                 view.Close();
@@ -277,14 +276,6 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             {
                 var orderDetailCurrentRow = _listOrderanDetails[e.DataRow.Index - 1];
                 var subTotal = orderDetailCurrentRow.jumlah * orderDetailCurrentRow.harga_satuan;
-
-                // jika diskon dimasukkan lebih besar dari jumlah orderan
-                // set diskon menjadi sub total
-                if (decimal.Parse(CurrCellValue.ToString(), NumberStyles.Number) > 0 &&
-                    decimal.Parse(CurrCellValue.ToString(), NumberStyles.Number) > subTotal)
-                {
-                    orderDetailCurrentRow.diskon = subTotal;
-                }
             }
 
             HitungGrandTotal();
