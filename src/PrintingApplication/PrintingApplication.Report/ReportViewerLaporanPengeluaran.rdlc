@@ -108,16 +108,16 @@
                   <Width>1.38795cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.74371cm</Width>
+                  <Width>4.3576cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.13172cm</Width>
+                  <Width>9.2538cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.32177cm</Width>
+                  <Width>4.88281cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.43839cm</Width>
+                  <Width>6.71381cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -455,7 +455,6 @@
                             <rd:FormatSymbolCulture>id-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -708,7 +707,7 @@
             <DataSetName>DSPengeluaran</DataSetName>
             <Top>3.4925cm</Top>
             <Height>1.8cm</Height>
-            <Width>19.02354cm</Width>
+            <Width>26.59598cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -734,7 +733,7 @@
             </Paragraphs>
             <rd:DefaultName>nama</rd:DefaultName>
             <Top>0.91611cm</Top>
-            <Left>11.89395cm</Left>
+            <Left>19.46639cm</Left>
             <Height>0.6cm</Height>
             <Width>7.12959cm</Width>
             <ZIndex>1</ZIndex>
@@ -764,7 +763,7 @@
             </Paragraphs>
             <rd:DefaultName>alamat_1</rd:DefaultName>
             <Top>1.51611cm</Top>
-            <Left>11.89395cm</Left>
+            <Left>19.46639cm</Left>
             <Height>0.6cm</Height>
             <Width>7.12959cm</Width>
             <ZIndex>2</ZIndex>
@@ -794,7 +793,7 @@
             </Paragraphs>
             <rd:DefaultName>alamat_2</rd:DefaultName>
             <Top>2.11611cm</Top>
-            <Left>11.89395cm</Left>
+            <Left>19.46639cm</Left>
             <Height>0.6cm</Height>
             <Width>7.12959cm</Width>
             <ZIndex>3</ZIndex>
@@ -824,7 +823,7 @@
             </Paragraphs>
             <rd:DefaultName>telpon</rd:DefaultName>
             <Top>2.71611cm</Top>
-            <Left>11.89395cm</Left>
+            <Left>19.46639cm</Left>
             <Height>0.6cm</Height>
             <Width>7.12959cm</Width>
             <ZIndex>4</ZIndex>
@@ -1046,10 +1045,13 @@
             <Value>=First("file:" &amp; Fields!path_logo.Value, "DSPengaturan")</Value>
             <Sizing>FitProportional</Sizing>
             <Top>0.91611cm</Top>
-            <Left>9.07985cm</Left>
+            <Left>16.65229cm</Left>
             <Height>2.4cm</Height>
             <Width>2.63771cm</Width>
             <ZIndex>11</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(First(Fields!path_logo.Value, "DSPengaturan")),True,False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1060,7 +1062,7 @@
         <Height>2.375in</Height>
         <Style />
       </Body>
-      <Width>7.49169in</Width>
+      <Width>10.47086in</Width>
       <Page>
         <PageFooter>
           <Height>1.48167cm</Height>
@@ -1118,7 +1120,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox17</rd:DefaultName>
               <Top>0.56417cm</Top>
-              <Left>13.73943cm</Left>
+              <Left>21.31187cm</Left>
               <Height>0.6cm</Height>
               <Width>5.28411cm</Width>
               <ZIndex>1</ZIndex>
@@ -1139,8 +1141,8 @@
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>33cm</PageHeight>
-        <PageWidth>21.5cm</PageWidth>
+        <PageHeight>21.5cm</PageHeight>
+        <PageWidth>29.7cm</PageWidth>
         <LeftMargin>1cm</LeftMargin>
         <RightMargin>1cm</RightMargin>
         <TopMargin>1cm</TopMargin>

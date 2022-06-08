@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static PrintingApplication.Presentation.Views.CommonControls.ReportView;
 
 namespace PrintingApplication.Presentation.Helper
 {
@@ -43,7 +44,7 @@ namespace PrintingApplication.Presentation.Helper
                 }
 
                 new ReportView("Nota Orderan", "ReportViewerNotaOrderan",
-                               reportDataSources, parameters).ShowDialog();
+                               reportDataSources, parameters, ReportTipe.Orderan).ShowDialog();
             }
             else
             {

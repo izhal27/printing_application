@@ -1745,6 +1745,9 @@
             <Height>1.81323cm</Height>
             <Width>1.90494cm</Width>
             <ZIndex>30</ZIndex>
+            <Visibility>
+              <Hidden>=IIF(IsNothing(First(Fields!path_logo.Value, "DSPengaturan")),True,False)</Hidden>
+            </Visibility>
             <Style>
               <Border>
                 <Style>None</Style>

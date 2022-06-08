@@ -17,6 +17,11 @@ namespace PrintingApplication.Presentation.Views.CommonControls
 
         private string _reportNameSpace = @"PrintingApplication.Report.{0}.rdlc";
         private Assembly _assemblyReport;
+        public enum ReportTipe
+        {
+            Orderan,
+            Laporan
+        }
 
         #endregion
 
@@ -25,7 +30,7 @@ namespace PrintingApplication.Presentation.Views.CommonControls
         #region >> Constructor <<
 
         public ReportView(string textForm, string reportName, IEnumerable<ReportDataSource> reportDataSource
-           , IEnumerable<ReportParameter> parameters = null)
+           , IEnumerable<ReportParameter> parameters = null, ReportTipe reportTipe = ReportTipe.Laporan)
         {
             InitializeComponent();
 
@@ -60,11 +65,15 @@ namespace PrintingApplication.Presentation.Views.CommonControls
                 if (parameters != null)
                     reportViewer.LocalReport.SetParameters(parameters);
 
-                var pageSetting = new PageSettings();
-                pageSetting.Landscape = false;
-                pageSetting.PaperSize = new PaperSize("Kertas Nota", 826, 551); // 210 x 140 mm
-                pageSetting.Margins = new Margins(38, 38, 38, 38); // 10 mm                
-                reportViewer.SetPageSettings(pageSetting);
+                if (reportTipe == ReportTipe.Orderan)
+                {
+                    var pageSetting = new PageSettings();
+                    pageSetting.Landscape = false;
+                    pageSetting.PaperSize = new PaperSize("Kertas Nota", 826, 551); // 210 x 140 mm
+                    pageSetting.Margins = new Margins(38, 38, 38, 38); // 10 mm                
+                    reportViewer.SetPageSettings(pageSetting);
+                }
+
                 reportViewer.RefreshReport();
             }
             catch (Exception ex)
