@@ -78,11 +78,26 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             _bindingView.ListChanged += _bindingView_ListChanged;
             _view.ListDataGrid.DataSource = _bindingView;
 
-            _view.ListDataGrid.Columns[3].AllowEditing = true; // Jumlah
-            _view.ListDataGrid.Columns[3].Format = "0";
-            _view.ListDataGrid.Columns[3].AdvancedFilterType = Syncfusion.WinForms.GridCommon.AdvancedFilterType.NumberFilter;
-            _view.ListDataGrid.Columns[4].AllowEditing = true; // Diskon
-            _view.ListDataGrid.Columns[4].Format = "C";
+            var columns = new int[2] { 2, 3 }; // Lebar, Tinggi
+
+            foreach (var col in columns)
+            {
+                var column = _view.ListDataGrid.Columns[col];
+                column.AllowEditing = true;
+                column.Format = "N";
+                column.AdvancedFilterType = Syncfusion.WinForms.GridCommon.AdvancedFilterType.NumberFilter;
+            }
+
+            var columns2 = new int[2] { 6, 7 }; // Jumlah, Design
+
+            foreach (var col in columns2)
+            {
+                var column = _view.ListDataGrid.Columns[col];
+                column.AllowEditing = true;
+                 column.Format = "N0";
+                column.AdvancedFilterType = Syncfusion.WinForms.GridCommon.AdvancedFilterType.NumberFilter;
+            }
+
 
             _view.ListDataGrid.MoveToCurrentCell(new RowColumnIndex(1, 1));
             _view.ListDataGrid.CurrentCell.BeginEdit();
@@ -120,7 +135,10 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 _listOrderanDetails[(rowIndex - 1)].kode_jenis_orderan = jenisOrderanModel.kode;
                 _listOrderanDetails[(rowIndex - 1)].nama_jenis_orderan = jenisOrderanModel.nama;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
+                _listOrderanDetails[(rowIndex - 1)].lebar = 1;
+                _listOrderanDetails[(rowIndex - 1)].tinggi = 1;
                 _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
+                _listOrderanDetails[(rowIndex - 1)].design = 0;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
 
                 HitungGrandTotal();
@@ -274,11 +292,8 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
         {
             if (CurrCellValue != null)
             {
-                var orderDetailCurrentRow = _listOrderanDetails[e.DataRow.Index - 1];
-                var subTotal = orderDetailCurrentRow.jumlah * orderDetailCurrentRow.harga_satuan;
+                HitungGrandTotal();
             }
-
-            HitungGrandTotal();
         }
 
         private void HitungGrandTotal()

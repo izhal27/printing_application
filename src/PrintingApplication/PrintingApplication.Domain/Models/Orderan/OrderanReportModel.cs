@@ -41,9 +41,17 @@ namespace PrintingApplication.Domain.Models.Orderan
 
         public string nama_jenis_orderan { get; set; }
 
+        public decimal lebar { get; set; }
+
+        public decimal tinggi { get; set; }
+
+        public decimal total_dimensi { get; set; }
+
         public decimal harga_satuan { get; set; }
 
         public decimal jumlah { get; set; }
+
+        public decimal design { get; set; }
 
         public decimal diskon { get; set; }
 

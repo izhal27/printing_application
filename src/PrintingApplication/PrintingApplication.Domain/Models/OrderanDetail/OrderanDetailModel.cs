@@ -25,6 +25,19 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
+        [Display(Name = "Lebar")]
+        public decimal lebar { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DefaultValue(0)]
+        [Display(Name = "Tinggi")]
+        public decimal tinggi { get; set; }
+
+        [Display(Name = "Total Dimensi")]        
+        public decimal total_dimensi { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DefaultValue(0)]
         [Display(Name = "Harga Satuan")]
         public decimal harga_satuan { get; set; }
 
@@ -35,10 +48,30 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
+        [Display(Name = "Design")]
+        public decimal design { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DefaultValue(0)]
         [Display(Name = "Sub Total")]
         public decimal sub_total
         {
-            get { return this.jumlah > 0 && this.harga_satuan > 0 ? (this.jumlah * harga_satuan) : 0; }
+            get
+            {
+                if (lebar > 0 && tinggi > 0)
+                {
+                    total_dimensi = lebar * tinggi;
+                }
+
+                decimal totalHargaSatuan = harga_satuan;
+                if (total_dimensi > 0)
+                {
+                    totalHargaSatuan = total_dimensi * harga_satuan;
+
+                }
+
+                return jumlah > 0 && harga_satuan > 0 ? ((jumlah * totalHargaSatuan) + design) : 0; 
+            }
         }
     }
 }

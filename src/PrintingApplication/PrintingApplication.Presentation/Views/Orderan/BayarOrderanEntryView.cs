@@ -26,6 +26,7 @@ namespace PrintingApplication.Presentation.Views.Orderan
 
             textBoxTotalItem.Text = orderanDetailsFixed.Count.ToString("N0");
             textBoxTotalQty.Text = orderanDetailsFixed.Sum(pd => pd.jumlah).ToString("N0");
+            textBoxDesign.Text = orderanDetailsFixed.Sum(pd => pd.design).ToString("N0");
 
             var subTotal = orderanDetailsFixed.Sum(od => od.sub_total);
             textBoxDiskon.MaxValue = long.Parse(subTotal.ToString(), NumberStyles.Number);
