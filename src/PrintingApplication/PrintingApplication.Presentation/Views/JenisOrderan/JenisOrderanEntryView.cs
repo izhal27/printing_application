@@ -19,6 +19,7 @@ namespace PrintingApplication.Presentation.Views.JenisOrderan
             InitializeComponent();
             _isNewData = isNewData;
             panelUp.LabelInfo = isNewData ? $"TAMBAH {_typeName.ToUpper()}" : $"UBAH {_typeName.ToUpper()}";
+            comboBoxUnit.DataSource = Enum.GetValues(typeof(Unit));
 
             if (!_isNewData)
             {
@@ -26,6 +27,7 @@ namespace PrintingApplication.Presentation.Views.JenisOrderan
                 textBoxKode.Text = model.kode;
                 textBoxNama.Text = model.nama;
                 textBoxHargaSatuan.Text = model.harga_satuan.ToString("N0");
+                comboBoxUnit.SelectedItem = model.unit_satuan;
                 textBoxKeterangan.Text = model.keterangan;
             }
 
@@ -39,6 +41,7 @@ namespace PrintingApplication.Presentation.Views.JenisOrderan
                 kode = textBoxKode.Text,
                 nama = textBoxNama.Text,
                 harga_satuan = decimal.Parse(textBoxHargaSatuan.Text, NumberStyles.Number),
+                unit_satuan = (Unit)comboBoxUnit.SelectedItem,
                 keterangan = textBoxKeterangan.Text
             };
 

@@ -1,4 +1,6 @@
-﻿namespace PrintingApplication.Domain.Models.OrderanDetail
+﻿using PrintingApplication.Domain.Models.JenisOrderan;
+
+namespace PrintingApplication.Domain.Models.OrderanDetail
 {
     public interface IOrderanDetailModel : IModel
     {
@@ -9,6 +11,7 @@
         decimal tinggi { get; set; }
         decimal total_dimensi { get; set; }
         decimal harga_satuan { get; set; }
+        Unit unit_satuan { get; set; }
         decimal jumlah { get; set; }
         decimal design { get; set; }
         decimal sub_total { get; }

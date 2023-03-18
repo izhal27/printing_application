@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using PrintingApplication.Domain.Models.JenisOrderan;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -40,6 +41,11 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         [DefaultValue(0)]
         [Display(Name = "Harga Satuan")]
         public decimal harga_satuan { get; set; }
+        
+        [Browsable(false)]
+        [Display(Name = "Unit")]
+        [DefaultValue(Unit.PCS)]
+        public Unit unit_satuan { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]

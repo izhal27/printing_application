@@ -1,4 +1,5 @@
-﻿using PrintingApplication.Domain.Models.OrderanDetail;
+﻿using PrintingApplication.Domain.Models.JenisOrderan;
+using PrintingApplication.Domain.Models.OrderanDetail;
 using PrintingApplication.Domain.Models.Pelanggan;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,8 @@ namespace PrintingApplication.Domain.Models.Orderan
         public decimal total_dimensi { get; set; }
 
         public decimal harga_satuan { get; set; }
+
+        public Unit unit_satuan { get; set; }
 
         public decimal jumlah { get; set; }
 

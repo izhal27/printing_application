@@ -26,10 +26,13 @@ namespace PrintingApplication.Domain.Models.JenisOrderan
         [Display(Name = "Harga Satuan")]
         public decimal harga_satuan { get; set; }
 
+        [Display(Name = "Unit per")]
+        [DefaultValue(Unit.PCS)]
+        public Unit unit_satuan { get; set; }
+
         [DefaultValue("")]
         [StringLength(255, ErrorMessage = "Panjang maksimal keterangan 255 karakter !!!")]
         [Display(Name = "Keterangan")]
         public string keterangan { get; set; }
-
     }
 }

@@ -5,6 +5,13 @@
         string kode { get; set; }
         string nama { get; set; }
         decimal harga_satuan { get; set; }
+        Unit unit_satuan { get; set; }
         string keterangan { get; set; }
+    }
+
+    public enum Unit
+    {
+        PCS,
+        METER
     }
 }

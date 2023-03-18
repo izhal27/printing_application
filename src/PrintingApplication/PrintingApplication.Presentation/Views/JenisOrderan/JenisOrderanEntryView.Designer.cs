@@ -43,6 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxHargaSatuan = new PrintingApplication.Presentation.Views.CommonControls.BaseTextBoxDigit();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxUnit = new System.Windows.Forms.ComboBox();
             this.groupBoxData.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textBoxNama)).BeginInit();
@@ -57,7 +59,7 @@
             // 
             // operationButtons
             // 
-            this.operationButtons.Location = new System.Drawing.Point(211, 287);
+            this.operationButtons.Location = new System.Drawing.Point(211, 311);
             // 
             // groupBoxData
             // 
@@ -67,7 +69,7 @@
             this.groupBoxData.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxData.Location = new System.Drawing.Point(12, 58);
             this.groupBoxData.Name = "groupBoxData";
-            this.groupBoxData.Size = new System.Drawing.Size(374, 223);
+            this.groupBoxData.Size = new System.Drawing.Size(374, 248);
             this.groupBoxData.TabIndex = 4;
             this.groupBoxData.TabStop = false;
             this.groupBoxData.Text = "[ DATA ]";
@@ -84,24 +86,27 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxNama, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxKeterangan, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxKeterangan, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxKode, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxHargaSatuan, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxUnit, 2, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 198);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(362, 223);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -129,7 +134,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 131);
+            this.label3.Location = new System.Drawing.Point(3, 157);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 0;
@@ -149,11 +154,11 @@
             // 
             this.textBoxKeterangan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxKeterangan.BeforeTouchSize = new System.Drawing.Size(130, 20);
-            this.textBoxKeterangan.Location = new System.Drawing.Point(98, 88);
+            this.textBoxKeterangan.Location = new System.Drawing.Point(98, 114);
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.Size = new System.Drawing.Size(250, 100);
-            this.textBoxKeterangan.TabIndex = 3;
+            this.textBoxKeterangan.TabIndex = 4;
             this.textBoxKeterangan.ThemeName = "Default";
             // 
             // label4
@@ -170,7 +175,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(82, 131);
+            this.label5.Location = new System.Drawing.Point(82, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(10, 13);
             this.label5.TabIndex = 0;
@@ -217,23 +222,42 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Harga Satuan";
             // 
-            // textHargaSatuan
+            // textBoxHargaSatuan
             // 
             this.textBoxHargaSatuan.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxHargaSatuan.BeforeTouchSize = new System.Drawing.Size(130, 20);
             this.textBoxHargaSatuan.IntegerValue = ((long)(0));
             this.textBoxHargaSatuan.Location = new System.Drawing.Point(98, 55);
-            this.textBoxHargaSatuan.Name = "textHargaSatuan";
+            this.textBoxHargaSatuan.Name = "textBoxHargaSatuan";
             this.textBoxHargaSatuan.Size = new System.Drawing.Size(130, 20);
             this.textBoxHargaSatuan.TabIndex = 2;
             this.textBoxHargaSatuan.Text = "0";
             this.textBoxHargaSatuan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(3, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Unit per";
+            // 
+            // comboBoxUnit
+            // 
+            this.comboBoxUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUnit.FormattingEnabled = true;
+            this.comboBoxUnit.Location = new System.Drawing.Point(98, 81);
+            this.comboBoxUnit.Name = "comboBoxUnit";
+            this.comboBoxUnit.Size = new System.Drawing.Size(130, 21);
+            this.comboBoxUnit.TabIndex = 3;
+            // 
             // JenisOrderanEntryView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 334);
+            this.ClientSize = new System.Drawing.Size(398, 358);
             this.Controls.Add(this.groupBoxData);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "JenisOrderanEntryView";
@@ -268,5 +292,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private CommonControls.BaseTextBoxDigit textBoxHargaSatuan;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBoxUnit;
     }
 }
