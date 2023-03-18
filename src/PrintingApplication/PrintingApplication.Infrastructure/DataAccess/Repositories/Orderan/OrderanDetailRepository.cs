@@ -23,8 +23,10 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
 
         public void Insert(IOrderanDetailModel model, IDbTransaction transaction)
         {
-            var queryStr = "INSERT INTO orderan_detail (orderan_id, kode_jenis_orderan, nama_jenis_orderan, lebar, tinggi, harga_satuan, jumlah, design) " +
-                           "VALUES (@orderan_id, @kode_jenis_orderan, @nama_jenis_orderan, @lebar, @tinggi, @harga_satuan, @jumlah, @design)";
+            var queryStr = "INSERT INTO orderan_detail (orderan_id, kode_jenis_orderan, " +
+                           "nama_jenis_orderan, lebar, tinggi, total_dimensi, harga_satuan, jumlah, design) " +
+                           "VALUES (@orderan_id, @kode_jenis_orderan, @nama_jenis_orderan, @lebar, @tinggi, " +
+                           "@total_dimensi, @harga_satuan, @jumlah, @design)";
 
             _context.Conn.Query<int>(queryStr, new
             {
@@ -33,6 +35,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
                 model.nama_jenis_orderan,
                 model.lebar,
                 model.tinggi,
+                model.total_dimensi,
                 model.harga_satuan,
                 model.jumlah,
                 model.sub_total,

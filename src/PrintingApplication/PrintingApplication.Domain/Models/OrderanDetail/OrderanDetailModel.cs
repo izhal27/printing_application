@@ -67,16 +67,18 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
                 if (unit_satuan == Unit.METER && lebar > 0 && tinggi > 0)
                 {
                     total_dimensi = lebar * tinggi;
-                } else
+                } else if (total_dimensi <= 0)
                 {
                     total_dimensi = 1;
                 }
 
                 decimal totalHargaSatuan = harga_satuan;
-                if (unit_satuan == Unit.METER && total_dimensi > 0)
+                if (id == default(int) && unit_satuan == Unit.METER && total_dimensi > 0)
                 {
                     totalHargaSatuan = total_dimensi * harga_satuan;
-
+                } else
+                {
+                    totalHargaSatuan = total_dimensi * harga_satuan;
                 }
 
                 return jumlah > 0 && harga_satuan > 0 ? ((jumlah * totalHargaSatuan) + design) : 0; 
