@@ -135,8 +135,8 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 _listOrderanDetails[(rowIndex - 1)].kode_jenis_orderan = jenisOrderanModel.kode;
                 _listOrderanDetails[(rowIndex - 1)].nama_jenis_orderan = jenisOrderanModel.nama;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
-                _listOrderanDetails[(rowIndex - 1)].lebar = 1;
-                _listOrderanDetails[(rowIndex - 1)].tinggi = 1;
+                _listOrderanDetails[(rowIndex - 1)].lebar = 0;
+                _listOrderanDetails[(rowIndex - 1)].tinggi = 0;
                 _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
                 _listOrderanDetails[(rowIndex - 1)].design = 0;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
