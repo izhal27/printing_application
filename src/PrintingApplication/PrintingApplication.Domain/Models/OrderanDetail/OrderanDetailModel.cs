@@ -64,13 +64,16 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         {
             get
             {
-                if (lebar > 0 && tinggi > 0)
+                if (unit_satuan == Unit.METER && lebar > 0 && tinggi > 0)
                 {
                     total_dimensi = lebar * tinggi;
+                } else
+                {
+                    total_dimensi = 1;
                 }
 
                 decimal totalHargaSatuan = harga_satuan;
-                if (total_dimensi > 0)
+                if (unit_satuan == Unit.METER && total_dimensi > 0)
                 {
                     totalHargaSatuan = total_dimensi * harga_satuan;
 

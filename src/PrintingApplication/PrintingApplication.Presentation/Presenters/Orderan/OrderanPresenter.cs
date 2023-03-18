@@ -140,6 +140,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 _listOrderanDetails[(rowIndex - 1)].jumlah = 1;
                 _listOrderanDetails[(rowIndex - 1)].design = 0;
                 _listOrderanDetails[(rowIndex - 1)].harga_satuan = jenisOrderanModel.harga_satuan;
+                _listOrderanDetails[(rowIndex - 1)].unit_satuan = jenisOrderanModel.unit_satuan;
 
                 HitungGrandTotal();
                 view.Close();
