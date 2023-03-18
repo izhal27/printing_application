@@ -11,7 +11,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Laporan
         {
             using (var context = new DbContext())
             {
-                var queryStr = "SELECT IFNULL((SELECT SUM(((od.jumlah * od.harga_satuan) - od.diskon)) FROM orderan o " +
+                var queryStr = "SELECT IFNULL((SELECT SUM((od.jumlah * od.harga_satuan)) FROM orderan o " +
                                "INNER JOIN orderan_detail od ON o.id = od.orderan_id " +
                                "WHERE MONTH(o.tanggal)=@MONTH AND YEAR(o.tanggal) = @year), 0) AS total_orderan, " +
                                "IFNULL((SELECT SUM(p.total) FROM pengeluaran p WHERE MONTH(p.tanggal) = @MONTH AND " +
