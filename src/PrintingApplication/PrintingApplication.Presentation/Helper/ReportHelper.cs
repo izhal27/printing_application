@@ -120,12 +120,28 @@ namespace PrintingApplication.Presentation.Helper
                 foreach (var item in _orderanModel.OrderanDetails)
                 {
                     data.Add(epson.LeftAlign());
+                    var lebar = item.lebar > 0 ? item.lebar.ToString() : "";
+                    var tinggi = item.tinggi > 0 ? item.tinggi.ToString() : "";
+                    var ukuran = !string.IsNullOrEmpty(lebar) && !string.IsNullOrEmpty(tinggi) ? lebar + " X " + tinggi : "";
                     var jumlah = item.jumlah.ToString("N0");
-                    var harga = item.harga_satuan.ToString("C").PadLeft(15);
+                    var design = item.design > 0 ? item.design.ToString("C").PadLeft(15) : "";
+                    var harga = (item.total_dimensi * item.harga_satuan).ToString("C").PadLeft(15);
+                    var totalHarga = (item.sub_total - item.design).ToString("C").PadLeft(15);
                     var subTotal = item.sub_total.ToString("C").PadLeft(15);
-                    data.Add(epson.PrintLine((item.nama_jenis_orderan)));
-                    data.Add(epson.RightAlign());
-                    data.Add(epson.PrintLine($"{jumlah} x {harga} = {subTotal}"));
+                    data.Add(epson.PrintLine((item.nama_jenis_orderan + "   " + ukuran)));
+
+                    if (!string.IsNullOrEmpty(design))
+                    {
+                        data.Add(epson.RightAlign());
+                        data.Add(epson.PrintLine($"{jumlah} x {harga} = {totalHarga}"));
+                        data.Add(epson.PrintLine("Biaya Design = " + design));
+                        data.Add(epson.PrintLine($"= {subTotal}"));
+                    }
+                    else
+                    {
+                        data.Add(epson.RightAlign());
+                        data.Add(epson.PrintLine($"{jumlah} x {harga} = {subTotal}"));
+                    }
                 }
 
                 data.Add(epson.CenterAlign());
