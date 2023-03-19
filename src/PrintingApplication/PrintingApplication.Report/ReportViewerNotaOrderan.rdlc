@@ -580,6 +580,7 @@
                                   <Value>=IIF(Fields!lebar.Value &gt; 0, Fields!lebar.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -613,6 +614,7 @@
                                   <Value>=IIF(Fields!tinggi.Value &gt; 0, Fields!tinggi.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>n2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -632,7 +634,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -647,12 +648,12 @@
                                   <Value>=Fields!total_dimensi.Value * Fields!harga_satuan.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0;(#,0)</Format>
+                                    <Format>'Rp'#,0;('Rp'#,0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -665,6 +666,7 @@
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
+                            <rd:FormatSymbolCulture>id-ID</rd:FormatSymbolCulture>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -711,7 +713,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!design.Value</Value>
+                                  <Value>=IIF(Fields!design.Value &gt; 0, Fields!design.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>'Rp'#,0;('Rp'#,0)</Format>
