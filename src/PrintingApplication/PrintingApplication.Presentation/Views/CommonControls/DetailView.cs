@@ -15,6 +15,11 @@ namespace PrintingApplication.Presentation.Views.CommonControls
             get { return listDataGrid; }
         }
 
+        public Button ButtonCetak
+        {
+            get { return buttonCetak; }
+        }
+
         public DetailView()
         {
             InitializeComponent();

@@ -136,6 +136,10 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 var detailView = new DetailView("Detail Orderan", "");
                 detailView.OnLoadView += DetailView_OnLoadView;
                 detailView.OnButtonCetakClick += DetailView_OnButtonCetakNoNotaClick;
+                var buttonCetak = detailView.ButtonCetak;
+                buttonCetak.Text = "Cetak Nota";
+                buttonCetak.Width = buttonCetak.Width * 2;
+
                 detailView.ShowDialog();
             }
         }

@@ -1,6 +1,9 @@
 ﻿using PrintingApplication.Presentation.Views.CommonControls;
 using Syncfusion.WinForms.DataGrid.Events;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PrintingApplication.Presentation.Views.Orderan
 {
@@ -28,6 +31,23 @@ namespace PrintingApplication.Presentation.Views.Orderan
             InitializeComponent();
 
             panelUp.LabelInfo = $"{Text.ToUpper()}";
+
+            var buttonCetak = buttonsDeletePrintDetail.ButtonCetak;
+            var buttonDetail = buttonsDeletePrintDetail.ButtonDetail;
+            var buttonHapus = buttonsDeletePrintDetail.ButtonHapus;
+
+            Dictionary<Button, string> buttons = new Dictionary<Button, string>()
+            {
+                { buttonCetak, "Cetak Laporan" },
+                { buttonDetail, "Detail Orderan" },
+                { buttonHapus, "Hapus Orderan" },
+            };
+
+            foreach (KeyValuePair<Button, string> button in buttons)
+            {
+                button.Key.Width = (int)Math.Ceiling(button.Key.Size.Width * 1.5);
+                button.Key.Text = button.Value;
+            }
 
             dateTimePickerFilterTransaksi.OnTampilkanClick += DateTimePickerFilterTransaksi_OnTampilkanClick;
             buttonsDeletePrintDetail.OnHapusClick += ButtonsDeletePrintDetail_OnHapusClick;

@@ -54,5 +54,9 @@ namespace PrintingApplication.Presentation.Views.CommonControls
         {
             OnTutupClick?.Invoke(sender, e);
         }
+        public void setButtonCetakText (string text)
+        {
+            buttonCetak.Text = text;
+        }
     }
 }

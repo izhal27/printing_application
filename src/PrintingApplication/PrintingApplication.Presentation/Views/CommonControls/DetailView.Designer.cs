@@ -44,8 +44,7 @@
             this.tlpButtons.BackColor = System.Drawing.SystemColors.Control;
             this.tlpButtons.ColumnCount = 2;
             this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 679F));
-            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpButtons.Controls.Add(this.buttonTutup, 1, 0);
             this.tlpButtons.Controls.Add(this.buttonCetak, 0, 0);
             this.tlpButtons.Location = new System.Drawing.Point(8, 415);
