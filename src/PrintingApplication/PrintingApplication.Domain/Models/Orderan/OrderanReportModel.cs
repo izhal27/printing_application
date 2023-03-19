@@ -60,7 +60,28 @@ namespace PrintingApplication.Domain.Models.Orderan
 
         public decimal sub_total
         {
-            get { return jumlah > 0M ? decimal.Parse(((jumlah * harga_satuan) - diskon).ToString()) : 0M; }
+            get {
+                if (unit_satuan == Unit.METER && lebar > 0 && tinggi > 0)
+                {
+                    total_dimensi = lebar * tinggi;
+                }
+                else if (total_dimensi <= 0)
+                {
+                    total_dimensi = 1;
+                }
+
+                decimal totalHargaSatuan = harga_satuan;
+                if (unit_satuan == Unit.METER && total_dimensi > 0)
+                {
+                    totalHargaSatuan = total_dimensi * harga_satuan;
+                }
+                else
+                {
+                    totalHargaSatuan = total_dimensi * harga_satuan;
+                }
+
+                return jumlah > 0 && harga_satuan > 0 ? ((jumlah * totalHargaSatuan) + design) : 0;
+            }
         }
 
         public IEnumerable<IOrderanDetailModel> OrderanDetails { get; set; }

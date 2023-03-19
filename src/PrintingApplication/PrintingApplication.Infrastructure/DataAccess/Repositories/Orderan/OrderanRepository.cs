@@ -203,6 +203,7 @@ namespace PrintingApplication.Infrastructure.DataAccess.Repositories.Orderan
         {
             return "SELECT o.tanggal, o.no_nota, IFNULL(pl.nama, '') AS pelanggan_nama, " +
                    "od.kode_jenis_orderan, od.nama_jenis_orderan, od.harga_satuan, od.jumlah, " +
+                   "od.lebar, od.tinggi, od.total_dimensi, od.design, " +
                    "o.total_diskon, o.total, o.bayar, o.kembali, o.keterangan FROM orderan o " +
                    "LEFT JOIN pelanggan pl ON o.pelanggan_id = pl.id " +
                   $"INNER JOIN orderan_detail od ON o.id = od.orderan_id WHERE {where}";
