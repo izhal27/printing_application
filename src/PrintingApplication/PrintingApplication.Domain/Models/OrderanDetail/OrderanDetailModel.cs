@@ -17,23 +17,24 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         public uint orderan_id { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Kode jenis orderan harus diantara 3 sampai 100 karakter !!!")]
-        [Display(Name = "Kode Jenis Orderan")]
+        [Display(Name = "Kode")]
         public string kode_jenis_orderan { get; set; }
 
         [StringLength(100, MinimumLength = 3, ErrorMessage = "Nama jenis orderan harus diantara 3 sampai 100 karakter !!!")]
-        [Display(Name = "Nama Jenis Orderan")]
+        [Display(Name = "Nama")]
         public string nama_jenis_orderan { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         [DefaultValue(0)]
         [Display(Name = "Lebar")]
         public decimal lebar { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
         [DefaultValue(0)]
         [Display(Name = "Tinggi")]
         public decimal tinggi { get; set; }
 
+        [Browsable(false)]
         [Display(Name = "Total Dimensi")]        
         public decimal total_dimensi { get; set; }
 
@@ -49,7 +50,7 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
         [DefaultValue(0)]
-        [Display(Name = "Jumlah")]
+        [Display(Name = "Qty")]
         public decimal jumlah { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:N0}")]
