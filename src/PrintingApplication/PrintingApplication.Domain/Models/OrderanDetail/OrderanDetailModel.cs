@@ -38,10 +38,22 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         [Display(Name = "Total Dimensi")]        
         public decimal total_dimensi { get; set; }
 
-        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [Browsable(false)]
         [DefaultValue(0)]
         [Display(Name = "Harga Satuan")]
         public decimal harga_satuan { get; set; }
+
+
+        [DisplayFormat(DataFormatString = "{0:N0}")]
+        [DefaultValue(0)]
+        [Display(Name = "Harga")]
+        public decimal harga
+        {
+            get
+            {
+                return unit_satuan == Unit.METER ? total_dimensi * harga_satuan : harga_satuan;
+            }
+        }
         
         [Browsable(false)]
         [Display(Name = "Unit")]
@@ -65,9 +77,15 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         {
             get
             {
-                if (unit_satuan == Unit.METER && lebar > 0 && tinggi > 0)
+                if (unit_satuan == Unit.METER)
                 {
-                    total_dimensi = lebar * tinggi;
+                    if (lebar > 0 && tinggi > 0)
+                    {
+                        total_dimensi = lebar * tinggi;
+                    } else
+                    {
+                        total_dimensi = 1;
+                    }
                 } else if (total_dimensi <= 0)
                 {
                     total_dimensi = 1;

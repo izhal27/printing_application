@@ -11,6 +11,7 @@ namespace PrintingApplication.Domain.Models.OrderanDetail
         decimal tinggi { get; set; }
         decimal total_dimensi { get; set; }
         decimal harga_satuan { get; set; }
+        decimal harga { get; }
         Unit unit_satuan { get; set; }
         decimal jumlah { get; set; }
         decimal design { get; set; }

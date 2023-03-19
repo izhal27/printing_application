@@ -50,6 +50,8 @@ namespace PrintingApplication.Domain.Models.Orderan
 
         public decimal harga_satuan { get; set; }
 
+        public decimal harga { get { return unit_satuan == Unit.METER ? total_dimensi * harga_satuan : harga_satuan; } }
+
         public Unit unit_satuan { get; set; }
 
         public decimal jumlah { get; set; }

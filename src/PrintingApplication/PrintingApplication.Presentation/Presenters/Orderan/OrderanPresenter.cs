@@ -88,7 +88,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 column.AdvancedFilterType = Syncfusion.WinForms.GridCommon.AdvancedFilterType.NumberFilter;
             }
 
-            var columns2 = new int[2] { 6, 7 }; // Jumlah, Design
+            var columns2 = new int[2] { 5, 6 }; // Jumlah, Design
 
             foreach (var col in columns2)
             {
