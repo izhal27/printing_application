@@ -26,7 +26,7 @@ CREATE TABLE `form_action` (
   `act_13` varchar(50) DEFAULT NULL,
   `act_14` varchar(50) DEFAULT NULL,
   `act_15` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `form_action` (`form_name`, `form_text`, `act_1`, `act_2`, `act_3`, `act_4`, `act_5`, `act_6`, `act_7`, `act_8`, `act_9`, `act_10`, `act_11`, `act_12`, `act_13`, `act_14`, `act_15`) VALUES
 ('JenisOrderanView', 'Jenis Orderan', 'Tambah', 'Ubah', 'Hapus', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -43,8 +43,9 @@ CREATE TABLE `jenis_orderan` (
   `kode` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `harga_satuan` decimal(19,0) NOT NULL DEFAULT 0,
+  `unit_satuan` tinyint(3) UNSIGNED NOT NULL DEFAULT 0,
   `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `orderan` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -52,21 +53,24 @@ CREATE TABLE `orderan` (
   `no_nota` varchar(255) NOT NULL,
   `tanggal` datetime NOT NULL,
   `keterangan` varchar(100) DEFAULT NULL,
-  `total_diskon` decimal(19,0) NOT NULL DEFAULT 0,
-  `total` decimal(19,0) NOT NULL DEFAULT 0,
-  `bayar` decimal(19,0) NOT NULL DEFAULT 0,
-  `kembali` decimal(19,0) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `total_diskon` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0,
+  `total` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0,
+  `bayar` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0,
+  `kembali` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `orderan_detail` (
   `id` int(10) UNSIGNED NOT NULL,
   `orderan_id` int(10) UNSIGNED NOT NULL,
   `kode_jenis_orderan` varchar(100) NOT NULL,
   `nama_jenis_orderan` varchar(100) NOT NULL,
-  `harga_satuan` decimal(19,0) NOT NULL,
-  `jumlah` decimal(19,0) NOT NULL,
-  `diskon` decimal(19,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `lebar` decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00,
+  `tinggi` decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00,
+  `total_dimensi` decimal(10,2) UNSIGNED NOT NULL DEFAULT 0.00,
+  `harga_satuan` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0,
+  `jumlah` decimal(19,0) UNSIGNED NOT NULL DEFAULT 0,
+  `design` decimal(10,0) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `pelanggan` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -74,7 +78,7 @@ CREATE TABLE `pelanggan` (
   `alamat` varchar(255) DEFAULT NULL,
   `contact` varchar(100) DEFAULT NULL,
   `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `pelanggan` (`id`, `nama`, `alamat`, `contact`, `keterangan`) VALUES
 (1, 'UMUM', NULL, NULL, NULL);
@@ -91,7 +95,7 @@ CREATE TABLE `pengaturan` (
   `path_background` varchar(255) DEFAULT NULL,
   `catatan_kaki` varchar(100) DEFAULT NULL,
   `tampilkan_pajak` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `pengaturan` (`id`, `nama`, `alamat_1`, `alamat_2`, `contact`, `printer_tipe`, `nama_printer`, `path_logo`, `path_background`, `catatan_kaki`, `tampilkan_pajak`) VALUES
 (1, 'Nama Toko', 'Alamat 1', 'Alamat 2', '08123456789', 1, NULL, NULL, NULL, '*** Terima Kasih Atas Kepercayaan Anda ***', 0);
@@ -102,14 +106,14 @@ CREATE TABLE `pengeluaran` (
   `nama` varchar(100) NOT NULL,
   `total` decimal(19,0) NOT NULL DEFAULT 0,
   `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `role` (
   `id` int(10) UNSIGNED NOT NULL,
   `kode` varchar(255) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `keterangan` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `role` (`id`, `kode`, `nama`, `keterangan`) VALUES
 (1, 'adm', 'Administrator', NULL),
@@ -121,7 +125,7 @@ CREATE TABLE `role_detail` (
   `menu_parent` varchar(255) DEFAULT NULL,
   `form_action` varchar(255) DEFAULT NULL,
   `tag` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `role_detail` (`role_kode`, `menu_name`, `menu_parent`, `form_action`, `tag`) VALUES
 ('adm', 'Tambah', 'Master', 'UserView', 'action'),
@@ -265,7 +269,7 @@ CREATE TABLE `user` (
   `login_id` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role_kode` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 INSERT INTO `user` (`id`, `login_id`, `password`, `role_kode`) VALUES
 (1, 'admin', '1000:+rQ2d9EsKMK5of62nL0ct10skO2kg//+:d7K5beDiXstpiezFXK+OoOcNYZMl1Q8e', 'adm'),
