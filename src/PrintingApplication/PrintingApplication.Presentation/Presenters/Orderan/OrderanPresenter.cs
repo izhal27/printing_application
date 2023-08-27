@@ -78,7 +78,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
             _bindingView.ListChanged += _bindingView_ListChanged;
             _view.ListDataGrid.DataSource = _bindingView;
 
-            var columns = new int[2] { 2, 3 }; // Lebar, Tinggi
+            var columns = new int[2] { 2, 3 }; // Lebar, Tinggi - Kolom yang diizinkan untuk pengeditan bertipe number
 
             foreach (var col in columns)
             {
@@ -88,7 +88,7 @@ namespace PrintingApplication.Presentation.Presenters.Orderan
                 column.AdvancedFilterType = Syncfusion.WinForms.GridCommon.AdvancedFilterType.NumberFilter;
             }
 
-            var columns2 = new int[2] { 5, 6 }; // Jumlah, Design
+            var columns2 = new int[3] { 1, 5, 6 }; // Nama, Jumlah, Design - Kolom yang diizinkan untuk pengeditan
 
             foreach (var col in columns2)
             {
